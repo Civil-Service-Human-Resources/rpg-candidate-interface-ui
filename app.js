@@ -4,11 +4,23 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var sassMiddleware = require('node-sass-middleware');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+// scss compilation middleware
+app.use(
+  sassMiddleware({
+    src: __dirname + '/scss',
+    dest: __dirname + '/public/stylesheets',
+    prefix: '/stylesheets',
+    debug: true,
+    sourceMap: true
+  })
+);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
