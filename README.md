@@ -17,4 +17,11 @@ Start the node server
 npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser
+Open [http://localhost:3000](http://localhost:3000) in your browse
+
+## Running tests
+
+Run the following command in command line
+```bash
+npm test
+```
