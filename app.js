@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
+var hbs = require('express-handlebars');
 
 var index = require('./routes/index');
 
@@ -22,8 +23,14 @@ app.use(
 );
 
 // view engine setup
+app.engine('hbs', hbs({
+  extname: 'hbs',
+  defaultLayout: 'layout',
+  layoutsDir: __dirname + '/views/'
+}));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+app.set("view options", { layout: false });
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
