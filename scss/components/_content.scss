@@ -2,10 +2,13 @@
     @extend %contain-floats;
     margin: 0 auto;
     max-width: 960px;
-    min-height: 300px;
-    padding: 0 $gutter-half;
+    min-height: 450px;
+    padding: 40px $gutter-half 0;
 
     @include media(tablet) {
-        padding: 20px $gutter 0;
+        padding: {
+            left: $gutter;
+            right: $gutter;
+        }
     }
 }
