@@ -1,0 +1,142 @@
+.global-header {
+  @include clearfix;
+    background-color: $black;
+    margin-bottom: 10px;
+    padding: 0 $gutter-half;
+
+    @include media(tablet) {
+      padding: 0 $gutter;
+    }
+
+    &__wrapper {
+      @include clearfix;
+      background-color: $black;
+      margin: 0 auto;
+      max-width: 960px;
+      padding: 8px 0;
+      position: relative;
+    }
+
+    &__accent {
+      background-color: $govuk-blue;
+      bottom: -10px;
+      display: block;
+      height: 10px;
+      margin: 0 auto;
+      max-width: 960px;
+      position: absolute;
+      width: 100%;
+    }
+
+    &__brand {
+      @extend %contain-floats;
+    }
+
+    &__logo {
+      @extend %contain-floats;
+      margin-top: 2px;
+
+      @include media(380px) {
+        float: left;
+      }
+
+      @include media(desktop){
+        width: 33.33%;
+      }
+    }
+
+    &__proposition {
+      padding-top: 10px;
+
+      @include media(desktop){
+        float: left;
+        padding-top: 0;
+        width: 66.66%;
+      }
+    }
+
+    &__proposition-name {
+      @include core-24;
+      font-weight: bold;
+      color: $white;
+      text-decoration: none;
+
+      &:visited,
+      &:link {
+        color: $white;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:focus {
+        color: $text-colour;
+      }
+    }
+
+    &--with-proposition {
+      .global-header__brand {
+        @include media(desktop){
+          float: left;
+          width: 33.33%;
+        }
+      }
+
+      .global-header__logo {
+        @include media(desktop){
+          width: 100%;
+        }
+      }
+    }
+
+    &__logo-link {
+      background: url('/images/gov.uk_logotype_crown.png') 0 0 no-repeat;
+      background-size: 36px 32px;
+      border-bottom: 1px solid transparent;
+      color: $white;
+      float: left;
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 1;
+      overflow: visible;
+      text-decoration: none;
+      text-rendering: optimizeLegibility;
+
+      &:link,
+      &:visited {
+        color: $white;
+      }
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        border-bottom-color: $white;
+      }
+
+      img {
+        margin: 2px 1px 0 0; // top margin aligns bottom of img with bottom of "G"
+        vertical-align: bottom;
+        visibility: hidden;
+      }
+    }
+  }
+  
+  // TODO: Revisit this and rework
+  .js-enabled #global-cookie-message {
+    display: none; /* shown with JS, always on for non-JS */
+  }
+  
+  // TODO: Revisit this and rework
+  #global-cookie-message {
+    width: 100%;
+    background-color: $light-blue-25;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    p {
+      @extend %site-width-container;
+      @include core-16;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }

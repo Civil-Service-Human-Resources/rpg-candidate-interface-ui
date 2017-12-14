@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    @include core-16;
+    letter-spacing: .5px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    margin: em(5, 19) 0 em(20, 19);
+}
+
+a {
+    @include focus-state;
+}

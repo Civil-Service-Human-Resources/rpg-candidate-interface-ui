@@ -1,0 +1,16 @@
+.phase-banner {
+    @include clearfix;
+    border: 0;
+    padding: 0 $gutter-half;
+
+    @include media(tablet) {
+        padding: 0 $gutter;
+    }
+
+    &__inner {
+        border-bottom: 1px solid #bfc1c3;
+        margin: 0 auto;
+        max-width: 960px;
+        padding: 10px 0 8px;
+    }
+}
