@@ -1,0 +1,10 @@
+.job-search {
+    &__total-results {
+        @include bold-19;
+
+        strong {
+            font-size: 24px;
+            margin-right: 2px;
+        }
+    }
+}

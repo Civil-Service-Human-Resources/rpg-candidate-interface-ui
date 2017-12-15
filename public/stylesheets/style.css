@@ -1700,4 +1700,18 @@ table {
     max-width: 960px;
     padding: 10px 0 8px; }
 
+.job-search__total-results {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 700;
+  text-transform: none;
+  font-size: 16px;
+  line-height: 1.25; }
+  @media (min-width: 641px) {
+    .job-search__total-results {
+      font-size: 19px;
+      line-height: 1.31579; } }
+  .job-search__total-results strong {
+    font-size: 24px;
+    margin-right: 2px; }
+
 /*# sourceMappingURL=style.css.map */
