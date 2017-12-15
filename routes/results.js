@@ -20,6 +20,8 @@ router.get('/', function(req, res, next) {
     .then(response => 
       res.render(VIEW_PATH, {
         page: { title: 'Search Results' },
+        total: response.data.length || 0,
+        singular: response.data.length === 1,
         results: JSON.stringify(response.data)
       })
     )
