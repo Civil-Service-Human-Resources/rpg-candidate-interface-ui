@@ -1,31 +1,35 @@
 var express = require('express');
 var router = express.Router();
 var url = require('url');
-var axios = require('axios');
+var fetch = require('node-fetch');
 
 const VIEW_PATH = 'pages/results';
-
-axios.interceptors.request.use(request => {
-  console.log(request);
-  return request;
-});
 
 /* GET results page. */
 router.get('/', function(req, res, next) {
   const { location, keyword } = url.parse(req.url, true).query;
-  
-  // NOTE: I'm going to rewrite this using javascript Fetch API
-  axios.get(`http://localhost:8080/vacancy/search/location/${location}/keyword/${keyword}`)
-    .then(response => 
-      res.render(VIEW_PATH, {
-        page: { title: 'Search Results' },
-        total: response.data.length || 0,
-        singular: response.data.length === 1,
-        results: formatResultData(response.data)
-      })
-    )
+
+  try {
+    fetchVacancyList(`http://localhost:8080/vacancy/search/location/${location}/keyword/${keyword}`).then(data => {
+        res.render(VIEW_PATH, {
+          page: { title: 'Search Results' },
+          total: data.length || 0,
+          singular: data.length === 1,
+          results: formatResultData(data)
+        })
+    });
+      
+  } catch(e) {
+      // need to do unhappy path
+  }
   
 });
+
+async function fetchVacancyList(url) {
+  let response = await fetch(url);
+  let data = await response.json();
+  return data;
+}
 
 function formatSalaryNumber(num) {
   return num.toLocaleString();
