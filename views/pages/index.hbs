@@ -1,11 +1,14 @@
 <h1 class="heading-xlarge">Job Search</h1>
 
 <form method="GET" action="/results">
-    <input type="hidden" name="location" value="London"><!-- adding this as having no location returns 0 results currently -->
     <div class="form-section">
         <div class="form-group">
             <label class="form-label-bold" for="keyword">Keyword</label>
             <input class="form-control" id="keyword" name="keyword" type="text" required>
+        </div>
+        <div class="form-group">
+            <label class="form-label-bold" for="location">Location</label>
+            <input class="form-control" id="location" name="location" type="text" required>
         </div>
         <div class="form-group">
             <button class="button">Search</button>
