@@ -1,0 +1,18 @@
+<div class="job-details">
+    <div class="top-twocol job-details__top">
+        <div class="top-twocol__first">
+            <h1 class="heading-xlarge job-details__title">{{ vacancy.title }} <small>&lt;Department name&gt;</small></h1>
+        </div>
+        <div class="top-twocol__last">
+            <p class="back-link"><a href="#">Back to search results</a></p>
+            <p class="closing-date">Closing date: {{ vacancy.closingDate }}</p>
+            <a class="button button--block" href="/apply/{{vacancy.id}}" role="button">Apply</a>
+        </div>
+    </div>
+    <div class="job-details__bottom">
+        <h2>Description</h2>
+        <p>{{ vacancy.description }}</p>
+        <p class="closing-date">Closing date: {{ vacancy.closingDate }}</p>
+        <p><a class="button" href="/apply/{{vacancy.id}}" role="button">Apply</a></p>
+    </div>
+</div>

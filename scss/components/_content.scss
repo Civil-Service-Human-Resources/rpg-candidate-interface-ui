@@ -12,3 +12,26 @@
         }
     }
 }
+
+.top-twocol {
+    @extend %grid-row;
+
+    &__first {
+        @include grid-column(3/4);
+    }
+
+    &__last {
+        @include grid-column(1/4);
+        margin-top: $gutter;
+    }
+}
+
+.back-link {
+    @include media(tablet) {
+        text-align: center;
+    }
+}
+
+.closing-date {
+    @include core-16;
+}
