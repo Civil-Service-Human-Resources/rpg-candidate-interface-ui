@@ -1,6 +1,11 @@
 <h1 class="heading-xlarge">Search Results</h1>
 
 <div class="job-search">
+    
     <p class="job-search__total-results"><strong>{{ total }}</strong> job{{#unless singular }}s{{/unless}} found</p>
-    <div>{{ results }}</div>
+    
+    {{#if results}}
+        {{> search/results items=results}}
+    {{/if}}
+
 </div>

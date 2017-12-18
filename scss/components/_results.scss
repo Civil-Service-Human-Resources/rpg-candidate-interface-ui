@@ -7,4 +7,54 @@
             margin-right: 2px;
         }
     }
+
+    &__item {
+        border: 1px solid $grey-2;
+        margin-bottom: $gutter-half;
+    }
+
+    &__item-row {
+        @extend %grid-row;
+        padding: $gutter $gutter $gutter-half;
+    }
+
+    &__item-first {
+        @include grid-column(1/4);
+        margin-bottom: $gutter-half;
+    }
+
+    &__item-last {
+        @include grid-column(3/4);
+    }
+
+    &__item-title {
+        @include bold-24;
+        margin-bottom: $gutter-half;
+    }
+
+    &__item-attributes {
+        li {
+            margin-bottom: $gutter-half;
+            
+            @include media(tablet) {
+                float: left;
+                padding-right: $gutter;
+                width: 50%;
+            }
+
+            &.full-width {
+                float: none;
+                padding-right: 0;
+                width: auto;
+            }
+        }
+
+        .job-search__item-attributes-label {
+            display: block;
+
+            &:after {
+                content: ':';
+            }
+        }
+    }
 }
