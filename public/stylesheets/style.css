@@ -1729,7 +1729,10 @@ table {
   margin-bottom: 15px; }
 
 .job-search__item-row {
-  padding: 30px 30px 15px; }
+  padding: 30px 15px 15px; }
+  @media (min-width: 641px) {
+    .job-search__item-row {
+      padding: 30px 30px 15px; } }
 
 .job-search__item-first {
   padding: 0 15px;

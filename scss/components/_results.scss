@@ -15,7 +15,11 @@
 
     &__item-row {
         @extend %grid-row;
-        padding: $gutter $gutter $gutter-half;
+        padding: $gutter $gutter-half $gutter-half;
+
+        @include media(tablet) {
+            padding: $gutter $gutter $gutter-half;
+        }
     }
 
     &__item-first {
