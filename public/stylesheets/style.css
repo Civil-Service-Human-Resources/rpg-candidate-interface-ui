@@ -1756,7 +1756,8 @@ table {
   font-weight: 700;
   text-transform: none;
   font-size: 16px;
-  line-height: 1.25; }
+  line-height: 1.25;
+  margin-bottom: 3px; }
   @media (min-width: 641px) {
     .job-search__total-results {
       font-size: 19px;
