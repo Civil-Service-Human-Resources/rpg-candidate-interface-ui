@@ -1,7 +1,6 @@
 .global-header {
   @include clearfix;
     background-color: $black;
-    margin-bottom: 10px;
     padding: 0 $gutter-half;
 
     @include media(tablet) {
@@ -18,14 +17,20 @@
     }
 
     &__accent {
-      background-color: $govuk-blue;
-      bottom: -10px;
+      background-color: #FFF;
       display: block;
       height: 10px;
-      margin: 0 auto;
-      max-width: 960px;
-      position: absolute;
-      width: 100%;
+      position: relative;
+
+      &:before {
+        background-color: $govuk-blue;
+        content: "";
+        display: block;
+        height: 10px;
+        margin: 0 auto;
+        max-width: 960px;
+        width: 100%;
+      }
     }
 
     &__brand {
@@ -50,7 +55,7 @@
 
       @include media(desktop){
         float: left;
-        padding-top: 0;
+        padding-top: 5px;
         width: 66.66%;
       }
     }

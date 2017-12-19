@@ -11,7 +11,9 @@
 
     &__item {
         border: 1px solid $grey-2;
+        clear: both;
         margin-bottom: $gutter-half;
+        overflow: hidden;
     }
 
     &__item-row {

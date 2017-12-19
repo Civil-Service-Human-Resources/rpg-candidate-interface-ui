@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+html, 
+body {
+    background-color: $footer-background;
+}
+
 body {
     @include core-16;
     letter-spacing: .5px;
@@ -10,10 +15,6 @@ body {
 img {
     max-width: 100%;
     height: auto;
-}
-
-p {
-    margin: em(5, 19) 0 em(20, 19);
 }
 
 a {

@@ -46,7 +46,7 @@
         width: 100%;
   
         @include media(tablet) {
-          width: 75%;
+          width: 74%;
         }
   
         @include ie-lte(7) {
