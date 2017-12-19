@@ -8,6 +8,7 @@ const VIEW_PATH = 'pages/results';
 /* GET results page. */
 router.get('/', function(req, res, next) {
   const { location, keyword } = url.parse(req.url, true).query;
+  const query_string = url.parse(req.url).query;
 
   try {
     fetchVacancyList(`http://localhost:8080/vacancy/search/location/${location}/keyword/${keyword}`).then(data => {
@@ -15,7 +16,8 @@ router.get('/', function(req, res, next) {
           page: { title: 'Search Results' },
           total: data.length || 0,
           singular: data.length === 1,
-          results: formatResultData(data)
+          results: formatResultData(data),
+          return_url: query_string
         })
     });
       

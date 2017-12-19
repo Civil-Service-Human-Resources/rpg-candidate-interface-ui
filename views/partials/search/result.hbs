@@ -2,7 +2,7 @@
     <div class="job-search__item-row">
         <div class="job-search__item-first">&lt;department name&gt;</div>
         <div class="job-search__item-last">
-            <h2 class="job-search__item-title"><a href="/job/details/{{ id }}">{{ title }}</a></h2>
+            <h2 class="job-search__item-title"><a href="/job/details/{{ id }}?return_url={{@root.return_url}}">{{ title }}</a></h2>
             <h3 class="sr-only">Job summary</h3>
             <ul class="job-search__item-attributes">
                 <li class="full-width"><strong class="job-search__item-attributes-label">Job description</strong> {{ description }}</li>

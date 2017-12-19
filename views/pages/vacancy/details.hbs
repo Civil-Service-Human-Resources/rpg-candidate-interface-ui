@@ -4,7 +4,7 @@
             <h1 class="heading-xlarge job-details__title">{{ vacancy.title }} <small>&lt;Department name&gt;</small></h1>
         </div>
         <div class="top-twocol__last">
-            <p class="back-link"><a href="#">Back to search results</a></p>
+            <p class="back-link"><a href="{{returnUrl}}">Back to search results</a></p>
             <p class="closing-date">Closing date: {{ vacancy.closingDate }}</p>
             <a class="button button--block" href="/apply/{{vacancy.id}}" role="button">Apply</a>
         </div>
@@ -16,3 +16,5 @@
         <p><a class="button" href="/apply/{{vacancy.id}}" role="button">Apply</a></p>
     </div>
 </div>
+
+{{ return_url }}
