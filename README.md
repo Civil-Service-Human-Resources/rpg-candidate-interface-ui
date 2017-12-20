@@ -1,4 +1,4 @@
-#CSHR API
+# RPG Candidate Interface UI
 
 ## Prerequisites
 
@@ -13,6 +13,8 @@
 ## Running the app
 
 `make run` or `docker-compose up app`
+
+You can now access this app from the browser: [http://localhost:3000](http://localhost:3000)
 
 ## Stopping the app
 
