@@ -1,12 +1,8 @@
 #!/bin/sh
 
-set -e
-
 if [ ! -f ".env" ]; then
     cp .env.sample .env
 fi
-
-. .env
 
 NETWORK_NAME="cshr-net"
 
