@@ -12,12 +12,17 @@ Install npm modules
 npm install
 ```
 
+Copy `.env.sample` to `.env` and update details in the file to point at local api
+```
+cp .env.sample .env
+```
+
 Start the node server
 ```
 npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browse
+Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## Running tests
 
