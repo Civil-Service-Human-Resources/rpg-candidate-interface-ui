@@ -1,32 +1,22 @@
-# RPG Candidate Interface UI
+#CSHR API
+
+## Prerequisites
+
+* Docker ^17.05
+* Docker Compose
 
 ## Setup
 
-Clone the repository
-```bash
-git clone https://github.com/Civil-Service-Human-Resources/rpg-candidate-interface-ui.git
-```
+* Clone this repository 
+* Run `make` or `./bin/build.sh` - this will setup `.env` file, create docker bridge network and build docker images with all npm dependencies 
 
-Install npm modules
-```bash
-npm install
-```
+## Running the app
 
-Copy `.env.sample` to `.env` and update details in the file to point at local api
-```
-cp .env.sample .env
-```
+`make run` or `docker-compose up app`
 
-Start the node server
-```
-npm start
-```
+## Stopping the app
 
-Open [http://localhost:3000](http://localhost:3000) in your browser
+`make stop` or `docker-compose stop app`
 
-## Running tests
-
-Run the following command in command line
-```bash
-npm test
-```
+## Running Tests
+`make test` or `docker-compose run --rm app npm run test`

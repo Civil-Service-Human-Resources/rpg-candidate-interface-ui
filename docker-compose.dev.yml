@@ -1,0 +1,19 @@
+version: "2"
+
+services:
+  app:
+    build:
+      args:
+        IS_DEV: "true"
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app/
+      - /app/node_modules
+    command: npm run dev
+    networks:
+      - cshr-net
+
+networks:
+  cshr-net:
+    external: true
