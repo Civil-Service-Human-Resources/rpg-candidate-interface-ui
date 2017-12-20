@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
   const query_string = url.parse(req.url).query;
 
   try {
-    fetchVacancyList(`http://localhost:8080/vacancy/search/location/${location}/keyword/${keyword}`).then(data => {
+    fetchVacancyList(`${process.env.API_URL}:${process.env.API_PORT}/vacancy/search/location/${location}/keyword/${keyword}`).then(data => {
         res.render(VIEW_PATH, {
           page: { title: 'Search Results' },
           total: data.length || 0,

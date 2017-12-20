@@ -26,7 +26,7 @@ router.get('/details/:id', function(req, res, next) {
 });
 
 async function fetchVacancyDetails(id) {
-    let response = await fetch(`http://localhost:8080/vacancy/${id}`);
+    let response = await fetch(`${process.env.API_URL}:${process.env.API_PORT}/vacancy/${id}`);
     let data = await response.json();
     return data;
 }
