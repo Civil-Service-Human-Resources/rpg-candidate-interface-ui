@@ -20,6 +20,13 @@ RUN if [ "${IS_DEV}" = "false" ]; then \
 RUN npm install
 
 #
+# ---- Test ----
+# run linters, setup and tests
+FROM dependencies AS test
+COPY . .
+RUN npm run test
+
+#
 # ---- Release ----
 FROM base AS release
 
