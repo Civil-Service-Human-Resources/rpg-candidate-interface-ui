@@ -1,0 +1,57 @@
+{
+    "global": {
+        "header": {
+            "title": "Find a job in Government",
+            "betaText": "This part of GOV.UK is being rebuilt",
+            "betaLinkText": "find out what beta means"
+        },
+        "labels": {
+            "jobDesc": "Job description",
+            "numVacancies": "No. of vacancies",
+            "location": "Location",
+            "salary": "Salary",
+            "jobGrade": "Job grade",
+            "closingDate": "Closing date"
+        },
+        "buttons": {
+            "apply": "Apply"
+        }
+    },
+    "home": {
+        "page": {
+            "title": "Job Search"
+        },
+        "language": {
+            "statement": "This service is also available in Welsh",
+            "label": "Cymraeg",
+            "url": "?lang=cy"
+        },
+        "search": {
+            "labels": {
+                "keyword": "Keyword",
+                "location": "Location"
+            },
+            "buttons": {
+                "search": "Search"
+            }
+        }
+    },
+    "results": {
+        "page": {
+            "title": "Search results",
+            "backToSearch": "Back to search",
+            "totalJobsFoundSingular": "job found",
+            "totalJobsFoundPlural": "jobs found"
+        }
+    },
+    "vacancy": {
+        "page": {
+            "backToResults": "Back to search results"
+        }
+    },
+    "apply": {
+        "page": {
+            "title": "Apply"
+        }
+    }
+}

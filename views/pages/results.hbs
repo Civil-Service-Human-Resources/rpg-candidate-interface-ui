@@ -1,15 +1,15 @@
 <div class="top-twocol">
     <div class="top-twocol__first">
-        <h1 class="heading-xlarge">Search Results</h1>
+        <h1 class="heading-xlarge">{{ i18n.results.page.title }}</h1>
     </div>
     <div class="top-twocol__last">
-        <p class="back-link"><a href="/">Back to search</a></p>
+        <p class="back-link"><a href="/">{{ i18n.results.page.backToSearch }}</a></p>
     </div>
 </div>
 
 <div class="job-search">
     
-    <p class="job-search__total-results"><strong>{{ total }}</strong> job{{#unless singular }}s{{/unless}} found</p>
+    <p class="job-search__total-results"><strong>{{ total }}</strong> {{ i18n.resultsTotal }}</p>
     
     {{#if results}}
         {{> search/results items=results}}

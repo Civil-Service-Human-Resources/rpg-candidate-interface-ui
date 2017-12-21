@@ -4,17 +4,15 @@
             <h1 class="heading-xlarge job-details__title">{{ vacancy.title }} <small>&lt;Department name&gt;</small></h1>
         </div>
         <div class="top-twocol__last">
-            <p class="back-link"><a href="{{returnUrl}}">Back to search results</a></p>
-            <p class="closing-date">Closing date: {{ vacancy.closingDate }}</p>
-            <a class="button button--block" href="/apply/{{vacancy.id}}" role="button">Apply</a>
+            <p class="back-link"><a href="{{returnUrl}}">{{ @root.i18n.vacancy.page.backToResults }}</a></p>
+            <p class="closing-date">{{ @root.i18n.global.labels.closingDate }}: {{ vacancy.closingDate }}</p>
+            <a class="button button--block" href="/apply/{{vacancy.id}}" role="button">{{ @root.i18n.global.buttons.apply }}</a>
         </div>
     </div>
     <div class="job-details__bottom">
-        <h2>Description</h2>
+        <h2>{{ @root.i18n.global.labels.jobDesc }}</h2>
         <p>{{ vacancy.description }}</p>
-        <p class="closing-date">Closing date: {{ vacancy.closingDate }}</p>
-        <p><a class="button" href="/apply/{{vacancy.id}}" role="button">Apply</a></p>
+        <p class="closing-date">{{ @root.i18n.global.labels.closingDate }}: {{ vacancy.closingDate }}</p>
+        <p><a class="button" href="/apply/{{vacancy.id}}" role="button">{{ @root.i18n.global.buttons.apply }}</a></p>
     </div>
 </div>
-
-{{ return_url }}

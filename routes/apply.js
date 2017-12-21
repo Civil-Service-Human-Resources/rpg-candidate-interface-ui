@@ -8,7 +8,10 @@ const VIEW_PATH = 'pages/apply/index';
 router.get('/:id', function(req, res, next) {
    
     res.render(VIEW_PATH, {
-        page: { title: 'Apply' }
+        i18n: { 
+            ...req.translations,
+            title: req.translations.apply.page.title
+        }
     })
     
 });

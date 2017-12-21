@@ -13,7 +13,10 @@ router.get('/details/:id', function(req, res, next) {
     try {
         fetchVacancyDetails(vacancyId).then(data => {
             res.render(VIEW_PATH, {
-                page: { title: `${data.title} - Department Name` },
+                i18n: {
+                    ...req.translations,
+                    title: data.title
+                },
                 vacancy: data,
                 returnUrl: generateReturnURL(query_string)
             })

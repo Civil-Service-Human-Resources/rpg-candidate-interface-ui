@@ -1,6 +1,7 @@
 .main {
     @extend %contain-floats;
     background-color: #FFF;
+    padding: 0 $gutter-half;
 
     @include media(tablet) {
         padding: {
