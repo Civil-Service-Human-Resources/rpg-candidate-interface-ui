@@ -9,15 +9,20 @@
             <a class="button button--block" href="/apply/{{vacancy.id}}" role="button">{{ @root.i18n.global.buttons.apply }}</a>
         </div>
     </div>
+    <hr />
     <div class="job-details__bottom">
         <div class="job-details__bottom-first">
-            <h2>{{ @root.i18n.global.labels.contactPoint }}</h2>
-            <p>
-                <span aria-label="{{ @root.i18n.global.labels.name }}">{{ vacancy.contactName }}</span><br />
-                <span aria-label="{{ @root.i18n.global.labels.department }}">{{ vacancy.contactDepartment }}</span><br />
-                <span aria-label="{{ @root.i18n.global.labels.email }}"><a href="mailto:{{ vacancy.contactEmail }}">{{ vacancy.contactEmail }}</a></span><br />
-                <span aria-label="{{ @root.i18n.global.labels.telephone }}">{{ vacancy.contactTelephone }}</span>
-            </p>
+            <div class="job-details__key-points">
+                <h2>{{ @root.i18n.global.labels.contactPoint }}</h2>
+                <p>
+                    <span aria-label="{{ @root.i18n.global.labels.name }}">{{ vacancy.contactName }}</span><br />
+                    <span aria-label="{{ @root.i18n.global.labels.department }}">{{ vacancy.contactDepartment }}</span><br />
+                    <span aria-label="{{ @root.i18n.global.labels.email }}"><a href="mailto:{{ vacancy.contactEmail }}">{{ vacancy.contactEmail }}</a></span><br />
+                    <span aria-label="{{ @root.i18n.global.labels.telephone }}">{{ vacancy.contactTelephone }}</span>
+                </p>
+                <h2>Working hours</h2>
+                <p>{{ vacancy.workingHours }}</p>
+            </div>
         </div>
         <div class="job-details__bottom-last">
 
