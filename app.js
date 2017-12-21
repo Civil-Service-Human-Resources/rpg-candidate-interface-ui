@@ -24,6 +24,7 @@ app.use(
     src: __dirname + '/scss',
     dest: __dirname + '/public/stylesheets',
     prefix: '/stylesheets',
+    outputStyle: 'compressed',
     debug: true,
     sourceMap: true
   })
