@@ -41,7 +41,9 @@
             "title": "Search results",
             "backToSearch": "Back to search",
             "totalJobsFoundSingular": "job found",
-            "totalJobsFoundPlural": "jobs found"
+            "totalJobsFoundPlural": "jobs found",
+            "noResultsText1": "There are no results that match your query",
+            "noResultsText2": "please try a new search"
         }
     },
     "vacancy": {

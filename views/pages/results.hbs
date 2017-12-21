@@ -1,18 +1,26 @@
 <div class="top-twocol">
     <div class="top-twocol__first">
-        <h1 class="heading-xlarge">{{ i18n.results.page.title }}</h1>
+        <h1 class="heading-xlarge">{{ @root.i18n.results.page.title }}</h1>
     </div>
+    {{#if results}}
     <div class="top-twocol__last">
-        <p class="back-link"><a href="/">{{ i18n.results.page.backToSearch }}</a></p>
+        <p class="back-link"><a href="/">{{ @root.i18n.results.page.backToSearch }}</a></p>
     </div>
+    {{/if}}
 </div>
 
 <div class="job-search">
     
-    <p class="job-search__total-results"><strong>{{ total }}</strong> {{ i18n.resultsTotal }}</p>
+    <p class="job-search__total-results"><strong>{{ total }}</strong> {{ @root.i18n.resultsTotal }}</p>
     
     {{#if results}}
         {{> search/results items=results}}
     {{/if}}
+
+    {{#unless results}}
+    <div class="job-search__no-results">
+        <p>{{ @root.i18n.results.page.noResultsText1 }} - <a href="/">{{ @root.i18n.results.page.noResultsText2 }}</a>.</p>
+    </div>
+    {{/unless}}
 
 </div>
