@@ -16,7 +16,10 @@
             "name": "Enw",
             "department": "Adran",
             "email": "Cyfeiriad ebost",
-            "telephone": "Ffôn"
+            "telephone": "Ffôn",
+            "aboutTheJob": "Ynglŷn ā'r swydd",
+            "responsibilities": "Cyfrifoldebau",
+            "eligibility": "Cymhwyster"
         },
         "buttons": {
             "apply": "Gwneud cais"

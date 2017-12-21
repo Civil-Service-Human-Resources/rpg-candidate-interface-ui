@@ -16,7 +16,10 @@
             "name": "Name",
             "department": "Department",
             "email": "Email address",
-            "telephone": "Telephone number"
+            "telephone": "Telephone number",
+            "aboutTheJob": "About the job",
+            "responsibilities": "Responsibilities",
+            "eligibility": "Eligibility"
         },
         "buttons": {
             "apply": "Apply"

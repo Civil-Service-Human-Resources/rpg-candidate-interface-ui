@@ -25,17 +25,17 @@
             <p>{{ vacancy.description }}</p>
 
             {{#if vacancy.role}}
-                <h3>About the job</h3>
+                <h3>{{ @root.i18n.global.labels.aboutTheJob }}</h3>
                 <p>{{ vacancy.role }}</p>
             {{/if}}
 
             {{#if vacancy.responsibilities}}
-                <h3>Responsibilities</h3>
+                <h3>{{ @root.i18n.global.labels.responsibilities }}</h3>
                 <p>{{ vacancy.responsibilities }}</p>
             {{/if}}
 
             {{#if vacancy.eligibility}}
-                <h3>Eligibility</h3>
+                <h3>{{ @root.i18n.global.labels.eligibility }}</h3>
                 <p>{{ vacancy.eligibility }}</p>
             {{/if}}
 
