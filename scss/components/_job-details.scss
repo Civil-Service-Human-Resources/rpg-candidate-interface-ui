@@ -40,7 +40,8 @@
         padding-top: $gutter-half;
     }
 
-    h2 {
+    h2,
+    h3 {
         @include bold-19;
     }
 }

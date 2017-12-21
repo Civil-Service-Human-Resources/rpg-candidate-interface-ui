@@ -20,10 +20,23 @@
             </p>
         </div>
         <div class="job-details__bottom-last">
+
             <h2>{{ @root.i18n.global.labels.jobDesc }}</h2>
             <p>{{ vacancy.description }}</p>
+
+            {{#if vacancy.role}}
+                <h3>About the job</h3>
+                <p>{{ vacancy.role }}</p>
+            {{/if}}
+
+            {{#if vacancy.responsibilities}}
+                <h3>Responsibilities</h3>
+                <p>{{ vacancy.responsibilities }}</p>
+            {{/if}}
+
             <p class="closing-date">{{ @root.i18n.global.labels.closingDate }}: {{ vacancy.closingDate }}</p>
             <p><a class="button" href="/apply/{{vacancy.id}}" role="button">{{ @root.i18n.global.buttons.apply }}</a></p>
+
         </div>
     </div>
 </div>
