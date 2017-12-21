@@ -5,12 +5,12 @@
             <h2 class="job-search__item-title"><a href="/job/details/{{ id }}?return_url={{@root.return_url}}">{{ title }}</a></h2>
             <h3 class="sr-only">Job summary</h3>
             <ul class="job-search__item-attributes">
-                <li class="full-width"><strong class="job-search__item-attributes-label">Job description</strong> {{ description }}</li>
-                <li><strong class="job-search__item-attributes-label">No. of vacancies</strong> {{ numberVacancies }}</li>
-                <li><strong class="job-search__item-attributes-label">Location</strong> {{ location }}</li>
-                <li><strong class="job-search__item-attributes-label">Salary</strong> {{ salary }}</li>
-                <li><strong class="job-search__item-attributes-label">Job grade</strong> {{ grade }}</li>
-                <li><strong class="job-search__item-attributes-label">Closing date</strong> {{ closingDate }}</li>
+                <li class="full-width"><strong class="job-search__item-attributes-label">{{ @root.i18n.global.labels.jobDesc }}</strong> {{ description }}</li>
+                <li><strong class="job-search__item-attributes-label">{{ @root.i18n.global.labels.numVacancies }}</strong> {{ numberVacancies }}</li>
+                <li><strong class="job-search__item-attributes-label">{{ @root.i18n.global.labels.location }}</strong> {{ location }}</li>
+                <li><strong class="job-search__item-attributes-label">{{ @root.i18n.global.labels.salary }}</strong> {{ salary }}</li>
+                <li><strong class="job-search__item-attributes-label">{{ @root.i18n.global.labels.jobGrade }}</strong> {{ grade }}</li>
+                <li><strong class="job-search__item-attributes-label">{{ @root.i18n.global.labels.closingDate }}</strong> {{ closingDate }}</li>
             </ul>
         </div>
     </div>
