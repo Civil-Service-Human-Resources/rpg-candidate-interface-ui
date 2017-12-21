@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 var express = require('express');
+var fs = require('fs');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -8,6 +9,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 var hbs = require('express-handlebars');
+var url = require('url');
 
 var index = require('./routes/index');
 var results = require('./routes/results');
@@ -44,6 +46,27 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(function(req, res, next) {
+  const allowedLanguages = ['en', 'cy'];
+  let { lang } = req.cookies;
+
+  // if cookie is not one of allowed languages default to English
+  if(!allowedLanguages.includes(lang)) {
+    lang = 'en';
+  }
+
+  const params = url.parse(req.url, true).query;
+  if(params.lang && allowedLanguages.includes(params.lang)) {
+    res.cookie('lang', params.lang);
+    lang = params.lang;
+  }
+
+  // load language file
+  req['translations'] = JSON.parse(fs.readFileSync(`${path.join(__dirname, 'i18n')}/${lang}.json`));
+
+  next();
+});
 
 app.use('/', index);
 app.use('/results', results);

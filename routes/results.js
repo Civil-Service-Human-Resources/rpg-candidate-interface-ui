@@ -13,9 +13,12 @@ router.get('/', function(req, res, next) {
   try {
     fetchVacancyList(`${process.env.API_URL}:${process.env.API_PORT}/vacancy/search/location/${location}/keyword/${keyword}`).then(data => {
         res.render(VIEW_PATH, {
-          page: { title: 'Search Results' },
+          i18n: {
+            ...req.translations,
+            title: req.translations.results.page.title,
+            resultsTotal: data.length === 1 ? req.translations.results.page.totalJobsFoundSingular : req.translations.results.page.totalJobsFoundPlural
+          },
           total: data.length || 0,
-          singular: data.length === 1,
           results: formatResultData(data),
           return_url: query_string
         })

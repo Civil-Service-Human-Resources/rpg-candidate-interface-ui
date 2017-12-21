@@ -1,0 +1,57 @@
+{
+    "global": {
+        "header": {
+            "title": "Dod o hyd i swydd yn y Llywodraeth",
+            "betaText": "Mae'r rhan hon o GOV.UK yn cael ei hailadeiladu",
+            "betaLinkText": "darganfyddwch beth beta yn ei olygu"
+        },
+        "labels": {
+            "jobDesc": "Disgrifiad swydd",
+            "numVacancies": "Nifer y swyddi gwag",
+            "location": "Lleoliad",
+            "salary": "Cyflog",
+            "jobGrade": "Gradd swydd",
+            "closingDate": "Dyddiad cau"
+        },
+        "buttons": {
+            "apply": "Gwneud cais"
+        }
+    },
+    "home": {
+        "page": {
+            "title": "Chwilio am swydd"
+        },
+        "language": {
+            "statement": "Mae'r gwasanaeth hwn hefyd ar gael yn Saesneg",
+            "label": "English",
+            "url": "?lang=en"
+        },
+        "search": {
+            "labels": {
+                "keyword": "Keyword",
+                "location": "Lleoliad"
+            },
+            "buttons": {
+                "search": "Chwilio"
+            }
+        }
+    },
+    "results": {
+        "page": {
+            "title": "Canlyniadau chwilio",
+            "backToSearch": "Yn ôl i'r chwiliad",
+            "totalJobsFoundSingular": "canfod y swydd",
+            "totalJobsFoundPlural": "swyddi a ganfuwyd"
+        }
+    },
+    "vacancy": {
+        "page": {
+            "backToResults": "Yn ôl i'r canlyniadau chwilio"
+        }
+    },
+    "apply": {
+        "page": {
+            "title": "Gwneud cais"
+        }
+    }
+}

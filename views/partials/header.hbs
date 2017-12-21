@@ -16,7 +16,7 @@
         </div>
 
         <div class="global-header__proposition">
-            <a href="/" class="global-header__proposition-name">Find a job in Government</a>
+            <a href="/" class="global-header__proposition-name">{{ @root.i18n.global.header.title }}</a>
         </div>
     </div>
 </header>
@@ -27,9 +27,7 @@
     <div class="phase-banner__inner">
         <p>
             <strong class="phase-tag">Beta</strong>
-            <span>
-                This part of GOV.UK is being rebuilt – <a href="https://gov.uk/help/beta">find out what beta means</a>
-            </span>
+            <span>{{ @root.i18n.global.header.betaText }} – <a href="https://gov.uk/help/beta">{{ @root.i18n.global.header.betaLinkText }}</a></span>
         </p>
     </div>
 </div>

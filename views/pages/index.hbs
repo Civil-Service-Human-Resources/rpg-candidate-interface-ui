@@ -1,17 +1,21 @@
-<h1 class="heading-xlarge">Job Search</h1>
+<h1 class="heading-xlarge">{{ i18n.home.page.title }}</h1>
+
+<div class="panel panel-border-wide">
+  <p>{{ i18n.home.language.statement }} (<a href="{{ i18n.home.language.url }}">{{ i18n.home.language.label }}</a>)</p>
+</div>
 
 <form method="GET" action="/results">
     <div class="form-section">
         <div class="form-group">
-            <label class="form-label-bold" for="keyword">Keyword</label>
+            <label class="form-label-bold" for="keyword">{{ i18n.home.search.labels.keyword }}</label>
             <input class="form-control" id="keyword" name="keyword" type="text" required>
         </div>
         <div class="form-group">
-            <label class="form-label-bold" for="location">Location</label>
+            <label class="form-label-bold" for="location">{{ i18n.home.search.labels.location }}</label>
             <input class="form-control" id="location" name="location" type="text" required>
         </div>
         <div class="form-group">
-            <input type="submit" class="button" value="Search">
+            <input type="submit" class="button" value="{{ i18n.home.search.buttons.search }}">
         </div>
     </div>
 </form>
