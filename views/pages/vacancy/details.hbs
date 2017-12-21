@@ -34,6 +34,11 @@
                 <p>{{ vacancy.responsibilities }}</p>
             {{/if}}
 
+            {{#if vacancy.eligibility}}
+                <h3>Eligibility</h3>
+                <p>{{ vacancy.eligibility }}</p>
+            {{/if}}
+
             <p class="closing-date">{{ @root.i18n.global.labels.closingDate }}: {{ vacancy.closingDate }}</p>
             <p><a class="button" href="/apply/{{vacancy.id}}" role="button">{{ @root.i18n.global.buttons.apply }}</a></p>
 
