@@ -41,7 +41,9 @@
             "title": "Canlyniadau chwilio",
             "backToSearch": "Yn ôl i'r chwiliad",
             "totalJobsFoundSingular": "canfod y swydd",
-            "totalJobsFoundPlural": "swyddi a ganfuwyd"
+            "totalJobsFoundPlural": "swyddi a ganfuwyd",
+            "noResultsText1": "Nid oes unrhyw ganlyniadau sy'n cyfateb i'ch ymholiad",
+            "noResultsText2": "rhowch gynnig ar chwiliad newydd"
         }
     },
     "vacancy": {
