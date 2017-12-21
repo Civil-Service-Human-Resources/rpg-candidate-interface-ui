@@ -2,5 +2,5 @@
 const test = require('ava');
 
 test('Yay, a passing test', t => {
-    t.deepEqual(true, false);
+    t.deepEqual(true, true);
 });
