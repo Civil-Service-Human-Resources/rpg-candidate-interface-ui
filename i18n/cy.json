@@ -11,7 +11,12 @@
             "location": "Lleoliad",
             "salary": "Cyflog",
             "jobGrade": "Gradd swydd",
-            "closingDate": "Dyddiad cau"
+            "closingDate": "Dyddiad cau",
+            "contactPoint": "Man cyswllt i ymgeiswyr",
+            "name": "Enw",
+            "department": "Adran",
+            "email": "Cyfeiriad ebost",
+            "telephone": "Ffôn"
         },
         "buttons": {
             "apply": "Gwneud cais"

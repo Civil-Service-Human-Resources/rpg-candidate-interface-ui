@@ -11,7 +11,12 @@
             "location": "Location",
             "salary": "Salary",
             "jobGrade": "Job grade",
-            "closingDate": "Closing date"
+            "closingDate": "Closing date",
+            "contactPoint": "Contact point for applicants",
+            "name": "Name",
+            "department": "Department",
+            "email": "Email address",
+            "telephone": "Telephone number"
         },
         "buttons": {
             "apply": "Apply"
