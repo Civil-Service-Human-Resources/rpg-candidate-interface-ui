@@ -21,6 +21,14 @@
             "responsibilities": "Cyfrifoldebau",
             "eligibility": "Cymhwyster"
         },
+        "buttons": {
+            "apply": "Gwneud cais"
+        }
+    },
+    "home": {
+        "page": {
+            "title": "Chwilio am swydd"
+        },
         "language": {
             "statement": "Mae'r gwasanaeth hwn hefyd ar gael yn Saesneg",
             "label": "English",
@@ -51,12 +59,6 @@
             "backToResults": "Yn ôl i'r canlyniadau chwilio"
         }
     },
-    "apply": {
-        "page": {
-            "title": "Gwneud cais"
-        }
-    }
-}
     "apply": {
         "page": {
             "title": "Gwneud cais"

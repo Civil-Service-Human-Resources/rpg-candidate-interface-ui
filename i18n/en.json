@@ -21,6 +21,14 @@
             "responsibilities": "Responsibilities",
             "eligibility": "Eligibility"
         },
+        "buttons": {
+            "apply": "Apply"
+        }
+    },
+    "home": {
+        "page": {
+            "title": "Job Search"
+        },
         "language": {
             "statement": "This service is also available in Welsh",
             "label": "Cymraeg",
@@ -51,12 +59,6 @@
             "backToResults": "Back to search results"
         }
     },
-    "apply": {
-        "page": {
-            "title": "Apply"
-        }
-    }
-}
     "apply": {
         "page": {
             "title": "Apply"
