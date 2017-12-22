@@ -21,14 +21,6 @@
             "responsibilities": "Responsibilities",
             "eligibility": "Eligibility"
         },
-        "buttons": {
-            "apply": "Apply"
-        }
-    },
-    "home": {
-        "page": {
-            "title": "Job Search"
-        },
         "language": {
             "statement": "This service is also available in Welsh",
             "label": "Cymraeg",
@@ -49,7 +41,9 @@
             "title": "Search results",
             "backToSearch": "Back to search",
             "totalJobsFoundSingular": "job found",
-            "totalJobsFoundPlural": "jobs found"
+            "totalJobsFoundPlural": "jobs found",
+            "noResultsText1": "There are no results that match your query",
+            "noResultsText2": "please try a new search"
         }
     },
     "vacancy": {
@@ -57,6 +51,12 @@
             "backToResults": "Back to search results"
         }
     },
+    "apply": {
+        "page": {
+            "title": "Apply"
+        }
+    }
+}
     "apply": {
         "page": {
             "title": "Apply"
