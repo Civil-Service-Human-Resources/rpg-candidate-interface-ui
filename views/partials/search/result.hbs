@@ -1,17 +1,43 @@
-<li class="job-search__item">
+<li class="job-search__item" id="search-result{{@index}}">
     <div class="job-search__item-row">
+
         <div class="job-search__item-first">&lt;department name&gt;</div>
+
         <div class="job-search__item-last">
-            <h2 class="job-search__item-title"><a href="/job/details/{{ id }}?return_url={{@root.return_url}}">{{ title }}</a></h2>
+
+            <h2 class="job-search__item-title" id="search-result{{@index}}-title">
+                <a href="/job/details/{{ id }}?return_url={{@root.return_url}}">{{ title }}</a>
+            </h2>
+
             <h3 class="sr-only">Job summary</h3>
             <ul class="job-search__item-attributes">
-                <li class="full-width"><strong class="job-search__item-attributes-label">{{ @root.i18n.global.labels.jobDesc }}</strong> {{ description }}</li>
-                <li><strong class="job-search__item-attributes-label">{{ @root.i18n.global.labels.numVacancies }}</strong> {{ numberVacancies }}</li>
-                <li><strong class="job-search__item-attributes-label">{{ @root.i18n.global.labels.location }}</strong> {{ location }}</li>
-                <li><strong class="job-search__item-attributes-label">{{ @root.i18n.global.labels.salary }}</strong> {{ salary }}</li>
-                <li><strong class="job-search__item-attributes-label">{{ @root.i18n.global.labels.jobGrade }}</strong> {{ grade }}</li>
-                <li><strong class="job-search__item-attributes-label">{{ @root.i18n.global.labels.closingDate }}</strong> {{ closingDate }}</li>
+                <li id="search-result{{@index}}-description" class="full-width">
+                    <strong class="job-search__item-attributes-label">{{ @root.i18n.global.labels.jobDesc }}</strong>
+                    <span class="job-search__item-attributes-value">{{ description }}</span>
+                </li>
+                <li id="search-result{{@index}}-numvacancies">
+                    <strong class="job-search__item-attributes-label">{{ @root.i18n.global.labels.numVacancies }}</strong>
+                    <span class="job-search__item-attributes-value">{{ numberVacancies }}</span>
+                </li>
+                <li id="search-result{{@index}}-location">
+                    <strong class="job-search__item-attributes-label">{{ @root.i18n.global.labels.location }}</strong>
+                    <span class="job-search__item-attributes-value">{{ location }}</span>
+                </li>
+                <li id="search-result{{@index}}-salary">
+                    <strong class="job-search__item-attributes-label">{{ @root.i18n.global.labels.salary }}</strong>
+                    <span class="job-search__item-attributes-value">{{ salary }}</span>
+                </li>
+                <li id="search-result{{@index}}-grade">
+                    <strong class="job-search__item-attributes-label">{{ @root.i18n.global.labels.jobGrade }}</strong>
+                    <span class="job-search__item-attributes-value">{{ grade }}</span>
+                </li>
+                <li id="search-result{{@index}}-closingdate">
+                    <strong class="job-search__item-attributes-label">{{ @root.i18n.global.labels.closingDate }}</strong>
+                    <span class="job-search__item-attributes-value">{{ closingDate }}</span>
+                </li>
             </ul>
+
         </div>
+
     </div>
 </li>
