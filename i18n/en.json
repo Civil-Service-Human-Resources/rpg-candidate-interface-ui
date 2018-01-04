@@ -19,10 +19,13 @@
             "telephone": "Telephone number",
             "aboutTheJob": "About the job",
             "responsibilities": "Responsibilities",
-            "eligibility": "Eligibility"
+            "eligibility": "Eligibility",
+            "keyword": "Keyword"
         },
         "buttons": {
-            "apply": "Apply"
+            "apply": "Apply",
+            "search": "Search",
+            "refine": "Refine"
         }
     },
     "home": {
@@ -33,15 +36,6 @@
             "statement": "This service is also available in Welsh",
             "label": "Cymraeg",
             "url": "?lang=cy"
-        },
-        "search": {
-            "labels": {
-                "keyword": "Keyword",
-                "location": "Location"
-            },
-            "buttons": {
-                "search": "Search"
-            }
         }
     },
     "results": {

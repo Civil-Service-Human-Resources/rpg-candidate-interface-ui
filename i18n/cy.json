@@ -19,10 +19,13 @@
             "telephone": "Ffôn",
             "aboutTheJob": "Ynglŷn ā'r swydd",
             "responsibilities": "Cyfrifoldebau",
-            "eligibility": "Cymhwyster"
+            "eligibility": "Cymhwyster",
+            "keyword": "Keyword"
         },
         "buttons": {
-            "apply": "Gwneud cais"
+            "apply": "Gwneud cais",
+            "search": "Chwilio",
+            "refine": "Mireinio"
         }
     },
     "home": {
@@ -33,15 +36,6 @@
             "statement": "Mae'r gwasanaeth hwn hefyd ar gael yn Saesneg",
             "label": "English",
             "url": "?lang=en"
-        },
-        "search": {
-            "labels": {
-                "keyword": "Keyword",
-                "location": "Lleoliad"
-            },
-            "buttons": {
-                "search": "Chwilio"
-            }
         }
     },
     "results": {

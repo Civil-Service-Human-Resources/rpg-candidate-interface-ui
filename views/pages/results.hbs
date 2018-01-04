@@ -13,14 +13,26 @@
     
     <p class="job-search__total-results"><strong id="search-results-total">{{ total }}</strong> {{ @root.i18n.resultsTotal }}</p>
     
-    {{#if results}}
-        {{> search/results items=results}}
-    {{/if}}
+    <div class="job-search__results-container">
 
-    {{#unless results}}
-    <div class="job-search__no-results">
-        <p>{{ @root.i18n.results.page.noResultsText1 }} - <a href="/">{{ @root.i18n.results.page.noResultsText2 }}</a>.</p>
+        <div class="job-search__results-list-container">
+
+            {{#if results}}
+                {{> search/results items=results}}
+            {{/if}}
+
+            {{#unless results}}
+            <div class="job-search__no-results">
+                <p>{{ @root.i18n.results.page.noResultsText1 }} - <a href="/">{{ @root.i18n.results.page.noResultsText2 }}</a>.</p>
+            </div>
+            {{/unless}}
+
+        </div>
+
+        <div class="job-search__filters">
+            {{> search/filter filters=filters }}
+        </div>
+
     </div>
-    {{/unless}}
 
 </div>

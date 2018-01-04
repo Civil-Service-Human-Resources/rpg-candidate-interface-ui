@@ -7,17 +7,18 @@ const VIEW_PATH = 'pages/results';
 
 /* GET results page. */
 router.get('/', function(req, res, next) {
-  const { location, keyword } = url.parse(req.url, true).query;
+  const filters = url.parse(req.url, true).query;
   const query_string = url.parse(req.url).query;
 
   try {
-    fetchVacancyList(`${process.env.API_URL}:${process.env.API_PORT}/vacancy/search/location/${location}/keyword/${keyword}`).then(data => {
+    fetchVacancyList(`${process.env.API_URL}:${process.env.API_PORT}/vacancy/search/location/${filters.location || null}/keyword/${filters.keyword || null}`).then(data => {
         res.render(VIEW_PATH, {
           i18n: {
             ...req.translations,
             title: req.translations.results.page.title,
             resultsTotal: data.length === 1 ? req.translations.results.page.totalJobsFoundSingular : req.translations.results.page.totalJobsFoundPlural
           },
+          filters,
           total: data.length || 0,
           results: formatResultData(data),
           return_url: query_string
