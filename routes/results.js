@@ -33,14 +33,14 @@ router.get('/', function(req, res, next) {
 async function fetchVacancyList(url) {
   let response = await fetch(url);
   let data = await response.json();
-  return data;
+  return data.content;
 }
 
 function formatSalaryNumber(num) {
   return num.toLocaleString();
 }
 
-function formatResultData(results) {
+function formatResultData(results = []) {
   return results.map(result => {
     const salary = formatSalaryOutput(result.salaryMin, result.salaryMax);
     return { ...result, salary }
