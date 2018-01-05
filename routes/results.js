@@ -3,26 +3,42 @@ var router = express.Router();
 var url = require('url');
 var fetch = require('node-fetch');
 
+var Pager = require('../lib/modules/pagination');
+var UrlUtils = require('../lib/modules/url');
+
 const VIEW_PATH = 'pages/results';
 
 /* GET results page. */
 router.get('/', function(req, res, next) {
-  const { location, keyword } = url.parse(req.url, true).query;
-  const query_string = url.parse(req.url).query;
+  const { location, keyword, page = 0 } = url.parse(req.url, true).query;
+  const queryString = url.parse(req.url).query;
 
   try {
-    fetchVacancyList(`${process.env.API_URL}:${process.env.API_PORT}/vacancy/search/location/${location}/keyword/${keyword}`).then(data => {
-        res.render(VIEW_PATH, {
-          i18n: {
-            ...req.translations,
-            title: req.translations.results.page.title,
-            resultsTotal: data.length === 1 ? req.translations.results.page.totalJobsFoundSingular : req.translations.results.page.totalJobsFoundPlural
-          },
-          total: data.length || 0,
-          results: formatResultData(data),
-          return_url: query_string
-        })
-    });
+    fetchVacancyList(`${process.env.API_URL}:${process.env.API_PORT}/vacancy/search/location/${location}/keyword/${keyword}?page=${page-1}`).then(data => {
+      
+      const url = `/results?${ UrlUtils.removeUrlParameter(queryString, 'page') }`;
+      const pagerOptions = Pager(
+          data.totalPages, 
+          data.first, 
+          data.last, 
+          data.totalElements, 
+          data.numberOfElements, 
+          url, 
+          data.size, 
+          data.number
+        );
+      
+      res.render(VIEW_PATH, {
+        i18n: {
+          ...req.translations,
+          title: req.translations.results.page.title,
+          resultsTotal: data.totalElements === 1 ? req.translations.results.page.totalJobsFoundSingular : req.translations.results.page.totalJobsFoundPlural
+        },
+        results: formatResultData(data.content),
+        returnUrl: queryString,
+        pager: pagerOptions
+      })
+  });
       
   } catch(e) {
       // need to do unhappy path
@@ -33,7 +49,7 @@ router.get('/', function(req, res, next) {
 async function fetchVacancyList(url) {
   let response = await fetch(url);
   let data = await response.json();
-  return data.content;
+  return data;
 }
 
 function formatSalaryNumber(num) {

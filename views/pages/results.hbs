@@ -11,10 +11,11 @@
 
 <div class="job-search">
     
-    <p class="job-search__total-results"><strong id="search-results-total">{{ total }}</strong> {{ @root.i18n.resultsTotal }}</p>
+    <p class="job-search__total-results"><strong id="search-results-total">{{ pager.totalItems }}</strong> {{ @root.i18n.resultsTotal }}</p>
     
     {{#if results}}
-        {{> search/results items=results}}
+        {{> search/results items=results }}
+        {{> pagination/pagination pager }}
     {{/if}}
 
     {{#unless results}}
