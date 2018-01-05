@@ -9,6 +9,10 @@
         }
     }
 
+    &__results {
+        margin-bottom: $gutter;
+    }
+
     &__no-results {
         padding-top: 10px;
     }
