@@ -1,0 +1,51 @@
+// pagination design pattern as per https://paper.dropbox.com/doc/Pagination-dZainbLAcQIzNnW1roQg7
+
+.pagination {
+    @include clearfix;
+
+    &__summary {
+        @include core-19;
+        margin: 0 0 $gutter-half;
+        padding: 0;
+        text-align: center;
+
+        @include media(tablet) {
+            float: left;
+            text-align: left;
+        }
+    }
+
+    &__list {
+        @include core-19;
+        list-style: none;
+        margin: 0 0 $gutter-half;
+        padding: 0;
+        text-align: center;
+
+        @include media(tablet) {
+            float: right;
+            text-align: left;
+        }
+    }
+
+    &__list-item {
+        display: inline-block;
+        margin: 0 3px;
+        padding: 0;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &--current {
+            a {
+                color: #000;
+                text-decoration: none;
+            }
+        }
+    }
+}
