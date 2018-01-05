@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+var compression = require('compression');
 var express = require('express');
 var fs = require('fs');
 var path = require('path');
@@ -17,6 +18,7 @@ var vacancyDetails = require('./routes/vacancy');
 var apply = require('./routes/apply');
 
 var app = express();
+app.use(compression());
 
 // scss compilation middleware
 app.use(
