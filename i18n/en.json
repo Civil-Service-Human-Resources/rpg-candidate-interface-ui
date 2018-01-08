@@ -7,7 +7,7 @@
         },
         "labels": {
             "jobDesc": "Job description",
-            "numVacancies": "No. of vacancies",
+            "numVacancies": "No. of jobs",
             "location": "Location",
             "salary": "Salary",
             "jobGrade": "Job grade",

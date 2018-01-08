@@ -9,6 +9,10 @@
         }
     }
 
+    &__results {
+        margin-bottom: $gutter;
+    }
+
     &__no-results {
         padding-top: 10px;
     }
@@ -62,10 +66,6 @@
 
         .job-search__item-attributes-label {
             display: block;
-
-            &:after {
-                content: ':';
-            }
         }
     }
 

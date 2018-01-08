@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+var compression = require('compression');
 var express = require('express');
 var fs = require('fs');
 var path = require('path');
@@ -8,7 +9,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
-var hbs = require('express-handlebars');
+var exphbs = require('express-handlebars');
 var url = require('url');
 
 var index = require('./routes/index');
@@ -17,6 +18,7 @@ var vacancyDetails = require('./routes/vacancy');
 var apply = require('./routes/apply');
 
 var app = express();
+app.use(compression());
 
 // scss compilation middleware
 app.use(
@@ -30,12 +32,35 @@ app.use(
   })
 );
 
-// view engine setup
-app.engine('hbs', hbs({
+var hbs = exphbs.create({
   extname: 'hbs',
   defaultLayout: 'layout',
-  layoutsDir: __dirname + '/views/'
-}));
+  layoutsDir: __dirname + '/views/',
+  helpers: {
+
+    // custom help to implement simpe loop to loop n amount of times
+    times: function(n, block) {
+      var accum = '';
+      for(var i = 1; i <= n; ++i) {
+          block.data.index = i;
+          block.data.first = i === 1;
+          block.data.last = i === (n - 1);
+          accum += block.fn(this);
+      }
+      return accum;
+    },
+
+    // simple compare function similar to an if === conditional
+    // returns boolean
+    compare: function(a, b, block) { 
+      return a === b ? block.fn(this) : block.inverse(this) 
+    }
+    
+  }
+});
+
+// view engine setup
+app.engine('hbs', hbs.engine);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.set("view options", { layout: false });
