@@ -14,7 +14,6 @@
     currentPage: <integer> - page number of current page
     nextPage: <integer> - page number of next page
 --}}
-
 <nav class="pagination" aria-label="Pagination">
 
     {{#if showSummary}}
@@ -30,11 +29,11 @@
                 </li>
             {{/unless }}
 
-            {{#times totalPages }}
-                <li class="pagination__list-item{{#compare @index currentPage }} pagination__list-item--current{{/compare}}">
-                    <a href="{{ url }}&page={{ @index }}" aria-label="Go to page {{ @index }}"{{#compare @index currentPage }} aria-current="true"{{/compare}}>{{ @index }}</a>
+            {{#each pageArray }}
+                <li class="pagination__list-item{{#compare this ../currentPage }} pagination__list-item--current{{/compare}}">
+                    <a href="{{ ../url }}&page={{ this }}" aria-label="Go to page {{ this }}"{{#compare this ../currentPage }} aria-current="true"{{/compare}}>{{ this }}</a>
                 </li>
-            {{/times }}
+            {{/each }}
 
             {{#unless isLastPage }}
                 <li class="pagination__list-item">

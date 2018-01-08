@@ -3,7 +3,7 @@ var router = express.Router();
 var url = require('url');
 var fetch = require('node-fetch');
 
-var Pager = require('../lib/modules/pagination');
+var pager = require('../lib/modules/pagination');
 var UrlUtils = require('../lib/modules/url');
 
 const VIEW_PATH = 'pages/results';
@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
     fetchVacancyList(`${process.env.API_URL}:${process.env.API_PORT}/vacancy/search/location/${filters.location || null}/keyword/${filters.keyword || null}?page=${page-1}`).then(data => {
       
       const url = `/results?${ UrlUtils.removeUrlParameter(queryString, 'page') }`;
-      const pagerOptions = Pager(
+      const pagerOptions = pager(
           data.totalPages, 
           data.first, 
           data.last, 
