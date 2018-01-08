@@ -13,36 +13,51 @@
     <div class="job-details__bottom">
         <div class="job-details__bottom-first">
             <div class="job-details__key-points">
-                <h2>{{ @root.i18n.global.labels.contactPoint }}</h2>
-                <p>
-                    <span aria-label="{{ @root.i18n.global.labels.name }}">{{ vacancy.contactName }}</span><br />
-                    <span aria-label="{{ @root.i18n.global.labels.department }}">{{ vacancy.contactDepartment }}</span><br />
-                    <span aria-label="{{ @root.i18n.global.labels.email }}"><a href="mailto:{{ vacancy.contactEmail }}">{{ vacancy.contactEmail }}</a></span><br />
-                    <span aria-label="{{ @root.i18n.global.labels.telephone }}">{{ vacancy.contactTelephone }}</span>
-                </p>
+
+                <div id="job-details-contact">
+                    <h2>{{ @root.i18n.global.labels.contactPoint }}</h2>
+                    <p>
+                        <span id="job-details-contactname" aria-label="{{ @root.i18n.global.labels.name }}">{{ vacancy.contactName }}</span><br />
+                        <span id="job-details-contactdept" aria-label="{{ @root.i18n.global.labels.department }}">{{ vacancy.contactDepartment }}</span><br />
+                        <span id="job-details-contactemail" aria-label="{{ @root.i18n.global.labels.email }}"><a href="mailto:{{ vacancy.contactEmail }}">{{ vacancy.contactEmail }}</a></span><br />
+                        <span id="job-details-contacttel" aria-label="{{ @root.i18n.global.labels.telephone }}">{{ vacancy.contactTelephone }}</span>
+                    </p>
+                </div>
 
                 {{#if vacancy.workingHours}}
+                <div id="job-details-workinghours">
                     <h2>{{ @root.i18n.global.labels.workingHours }}</h2>
                     <p>{{ vacancy.workingHours }}</p>
+                </div>
                 {{/if}}
+
             </div>
         </div>
         <div class="job-details__bottom-last">
-            <h2>{{ @root.i18n.global.labels.jobDesc }}</h2>
-            <p>{{ vacancy.description }}</p>
+
+            <div id="job-details-description">
+                <h2>{{ @root.i18n.global.labels.jobDesc }}</h2>
+                <p>{{ vacancy.description }}</p>
+            </div>
 
             {{#if vacancy.responsibilities}}
+            <div id="job-details-responsibilities">
                 <h3>{{ @root.i18n.global.labels.responsibilities }}</h3>
                 <p>{{ vacancy.responsibilities }}</p>
+            </div>
             {{/if}}
 
             {{#if vacancy.eligibility}}
+            <div id="job-details-eligibility">
                 <h3>{{ @root.i18n.global.labels.eligibility }}</h3>
                 <p>{{ vacancy.eligibility }}</p>
+            </div>
             {{/if}}
 
-            <p class="closing-date">{{ @root.i18n.global.labels.closingDate }}: {{ vacancy.closingDate }}</p>
-            <p><a class="button" href="/apply/{{vacancy.id}}" role="button">{{ @root.i18n.global.buttons.apply }}</a></p>
+            <div id="job-details-footer">
+                <p class="closing-date">{{ @root.i18n.global.labels.closingDate }}: {{ vacancy.closingDate }}</p>
+                <p><a class="button" href="/apply/{{vacancy.id}}" role="button">{{ @root.i18n.global.buttons.apply }}</a></p>
+            </div>
 
         </div>
     </div>
