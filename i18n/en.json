@@ -11,6 +11,7 @@
             "location": "Location",
             "salary": "Salary",
             "jobGrade": "Job grade",
+            "workingHours": "Working hours",
             "closingDate": "Closing date",
             "contactPoint": "Contact point for applicants",
             "name": "Name",
