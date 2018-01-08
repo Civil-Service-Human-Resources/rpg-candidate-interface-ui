@@ -20,8 +20,11 @@
                     <span aria-label="{{ @root.i18n.global.labels.email }}"><a href="mailto:{{ vacancy.contactEmail }}">{{ vacancy.contactEmail }}</a></span><br />
                     <span aria-label="{{ @root.i18n.global.labels.telephone }}">{{ vacancy.contactTelephone }}</span>
                 </p>
-                <h2>Working hours</h2>
-                <p>{{ vacancy.workingHours }}</p>
+
+                {{#if vacancy.workingHours}}
+                    <h2>{{ @root.i18n.global.labels.workingHours }}</h2>
+                    <p>{{ vacancy.workingHours }}</p>
+                {{/if}}
             </div>
         </div>
         <div class="job-details__bottom-last">

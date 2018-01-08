@@ -11,6 +11,7 @@
             "location": "Lleoliad",
             "salary": "Cyflog",
             "jobGrade": "Gradd swydd",
+            "workingHours": "Oriau gweithio",
             "closingDate": "Dyddiad cau",
             "contactPoint": "Man cyswllt i ymgeiswyr",
             "name": "Enw",
