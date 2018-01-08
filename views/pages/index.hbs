@@ -7,15 +7,15 @@
 <form method="GET" action="/results">
     <div class="form-section">
         <div class="form-group">
-            <label class="form-label-bold" for="keyword">{{ i18n.home.search.labels.keyword }}</label>
+            <label class="form-label-bold" for="keyword">{{ @root.i18n.global.labels.keyword }}</label>
             <input class="form-control" id="keyword" name="keyword" type="text" required>
         </div>
         <div class="form-group">
-            <label class="form-label-bold" for="location">{{ i18n.home.search.labels.location }}</label>
+            <label class="form-label-bold" for="location">{{ @root.i18n.global.labels.location }}</label>
             <input class="form-control" id="location" name="location" type="text" required>
         </div>
         <div class="form-group">
-            <input type="submit" class="button" value="{{ i18n.home.search.buttons.search }}">
+            <input type="submit" class="button" value="{{ @root.i18n.global.buttons.search }}">
         </div>
     </div>
 </form>

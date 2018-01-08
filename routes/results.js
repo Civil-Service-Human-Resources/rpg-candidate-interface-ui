@@ -12,9 +12,10 @@ const VIEW_PATH = 'pages/results';
 router.get('/', function(req, res, next) {
   const { location, keyword, page = 0 } = url.parse(req.url, true).query;
   const queryString = url.parse(req.url).query;
+  const filters = url.parse(req.url, true).query;
 
   try {
-    fetchVacancyList(`${process.env.API_URL}:${process.env.API_PORT}/vacancy/search/location/${location}/keyword/${keyword}?page=${page-1}`).then(data => {
+    fetchVacancyList(`${process.env.API_URL}:${process.env.API_PORT}/vacancy/search/location/${filters.location || null}/keyword/${filters.keyword || null}?page=${page-1}`).then(data => {
       
       const url = `/results?${ UrlUtils.removeUrlParameter(queryString, 'page') }`;
       const pagerOptions = Pager(
@@ -35,6 +36,7 @@ router.get('/', function(req, res, next) {
           resultsTotal: data.totalElements === 1 ? req.translations.results.page.totalJobsFoundSingular : req.translations.results.page.totalJobsFoundPlural
         },
         results: formatResultData(data.content),
+        filters,
         returnUrl: queryString,
         pager: pagerOptions
       })
