@@ -1,12 +1,12 @@
-var express = require('express');
-var router = express.Router();
-var url = require('url');
-var fetch = require('node-fetch');
+const express = require('express');
+const router = express.Router();
+const url = require('url');
+const fetch = require('node-fetch');
 
 const VIEW_PATH = 'pages/vacancy/details';
 
 /* GET vacancy details page. */
-router.get('/details/:id', function(req, res, next) {
+router.get('/details/:id', function(req, res) {
     const vacancyId = req.params.id;
     const query_string = url.parse(req.url).query;
 
@@ -30,8 +30,7 @@ router.get('/details/:id', function(req, res, next) {
 
 async function fetchVacancyDetails(id) {
     let response = await fetch(`${process.env.API_URL}:${process.env.API_PORT}/vacancy/${id}`);
-    let data = await response.json();
-    return data;
+    return await response.json();
 }
 
 function generateReturnURL(queryStr) {
