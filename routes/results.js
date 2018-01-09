@@ -49,8 +49,7 @@ router.get('/', function(req, res) {
 
 async function fetchVacancyList(url) {
   let response = await fetch(url);
-  let data = await response.json();
-  return data;
+  return await response.json();
 }
 
 function formatSalaryNumber(num) {
