@@ -35,7 +35,7 @@ router.get('/', function(req, res) {
           resultsTotal: data.totalElements === 1 ? req.translations.results.page.totalJobsFoundSingular : req.translations.results.page.totalJobsFoundPlural
         },
         results: formatResultData(data.content),
-        filters,
+        filters: { location, keyword },
         returnUrl: queryString,
         pager: pagerOptions
       })
