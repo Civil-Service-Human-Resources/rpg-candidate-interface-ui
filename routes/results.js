@@ -9,13 +9,12 @@ var UrlUtils = require('../lib/modules/url');
 const VIEW_PATH = 'pages/results';
 
 /* GET results page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   const { location, keyword, page = 0 } = url.parse(req.url, true).query;
   const queryString = url.parse(req.url).query;
-  const filters = url.parse(req.url, true).query;
 
   try {
-    fetchVacancyList(`${process.env.API_URL}:${process.env.API_PORT}/vacancy/search/location/${filters.location || null}/keyword/${filters.keyword || null}?page=${page-1}`).then(data => {
+    fetchVacancyList(`${process.env.API_URL}:${process.env.API_PORT}/vacancy/search/location/${location || null}/keyword/${keyword || null}?page=${page - 1}`).then(data => {
       
       const url = `/results?${ UrlUtils.removeUrlParameter(queryString, 'page') }`;
       const pagerOptions = pager(
