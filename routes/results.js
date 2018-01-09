@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
-var url = require('url');
-var fetch = require('node-fetch');
+const express = require('express');
+const router = express.Router();
+const url = require('url');
+const fetch = require('node-fetch');
 
-var pager = require('../lib/modules/pagination');
-var UrlUtils = require('../lib/modules/url');
+const pager = require('../lib/modules/pagination');
+const UrlUtils = require('../lib/modules/url');
 
 const VIEW_PATH = 'pages/results';
 
