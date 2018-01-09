@@ -4,7 +4,6 @@ const compression = require('compression');
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -38,18 +37,6 @@ const hbs = exphbs.create({
   layoutsDir: __dirname + '/views/',
   helpers: {
 
-    // custom help to implement simpe loop to loop n amount of times
-    times: function(n, block) {
-      let accum = '';
-      for(let i = 1; i <= n; ++i) {
-          block.data.index = i;
-          block.data.first = i === 1;
-          block.data.last = i === (n - 1);
-          accum += block.fn(this);
-      }
-      return accum;
-    },
-
     // simple compare function similar to an if === conditional
     // returns boolean
     compare: function(a, b, block) { 
@@ -65,8 +52,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.set("view options", { layout: false });
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -107,7 +92,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
