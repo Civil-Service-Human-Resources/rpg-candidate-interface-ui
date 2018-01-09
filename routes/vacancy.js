@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const url = require('url');
-const fetch = require('node-fetch');
+
+const { fetchVacancyDetails, generateReturnURL } = require('../lib/modules/vacancy');
 
 const VIEW_PATH = 'pages/vacancy/details';
 
@@ -27,17 +28,5 @@ router.get('/details/:id', function(req, res) {
     }
     
 });
-
-async function fetchVacancyDetails(id) {
-    let response = await fetch(`${process.env.API_URL}:${process.env.API_PORT}/vacancy/${id}`);
-    return await response.json();
-}
-
-function generateReturnURL(queryStr) {
-    if(!queryStr) return '/';
-
-    const qs = queryStr.replace(/return_url=/, '');
-    return `/results?${qs}`;
-}
 
 module.exports = router;
