@@ -4,7 +4,7 @@ const url = require('url');
 
 const Pager = require('../lib/modules/pagination');
 const { fetchVacancyList, formatResultData } = require('../lib/modules/vacancy');
-const UrlUtils = require('../lib/modules/url');
+const { removeUrlParameter } = require('../lib/modules/url');
 
 /* GET results page. */
 router.get('/', function(req, res) {
@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
   try {
     fetchVacancyList(filters).then(data => {
       
-      const url = `/results?${ UrlUtils.removeUrlParameter(queryString, 'page') }`;
+      const url = `/results?${ removeUrlParameter(queryString, 'page') }`;
       const pagerOptions = Pager(
           data.totalPages, 
           data.first, 
