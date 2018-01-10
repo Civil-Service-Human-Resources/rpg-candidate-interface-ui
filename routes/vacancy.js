@@ -1,18 +1,17 @@
-var express = require('express');
-var router = express.Router();
-var url = require('url');
-var fetch = require('node-fetch');
+const express = require('express');
+const router = express.Router();
+const url = require('url');
 
-const VIEW_PATH = 'pages/vacancy/details';
+const { fetchVacancyDetails, generateReturnURL } = require('../lib/modules/vacancy');
 
 /* GET vacancy details page. */
-router.get('/details/:id', function(req, res, next) {
-    const vacancyId = req.params.id;
+router.get('/details/:id', function(req, res) {
+    const { id } = req.params;
     const query_string = url.parse(req.url).query;
 
     try {
-        fetchVacancyDetails(vacancyId).then(data => {
-            res.render(VIEW_PATH, {
+        fetchVacancyDetails(id).then(data => {
+            res.render('pages/vacancy/details', {
                 i18n: {
                     ...req.translations,
                     title: data.title
@@ -27,18 +26,5 @@ router.get('/details/:id', function(req, res, next) {
     }
     
 });
-
-async function fetchVacancyDetails(id) {
-    let response = await fetch(`${process.env.API_URL}:${process.env.API_PORT}/vacancy/${id}`);
-    let data = await response.json();
-    return data;
-}
-
-function generateReturnURL(queryStr) {
-    if(!queryStr) return '/';
-
-    const qs = queryStr.replace(/return_url=/, '');
-    return `/results?${qs}`;
-}
 
 module.exports = router;

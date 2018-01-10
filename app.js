@@ -1,23 +1,22 @@
 require('dotenv').config();
 
-var compression = require('compression');
-var express = require('express');
-var fs = require('fs');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var sassMiddleware = require('node-sass-middleware');
-var exphbs = require('express-handlebars');
-var url = require('url');
+const compression = require('compression');
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const sassMiddleware = require('node-sass-middleware');
+const exphbs = require('express-handlebars');
+const url = require('url');
 
-var index = require('./routes/index');
-var results = require('./routes/results');
-var vacancyDetails = require('./routes/vacancy');
-var apply = require('./routes/apply');
+const index = require('./routes/index');
+const results = require('./routes/results');
+const vacancyDetails = require('./routes/vacancy');
+const apply = require('./routes/apply');
 
-var app = express();
+const app = express();
 app.use(compression());
 
 // scss compilation middleware
@@ -32,23 +31,11 @@ app.use(
   })
 );
 
-var hbs = exphbs.create({
+const hbs = exphbs.create({
   extname: 'hbs',
   defaultLayout: 'layout',
   layoutsDir: __dirname + '/views/',
   helpers: {
-
-    // custom help to implement simpe loop to loop n amount of times
-    times: function(n, block) {
-      var accum = '';
-      for(var i = 1; i <= n; ++i) {
-          block.data.index = i;
-          block.data.first = i === 1;
-          block.data.last = i === (n - 1);
-          accum += block.fn(this);
-      }
-      return accum;
-    },
 
     // simple compare function similar to an if === conditional
     // returns boolean
@@ -65,8 +52,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.set("view options", { layout: false });
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -101,13 +86,13 @@ app.use('/apply', apply);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  let err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
