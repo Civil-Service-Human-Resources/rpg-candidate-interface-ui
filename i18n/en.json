@@ -21,7 +21,8 @@
             "aboutTheJob": "About the job",
             "responsibilities": "Responsibilities",
             "eligibility": "Eligibility",
-            "keyword": "Keyword"
+            "keyword": "Keyword",
+            "optional": "optional"
         },
         "buttons": {
             "apply": "Apply",

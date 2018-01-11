@@ -21,7 +21,8 @@
             "aboutTheJob": "Ynglŷn ā'r swydd",
             "responsibilities": "Cyfrifoldebau",
             "eligibility": "Cymhwyster",
-            "keyword": "Keyword"
+            "keyword": "Keyword",
+            "optional": "dewisol"
         },
         "buttons": {
             "apply": "Gwneud cais",
