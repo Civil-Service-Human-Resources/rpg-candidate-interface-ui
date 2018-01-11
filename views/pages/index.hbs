@@ -4,18 +4,53 @@
   <p>{{ i18n.home.language.statement }} (<a href="{{ i18n.home.language.url }}">{{ i18n.home.language.label }}</a>)</p>
 </div>
 
-<form method="GET" action="/results">
+{{#if errors}}
+<div class="error-summary" role="alert" aria-labelledby="search-form-errors" tabindex="-1">
+
+    <h2 class="heading-medium error-summary-heading" id="search-form-errors">Message to alert the user to a problem goes here</h2>
+
+    <ul class="error-summary-list">
+        {{#each errors }}
+            <li><a href="#{{ this.param }}">{{ this.msg }}</a></li>
+        {{/each}}
+    </ul>
+
+</div>
+{{/if}}
+
+<form method="GET" action="/">
     <div class="form-section">
+
         <div class="form-group">
-            <label class="form-label-bold" for="keyword">{{ @root.i18n.global.labels.keyword }} ({{ @root.i18n.global.labels.optional }})</label>
-            <input class="form-control" id="keyword" name="keyword" type="text">
+            <label class="form-label-bold" for="keyword">
+                <span class="form-label-bold">{{ @root.i18n.global.labels.keyword }} ({{ @root.i18n.global.labels.optional }})</span>
+            </label>
+            <input
+               class="form-control"
+               id="keyword"
+               name="keyword"
+               type="text"
+               value="{{ formData.keyword }}">
         </div>
-        <div class="form-group">
-            <label class="form-label-bold" for="location">{{ @root.i18n.global.labels.location }}</label>
-            <input class="form-control" id="location" name="location" type="text">
+
+        <div class="form-group{{#if errors.location }} form-group-error{{/if}}">
+            <label class="form-label-bold" for="location">
+                <span class="form-label-bold">{{ @root.i18n.global.labels.location }}</span>
+                {{#if errors.location.msg }}
+                    <span class="error-message">{{ errors.location.msg }}</span>
+                {{/if}}
+            </label>
+            <input
+               class="form-control{{#if errors.location }} form-control-error{{/if}}"
+               id="location"
+               name="location"
+               type="text"
+               value="{{ formData.location }}">
         </div>
+
         <div class="form-group">
             <input type="submit" class="button" value="{{ @root.i18n.global.buttons.search }}">
         </div>
+
     </div>
 </form>
