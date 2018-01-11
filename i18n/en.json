@@ -28,6 +28,9 @@
             "apply": "Apply",
             "search": "Search",
             "refine": "Refine"
+        },
+        "messages": {
+            "locationRequired": "Location is a required field"
         }
     },
     "home": {

@@ -28,6 +28,9 @@
             "apply": "Gwneud cais",
             "search": "Chwilio",
             "refine": "Mireinio"
+        },
+        "messages": {
+            "locationRequired": "Mae lleoliad yn faes gofynnol"
         }
     },
     "home": {

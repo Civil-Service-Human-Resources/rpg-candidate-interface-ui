@@ -1,15 +1,25 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const {check, validationResult} = require('express-validator/check');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', [
+    // validation rules
 
-  res.render('pages/index', {
-    i18n: { 
-      ...req.translations, 
-      title: req.translations.home.page.title 
-    }
-  });
+    check('location')
+        .isLength({min: 1}).withMessage("Location is required")
+
+], (req, res) => {
+
+    const validate = validationResult(req);
+
+    res.render('pages/index', {
+        i18n: {
+            ...req.translations,
+            title: req.translations.home.page.title
+        },
+        errors: validate.mapped()
+    });
 
 });
 
