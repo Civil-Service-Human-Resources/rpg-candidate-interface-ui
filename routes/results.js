@@ -27,16 +27,11 @@ router.get('/', function(req, res) {
         );
       
       res.render('pages/results', {
-        i18n: {
-          ...req.translations,
-          title: req.translations.results.page.title,
-          resultsTotal: data.totalElements === 1 ? req.translations.results.page.totalJobsFoundSingular : req.translations.results.page.totalJobsFoundPlural
-        },
         results: formatResultData(data.content),
         filters,
         returnUrl: queryString,
         pager: pagerOptions
-      })
+      });
   });
       
   } catch(e) {
