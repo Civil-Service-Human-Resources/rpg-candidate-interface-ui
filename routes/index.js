@@ -8,6 +8,7 @@ router.get('/', [
     // validation rules
 
     check('location')
+        .trim()
         .isLength({min: 1}).withMessage('global.messages.locationRequired'),
 
 ], (req, res) => {
