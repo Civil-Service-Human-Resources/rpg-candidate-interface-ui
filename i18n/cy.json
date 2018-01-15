@@ -30,6 +30,7 @@
             "refine": "Mireinio"
         },
         "messages": {
+            "submissionErrorMsg": "Mae neges i rybuddio'r defnyddiwr i broblem yn mynd yma",
             "locationRequired": "Mae lleoliad yn faes gofynnol"
         }
     },

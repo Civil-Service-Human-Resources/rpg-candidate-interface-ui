@@ -5,7 +5,7 @@
 </div>
 
 {{> messages/error
-        errorMsg="Message to alert the user to a problem goes here"
+        errorMsg='global.messages.submissionErrorMsg'
         errors=errors }}
 
 <form method="GET" action="/">
@@ -27,7 +27,7 @@
             <label class="form-label-bold" for="location">
                 <span class="form-label-bold">{{__ 'global.labels.location' }}</span>
                 {{#if errors.location.msg }}
-                    <span class="error-message">{{ errors.location.msg }}</span>
+                    <span class="error-message">{{__ errors.location.msg }}</span>
                 {{/if}}
             </label>
             <input

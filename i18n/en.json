@@ -1,66 +1,72 @@
 {
-    "global": {
-        "header": {
-            "title": "Find a job in Government",
-            "betaText": "This part of GOV.UK is being rebuilt",
-            "betaLinkText": "find out what beta means"
-        },
-        "labels": {
-            "jobDesc": "Job description",
-            "numVacancies": "No. of jobs",
-            "location": "Location",
-            "salary": "Salary",
-            "jobGrade": "Job grade",
-            "workingHours": "Working hours",
-            "closingDate": "Closing date",
-            "contactPoint": "Contact point for applicants",
-            "name": "Name",
-            "department": "Department",
-            "email": "Email address",
-            "telephone": "Telephone number",
-            "aboutTheJob": "About the job",
-            "responsibilities": "Responsibilities",
-            "eligibility": "Eligibility",
-            "keyword": "Keyword",
-            "optional": "optional"
-        },
-        "buttons": {
-            "apply": "Apply",
-            "search": "Search",
-            "refine": "Refine"
-        },
-        "messages": {
-            "locationRequired": "Location is a required field"
-        }
-    },
-    "home": {
-        "page": {
-            "title": "Job search"
-        },
-        "language": {
-            "statement": "This service is also available in Welsh",
-            "label": "Cymraeg",
-            "url": "?lang=cy"
-        }
-    },
-    "results": {
-        "page": {
-            "title": "Search results",
-            "backToSearch": "Back to search",
-            "totalJobsFoundSingular": "job found",
-            "totalJobsFoundPlural": "jobs found",
-            "noResultsText1": "There are no results that match your query",
-            "noResultsText2": "please try a new search"
-        }
-    },
-    "vacancy": {
-        "page": {
-            "backToResults": "Back to search results"
-        }
-    },
-    "apply": {
-        "page": {
-            "title": "Apply"
-        }
-    }
+	"global": {
+		"header": {
+			"title": "Find a job in Government",
+			"betaText": "This part of GOV.UK is being rebuilt",
+			"betaLinkText": "find out what beta means"
+		},
+		"labels": {
+			"jobDesc": "Job description",
+			"numVacancies": "No. of jobs",
+			"location": "Location",
+			"salary": "Salary",
+			"jobGrade": "Job grade",
+			"workingHours": "Working hours",
+			"closingDate": "Closing date",
+			"contactPoint": "Contact point for applicants",
+			"name": "Name",
+			"department": "Department",
+			"email": "Email address",
+			"telephone": "Telephone number",
+			"aboutTheJob": "About the job",
+			"responsibilities": "Responsibilities",
+			"eligibility": "Eligibility",
+			"keyword": "Keyword",
+			"optional": "optional"
+		},
+		"buttons": {
+			"apply": "Apply",
+			"search": "Search",
+			"refine": "Refine"
+		},
+		"messages": {
+			"submissionErrorMsg": "Message to alert the user to a problem goes here",
+			"locationRequired": "Location is a required field"
+		}
+	},
+	"home": {
+		"page": {
+			"title": "Job search"
+		},
+		"language": {
+			"statement": "This service is also available in Welsh",
+			"label": "Cymraeg",
+			"url": "?lang=cy"
+		}
+	},
+	"results": {
+		"page": {
+			"title": "Search results",
+			"backToSearch": "Back to search",
+			"totalJobsFoundSingular": "job found",
+			"totalJobsFoundPlural": "jobs found",
+			"noResultsText1": "There are no results that match your query",
+			"noResultsText2": "please try a new search"
+		}
+	},
+	"vacancy": {
+		"page": {
+			"backToResults": "Back to search results"
+		}
+	},
+	"apply": {
+		"page": {
+			"title": "Apply"
+		}
+	},
+	"globals": {
+		"messages": {
+			"submissionErrorMsg": "globals.messages.submissionErrorMsg"
+		}
+	}
 }

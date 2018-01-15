@@ -8,7 +8,7 @@ router.get('/', [
     // validation rules
 
     check('location')
-        .isLength({min: 1}).withMessage("Location is a required field"),
+        .isLength({min: 1}).withMessage('global.messages.locationRequired'),
 
 ], (req, res) => {
 
