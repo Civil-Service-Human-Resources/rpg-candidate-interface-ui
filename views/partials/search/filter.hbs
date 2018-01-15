@@ -2,12 +2,12 @@
     <form method="GET" action="/results">
 
         <div class="form-group">
-            <label class="form-label-bold" for="keyword">{{ @root.i18n.global.labels.keyword }}</label>
+            <label class="form-label-bold" for="keyword">{{__ 'global.labels.keyword' }}</label>
             <input class="form-control" id="keyword" name="keyword" type="text" value="{{ filters.keyword }}">
         </div>
 
         <div class="form-group">
-            <input type="submit" class="button" value="{{ @root.i18n.global.buttons.refine }}">
+            <input type="submit" class="button" value="{{__ 'global.buttons.refine' }}">
         </div>
     
         <input type="hidden" name="location" id="location" value="{{ filters.location }}">

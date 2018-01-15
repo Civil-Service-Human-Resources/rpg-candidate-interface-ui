@@ -15,18 +15,12 @@ router.get('/', [
     const queryString = url.parse(req.url).query;
     const formData = url.parse(req.url, true).query;
     const validate = validationResult(req);
-    const errors = validate.mapped();
 
     // if the form was valid, redirect to results page
-    if(queryString && validate.isEmpty()) {
+    if (queryString && validate.isEmpty()) {
         return res.redirect(`/results?${ queryString }`)
     }
-
     res.render('pages/index', {
-        i18n: {
-            ...req.translations,
-            title: `${ queryString && errors ? 'Errors: ' : '' }${req.translations.home.page.title}`
-        },
         errors: queryString ? validate.mapped() : null,
         formData
     });
