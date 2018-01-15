@@ -17,6 +17,19 @@ const apply = require('./routes/apply');
 
 const app = express();
 app.use(compression());
+
+// scss compilation middleware
+app.use(
+    sassMiddleware({
+        src: __dirname + '/scss',
+        dest: __dirname + '/public/stylesheets',
+        prefix: '/stylesheets',
+        outputStyle: 'compressed',
+        debug: true,
+        sourceMap: true
+    })
+);
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -33,18 +46,6 @@ i18n.configure({
     queryParameter: 'lang'
 });
 app.use(i18n.init);
-
-// scss compilation middleware
-app.use(
-  sassMiddleware({
-    src: __dirname + '/scss',
-    dest: __dirname + '/public/stylesheets',
-    prefix: '/stylesheets',
-    outputStyle: 'compressed',
-    debug: true,
-    sourceMap: true
-  })
-);
 
 // handlebars configuration
 const hbs = exphbs.create({
