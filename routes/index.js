@@ -1,16 +1,8 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-
-  res.render('pages/index', {
-    i18n: { 
-      ...req.translations, 
-      title: req.translations.home.page.title 
-    }
-  });
-
-});
+router.get('/', (req, res) =>
+    res.render('pages/index', {}) );
 
 module.exports = router;

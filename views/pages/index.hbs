@@ -1,21 +1,21 @@
-<h1 class="heading-xlarge">{{ i18n.home.page.title }}</h1>
+<h1 class="heading-xlarge">{{__ 'home.page.title' }}</h1>
 
 <div class="panel panel-border-wide">
-  <p>{{ i18n.home.language.statement }} (<a href="{{ i18n.home.language.url }}">{{ i18n.home.language.label }}</a>)</p>
+  <p>{{__ 'home.language.statement' }} (<a href="{{__ 'home.language.url' }}">{{__ 'home.language.label' }}</a>)</p>
 </div>
 
 <form method="GET" action="/results">
     <div class="form-section">
         <div class="form-group">
-            <label class="form-label-bold" for="keyword">{{ @root.i18n.global.labels.keyword }}</label>
+            <label class="form-label-bold" for="keyword">{{__ 'global.labels.keyword' }}</label>
             <input class="form-control" id="keyword" name="keyword" type="text" required>
         </div>
         <div class="form-group">
-            <label class="form-label-bold" for="location">{{ @root.i18n.global.labels.location }}</label>
+            <label class="form-label-bold" for="location">{{__ 'global.labels.location' }}</label>
             <input class="form-control" id="location" name="location" type="text" required>
         </div>
         <div class="form-group">
-            <input type="submit" class="button" value="{{ @root.i18n.global.buttons.search }}">
+            <input type="submit" class="button" value="{{__ 'global.buttons.search' }}">
         </div>
     </div>
 </form>

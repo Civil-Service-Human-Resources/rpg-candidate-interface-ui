@@ -2,14 +2,13 @@ require('dotenv').config();
 
 const compression = require('compression');
 const express = require('express');
-const fs = require('fs');
 const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
 const exphbs = require('express-handlebars');
-const url = require('url');
+const i18n = require('i18n');
 
 const index = require('./routes/index');
 const results = require('./routes/results');
@@ -18,6 +17,22 @@ const apply = require('./routes/apply');
 
 const app = express();
 app.use(compression());
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+// i18n setup
+i18n.configure({
+    locales: ['en', 'cy'],
+    defaultLocale: 'en',
+    cookie: 'lang',
+    objectNotation: true,
+    directory: __dirname + '/i18n',
+    queryParameter: 'lang'
+});
+app.use(i18n.init);
 
 // scss compilation middleware
 app.use(
@@ -31,19 +46,27 @@ app.use(
   })
 );
 
+// handlebars configuration
 const hbs = exphbs.create({
   extname: 'hbs',
   defaultLayout: 'layout',
   layoutsDir: __dirname + '/views/',
   helpers: {
-
-    // simple compare function similar to an if === conditional
-    // returns boolean
-    compare: function(a, b, block) { 
-      return a === b ? block.fn(this) : block.inverse(this) 
-    }
-    
+    compare: function(a, b, block) { return a === b ? block.fn(this) : block.inverse(this) }, // compare one value with another
   }
+});
+
+app.use(function(req, res, next) {
+    // I'm having to register these helpers here due to needing
+    // to pass req as apply context otherwise translations don't work!
+    hbs.handlebars.registerHelper('__', function() {
+        return i18n.__.apply(req, arguments);
+    });
+    hbs.handlebars.registerHelper('__n', function() {
+        return i18n.__n.apply(req, arguments);
+    });
+
+    next();
 });
 
 // view engine setup
@@ -52,33 +75,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.set("view options", { layout: false });
 
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
 app.use(function(req, res, next) {
-  const allowedLanguages = ['en', 'cy'];
-  let { lang } = req.cookies;
-
-  // if cookie is not one of allowed languages default to English
-  if(!allowedLanguages.includes(lang)) {
-    lang = 'en';
-  }
-
-  const params = url.parse(req.url, true).query;
-  if(params.lang && allowedLanguages.includes(params.lang)) {
-    res.cookie('lang', params.lang);
-    lang = params.lang;
-  }
-
-  // load language file
-  req['translations'] = JSON.parse(fs.readFileSync(`${path.join(__dirname, 'i18n')}/${lang}.json`));
-
-  next();
+    res.cookie('lang', res.getLocale());
+    next();
 });
 
+// parent routes
 app.use('/', index);
 app.use('/results', results);
 app.use('/job', vacancyDetails);
