@@ -9,6 +9,9 @@ const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
 const exphbs = require('express-handlebars');
 const i18n = require('i18n');
+const url = require('url');
+
+const { objectToUrl } = require('./lib/modules/url');
 
 const index = require('./routes/index');
 const results = require('./routes/results');
@@ -76,8 +79,22 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.set("view options", { layout: false });
 
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
     res.cookie('lang', res.getLocale());
+    next();
+});
+
+// if someones hit translate link, we want to remove it from url
+app.use((req, res, next) => {
+    const params = url.parse(req.url, true).query;
+
+    if(params.lang) {
+        delete params.lang;
+        let newQueryString = objectToUrl(params, 'lang');
+
+        return newQueryString !== '' ? res.redirect(`/?${newQueryString}`) : res.redirect(`/${newQueryString}`);
+    }
+
     next();
 });
 
