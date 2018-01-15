@@ -21,17 +21,23 @@
             "aboutTheJob": "Ynglŷn ā'r swydd",
             "responsibilities": "Cyfrifoldebau",
             "eligibility": "Cymhwyster",
-            "keyword": "Keyword"
+            "keyword": "Keyword",
+            "optional": "dewisol"
         },
         "buttons": {
             "apply": "Gwneud cais",
             "search": "Chwilio",
             "refine": "Mireinio"
+        },
+        "messages": {
+            "submissionErrorMsg": "Mae neges i rybuddio'r defnyddiwr i broblem yn mynd yma",
+            "locationRequired": "Mae lleoliad yn faes gofynnol"
         }
     },
     "home": {
         "page": {
-            "title": "Chwilio am swydd"
+            "title": "Chwilio am swydd",
+            "subtitle": "Chwilio a gwneud cais am swyddi yn y Gwasanaeth Sifil a sefydliadau'r llywodraeth ganolog"
         },
         "language": {
             "statement": "Mae'r gwasanaeth hwn hefyd ar gael yn Saesneg",

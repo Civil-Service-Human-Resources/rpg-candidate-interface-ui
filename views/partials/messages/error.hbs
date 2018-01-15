@@ -1,0 +1,21 @@
+{{#if errors}}
+
+<div class="error-summary" role="alert" aria-labelledby="search-form-errors" tabindex="-1">
+
+    {{#if errorMsg}}
+        <h2 class="heading-medium error-summary-heading" id="search-form-errors">{{__ errorMsg }}</h2>
+    {{/if }}
+
+    {{#if errorMsgOptional}}
+        <p>{{ errorMsgOptional }}</p>
+    {{/if}}
+
+    <ul class="error-summary-list">
+        {{#each errors }}
+            <li><a href="#{{ this.param }}">{{__ this.msg }}</a></li>
+        {{/each}}
+    </ul>
+
+</div>
+
+{{/if}}
