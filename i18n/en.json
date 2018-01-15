@@ -36,7 +36,8 @@
 	},
 	"home": {
 		"page": {
-			"title": "Job search"
+			"title": "Job search",
+			"subtitle": "Search and apply for jobs within the Civil Service and central government organisations"
 		},
 		"language": {
 			"statement": "This service is also available in Welsh",

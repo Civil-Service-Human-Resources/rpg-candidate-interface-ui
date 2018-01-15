@@ -36,7 +36,8 @@
     },
     "home": {
         "page": {
-            "title": "Chwilio am swydd"
+            "title": "Chwilio am swydd",
+            "subtitle": "Chwilio a gwneud cais am swyddi yn y Gwasanaeth Sifil a sefydliadau'r llywodraeth ganolog"
         },
         "language": {
             "statement": "Mae'r gwasanaeth hwn hefyd ar gael yn Saesneg",
