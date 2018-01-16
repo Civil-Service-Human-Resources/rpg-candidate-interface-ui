@@ -12,7 +12,7 @@ ARG IS_DEV=false
 # install prod node packages
 RUN npm set progress=false && npm config set depth 0
 RUN if [ "${IS_DEV}" = "false" ]; then \
-        npm install --only=production && \
+        npm install --force --only=production && \
         cp -R node_modules prod_node_modules \
     ;fi
 
