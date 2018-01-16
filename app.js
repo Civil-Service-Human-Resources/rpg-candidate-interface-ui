@@ -9,6 +9,7 @@ const sassMiddleware = require('node-sass-middleware');
 const exphbs = require('express-handlebars');
 const i18n = require('i18n');
 const url = require('url');
+const log4js = require('log4js');
 
 const { objectToUrl } = require('./lib/modules/url');
 
@@ -17,8 +18,24 @@ const results = require('./routes/results');
 const vacancyDetails = require('./routes/vacancy');
 const apply = require('./routes/apply');
 
+// configure logging
+log4js.configure({
+    appenders: {
+        everything: { type: 'file', filename: 'logs/info.log', backups: 10, maxLogSize: 10485760 },
+        issues: { type: 'file', filename: 'logs/errors.log', backups: 10, maxLogSize: 10485760 },
+        'just-errors': { type: 'logLevelFilter', appender: 'issues', level: 'error' }
+    },
+    categories: {
+        default: { appenders: ['just-errors', 'everything'], level: 'debug' }
+    }
+});
+const logger = log4js.getLogger();
+
 const app = express();
-app.use(compression());
+app.use(log4js.connectLogger(logger, {
+    level: 'auto',
+    nolog: ["\\.jpg$", "\\.png", "\\.gif", "\\.css", "\\.js", "\\.ico"]
+}));
 
 // scss compilation middleware
 app.use(
@@ -32,6 +49,7 @@ app.use(
     })
 );
 
+app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
