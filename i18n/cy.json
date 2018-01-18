@@ -1,68 +1,73 @@
 {
-    "global": {
-        "header": {
-            "title": "Dod o hyd i swydd yn y Llywodraeth",
-            "betaText": "Mae'r rhan hon o GOV.UK yn cael ei hailadeiladu",
-            "betaLinkText": "darganfyddwch beth beta yn ei olygu"
-        },
-        "labels": {
-            "jobDesc": "Disgrifiad swydd",
-            "numVacancies": "Nifer y swyddi gwag",
-            "location": "Lleoliad",
-            "salary": "Cyflog",
-            "jobGrade": "Gradd swydd",
-            "workingHours": "Oriau gweithio",
-            "closingDate": "Dyddiad cau",
-            "contactPoint": "Man cyswllt i ymgeiswyr",
-            "name": "Enw",
-            "department": "Adran",
-            "email": "Cyfeiriad ebost",
-            "telephone": "Ffôn",
-            "aboutTheJob": "Ynglŷn ā'r swydd",
-            "responsibilities": "Cyfrifoldebau",
-            "eligibility": "Cymhwyster",
-            "keyword": "Keyword",
-            "optional": "dewisol"
-        },
-        "buttons": {
-            "apply": "Gwneud cais",
-            "search": "Chwilio",
-            "refine": "Mireinio"
-        },
-        "messages": {
-            "submissionErrorMsg": "Mae neges i rybuddio'r defnyddiwr i broblem yn mynd yma",
-            "locationRequired": "Mae lleoliad yn faes gofynnol"
-        }
-    },
-    "home": {
-        "page": {
-            "title": "Chwilio am swydd",
-            "subtitle": "Chwilio a gwneud cais am swyddi yn y Gwasanaeth Sifil a sefydliadau'r llywodraeth ganolog"
-        },
-        "language": {
-            "statement": "Mae'r gwasanaeth hwn hefyd ar gael yn Saesneg",
-            "label": "English",
-            "url": "?lang=en"
-        }
-    },
-    "results": {
-        "page": {
-            "title": "Canlyniadau chwilio",
-            "backToSearch": "Yn ôl i'r chwiliad",
-            "totalJobsFoundSingular": "canfod y swydd",
-            "totalJobsFoundPlural": "swyddi a ganfuwyd",
-            "noResultsText1": "Nid oes unrhyw ganlyniadau sy'n cyfateb i'ch ymholiad",
-            "noResultsText2": "rhowch gynnig ar chwiliad newydd"
-        }
-    },
-    "vacancy": {
-        "page": {
-            "backToResults": "Yn ôl i'r canlyniadau chwilio"
-        }
-    },
-    "apply": {
-        "page": {
-            "title": "Gwneud cais"
-        }
-    }
+	"global": {
+		"header": {
+			"title": "Dod o hyd i swydd yn y Llywodraeth",
+			"betaText": "Mae'r rhan hon o GOV.UK yn cael ei hailadeiladu",
+			"betaLinkText": "darganfyddwch beth beta yn ei olygu"
+		},
+		"labels": {
+			"jobDesc": "Disgrifiad swydd",
+			"numVacancies": "Nifer y swyddi gwag",
+			"location": "Lleoliad",
+			"salary": "Cyflog",
+			"jobGrade": "Gradd swydd",
+			"workingHours": "Oriau gweithio",
+			"closingDate": "Dyddiad cau",
+			"contactPoint": "Man cyswllt i ymgeiswyr",
+			"name": "Enw",
+			"department": "Adran",
+			"email": "Cyfeiriad ebost",
+			"telephone": "Ffôn",
+			"aboutTheJob": "Ynglŷn ā'r swydd",
+			"responsibilities": "Cyfrifoldebau",
+			"eligibility": "Cymhwyster",
+			"keyword": "Keyword",
+			"optional": "dewisol"
+		},
+		"buttons": {
+			"apply": "Gwneud cais",
+			"search": "Chwilio",
+			"refine": "Mireinio"
+		},
+		"messages": {
+			"submissionErrorMsg": "Mae neges i rybuddio'r defnyddiwr i broblem yn mynd yma",
+			"locationRequired": "Mae lleoliad yn faes gofynnol"
+		}
+	},
+	"home": {
+		"page": {
+			"title": "Chwilio am swydd",
+			"subtitle": "Chwilio a gwneud cais am swyddi yn y Gwasanaeth Sifil a sefydliadau'r llywodraeth ganolog"
+		},
+		"language": {
+			"statement": "Mae'r gwasanaeth hwn hefyd ar gael yn Saesneg",
+			"label": "English",
+			"url": "?lang=en"
+		}
+	},
+	"results": {
+		"page": {
+			"title": "Canlyniadau chwilio",
+			"backToSearch": "Yn ôl i'r chwiliad",
+			"totalJobsFoundSingular": "canfod y swydd",
+			"totalJobsFoundPlural": "swyddi a ganfuwyd",
+			"noResultsText1": "Nid oes unrhyw ganlyniadau sy'n cyfateb i'ch ymholiad",
+			"noResultsText2": "rhowch gynnig ar chwiliad newydd"
+		}
+	},
+	"vacancy": {
+		"page": {
+			"backToResults": "Yn ôl i'r canlyniadau chwilio"
+		}
+	},
+	"apply": {
+		"page": {
+			"title": "Gwneud cais"
+		}
+	},
+	"privacyPolicy": {
+		"page": {
+			"title": "Polisi preifatrwydd"
+		}
+	}
 }

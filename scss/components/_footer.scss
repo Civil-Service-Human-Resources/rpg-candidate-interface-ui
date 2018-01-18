@@ -39,6 +39,10 @@
       clear: both;
       font-size: 0;
       color: $footer-text;
+
+      .footer-meta__full-width-item {
+        display: block !important;
+      }
   
       .footer-meta-inner {
         display: inline-block;

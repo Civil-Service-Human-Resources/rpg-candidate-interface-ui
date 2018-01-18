@@ -69,5 +69,10 @@
 		"messages": {
 			"submissionErrorMsg": "globals.messages.submissionErrorMsg"
 		}
+	},
+	"privacyPolicy": {
+		"page": {
+			"title": "Privacy policy"
+		}
 	}
 }
