@@ -1,9 +1,30 @@
 <div class="search-filters">
     <form method="GET" action="/results">
 
+        <h2 class="sr-only">Filter search results</h2>
+
         <div class="form-group">
             <label class="form-label-bold" for="keyword">{{__ 'global.labels.keyword' }}</label>
             <input class="form-control" id="keyword" name="keyword" type="text" value="{{ filters.keyword }}">
+        </div>
+
+        <div class="form-group">
+            <fieldset class="form-multicheckbox">
+                <legend class="sr-only">Choose one or more departments</legend>
+
+                {{#each departments }}
+                    <div class="form-multicheckbox__item">
+                        <input
+                                type="checkbox"
+                                name="depts"
+                                id="dept-{{ id }}"
+                                value="{{ id }}"
+                            {{#inArray ../filters.depts id }} checked{{/inArray}}>
+                        <label for="dept-{{ id }}">{{ name }}</label>
+                    </div>
+                {{/each}}
+
+            </fieldset>
         </div>
 
         <div class="form-group">

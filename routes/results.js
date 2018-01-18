@@ -11,6 +11,13 @@ router.get('/', function(req, res) {
   const filters = url.parse(req.url, true).query;
   const queryString = url.parse(req.url).query;
 
+  const departments = [
+      { id: '1', name: "Ministry of Defense" },
+      { id: '2', name: "HM Revenue and Customs" },
+      { id: '3', name: "Department for Work and Pensions" },
+      { id: '4', name: "Department for Transport" },
+  ];
+
   try {
     fetchVacancyList(filters).then(data => {
       
@@ -29,6 +36,7 @@ router.get('/', function(req, res) {
       res.render('pages/results', {
         results: formatResultData(data.content),
         filters,
+        departments,
         returnUrl: queryString,
         pager: pagerOptions
       });

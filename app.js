@@ -75,6 +75,7 @@ const hbs = exphbs.create({
   layoutsDir: __dirname + '/views/',
   helpers: {
     compare: function(a, b, block) { return a === b ? block.fn(this) : block.inverse(this) }, // compare one value with another
+    inArray: function(arr = [], b = '', block) { return arr.includes(b) ? block.fn(this) : block.inverse(this) }
   }
 });
 

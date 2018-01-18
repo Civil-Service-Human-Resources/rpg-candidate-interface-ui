@@ -10,12 +10,14 @@
 </div>
 
 <div class="job-search">
-    
-    <p class="job-search__total-results"><strong id="search-results-total">{{ pager.totalItems }}</strong> {{__n 'results.page.totalJobsFoundPlural' 'results.page.totalJobsFoundSingular' pager.totalItems }}</p>
-    
+
     <div class="job-search__results-container">
 
         <div class="job-search__results-list-container">
+
+            <h2 class="sr-only">Your search results</h2>
+
+            <p class="job-search__total-results"><strong id="search-results-total">{{ pager.totalItems }}</strong> {{__n 'results.page.totalJobsFoundPlural' 'results.page.totalJobsFoundSingular' pager.totalItems }}</p>
 
             {{#if results}}
                 {{> search/results items=results }}
@@ -31,7 +33,8 @@
         </div>
 
         <div class="job-search__filters">
-            {{> search/filter filters=filters }}
+            <h2 class="job-search__filters-title">Edit search options</h2>
+            {{> search/filter filters=filters departments=departments }}
         </div>
 
     </div>
