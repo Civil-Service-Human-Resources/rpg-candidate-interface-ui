@@ -74,5 +74,10 @@
 		"page": {
 			"title": "Privacy policy"
 		}
+	},
+	"cookies": {
+		"page": {
+			"title": "Cookies"
+		}
 	}
 }

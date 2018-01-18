@@ -18,6 +18,7 @@ const results = require('./routes/results');
 const vacancyDetails = require('./routes/vacancy');
 const apply = require('./routes/apply');
 const privacyPolicy = require('./routes/privacyPolicy');
+const cookies = require('./routes/cookies');
 
 // configure logging
 log4js.configure({
@@ -121,6 +122,7 @@ app.use('/results', results);
 app.use('/job', vacancyDetails);
 app.use('/apply', apply);
 app.use('/privacy-policy', privacyPolicy);
+app.use('/cookies', cookies);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

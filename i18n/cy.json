@@ -69,5 +69,10 @@
 		"page": {
 			"title": "Polisi preifatrwydd"
 		}
+	},
+	"cookies": {
+		"page": {
+			"title": "Cwcis"
+		}
 	}
 }
