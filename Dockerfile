@@ -1,5 +1,5 @@
 # ---- Base Node ----
-FROM node:8-alpine AS base
+FROM node:9-alpine AS base
 # set working directory
 WORKDIR /app
 # copy project file
@@ -22,9 +22,9 @@ RUN npm install
 #
 # ---- Test ----
 # run linters, setup and tests
-FROM dependencies AS test
-COPY . .
-RUN npm run test
+#FROM dependencies AS test
+#COPY . .
+#RUN npm run test
 
 #
 # ---- Release ----
