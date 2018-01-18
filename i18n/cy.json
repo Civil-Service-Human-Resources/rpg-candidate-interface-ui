@@ -74,5 +74,14 @@
 		"page": {
 			"title": "Cwcis"
 		}
+	},
+	"errors": {
+		"notFound": {
+			"title": "Ni ellir dod o hyd i'r dudalen hon",
+			"returnString1": "Gwnewch yn siŵr eich bod wedi cofnodi'r cyfeiriad gwe cywir, neu geisiwch",
+			"returnString2": "<a href='http://gov.uk/'>GOV.UK</a>",
+			"returnString3": "<a href='/'>Chwilio am swydd</a>",
+			"returnString4": "<a href='mailto:support.csjobs@cabinetoffice.gov.uk'>Cysylltwch â</a> ni os oes problem gyda dolen i'r dudalen hon."
+		}
 	}
 }
