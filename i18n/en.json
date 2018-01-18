@@ -79,5 +79,14 @@
 		"page": {
 			"title": "Cookies"
 		}
+	},
+	"errors": {
+		"notFound": {
+			"title": "This page cannot be found",
+			"returnString1": "Check that you have entered the correct web address, or try",
+			"returnString2": "<a href='http://gov.uk/'>GOV.UK</a>",
+			"returnString3": "<a href='/'>Job search</a>",
+			"returnString4": "<a href='mailto:support.csjobs@cabinetoffice.gov.uk'>Contact us</a> if there is a problem with a link to this page."
+		}
 	}
 }
