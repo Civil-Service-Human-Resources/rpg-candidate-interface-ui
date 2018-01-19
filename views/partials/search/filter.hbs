@@ -1,8 +1,6 @@
 <div class="search-filters">
     <form method="GET" action="/results">
 
-        <h2 class="sr-only">Filter search results</h2>
-
         <div class="form-group">
             <label class="form-label-bold" for="keyword">{{__ 'global.labels.keyword' }}</label>
             <input class="form-control" id="keyword" name="keyword" type="text" value="{{ filters.keyword }}">
@@ -10,8 +8,9 @@
 
         <div class="form-group">
             <fieldset class="form-multicheckbox">
-                <legend class="sr-only">Choose one or more departments</legend>
+                <legend class="form-label">{{__ 'results.page.departments' }}</legend>
 
+                <div class="form-multicheckbox__list">
                 {{#each departments }}
                     <div class="form-multicheckbox__item">
                         <input
@@ -23,6 +22,7 @@
                         <label for="dept-{{ id }}">{{ name }}</label>
                     </div>
                 {{/each}}
+                </div>
 
             </fieldset>
         </div>

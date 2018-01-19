@@ -1,11 +1,18 @@
 .form-multicheckbox {
-  background-color: #FFF;
-  border: 1px solid $grey-2;
-  border-left: 5px solid $grey-2;
-  max-height: 200px;
-  overflow: hidden;
-  overflow-y: auto;
-  position: relative;
+
+  legend {
+    @include bold-19;
+  }
+
+  &__list {
+    background-color: #FFF;
+    border: 1px solid $grey-2;
+    border-left: 5px solid $grey-2;
+    max-height: 200px;
+    overflow: hidden;
+    overflow-y: auto;
+    position: relative;
+  }
 
   &__item {
     @include core-14;
