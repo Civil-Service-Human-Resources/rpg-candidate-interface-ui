@@ -1,7 +1,7 @@
 <li class="job-search__item" id="search-result{{@index}}">
     <div class="job-search__item-row">
 
-        <div class="job-search__item-first">&lt;department name&gt;</div>
+        <div class="job-search__item-first">{{ department.name }}</div>
 
         <div class="job-search__item-last">
 
@@ -9,7 +9,7 @@
                 <a href="/job/details/{{ id }}?return_url={{@root.returnUrl}}">{{ title }}</a>
             </h3>
 
-            <h4 class="sr-only">Job summary</h4>
+            <h4 class="sr-only">{{__ 'results.page.jobSummary' }}</h4>
             <ul class="job-search__item-attributes">
                 <li id="search-result{{@index}}-description" class="full-width">
                     <strong class="job-search__item-attributes-label sr-only">{{__ 'global.labels.jobDesc' }}</strong>
