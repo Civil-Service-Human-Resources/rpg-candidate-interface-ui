@@ -52,7 +52,11 @@
 			"totalJobsFoundSingular": "canfod y swydd",
 			"totalJobsFoundPlural": "swyddi a ganfuwyd",
 			"noResultsText1": "Nid oes unrhyw ganlyniadau sy'n cyfateb i'ch ymholiad",
-			"noResultsText2": "rhowch gynnig ar chwiliad newydd"
+			"noResultsText2": "rhowch gynnig ar chwiliad newydd",
+			"filterResultsTitle": "Golygu dewisiadau chwilio",
+			"jobSummary": "Crynodeb o'r swydd",
+			"yourResults": "Eich canlyniadau chwilio",
+			"departments": "Adran (au)"
 		}
 	},
 	"vacancy": {
