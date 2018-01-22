@@ -52,7 +52,11 @@
 			"totalJobsFoundSingular": "job found",
 			"totalJobsFoundPlural": "jobs found",
 			"noResultsText1": "There are no results that match your query",
-			"noResultsText2": "please try a new search"
+			"noResultsText2": "please try a new search",
+			"filterResultsTitle": "Edit search options",
+			"jobSummary": "Job summary",
+			"yourResults": "Your search results",
+			"departments": "Department(s)"
 		}
 	},
 	"vacancy": {
@@ -68,6 +72,25 @@
 	"globals": {
 		"messages": {
 			"submissionErrorMsg": "globals.messages.submissionErrorMsg"
+		}
+	},
+	"privacyPolicy": {
+		"page": {
+			"title": "Privacy policy"
+		}
+	},
+	"cookies": {
+		"page": {
+			"title": "Cookies"
+		}
+	},
+	"errors": {
+		"notFound": {
+			"title": "This page cannot be found",
+			"returnString1": "Check that you have entered the correct web address, or try",
+			"returnString2": "<a href='http://gov.uk/'>GOV.UK</a>",
+			"returnString3": "<a href='/'>Job search</a>",
+			"returnString4": "<a href='mailto:support.csjobs@cabinetoffice.gov.uk'>Contact us</a> if there is a problem with a link to this page."
 		}
 	}
 }

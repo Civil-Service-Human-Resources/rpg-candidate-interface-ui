@@ -1,7 +1,7 @@
 .job-search {
     &__total-results {
         @include bold-19;
-        margin-bottom: 3px;
+        margin: 0;
 
         strong {
             font-size: 24px;
@@ -79,10 +79,17 @@
     }
 
     &__filters {
-        @include grid-column(1/4, $full-width: tablet, $float: left);
+        @include grid-column(2/7, $full-width: tablet, $float: left);
+        padding-top: 5px;
+    }
+
+    &__filters-title {
+        @include bold-19;
+        line-height: 31px;
+        margin: 0 0 1px;
     }
 
     &__results-list-container {
-        @include grid-column(3/4, $full-width: tablet, $float: right);
+        @include grid-column(5/7, $full-width: tablet, $float: right);
     }
 }

@@ -7,6 +7,27 @@
         </div>
 
         <div class="form-group">
+            <fieldset class="form-multicheckbox">
+                <legend class="form-label">{{__ 'results.page.departments' }}</legend>
+
+                <div class="form-multicheckbox__list">
+                {{#each departments }}
+                    <div class="form-multicheckbox__item">
+                        <input
+                                type="checkbox"
+                                name="depts"
+                                id="dept-{{ id }}"
+                                value="{{ id }}"
+                            {{#inArray ../filters.depts id }} checked{{/inArray}}>
+                        <label for="dept-{{ id }}">{{ name }}</label>
+                    </div>
+                {{/each}}
+                </div>
+
+            </fieldset>
+        </div>
+
+        <div class="form-group">
             <input type="submit" class="button" value="{{__ 'global.buttons.refine' }}">
         </div>
     

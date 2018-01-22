@@ -3,13 +3,13 @@ require('dotenv').config();
 const compression = require('compression');
 const express = require('express');
 const path = require('path');
-const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
 const exphbs = require('express-handlebars');
 const i18n = require('i18n');
 const url = require('url');
+const log4js = require('log4js');
 
 const { objectToUrl } = require('./lib/modules/url');
 
@@ -17,9 +17,27 @@ const index = require('./routes/index');
 const results = require('./routes/results');
 const vacancyDetails = require('./routes/vacancy');
 const apply = require('./routes/apply');
+const privacyPolicy = require('./routes/privacyPolicy');
+const cookies = require('./routes/cookies');
+
+// configure logging
+log4js.configure({
+    appenders: {
+        everything: { type: 'file', filename: 'logs/info.log', backups: 10, maxLogSize: 10485760 },
+        issues: { type: 'file', filename: 'logs/errors.log', backups: 10, maxLogSize: 10485760 },
+        'just-errors': { type: 'logLevelFilter', appender: 'issues', level: 'error' }
+    },
+    categories: {
+        default: { appenders: ['just-errors', 'everything'], level: 'debug' }
+    }
+});
+const logger = log4js.getLogger();
 
 const app = express();
-app.use(compression());
+app.use(log4js.connectLogger(logger, {
+    level: 'auto',
+    nolog: ["\\.jpg$", "\\.png", "\\.gif", "\\.css", "\\.js", "\\.ico"]
+}));
 
 // scss compilation middleware
 app.use(
@@ -33,7 +51,7 @@ app.use(
     })
 );
 
-app.use(logger('dev'));
+app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -57,6 +75,7 @@ const hbs = exphbs.create({
   layoutsDir: __dirname + '/views/',
   helpers: {
     compare: function(a, b, block) { return a === b ? block.fn(this) : block.inverse(this) }, // compare one value with another
+    inArray: function(arr = [], b, block) { return arr.includes(b.toString()) ? block.fn(this) : block.inverse(this) }
   }
 });
 
@@ -103,23 +122,13 @@ app.use('/', index);
 app.use('/results', results);
 app.use('/job', vacancyDetails);
 app.use('/apply', apply);
+app.use('/privacy-policy', privacyPolicy);
+app.use('/cookies', cookies);
 
-// catch 404 and forward to error handler
-app.use((req, res, next) => {
-  let err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
-// error handler
-app.use((err, req, res) => {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+// catch 404 and log error
+app.use((req, res) => {
+    logger.error(`404 Not Found "${req.method} ${req.originalUrl} 404" "${req.headers['user-agent']}"`);
+    res.render('pages/errors/notFound', {});
 });
 
 module.exports = app;
