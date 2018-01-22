@@ -31,6 +31,13 @@ router.get('/', async function(req, res) {
       vacancies.number
   );
 
+  // if only one department selected, we get department filters
+  // as a string rather than an array so we need to convert it
+  // to stop the filters blowing up
+  if(typeof filters.depts === 'string') {
+      filters.depts = [filters.depts];
+  }
+
   res.render('pages/results', {
       results: formatResultData(vacancies.content, logos),
       filters,
