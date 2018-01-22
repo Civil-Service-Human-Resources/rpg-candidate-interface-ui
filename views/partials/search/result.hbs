@@ -3,7 +3,15 @@
 
         <div class="job-search__item-first">
             <div class="job-search__item-image">
+
+                {{#if department.hasLogo }}
                 <img src="/images/logos/department/{{ department.id }}.gif" alt="{{ department.name }}" />
+                {{/if}}
+
+                {{#unless department.hasLogo }}
+                    {{ department.name }}
+                {{/unless}}
+
             </div>
         </div>
 

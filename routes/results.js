@@ -4,7 +4,7 @@ const url = require('url');
 
 const Pager = require('../lib/modules/pagination');
 const { fetchVacancyList, formatResultData } = require('../lib/modules/vacancy');
-const { fetchDepartmentList } = require('../lib/modules/department');
+const { fetchDepartmentList, getDepartmentLogos } = require('../lib/modules/department');
 const { removeUrlParameter } = require('../lib/modules/url');
 
 /* GET results page. */
@@ -15,6 +15,10 @@ router.get('/', async function(req, res) {
 
   const departments = await fetchDepartmentList();
   const vacancies = await fetchVacancyList(filters);
+
+  // grabbing logos directory to check existance of logo file. Temporary until future story
+  // changing to CDN based file storage
+  const logos = getDepartmentLogos();
 
   const pagerOptions = Pager(
       vacancies.totalPages,
@@ -28,7 +32,7 @@ router.get('/', async function(req, res) {
   );
 
   res.render('pages/results', {
-      results: formatResultData(vacancies.content),
+      results: formatResultData(vacancies.content, logos),
       filters,
       departments: departments.content,
       returnUrl: queryString,
