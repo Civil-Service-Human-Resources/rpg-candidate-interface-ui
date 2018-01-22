@@ -47,6 +47,11 @@
         margin-bottom: $gutter-half;
     }
 
+    &__item-image {
+        height: auto;
+        max-width: 100px;
+    }
+
     &__item-attributes {
         li {
             margin-bottom: $gutter-half;
