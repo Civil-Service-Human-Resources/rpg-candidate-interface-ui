@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const url = require('url');
 
-const { fetchVacancyDetails, generateReturnURL } = require('../lib/modules/vacancy');
-const { getDepartmentLogos, doesDepartmentLogoExist } = require('../lib/modules/department');
+const { fetchVacancyDetails, generateReturnURL, formatVacancyData } = require('../lib/modules/vacancy');
+const { getDepartmentLogos } = require('../lib/modules/department');
 
 /* GET vacancy details page. */
 router.get('/details/:id', function(req, res) {
@@ -12,14 +12,11 @@ router.get('/details/:id', function(req, res) {
     const logos = getDepartmentLogos();
 
     try {
-        fetchVacancyDetails(id).then(data => {
-            data.department['hasLogo'] = doesDepartmentLogoExist(`${ data.department.id }.gif`, logos);
-
+        fetchVacancyDetails(id).then(data =>
             res.render('pages/vacancy/details', {
-                vacancy: data,
+                vacancy: formatVacancyData(data, logos),
                 returnUrl: generateReturnURL(query_string)
-            })
-        });
+            }));
         
     } catch(e) {
         // need to do unhappy path
