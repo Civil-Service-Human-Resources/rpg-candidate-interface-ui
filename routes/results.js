@@ -3,7 +3,7 @@ const router = express.Router();
 const url = require('url');
 
 const Pager = require('../lib/modules/pagination');
-const { fetchVacancyList, formatResultData } = require('../lib/modules/vacancy');
+const { fetchVacancyList, formatResultsData } = require('../lib/modules/vacancy');
 const { fetchDepartmentList, getDepartmentLogos } = require('../lib/modules/department');
 const { removeUrlParameter } = require('../lib/modules/url');
 
@@ -32,7 +32,7 @@ router.get('/', async function(req, res) {
   );
 
   res.render('pages/results', {
-      results: formatResultData(vacancies.content, logos),
+      results: formatResultsData(vacancies.content, logos),
       filters,
       departments: departments.content,
       returnUrl: queryString,
