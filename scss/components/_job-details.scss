@@ -4,25 +4,31 @@
 
     &__title {
         @include bold-36;
-        float: left;
         margin-bottom: 0;
-        width: 75%;
+
+        @include media(tablet) {
+            float: left;
+
+            width: 75%;
+        }
 
         small {
             @include core-24;
             color: $grey-1;
+            clear: both;
             display: block;
         }
     }
 
     &__image {
-        float: right;
-        height: auto;
-        margin-top: 15px;
+        display: none;
         max-width: 100px;
 
         @include media(tablet) {
-            margin-top: 25px;
+            display: block;
+            float: right;
+            height: auto;
+            margin-top: 15px;
         }
     }
 
