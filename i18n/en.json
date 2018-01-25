@@ -30,8 +30,8 @@
 			"updateResults": "Update results"
 		},
 		"messages": {
-			"submissionErrorMsg": "Message to alert the user to a problem goes here",
-			"locationRequired": "Location is a required field"
+			"submissionErrorMsg": "There is an error on the page",
+			"locationRequired": "You need to enter a location"
 		}
 	},
 	"home": {

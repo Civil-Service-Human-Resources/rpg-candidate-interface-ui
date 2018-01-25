@@ -30,8 +30,8 @@
 			"updateResults": "Y canlyniadau diweddaraf"
 		},
 		"messages": {
-			"submissionErrorMsg": "Mae neges i rybuddio'r defnyddiwr i broblem yn mynd yma",
-			"locationRequired": "Mae lleoliad yn faes gofynnol"
+			"submissionErrorMsg": "Mae gwall ar y dudalen",
+			"locationRequired": "Mae angen i chi fynd i mewn i leoliad"
 		}
 	},
 	"home": {
