@@ -19,17 +19,17 @@ router.get('/', async function(req, res) {
   // grabbing logos directory to check existance of logo file. Temporary until future story
   // changing to CDN based file storage
   const logos = getDepartmentLogos();
-
-  const pagerOptions = Pager(
-      vacancies.totalPages,
-      vacancies.first,
-      vacancies.last,
-      vacancies.totalElements,
-      vacancies.numberOfElements,
-      pagerUrl,
-      vacancies.size,
-      vacancies.number
-  );
+  const pager = {
+      showSummary: true,
+      totalResults: vacancies.totalElements,
+      totalPages: vacancies.totalPages,
+      currentPage: vacancies.number + 1,
+      prevPage: vacancies.number,
+      nextPage: vacancies.number + 2,
+      firstPage: vacancies.first,
+      lastPage: vacancies.last,
+      url: pagerUrl
+  };
 
   // if only one department selected, we get department filters
   // as a string rather than an array so we need to convert it
@@ -43,7 +43,7 @@ router.get('/', async function(req, res) {
       filters,
       departments: departments.content,
       returnUrl: queryString,
-      pager: pagerOptions
+      pager: vacancies.totalPages > 1 ? pager : false
   });
   
 });

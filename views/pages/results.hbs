@@ -17,7 +17,7 @@
 
             <h2 class="sr-only">{{__ 'results.page.yourResults' }}</h2>
 
-            <p class="job-search__total-results"><strong id="search-results-total">{{ pager.totalItems }}</strong> {{__n 'results.page.totalJobsFoundPlural' 'results.page.totalJobsFoundSingular' pager.totalItems }}</p>
+            <p class="job-search__total-results"><strong id="search-results-total">{{ pager.totalResults }}</strong> {{__n 'results.page.totalJobsFoundPlural' 'results.page.totalJobsFoundSingular' pager.totalResults }}</p>
 
             {{#if results}}
                 {{> search/results items=results }}
