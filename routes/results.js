@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const url = require('url');
 
-const Pager = require('../lib/modules/pagination');
 const { fetchVacancyList, formatResultsData } = require('../lib/modules/vacancy');
 const { fetchDepartmentList, getDepartmentLogos } = require('../lib/modules/department');
 const { removeUrlParameter } = require('../lib/modules/url');
