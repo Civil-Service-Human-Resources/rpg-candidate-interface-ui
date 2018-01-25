@@ -27,7 +27,7 @@
 		"buttons": {
 			"apply": "Apply",
 			"search": "Search",
-			"refine": "Refine"
+			"updateResults": "Update results"
 		},
 		"messages": {
 			"submissionErrorMsg": "Message to alert the user to a problem goes here",
