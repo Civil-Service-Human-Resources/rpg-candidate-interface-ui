@@ -15,11 +15,12 @@ router.get('/', async function(req, res) {
   const departments = await fetchDepartmentList();
   const vacancies = await fetchVacancyList(filters);
 
+
+
   // grabbing logos directory to check existance of logo file. Temporary until future story
   // changing to CDN based file storage
   const logos = getDepartmentLogos();
   const pager = {
-      showSummary: true,
       totalResults: vacancies.totalElements,
       totalPages: vacancies.totalPages,
       currentPage: vacancies.number + 1,
@@ -42,7 +43,7 @@ router.get('/', async function(req, res) {
       filters,
       departments: departments.content,
       returnUrl: queryString,
-      pager: vacancies.totalPages > 1 ? pager : false
+      pager
   });
   
 });
