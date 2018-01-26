@@ -14,34 +14,29 @@
     currentPage: <integer> - page number of current page
     nextPage: <integer> - page number of next page
 --}}
+
 <nav class="pagination" aria-label="Pagination">
 
-    {{#if showSummary}}
-        <p class="pagination__summary">Showing {{ startItemNumber }} - {{ endItemNumber }} of {{ totalItems }} results</p>
-    {{/if }}
+    <ul class="pagination__list">
 
-    {{#if showPager }}
-        <ul class="pagination__list">
+        {{#unless firstPage }}
+            <li class="pagination__list-item pagination__list-item--prev">
+                <a href="{{ url }}&page={{ prevPage }}" aria-label="Go to previous page">
+                    <i class="icon ion-chevron-left" aria-hidden="true"></i>
+                    Previous <span class="pagination__hide-mobile">page</span> <span class="pagination__page-label">{{ prevPage }} of {{ totalPages }}</span>
+                </a>
+            </li>
+        {{/unless }}
 
-            {{#unless isFirstPage }}
-                <li class="pagination__list-item">
-                    <a href="{{ url }}&page={{ prevPage }}" aria-label="Go to previous page">Prev</a>
-                </li>
-            {{/unless }}
+        {{#unless lastPage }}
+            <li class="pagination__list-item pagination__list-item--next">
+                <a href="{{ url }}&page={{ nextPage }}" aria-label="Go to next page">
+                    <i class="icon ion-chevron-right" aria-hidden="true"></i>
+                    Next <span class="pagination__hide-mobile">page</span> <span class="pagination__page-label">{{ nextPage }} of {{ totalPages }}</span>
+                </a>
+            </li>
+        {{/unless }}
 
-            {{#each pageArray }}
-                <li class="pagination__list-item{{#compare this ../currentPage }} pagination__list-item--current{{/compare}}">
-                    <a href="{{ ../url }}&page={{ this }}" aria-label="Go to page {{ this }}"{{#compare this ../currentPage }} aria-current="true"{{/compare}}>{{ this }}</a>
-                </li>
-            {{/each }}
-
-            {{#unless isLastPage }}
-                <li class="pagination__list-item">
-                    <a href="{{ url }}&page={{ nextPage }}" aria-label="Go to next page">Next</a>
-                </li>
-            {{/unless }}
-
-        </ul>
-    {{/if }}
+    </ul>
 
 </nav>
