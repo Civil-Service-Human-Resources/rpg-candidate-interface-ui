@@ -28,11 +28,9 @@
                     <div class="job-search__rpp">
                         <label for="rpp">Results to display</label>
                         <select name="size" id="rpp" class="form-control form-control--width-auto js-submitOnChange">
-                            <option value="5" {{#compare '5' filters.size }} selected{{/compare}}>5 per page</option>
-                            <option value="10" {{#compare '10' filters.size }} selected{{/compare}}>10 per page</option>
-                            <option value="15" {{#compare '15' filters.size }} selected{{/compare}}>15 per page</option>
-                            <option value="20" {{#compare '20' filters.size }} selected{{/compare}}>20 per page</option>
-                            <option value="all" {{#compare 'all' filters.size }} selected{{/compare}}>All</option>
+                            {{#each rrp }}
+                                <option value={{ this.value }} {{#compare this.value ../filters.size}} selected{{/compare}}>{{ this.label }}</option>
+                            {{/each}}
                         </select>
                         <input type="submit" class="button" value="GO">
                     </div>

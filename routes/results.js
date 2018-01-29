@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const url = require('url');
 
-const { fetchVacancyList, formatResultsData } = require('../lib/modules/vacancy');
+const { fetchVacancyList, formatResultsData, RESULTS_PER_PAGE_OPTIONS } = require('../lib/modules/vacancy');
 const { fetchDepartmentList, getDepartmentLogos } = require('../lib/modules/department');
 const { removeUrlParameter } = require('../lib/modules/url');
 
@@ -12,9 +12,16 @@ router.get('/', async function(req, res) {
   const queryString = url.parse(req.url).query;
   const pagerUrl = `/results?${ removeUrlParameter(queryString, 'page') }`;
 
+  const cookieRpp = req.cookies.resultsPerPage;
+
+  if(filters.size) {
+     res.cookie('resultsPerPage', filters.size);
+  } else {
+      filters['size'] = cookieRpp ? cookieRpp : 8;
+  }
+
   const departments = await fetchDepartmentList();
   const vacancies = await fetchVacancyList(filters);
-
 
 
   // grabbing logos directory to check existance of logo file. Temporary until future story
@@ -43,7 +50,8 @@ router.get('/', async function(req, res) {
       filters,
       departments: departments.content,
       returnUrl: queryString,
-      pager
+      pager,
+      rrp: RESULTS_PER_PAGE_OPTIONS
   });
   
 });
