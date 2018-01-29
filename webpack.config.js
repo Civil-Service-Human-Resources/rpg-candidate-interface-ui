@@ -25,12 +25,6 @@ module.exports = {
             include: /\.min\.js$/,
             minimize: true
         })
-    ],
-
-    watch: true,
-
-    watchOptions: {
-        ignored: /node_modules/
-    }
+    ]
 
 };

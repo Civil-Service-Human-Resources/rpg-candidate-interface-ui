@@ -1,5 +1,4 @@
-const $ = require('jquery');
-
-$('.js-submitOnChange').on('change', function() {
-    $(this).parents('form').submit();
+var rppSelect = document.getElementById('rpp');
+rppSelect.addEventListener('change', function (event) {
+   event.target.form.submit();
 });
