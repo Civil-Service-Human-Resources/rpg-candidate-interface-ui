@@ -79,7 +79,7 @@
     }
 
     &__filters {
-        @include grid-column(2/7, $full-width: tablet, $float: left);
+        @include grid-column(2/7, $full-width: tablet);
         padding-top: 5px;
     }
 
@@ -90,7 +90,7 @@
     }
 
     &__results-list-container {
-        @include grid-column(5/7, $full-width: tablet, $float: right);
+        @include grid-column(5/7, $full-width: tablet);
     }
 
     &__rpp {
