@@ -13,29 +13,43 @@
 
     <div class="job-search__results-container">
 
-        <div class="job-search__results-list-container">
+        <form method="GET" action="/results">
 
-            <h2 class="sr-only">{{__ 'results.page.yourResults' }}</h2>
+            <div class="job-search__results-list-container">
 
-            <p class="job-search__total-results"><strong id="search-results-total">{{ pager.totalResults }}</strong> {{__n 'results.page.totalJobsFoundPlural' 'results.page.totalJobsFoundSingular' pager.totalResults }}</p>
+                <h2 class="sr-only">{{__ 'results.page.yourResults' }}</h2>
 
-            {{#if results}}
-                {{> search/results items=results }}
-                {{> pagination/pagination pager }}
-            {{/if}}
+                <p class="job-search__total-results"><strong id="search-results-total">{{ pager.totalResults }}</strong> {{__n 'results.page.totalJobsFoundPlural' 'results.page.totalJobsFoundSingular' pager.totalResults }}</p>
 
-            {{#unless results}}
-            <div class="job-search__no-results">
-                <p>{{__ 'results.page.noResultsText1' }} - <a href="/">{{__ 'results.page.noResultsText2' }}</a>.</p>
+                {{#if results}}
+                    {{> search/results items=results }}
+                    {{> pagination/pagination pager }}
+
+                    <div class="job-search__rpp">
+                        <label for="rpp">Results to display</label>
+                        <select name="size" id="rpp" class="form-control form-control--width-auto js-submitOnChange">
+                            {{#each rrp }}
+                                <option value={{ this.value }} {{#compare this.value ../filters.size}} selected{{/compare}}>{{ this.label }}</option>
+                            {{/each}}
+                        </select>
+                        <input type="submit" class="button" value="GO">
+                    </div>
+                {{/if}}
+
+                {{#unless results}}
+                <div class="job-search__no-results">
+                    <p>{{__ 'results.page.noResultsText1' }} - <a href="/">{{__ 'results.page.noResultsText2' }}</a>.</p>
+                </div>
+                {{/unless}}
+
             </div>
-            {{/unless}}
 
-        </div>
+            <div class="job-search__filters">
+                <h2 class="job-search__filters-title">{{__ 'results.page.filterResultsTitle' }}</h2>
+                {{> search/filter filters=filters departments=departments }}
+            </div>
 
-        <div class="job-search__filters">
-            <h2 class="job-search__filters-title">{{__ 'results.page.filterResultsTitle' }}</h2>
-            {{> search/filter filters=filters departments=departments }}
-        </div>
+        </form>
 
     </div>
 
