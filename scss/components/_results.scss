@@ -92,4 +92,23 @@
     &__results-list-container {
         @include grid-column(5/7, $full-width: tablet, $float: right);
     }
+
+    &__rpp {
+        @include clearfix;
+        margin-bottom: $gutter;
+        padding-top: $gutter-half;
+        text-align: center;
+
+        label,
+        select,
+        input {
+            display: inline-block;
+            margin: 0;
+            vertical-align: middle;
+        }
+    }
+}
+
+.js .job-search__rpp .button {
+    display: none;
 }
