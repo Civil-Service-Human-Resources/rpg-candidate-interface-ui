@@ -15,6 +15,11 @@
 
         <form method="GET" action="/results">
 
+            <div class="job-search__filters">
+                <h2 class="job-search__filters-title">{{__ 'results.page.filterResultsTitle' }}</h2>
+                {{> search/filter filters=filters departments=departments }}
+            </div>
+
             <div class="job-search__results-list-container">
 
                 <h2 class="sr-only">{{__ 'results.page.yourResults' }}</h2>
@@ -42,11 +47,6 @@
                 </div>
                 {{/unless}}
 
-            </div>
-
-            <div class="job-search__filters">
-                <h2 class="job-search__filters-title">{{__ 'results.page.filterResultsTitle' }}</h2>
-                {{> search/filter filters=filters departments=departments }}
             </div>
 
         </form>

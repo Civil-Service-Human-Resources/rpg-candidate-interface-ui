@@ -65,16 +65,13 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(1);
-
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports) {
 
-
+var rppSelect = document.getElementById('rpp');
+rppSelect.addEventListener('change', function (event) {
+   event.target.form.submit();
+});
 
 /***/ })
 /******/ ]);
+//# sourceMappingURL=bundle.js.map
