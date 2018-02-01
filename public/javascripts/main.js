@@ -1,9 +1,12 @@
 import ShowHide from '../javascripts/modules/showhide';
 
 var rppSelect = document.getElementById('rpp');
-rppSelect.addEventListener('change', function (event) {
-   event.target.form.submit();
-});
+
+if(rppSelect) {
+    rppSelect.addEventListener('change', function (event) {
+        event.target.form.submit();
+    });
+}
 
 
 const showHideElements = document.getElementsByClassName('js-showhide');
