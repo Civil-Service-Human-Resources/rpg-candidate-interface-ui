@@ -1,5 +1,9 @@
 <h1 class="heading-xlarge">{{__ 'results.page.title' }}</h1>
 
+{{> messages/error
+        errorMsg='global.messages.submissionErrorMsg'
+        errors=errors }}
+
 <p class="job-search__total-results"><strong id="search-results-total">{{ pager.totalResults }}</strong> {{__n 'results.page.totalJobsFoundPlural' 'results.page.totalJobsFoundSingular' pager.totalResults }}</p>
 
 <div class="job-search">
@@ -12,7 +16,7 @@
                 <h2 class="job-search__filters-title">
                     <button class="js-showhide" data-showhide-target-id="filterShowHide">{{__ 'results.page.filterResultsTitle' }}</button>
                 </h2>
-                {{> search/filter filters=filters departments=departments }}
+                {{> search/filter filters=filters departments=departments errors=errors }}
             </div>
 
             <div class="job-search__results-list-container">
