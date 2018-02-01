@@ -6,6 +6,11 @@
     </div>
 
     <div class="form-group">
+        <label class="form-label-bold" for="location">{{__ 'global.labels.location' }}</label>
+        <input class="form-control" id="location" name="location" type="text" value="{{ filters.location }}">
+    </div>
+
+    <div class="form-group">
         <fieldset class="form-multicheckbox">
             <legend class="form-label">{{__ 'results.page.departments' }} ({{__ 'global.labels.optional' }})</legend>
 
@@ -31,7 +36,5 @@
     </div>
 
     <p><a href="/">{{__ 'results.page.startAgain' }}</a></p>
-
-    <input type="hidden" name="location" id="location" value="{{ filters.location }}">
 
 </div>
