@@ -49,6 +49,7 @@
 		"page": {
 			"title": "Search results",
 			"backToSearch": "Back to search",
+			"startAgain": "Start again",
 			"totalJobsFoundSingular": "job found",
 			"totalJobsFoundPlural": "jobs found",
 			"noResultsText1": "There are no results that match your query",
@@ -56,7 +57,7 @@
 			"filterResultsTitle": "Edit search options",
 			"jobSummary": "Job summary",
 			"yourResults": "Your search results",
-			"departments": "Department(s)"
+			"departments": "Department"
 		}
 	},
 	"vacancy": {

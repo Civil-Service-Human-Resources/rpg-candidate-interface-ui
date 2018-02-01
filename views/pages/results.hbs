@@ -1,13 +1,6 @@
-<div class="top-twocol">
-    <div class="top-twocol__first">
-        <h1 class="heading-xlarge">{{__ 'results.page.title' }}</h1>
-    </div>
-    {{#if results}}
-    <div class="top-twocol__last">
-        <p class="back-link"><a href="/">{{__ 'results.page.backToSearch' }}</a></p>
-    </div>
-    {{/if}}
-</div>
+<h1 class="heading-xlarge">{{__ 'results.page.title' }}</h1>
+
+<p class="job-search__total-results"><strong id="search-results-total">{{ pager.totalResults }}</strong> {{__n 'results.page.totalJobsFoundPlural' 'results.page.totalJobsFoundSingular' pager.totalResults }}</p>
 
 <div class="job-search">
 
@@ -16,15 +9,15 @@
         <form method="GET" action="/results">
 
             <div class="job-search__filters">
-                <h2 class="job-search__filters-title">{{__ 'results.page.filterResultsTitle' }}</h2>
+                <h2 class="job-search__filters-title">
+                    <button class="js-showhide" data-showhide-target-id="filterShowHide">{{__ 'results.page.filterResultsTitle' }}</button>
+                </h2>
                 {{> search/filter filters=filters departments=departments }}
             </div>
 
             <div class="job-search__results-list-container">
 
                 <h2 class="sr-only">{{__ 'results.page.yourResults' }}</h2>
-
-                <p class="job-search__total-results"><strong id="search-results-total">{{ pager.totalResults }}</strong> {{__n 'results.page.totalJobsFoundPlural' 'results.page.totalJobsFoundSingular' pager.totalResults }}</p>
 
                 {{#if results}}
                     {{> search/results items=results }}

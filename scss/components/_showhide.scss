@@ -1,0 +1,15 @@
+.js-showhide--initialized {
+    color: $govuk-blue !important;
+    cursor: pointer !important;
+    text-decoration: underline !important;
+
+    &:focus,
+    &:active {
+        outline: 3px solid $yellow;
+        outline-offset: 0;
+    }
+}
+
+.js-hidden {
+    display: none;
+}

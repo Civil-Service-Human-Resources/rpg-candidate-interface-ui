@@ -3,6 +3,12 @@
         @include bold-19;
         margin: 0;
 
+        @include media(tablet) {
+            float: right;
+
+            width: calc(75% - 40px);
+        }
+
         strong {
             font-size: 24px;
             margin-right: 2px;
@@ -48,8 +54,11 @@
     }
 
     &__item-image {
-        height: auto;
-        max-width: 100px;
+
+        img {
+            height: auto;
+            max-width: 100px;
+        }
     }
 
     &__item-attributes {
@@ -87,6 +96,16 @@
         @include bold-19;
         line-height: 31px;
         margin: 0 0 1px;
+
+        button {
+            all: inherit;
+
+            i {
+                margin: 0 5px;
+                position: relative;
+                top: 1px;
+            }
+        }
     }
 
     &__results-list-container {
