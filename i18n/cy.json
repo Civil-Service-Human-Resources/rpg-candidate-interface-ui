@@ -49,6 +49,7 @@
 		"page": {
 			"title": "Canlyniadau chwilio",
 			"backToSearch": "Yn ôl i'r chwiliad",
+			"startAgain": "Dechrau eto",
 			"totalJobsFoundSingular": "canfod y swydd",
 			"totalJobsFoundPlural": "swyddi a ganfuwyd",
 			"noResultsText1": "Nid oes unrhyw ganlyniadau sy'n cyfateb i'ch ymholiad",
@@ -56,7 +57,7 @@
 			"filterResultsTitle": "Golygu dewisiadau chwilio",
 			"jobSummary": "Crynodeb o'r swydd",
 			"yourResults": "Eich canlyniadau chwilio",
-			"departments": "Adran (au)"
+			"departments": "Adran"
 		}
 	},
 	"vacancy": {

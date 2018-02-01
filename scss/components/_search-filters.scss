@@ -1,7 +1,7 @@
 .search-filters {
     @include clearfix;
     background-color: $grey-3;
-    margin-bottom: $gutter-half;
+    margin-bottom: $gutter;
     padding: $gutter $gutter-half 0;
 
     .form-group {

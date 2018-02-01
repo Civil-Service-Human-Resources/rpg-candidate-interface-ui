@@ -25,6 +25,12 @@ module.exports = {
             include: /\.min\.js$/,
             minimize: true
         })
-    ]
+    ],
+
+    module: {
+        rules: [
+            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+        ]
+    }
 
 };
