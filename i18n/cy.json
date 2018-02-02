@@ -22,7 +22,8 @@
 			"responsibilities": "Cyfrifoldebau",
 			"eligibility": "Cymhwyster",
 			"keyword": "Keyword",
-			"optional": "dewisol"
+			"optional": "dewisol",
+			"within": "O fewn"
 		},
 		"buttons": {
 			"apply": "Gwneud cais",
@@ -31,7 +32,8 @@
 		},
 		"messages": {
 			"submissionErrorMsg": "Mae gwall ar y dudalen",
-			"locationRequired": "Mae angen i chi fynd i mewn i leoliad"
+			"locationRequired": "Mae angen i chi fynd i mewn i leoliad",
+			"invalidRadius": "Mae angen i chi nodi radiws dilys"
 		}
 	},
 	"home": {

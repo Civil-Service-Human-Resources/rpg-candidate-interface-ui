@@ -16,7 +16,12 @@
                 <h2 class="job-search__filters-title">
                     <button class="js-showhide" data-showhide-target-id="filterShowHide">{{__ 'results.page.filterResultsTitle' }}</button>
                 </h2>
-                {{> search/filter filters=filters departments=departments errors=errors }}
+                {{> search/filter
+                        filters=filters
+                        radiusOptions=radiusOptions
+                        radiusDefault=radiusDefault
+                        departments=departments
+                        errors=errors }}
             </div>
 
             <div class="job-search__results-list-container">
@@ -30,7 +35,7 @@
                     <div class="job-search__rpp">
                         <label for="rpp">Display results</label>
                         <select name="size" id="rpp" class="form-control form-control--width-auto js-submitOnChange">
-                            {{#each rrp }}
+                            {{#each rrpOptions }}
                                 <option value={{ this.value }} {{#compare this.value ../filters.size}} selected{{/compare}}>{{ this.label }}</option>
                             {{/each}}
                         </select>

@@ -15,6 +15,20 @@
         <input class="form-control{{#if errors.location }} form-control-error{{/if}}" id="location" name="location" type="text" value="{{ filters.location }}">
     </div>
 
+    <div class="form-group{{#if errors.radius }} form-group-error{{/if}}">
+        <label class="form-label-bold" for="radius">
+            <span class="form-label-bold">{{__ 'global.labels.within' }}</span>
+            {{#if errors.radius.msg }}
+                <span class="error-message">{{__ errors.radius.msg }}</span>
+            {{/if}}
+        </label>
+        <select name="radius" id="radius" class="form-control form-control--width-auto{{#if errors.radius }} form-control-error{{/if}}">
+            {{#each radiusOptions }}
+                <option value={{ this.value }}{{#compare this.value ../filters.radius }} selected{{/compare}}>{{ this.label }}</option>
+            {{/each}}
+        </select>
+    </div>
+
     <div class="form-group">
         <fieldset class="form-multicheckbox">
             <legend class="form-label">{{__ 'results.page.departments' }} ({{__ 'global.labels.optional' }})</legend>
