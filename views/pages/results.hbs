@@ -28,7 +28,7 @@
                     {{> pagination/pagination pager }}
 
                     <div class="job-search__rpp">
-                        <label for="rpp">Results to display</label>
+                        <label for="rpp">Display results</label>
                         <select name="size" id="rpp" class="form-control form-control--width-auto js-submitOnChange">
                             {{#each rrp }}
                                 <option value={{ this.value }} {{#compare this.value ../filters.size}} selected{{/compare}}>{{ this.label }}</option>
