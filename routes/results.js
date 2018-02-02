@@ -3,7 +3,10 @@ const router = express.Router();
 const url = require('url');
 const { check, validationResult } = require('express-validator/check');
 
-const {fetchVacancyList, formatResultsData, isResultsPerPageValid, RESULTS_PER_PAGE_OPTIONS, DEFAULT_RESULTS_PER_PAGE} = require('../lib/modules/vacancy');
+const {
+    fetchVacancyList, formatResultsData, isResultsPerPageValid, isRadiusValidOption,
+    RESULTS_PER_PAGE_OPTIONS, DEFAULT_RESULTS_PER_PAGE, LOCATION_RADIUS_OPTIONS, DEFAULT_LOCATION_RADIUS
+} = require('../lib/modules/vacancy');
 const {fetchDepartmentList, getDepartmentLogos} = require('../lib/modules/department');
 const {removeUrlParameter} = require('../lib/modules/url');
 
@@ -12,7 +15,14 @@ router.get('/', [
 
     check('location')
         .trim()
-        .isLength({min: 1}).withMessage('global.messages.locationRequired')
+        .isLength({min: 1})
+        .withMessage('global.messages.locationRequired'),
+
+    check('radius')
+        .trim()
+        .custom( value => value ? isRadiusValidOption(value) : true )
+        .withMessage('global.messages.invalidRadius')
+
 
 ], async function (req, res) {
     const queryString = url.parse(req.url).query;
@@ -40,6 +50,10 @@ router.get('/', [
     // if the request contains an invalid option set it to default
     if (!isResultsPerPageValid(filters.size)) {
         filters['size'] = DEFAULT_RESULTS_PER_PAGE;
+    }
+
+    if(!isRadiusValidOption(filters.radius)) {
+        filters['radius'] = DEFAULT_LOCATION_RADIUS;
     }
 
     const departments = await fetchDepartmentList();
@@ -73,7 +87,8 @@ router.get('/', [
         departments: departments.content,
         returnUrl: queryString,
         pager,
-        rrp: RESULTS_PER_PAGE_OPTIONS,
+        rrpOptions: RESULTS_PER_PAGE_OPTIONS,
+        radiusOptions: LOCATION_RADIUS_OPTIONS,
         errors: !validate.isEmpty() ? validate.mapped() : null
     });
 

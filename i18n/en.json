@@ -22,7 +22,8 @@
 			"responsibilities": "Responsibilities",
 			"eligibility": "Eligibility",
 			"keyword": "Keyword",
-			"optional": "optional"
+			"optional": "optional",
+			"within": "Within"
 		},
 		"buttons": {
 			"apply": "Apply",
@@ -31,7 +32,8 @@
 		},
 		"messages": {
 			"submissionErrorMsg": "There is an error on the page",
-			"locationRequired": "You need to enter a location"
+			"locationRequired": "You need to enter a location",
+			"invalidRadius": "You need to enter a valid radius"
 		}
 	},
 	"home": {
