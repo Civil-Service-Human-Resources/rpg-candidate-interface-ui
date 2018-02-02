@@ -55,8 +55,8 @@ router.get('/', [
         currentPage: vacancies.number + 1,
         prevPage: vacancies.number,
         nextPage: vacancies.number + 2,
-        firstPage: vacancies.first || true,
-        lastPage: vacancies.last || true,
+        firstPage: vacancies.first,
+        lastPage: vacancies.last,
         url: pagerUrl
     };
 
