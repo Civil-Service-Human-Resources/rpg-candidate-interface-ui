@@ -95,3 +95,8 @@
 .form-control--width-auto {
   width: auto;
 }
+
+.error-summary {
+  @include clearfix;
+  clear: both;
+}
