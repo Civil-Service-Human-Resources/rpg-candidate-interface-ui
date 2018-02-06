@@ -30,7 +30,7 @@ const logger = log4js.getLogger();
 const app = express();
 app.use(log4js.connectLogger(logger, {
     level: 'auto',
-    nolog: ["\\.jpg$", "\\.png", "\\.gif", "\\.css", "\\.js", "\\.ico"]
+    nolog: ['\\.jpg$', '\\.png', '\\.gif', '\\.css', '\\.js', '\\.ico']
 }));
 
 // scss compilation middleware
@@ -64,13 +64,17 @@ app.use(i18n.init);
 
 // handlebars configuration
 const hbs = exphbs.create({
-  extname: 'hbs',
-  defaultLayout: 'layout',
-  layoutsDir: __dirname + '/views/',
-  helpers: {
-    compare: function(a, b, block) { return a === b ? block.fn(this) : block.inverse(this) }, // compare one value with another
-    inArray: function(arr = [], b, block) { return arr.includes(b.toString()) ? block.fn(this) : block.inverse(this) }
-  }
+    extname: 'hbs',
+    defaultLayout: 'layout',
+    layoutsDir: __dirname + '/views/',
+    helpers: {
+        compare: function (a, b, block) {
+            return a === b ? block.fn(this) : block.inverse(this);
+        }, // compare one value with another
+        inArray: function (arr = [], b, block) {
+            return arr.includes(b.toString()) ? block.fn(this) : block.inverse(this);
+        }
+    }
 });
 
 app.use((req, res, next) => {
@@ -90,7 +94,7 @@ app.use((req, res, next) => {
 app.engine('hbs', hbs.engine);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-app.set("view options", { layout: false });
+app.set('view options', { layout: false });
 
 app.use((req, res, next) => {
     res.cookie('lang', res.getLocale());
