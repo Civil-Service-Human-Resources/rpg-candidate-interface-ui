@@ -3,11 +3,13 @@ module.exports = {
         "es6": true,
         "node": true
     },
-    "extends": "eslint:recommended",
+    "extends": "airbnb",
     "parserOptions": {
         "sourceType": "module"
     },
     "rules": {
+        "func-names": "off",
+        "no-underscore-dangle": "off",
         "indent": [
             "error",
             4
