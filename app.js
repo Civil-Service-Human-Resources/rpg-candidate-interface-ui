@@ -90,8 +90,8 @@ const hbs = exphbs.create({
 app.use((req, res, next) => {
     // I'm having to register these helpers here due to needing
     // to pass req as apply context otherwise translations don't work!
-    hbs.handlebars.registerHelper('__', ...args => i18n.__.apply(req, args));
-    hbs.handlebars.registerHelper('__n', ...args => i18n.__n.apply(req, args));
+    hbs.handlebars.registerHelper('__', (...args) => i18n.__.apply(req, args));
+    hbs.handlebars.registerHelper('__n', (...args) => i18n.__n.apply(req, args));
 
     return next();
 });
