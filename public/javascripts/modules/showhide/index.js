@@ -26,8 +26,6 @@ export default class ShowHide {
         this.el.addEventListener('click', event => this.handleClick(event));
         window.addEventListener('resize', debounce(this.checkBrowserWidth.bind(this), 100));
         document.addEventListener('keyup', event => {
-            event.preventDefault();
-            event.stopPropagation();
             if(event.target.classList.contains('js-showhide--initialized') && event.which === 13) {
                 this.handleClick(event);
                 return false;
