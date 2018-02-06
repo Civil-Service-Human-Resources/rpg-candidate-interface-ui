@@ -12,13 +12,7 @@ const url = require('url');
 const log4js = require('log4js');
 
 const { objectToUrl } = require('./lib/modules/url');
-
-const index = require('./routes/index');
-const results = require('./routes/results');
-const vacancyDetails = require('./routes/vacancy');
-const apply = require('./routes/apply');
-const privacyPolicy = require('./routes/privacyPolicy');
-const cookies = require('./routes/cookies');
+const routes = require('./routes');
 
 // configure logging
 log4js.configure({
@@ -118,12 +112,12 @@ app.use((req, res, next) => {
 });
 
 // parent routes
-app.use('/', index);
-app.use('/results', results);
-app.use('/job', vacancyDetails);
-app.use('/apply', apply);
-app.use('/privacy-policy', privacyPolicy);
-app.use('/cookies', cookies);
+app.use('/', routes.home);
+app.use('/results', routes.results);
+app.use('/job', routes.vacancyDetails);
+app.use('/apply', routes.apply);
+app.use('/privacy-policy', routes.privacyPolicy);
+app.use('/cookies', routes.cookies);
 
 // catch 404 and log error
 app.use((req, res) => {
