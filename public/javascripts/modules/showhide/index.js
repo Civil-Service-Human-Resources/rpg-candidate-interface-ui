@@ -82,8 +82,6 @@ export default class ShowHide {
     handleClick(event) {
         event.preventDefault();
 
-        debugger;
-
         // we only want to fire if the media query matches
         if(matchMedia(this.mediaQuery).matches) {
             const targetHidden = this.targetEl.classList.contains('js-hidden');
