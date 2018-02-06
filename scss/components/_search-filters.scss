@@ -18,4 +18,9 @@
     input.form-control {
         width: 100%;
     }
+
+    .form-label-bold,
+    .form-label {
+        @include bold-16;
+    }
 }
