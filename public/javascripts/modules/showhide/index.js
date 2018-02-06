@@ -71,6 +71,9 @@ export default class ShowHide {
         this.el.removeChild(this.iconEl);
         this.el.classList.remove('js-showhide--initialized');
         this.el.removeAttribute('aria-expanded');
+        this.el.removeAttribute('tabindex');
+        this.el.removeAttribute('role');
+        this.el.removeAttribute('aria-controls');
         this.targetEl.removeAttribute('aria-hidden');
         this.targetEl.classList.remove('js-hidden');
         this.initialized = false;
