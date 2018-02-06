@@ -31,9 +31,9 @@
 
     <div class="form-group">
         <fieldset class="form-multicheckbox">
-            <legend class="form-label">{{__ 'results.page.departments' }} ({{__ 'global.labels.optional' }})</legend>
+            <legend class="form-label js-showhide-field" data-showhide-target-id="department-list">{{__ 'results.page.departments' }} ({{__ 'global.labels.optional' }})</legend>
 
-            <div class="form-multicheckbox__list">
+            <div class="form-multicheckbox__list" id="department-list">
             {{#each departments }}
                 <div class="form-multicheckbox__item">
                     <input
