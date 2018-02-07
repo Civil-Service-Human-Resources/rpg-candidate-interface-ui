@@ -5,7 +5,8 @@
   "scripts": {
     "start": "webpack && node ./bin/www",
     "dev": "webpack && nodemon ./bin/www localhost 3000",
-    "test": "ava --verbose"
+    "test": "ava --verbose",
+    "pretest": "./node_modules/.bin/eslint **/*.js"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
