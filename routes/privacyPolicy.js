@@ -1,8 +1,9 @@
 const express = require('express');
+
 const router = express.Router();
 
 /* GET apply page. */
 router.get('/', (req, res) =>
-    res.render('pages/privacyPolicy', {}) );
+    res.render('pages/privacyPolicy', {}));
 
 module.exports = router;

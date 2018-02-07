@@ -12,44 +12,50 @@ const url = require('url');
 const log4js = require('log4js');
 
 const { objectToUrl } = require('./lib/modules/url');
-
-const index = require('./routes/index');
-const results = require('./routes/results');
-const vacancyDetails = require('./routes/vacancy');
-const apply = require('./routes/apply');
-const privacyPolicy = require('./routes/privacyPolicy');
-const cookies = require('./routes/cookies');
+const routes = require('./routes');
 
 // configure logging
 log4js.configure({
     appenders: {
-        everything: { type: 'file', filename: 'logs/info.log', backups: 10, maxLogSize: 10485760 },
-        issues: { type: 'file', filename: 'logs/errors.log', backups: 10, maxLogSize: 10485760 },
-        'just-errors': { type: 'logLevelFilter', appender: 'issues', level: 'error' }
+        everything: {
+            type: 'file',
+            filename: 'logs/info.log',
+            backups: 10,
+            maxLogSize: 10485760,
+        },
+        issues: {
+            type: 'file',
+            filename: 'logs/errors.log',
+            backups: 10,
+            maxLogSize: 10485760,
+        },
+        'just-errors': {
+            type: 'logLevelFilter',
+            appender: 'issues',
+            level: 'error',
+        },
     },
     categories: {
-        default: { appenders: ['just-errors', 'everything'], level: 'debug' }
-    }
+        default: { appenders: ['just-errors', 'everything'], level: 'debug' },
+    },
 });
 const logger = log4js.getLogger();
 
 const app = express();
 app.use(log4js.connectLogger(logger, {
     level: 'auto',
-    nolog: ["\\.jpg$", "\\.png", "\\.gif", "\\.css", "\\.js", "\\.ico"]
+    nolog: ['\\.jpg$', '\\.png', '\\.gif', '\\.css', '\\.js', '\\.ico'],
 }));
 
 // scss compilation middleware
-app.use(
-    sassMiddleware({
-        src: __dirname + '/scss',
-        dest: __dirname + '/public/stylesheets',
-        prefix: '/stylesheets',
-        outputStyle: 'compressed',
-        debug: true,
-        sourceMap: true
-    })
-);
+app.use(sassMiddleware({
+    src: `${__dirname}/scss`,
+    dest: `${__dirname}/public/stylesheets`,
+    prefix: '/stylesheets',
+    outputStyle: 'compressed',
+    debug: true,
+    sourceMap: true,
+}));
 
 app.use(compression());
 app.use(bodyParser.json());
@@ -63,40 +69,38 @@ i18n.configure({
     defaultLocale: 'en',
     cookie: 'lang',
     objectNotation: true,
-    directory: __dirname + '/i18n',
-    queryParameter: 'lang'
+    directory: `${__dirname}/i18n`,
+    queryParameter: 'lang',
 });
 app.use(i18n.init);
 
 // handlebars configuration
 const hbs = exphbs.create({
-  extname: 'hbs',
-  defaultLayout: 'layout',
-  layoutsDir: __dirname + '/views/',
-  helpers: {
-    compare: function(a, b, block) { return a === b ? block.fn(this) : block.inverse(this) }, // compare one value with another
-    inArray: function(arr = [], b, block) { return arr.includes(b.toString()) ? block.fn(this) : block.inverse(this) }
-  }
+    extname: 'hbs',
+    defaultLayout: 'layout',
+    layoutsDir: `${__dirname}/views/`,
+    helpers: {
+        compare: (a, b, block) =>
+            (a === b ? block.fn(this) : block.inverse(this)),
+        inArray: (arr = [], b, block) =>
+            (arr.includes(b.toString()) ? block.fn(this) : block.inverse(this)),
+    },
 });
 
 app.use((req, res, next) => {
     // I'm having to register these helpers here due to needing
     // to pass req as apply context otherwise translations don't work!
-    hbs.handlebars.registerHelper('__', function() {
-        return i18n.__.apply(req, arguments);
-    });
-    hbs.handlebars.registerHelper('__n', function() {
-        return i18n.__n.apply(req, arguments);
-    });
+    hbs.handlebars.registerHelper('__', (...args) => i18n.__.apply(req, args));
+    hbs.handlebars.registerHelper('__n', (...args) => i18n.__n.apply(req, args));
 
-    next();
+    return next();
 });
 
 // view engine setup
 app.engine('hbs', hbs.engine);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-app.set("view options", { layout: false });
+app.set('view options', { layout: false });
 
 app.use((req, res, next) => {
     res.cookie('lang', res.getLocale());
@@ -107,23 +111,23 @@ app.use((req, res, next) => {
 app.use((req, res, next) => {
     const params = url.parse(req.url, true).query;
 
-    if(params.lang) {
+    if (params.lang) {
         delete params.lang;
-        let newQueryString = objectToUrl(params, 'lang');
+        const newQueryString = objectToUrl(params, 'lang');
 
         return newQueryString !== '' ? res.redirect(`/?${newQueryString}`) : res.redirect(`/${newQueryString}`);
     }
 
-    next();
+    return next();
 });
 
 // parent routes
-app.use('/', index);
-app.use('/results', results);
-app.use('/job', vacancyDetails);
-app.use('/apply', apply);
-app.use('/privacy-policy', privacyPolicy);
-app.use('/cookies', cookies);
+app.use('/', routes.home);
+app.use('/results', routes.results);
+app.use('/job', routes.vacancyDetails);
+app.use('/apply', routes.apply);
+app.use('/privacy-policy', routes.privacyPolicy);
+app.use('/cookies', routes.cookies);
 
 // catch 404 and log error
 app.use((req, res) => {
