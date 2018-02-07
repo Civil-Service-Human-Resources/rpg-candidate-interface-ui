@@ -1,3 +1,6 @@
 node_modules/
 logs/
 public/javascripts/bundle.*
+bin/
+i18n/
+.circleci/

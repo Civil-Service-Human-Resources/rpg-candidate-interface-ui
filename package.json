@@ -6,8 +6,9 @@
     "start": "webpack && node ./bin/www",
     "dev": "webpack && nodemon ./bin/www localhost 3000",
     "test": "ava --verbose",
-    "pretest": "./node_modules/.bin/eslint **/*.js"
+    "lint": "./node_modules/.bin/eslint **/*.js"
   },
+  "pre-commit": ["lint"],
   "dependencies": {
     "body-parser": "~1.18.2",
     "compression": "^1.7.1",
@@ -44,6 +45,7 @@
     "eslint-plugin-react": "^7.6.1",
     "node-sass": "^4.7.2",
     "nodemon": "^1.12.6",
+    "pre-commit": "^1.2.2",
     "webpack": "^3.10.0"
   }
 }
