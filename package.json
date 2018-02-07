@@ -6,7 +6,7 @@
     "start": "webpack && node ./bin/www",
     "dev": "webpack && nodemon ./bin/www localhost 3000",
     "test": "ava --verbose",
-    "lint": "./node_modules/.bin/eslint **/*.js"
+    "lint": "./node_modules/.bin/eslint ./ --cache"
   },
   "pre-commit": ["lint"],
   "dependencies": {
