@@ -121,6 +121,18 @@ app.use((req, res, next) => {
     return next();
 });
 
+app.use((req, res, next) => {
+    const { cookieWarningSeen = false } = req.cookies;
+
+    if (!cookieWarningSeen) {
+        res.cookie('cookieWarningSeen', true);
+    }
+
+    res.locals.showCookieWarning = !cookieWarningSeen;
+
+    return next();
+});
+
 // parent routes
 app.use('/', routes.home);
 app.use('/results', routes.results);
