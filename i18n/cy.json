@@ -34,7 +34,8 @@
 			"submissionErrorMsg": "Mae gwall ar y dudalen",
 			"locationRequired": "Mae angen i chi fynd i mewn i leoliad",
 			"invalidRadius": "Mae angen i chi nodi radiws dilys"
-		}
+		},
+		"cookies": "Mae GOV.UK yn defnyddio cwcis i wneud y wefan yn symlach. <a href=\"/cookies\">Darganfyddwch fwy am gwcis</a>"
 	},
 	"home": {
 		"page": {
