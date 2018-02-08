@@ -125,7 +125,7 @@ app.use((req, res, next) => {
     const { cookieWarningSeen = false } = req.cookies;
 
     if (!cookieWarningSeen) {
-        res.cookie('cookieWarningSeen', true);
+        res.cookie('cookieWarningSeen', true, { maxAge: 2592000000 }); // 30 days in milliseconds
     }
 
     res.locals.showCookieWarning = !cookieWarningSeen;
