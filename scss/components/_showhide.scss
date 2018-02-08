@@ -5,7 +5,7 @@
 
     &:focus,
     &:active {
-        outline: 3px solid $yellow;
+        outline: 3px solid $yellow !important;
         outline-offset: 0;
     }
 }
