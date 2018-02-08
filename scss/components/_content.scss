@@ -31,11 +31,32 @@
 }
 
 .back-link {
-    @include media(tablet) {
-        text-align: center;
+    margin: 0 0 $gutter;
+
+    i {
+        margin-right: 10px;
+    }
+
+    a {
+        color: $black;
     }
 }
 
 .closing-date {
-    @include core-16;
+    @include core-14;
+    text-align: center;
+
+    .icon {
+        background-color: $black;
+        border-radius: 50%;
+        color: $white;
+        display: inline-block;
+        font-size: 11px;
+        height: 18px;
+        line-height: 20px;
+        margin: 0 8px 0 0;
+        padding: 0;
+        text-align: center;
+        width: 18px;
+    }
 }

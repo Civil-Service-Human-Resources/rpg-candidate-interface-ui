@@ -1,70 +1,79 @@
-<div class="job-details">
-    <div class="top-twocol job-details__top">
-        <div class="top-twocol__first">
 
-            <h1 class="heading-xlarge job-details__title">{{ vacancy.title }} <small>{{ vacancy.department.name }}</small></h1>
+<section class="job-details">
 
-            {{#if vacancy.department.hasLogo }}
-            <img class="job-details__image" src="/images/logos/department/{{ vacancy.department.id }}.gif" alt="{{ vacancy.department.name }}" />
-            {{/if}}
-
+    <header class="job-details__top">
+        <div class="job-details__summary">
+            <p class="back-link"><i class="icon ion-arrow-left-b" aria-hidden="true"></i><a href="{{returnUrl}}">{{__ 'vacancy.page.backToResults' }}</a></p>
+            <h1 class="job-details__title">{{ vacancy.title }} <small>{{ vacancy.department.name }}</small></h1>
         </div>
-        <div class="top-twocol__last">
-            <p class="back-link"><a href="{{returnUrl}}">{{__ 'vacancy.page.backToResults' }}</a></p>
-            <p class="closing-date">{{__ 'global.labels.closingDate' }}: {{ vacancy.closingDate }}</p>
+        <div class="job-details__logo">
+            {{#if vacancy.department.hasLogo }}
+                <img class="job-details__image" src="/images/logos/department/{{ vacancy.department.id }}.gif" alt="{{ vacancy.department.name }}" />
+            {{/if}}
+        </div>
+        <div class="job-details__apply">
+            <p class="closing-date"><i class="icon ion-alert" aria-hidden="true"></i>{{__ 'global.labels.closingDate' }}: {{ vacancy.closingDate }}</p>
             <a class="button button--block" href="/apply/{{vacancy.id}}" role="button">{{__ 'global.buttons.apply' }}</a>
         </div>
-    </div>
-    <hr />
-    <div class="job-details__bottom">
-        <div class="job-details__bottom-first">
-            <div class="job-details__key-points">
+    </header>
 
-                <div id="job-details-contact">
-                    <h2>{{__ 'global.labels.contactPoint' }}</h2>
-                    <p>
-                        <span id="job-details-contactname" aria-label="{{__ 'global.labels.name' }}">{{ vacancy.contactName }}</span><br />
-                        <span id="job-details-contactdept" aria-label="{{__ 'global.labels.department' }}">{{ vacancy.contactDepartment }}</span><br />
-                        <span id="job-details-contactemail" aria-label="{{__ 'global.labels.email' }}"><a href="mailto:{{ vacancy.contactEmail }}">{{ vacancy.contactEmail }}</a></span><br />
-                        <span id="job-details-contacttel" aria-label="{{__ 'global.labels.telephone' }}">{{ vacancy.contactTelephone }}</span>
-                    </p>
-                </div>
+    <section class="job-details__bottom">
 
-                {{#if vacancy.workingHours}}
-                <div id="job-details-workinghours">
-                    <h2>{{__ 'global.labels.workingHours' }}</h2>
-                    <p>{{ vacancy.workingHours }}</p>
-                </div>
-                {{/if}}
+        <section class="job-details__meta-box job-details__meta-box--key-facts">
+            <h2 class="job-details__meta-box-title text-addColon">{{__ 'vacancy.page.keyFacts' }}</h2>
 
-            </div>
-        </div>
-        <div class="job-details__bottom-last">
+            <ul class="job-details__key-facts-list">
+                {{#if vacancy.id}}<li><strong>{{__ 'global.labels.jobReference' }}</strong> {{ vacancy.id }}</li>{{/if}}
+                {{#if vacancy.salary}}<li><strong>{{__ 'global.labels.salaryBand' }}</strong> {{ vacancy.salary }}</li>{{/if}}
+                {{#if vacancy.workingHours}}<li><strong>{{__ 'global.labels.hours' }}</strong> {{ vacancy.workingHours }}</li>{{/if}}
+                {{#if vacancy.grade}}<li><strong>{{__ 'global.labels.jobGrade' }}</strong> {{ vacancy.grade }}</li>{{/if}}
+                {{#if vacancy.numberVacancies}}<li><strong>{{__ 'global.labels.numVacancies' }}</strong> {{ vacancy.numberVacancies }}</li>{{/if}}
+            </ul>
+        </section>
 
-            <div id="job-details-description">
-                <h2>{{__ 'global.labels.jobDesc' }}</h2>
+        <section class="job-details__content">
+            <h2>{{__ 'global.labels.jobDesc' }}</h2>
+
+            <div>
+                <h3 class="text-addColon">{{__ 'global.labels.description' }}</h3>
                 <p>{{ vacancy.description }}</p>
             </div>
 
             {{#if vacancy.responsibilities}}
-            <div id="job-details-responsibilities">
-                <h3>{{__ 'global.labels.responsibilities' }}</h3>
+            <div>
+                <h3 class="text-addColon">{{__ 'global.labels.responsibilities' }}</h3>
                 <p>{{ vacancy.responsibilities }}</p>
             </div>
             {{/if}}
 
             {{#if vacancy.eligibility}}
-            <div id="job-details-eligibility">
-                <h3>{{__ 'global.labels.eligibility' }}</h3>
-                <p>{{ vacancy.eligibility }}</p>
-            </div>
+                <div>
+                    <h3 class="text-addColon">{{__ 'global.labels.eligibility' }}</h3>
+                    <p>{{ vacancy.eligibility }}</p>
+                </div>
             {{/if}}
 
-            <div id="job-details-footer">
-                <p class="closing-date">{{__ 'global.labels.closingDate' }}: {{ vacancy.closingDate }}</p>
-                <p><a class="button" href="/apply/{{vacancy.id}}" role="button">{{__ 'global.buttons.apply' }}</a></p>
-            </div>
+        </section>
 
-        </div>
-    </div>
-</div>
+        <section class="job-details__meta-box job-details__meta-box--contact">
+            <div id="job-details-contact">
+                <h2 class="job-details__meta-box-title">{{__ 'global.labels.contactPoint' }}</h2>
+                <p>
+                    <span id="job-details-contactname" aria-label="{{__ 'global.labels.name' }}">{{ vacancy.contactName }}</span><br />
+                    <span id="job-details-contactdept" aria-label="{{__ 'global.labels.department' }}">{{ vacancy.contactDepartment }}</span><br />
+                    <span id="job-details-contactemail" class="text-wrap" aria-label="{{__ 'global.labels.email' }}"><a href="mailto:{{ vacancy.contactEmail }}">{{ vacancy.contactEmail }}</a></span><br />
+                    <span id="job-details-contacttel" aria-label="{{__ 'global.labels.telephone' }}">{{ vacancy.contactTelephone }}</span>
+                </p>
+            </div>
+        </section>
+
+        <section class="job-details__closure">
+            <div class="job-details__apply-inner">
+                <p class="closing-date"><i class="icon ion-alert" aria-hidden="true"></i>{{__ 'global.labels.closingDate' }}: {{ vacancy.closingDate }}</p>
+                <p><a class="button button--block" href="/apply/{{vacancy.id}}" role="button">{{__ 'global.buttons.apply' }}</a></p>
+            </div>
+        </section>
+
+    </section>
+
+</section>

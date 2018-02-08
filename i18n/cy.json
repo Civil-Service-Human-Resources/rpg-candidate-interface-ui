@@ -6,14 +6,18 @@
 			"betaLinkText": "darganfyddwch beth beta yn ei olygu"
 		},
 		"labels": {
-			"jobDesc": "Disgrifiad swydd",
+			"description": "Disgrifiad",
+			"jobDesc": "Crynodeb o'r cais",
+			"jobReference": "ID cyfeirnod swydd",
 			"numVacancies": "Nifer y swyddi gwag",
 			"location": "Lleoliad",
 			"salary": "Cyflog",
-			"jobGrade": "Gradd swydd",
+			"salaryBand": "Band cyflog",
+			"jobGrade": "Gradd",
 			"workingHours": "Oriau gweithio",
 			"closingDate": "Dyddiad cau",
 			"contactPoint": "Man cyswllt i ymgeiswyr",
+			"hours": "Oriau",
 			"name": "Enw",
 			"department": "Adran",
 			"email": "Cyfeiriad ebost",
@@ -72,7 +76,8 @@
 	},
 	"vacancy": {
 		"page": {
-			"backToResults": "Yn ôl i'r canlyniadau chwilio"
+			"backToResults": "Yn ôl i'r canlyniadau chwilio",
+			"keyFacts": "Ffeithiau allweddol"
 		}
 	},
 	"apply": {
