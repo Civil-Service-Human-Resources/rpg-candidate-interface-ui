@@ -23,7 +23,11 @@
 			"eligibility": "Cymhwyster",
 			"keyword": "Keyword",
 			"optional": "dewisol",
-			"within": "O fewn"
+			"within": "O fewn",
+			"minSalary": "Cyflogau min",
+			"maxSalary": "Cyflog uchaf",
+			"noMin": "Dim lleiafswm",
+			"noMax": "Dim uchafswm"
 		},
 		"buttons": {
 			"apply": "Gwneud cais",
@@ -33,7 +37,9 @@
 		"messages": {
 			"submissionErrorMsg": "Mae gwall ar y dudalen",
 			"locationRequired": "Mae angen i chi fynd i mewn i leoliad",
-			"invalidRadius": "Mae angen i chi nodi radiws dilys"
+			"invalidRadius": "Mae angen i chi nodi radiws dilys",
+			"invalidMinSalary": "Mae angen ichi roi cyflog min dilys",
+			"invalidMaxSalary": "Mae angen ichi roi cyflog llawn dilys"
 		},
 		"cookies": "Mae GOV.UK yn defnyddio cwcis i wneud y wefan yn symlach. <a href=\"/cookies\">Darganfyddwch fwy am gwcis</a>"
 	},
@@ -60,7 +66,8 @@
 			"filterResultsTitle": "Golygu chwiliad",
 			"jobSummary": "Crynodeb o'r swydd",
 			"yourResults": "Eich canlyniadau chwilio",
-			"departments": "Adran"
+			"departments": "Adran",
+			"aboveOneHundred": "Uwchlaw £100,000"
 		}
 	},
 	"vacancy": {

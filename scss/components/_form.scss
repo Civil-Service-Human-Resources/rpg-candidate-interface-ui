@@ -100,3 +100,15 @@
   @include clearfix;
   clear: both;
 }
+
+.form-subgroup {
+  background-color: #FFF;
+  border: 1px solid $grey-2;
+  border-left: 5px solid $grey-2;
+  padding: $gutter-half;
+  position: relative;
+
+  .form-group {
+    margin-bottom: $gutter-half;
+  }
+}

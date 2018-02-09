@@ -23,7 +23,11 @@
 			"eligibility": "Eligibility",
 			"keyword": "Keyword",
 			"optional": "optional",
-			"within": "Within"
+			"within": "Within",
+			"minSalary": "Min salary",
+			"maxSalary": "Max salary",
+			"noMin": "No minimum",
+			"noMax": "No maximum"
 		},
 		"buttons": {
 			"apply": "Apply",
@@ -33,7 +37,9 @@
 		"messages": {
 			"submissionErrorMsg": "There is an error on the page",
 			"locationRequired": "You need to enter a location",
-			"invalidRadius": "You need to enter a valid radius"
+			"invalidRadius": "You need to enter a valid radius",
+			"invalidMinSalary": "You need to enter a valid min salary",
+			"invalidMaxSalary": "You need to enter a valid max salary"
 		},
 		"cookies": "GOV.UK uses cookies to make the site simpler. <a href=\"/cookies\">Find out more about cookies</a>"
 	},
@@ -60,7 +66,8 @@
 			"filterResultsTitle": "Edit search",
 			"jobSummary": "Job summary",
 			"yourResults": "Your search results",
-			"departments": "Department"
+			"departments": "Department",
+			"aboveOneHundred": "Above £100,000"
 		}
 	},
 	"vacancy": {

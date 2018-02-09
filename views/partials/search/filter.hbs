@@ -29,7 +29,33 @@
         </select>
     </div>
 
-    <div class="form-group">
+    <div class="form-group form-group--collapsible">
+        <fieldset>
+            <legend class="form-label js-showhide-field" data-showhide-target-id="salary-options">{{__ 'global.labels.salary' }} ({{__ 'global.labels.optional' }})</legend>
+            <div class="form-subgroup" id="salary-options">
+                <div class="form-group">
+                    <label class="form-label-bold" for="minSalary">{{__ 'global.labels.minSalary' }} ({{__ 'global.labels.optional' }})</label>
+                    <select name="minSalary" id="minSalary" class="form-control">
+                        <option value="">{{__ 'global.labels.noMin' }}</option>
+                        {{#each salaryOptions.min }}
+                            <option value={{ value }}{{#compare value ../filters.minSalary }} selected{{/compare}}>{{ label }}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label-bold" for="maxSalary">{{__ 'global.labels.maxSalary' }} ({{__ 'global.labels.optional' }})</label>
+                    <select name="maxSalary" id="maxSalary" class="form-control">
+                        <option value="">{{__ 'global.labels.noMax' }}</option>
+                        {{#each salaryOptions.max }}
+                            <option value={{ value }}{{#compare value ../filters.maxSalary }} selected{{/compare}}>{{ label }}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="form-group form-group--collapsible">
         <fieldset class="form-multicheckbox">
             <legend class="form-label js-showhide-field" data-showhide-target-id="department-list">{{__ 'results.page.departments' }} ({{__ 'global.labels.optional' }})</legend>
 
