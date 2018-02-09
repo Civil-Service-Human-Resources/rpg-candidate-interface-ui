@@ -23,7 +23,7 @@
             <h2 class="job-details__meta-box-title text-addColon">{{__ 'vacancy.page.keyFacts' }}</h2>
 
             <ul class="job-details__key-facts-list">
-                {{#if vacancy.id}}<li><strong>{{__ 'global.labels.jobReference' }}</strong> {{ vacancy.id }}</li>{{/if}}
+                {{#if vacancy.identifier}}<li><strong>{{__ 'global.labels.identifier' }}</strong> {{ vacancy.identifier }}</li>{{/if}}
                 {{#if vacancy.salary}}<li><strong>{{__ 'global.labels.salaryBand' }}</strong> {{ vacancy.salary }}</li>{{/if}}
                 {{#if vacancy.workingHours}}<li><strong>{{__ 'global.labels.hours' }}</strong> {{ vacancy.workingHours }}</li>{{/if}}
                 {{#if vacancy.grade}}<li><strong>{{__ 'global.labels.jobGrade' }}</strong> {{ vacancy.grade }}</li>{{/if}}
