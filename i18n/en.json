@@ -37,7 +37,9 @@
 		"messages": {
 			"submissionErrorMsg": "There is an error on the page",
 			"locationRequired": "You need to enter a location",
-			"invalidRadius": "You need to enter a valid radius"
+			"invalidRadius": "You need to enter a valid radius",
+			"invalidMinSalary": "You need to enter a valid min salary",
+			"invalidMaxSalary": "You need to enter a valid max salary"
 		},
 		"cookies": "GOV.UK uses cookies to make the site simpler. <a href=\"/cookies\">Find out more about cookies</a>"
 	},

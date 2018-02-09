@@ -5,7 +5,9 @@ const { check, validationResult } = require('express-validator/check');
 const router = express.Router();
 
 const {
-    fetchVacancyList, formatResultsData, isResultsPerPageValid, isRadiusValidOption,
+    fetchVacancyList, formatResultsData,
+    isResultsPerPageValid, isRadiusValidOption,
+    isMinSalaryValidOption, isMaxSalaryValidOption,
     RESULTS_PER_PAGE_OPTIONS, DEFAULT_RESULTS_PER_PAGE,
     LOCATION_RADIUS_OPTIONS, DEFAULT_LOCATION_RADIUS,
     MIN_SALARY_OPTIONS, MAX_SALARY_OPTIONS,
@@ -26,6 +28,15 @@ router.get('/', [
         .custom(value => (value ? isRadiusValidOption(value) : true))
         .withMessage('global.messages.invalidRadius'),
 
+    check('minSalary')
+        .trim()
+        .custom(value => (value ? isMinSalaryValidOption(value) : true))
+        .withMessage('global.messages.invalidMinSalary'),
+
+    check('maxSalary')
+        .trim()
+        .custom(value => (value ? isMaxSalaryValidOption(value) : true))
+        .withMessage('global.messages.invalidMaxSalary'),
 
 ], async (req, res) => {
     const queryString = url.parse(req.url).query;

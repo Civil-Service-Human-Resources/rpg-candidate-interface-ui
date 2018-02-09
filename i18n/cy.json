@@ -37,7 +37,9 @@
 		"messages": {
 			"submissionErrorMsg": "Mae gwall ar y dudalen",
 			"locationRequired": "Mae angen i chi fynd i mewn i leoliad",
-			"invalidRadius": "Mae angen i chi nodi radiws dilys"
+			"invalidRadius": "Mae angen i chi nodi radiws dilys",
+			"invalidMinSalary": "Mae angen ichi roi cyflog min dilys",
+			"invalidMaxSalary": "Mae angen ichi roi cyflog llawn dilys"
 		},
 		"cookies": "Mae GOV.UK yn defnyddio cwcis i wneud y wefan yn symlach. <a href=\"/cookies\">Darganfyddwch fwy am gwcis</a>"
 	},
