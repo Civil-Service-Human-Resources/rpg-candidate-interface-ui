@@ -8,6 +8,7 @@ const {
     fetchVacancyList, formatResultsData, isResultsPerPageValid, isRadiusValidOption,
     RESULTS_PER_PAGE_OPTIONS, DEFAULT_RESULTS_PER_PAGE,
     LOCATION_RADIUS_OPTIONS, DEFAULT_LOCATION_RADIUS,
+    MIN_SALARY_OPTIONS, MAX_SALARY_OPTIONS,
 } = require('../lib/modules/vacancy');
 const { fetchDepartmentList, getDepartmentLogos } = require('../lib/modules/department');
 const { removeUrlParameter } = require('../lib/modules/url');
@@ -91,6 +92,10 @@ router.get('/', [
         pager,
         rrpOptions: RESULTS_PER_PAGE_OPTIONS,
         radiusOptions: LOCATION_RADIUS_OPTIONS,
+        salaryOptions: {
+            min: MIN_SALARY_OPTIONS,
+            max: MAX_SALARY_OPTIONS,
+        },
         errors: !validate.isEmpty() ? validate.mapped() : null,
     });
 });

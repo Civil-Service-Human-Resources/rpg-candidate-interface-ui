@@ -23,7 +23,11 @@
 			"eligibility": "Cymhwyster",
 			"keyword": "Keyword",
 			"optional": "dewisol",
-			"within": "O fewn"
+			"within": "O fewn",
+			"minSalary": "Cyflogau min",
+			"maxSalary": "Cyflog uchaf",
+			"noMin": "Dim lleiafswm",
+			"noMax": "Dim uchafswm"
 		},
 		"buttons": {
 			"apply": "Gwneud cais",
@@ -60,7 +64,8 @@
 			"filterResultsTitle": "Golygu chwiliad",
 			"jobSummary": "Crynodeb o'r swydd",
 			"yourResults": "Eich canlyniadau chwilio",
-			"departments": "Adran"
+			"departments": "Adran",
+			"aboveOneHundred": "Uwchlaw £100,000"
 		}
 	},
 	"vacancy": {

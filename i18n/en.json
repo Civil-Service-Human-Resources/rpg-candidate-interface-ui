@@ -23,7 +23,11 @@
 			"eligibility": "Eligibility",
 			"keyword": "Keyword",
 			"optional": "optional",
-			"within": "Within"
+			"within": "Within",
+			"minSalary": "Min salary",
+			"maxSalary": "Max salary",
+			"noMin": "No minimum",
+			"noMax": "No maximum"
 		},
 		"buttons": {
 			"apply": "Apply",
@@ -60,7 +64,8 @@
 			"filterResultsTitle": "Edit search",
 			"jobSummary": "Job summary",
 			"yourResults": "Your search results",
-			"departments": "Department"
+			"departments": "Department",
+			"aboveOneHundred": "Above £100,000"
 		}
 	},
 	"vacancy": {
