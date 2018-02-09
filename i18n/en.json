@@ -6,14 +6,18 @@
 			"betaLinkText": "find out what beta means"
 		},
 		"labels": {
-			"jobDesc": "Job description",
-			"numVacancies": "No. of jobs",
+			"description": "Description",
+			"jobDesc": "Application summary",
+			"jobReference": "Job reference ID",
+			"numVacancies": "Number of vacancies",
 			"location": "Location",
 			"salary": "Salary",
-			"jobGrade": "Job grade",
+			"salaryBand": "Salary band",
+			"jobGrade": "Grade",
 			"workingHours": "Working hours",
 			"closingDate": "Closing date",
 			"contactPoint": "Contact point for applicants",
+			"hours": "Hours",
 			"name": "Name",
 			"department": "Department",
 			"email": "Email address",
@@ -72,7 +76,8 @@
 	},
 	"vacancy": {
 		"page": {
-			"backToResults": "Back to search results"
+			"backToResults": "Back to search results",
+			"keyFacts": "Key facts"
 		}
 	},
 	"apply": {
