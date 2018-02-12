@@ -22,12 +22,20 @@ export default class ShowHide {
         this.checkBrowserWidth();
 
         this.el.addEventListener('click', event => this.handleClick(event));
+
         // eslint-disable-next-line no-undef
         window.addEventListener('resize', debounce(this.checkBrowserWidth.bind(this), 100));
+
         // eslint-disable-next-line no-undef
-        document.addEventListener('keyup', event =>
-            (event.target.classList.contains('js-showhide--initialized') && event.which === 13 ?
-                this.handleClick(event) : false));
+        document.addEventListener('keyup', (event) => {
+            // if we're hitting enter on a button, it registers a 'click' anyway
+            if (event.target.localName === 'button') return;
+
+            if (event.which === 13 && event.target === this.el) {
+                event.preventDefault();
+                this.handleClick(event);
+            }
+        });
     }
 
     checkBrowserWidth() {
