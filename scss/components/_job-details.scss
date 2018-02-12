@@ -4,7 +4,7 @@
 
     &__title {
         @include bold-36;
-        margin: 0;
+        margin: 0 0 $gutter-two-thirds;
 
         small {
             @include core-24;
@@ -13,6 +13,10 @@
             display: block;
             padding-top: $gutter-one-quarter;
         }
+    }
+
+    &__shortDesc {
+        margin-bottom: 0;
     }
 
     &__image {
