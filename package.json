@@ -12,10 +12,10 @@
     "lint"
   ],
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "body-parser": "~1.18.2",
     "compression": "^1.7.1",
     "cookie-parser": "~1.4.3",
-    "core-js": "^2.5.3",
     "debounce": "^1.1.0",
     "debug": "~2.6.9",
     "dotenv": "^4.0.0",

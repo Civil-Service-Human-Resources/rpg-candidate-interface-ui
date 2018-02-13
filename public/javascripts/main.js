@@ -1,4 +1,5 @@
-import 'core-js/fn/array/from';
+import 'babel-polyfill';
+import './polyfills-custom/dataset';
 import ShowHide from '../javascripts/modules/showhide';
 
 // eslint-disable-next-line no-undef

@@ -49,7 +49,7 @@ export default class ShowHide {
         if (this.initialized) return false;
 
         // set up open/close text element
-        this.el.classList.add('js-showhide--initialized');
+        this.el.className = this.addClass(this.el.className, 'js-showhide--initialized');
         this.el.setAttribute('aria-expanded', false);
         this.el.setAttribute('aria-controls', this.el.dataset.showhideTargetId);
         this.el.setAttribute('role', 'button');
@@ -69,7 +69,7 @@ export default class ShowHide {
         // retrieve details on target element
         // eslint-disable-next-line no-undef
         this.targetEl = document.getElementById(this.el.dataset.showhideTargetId);
-        this.targetEl.classList.add('js-hidden');
+        this.targetEl.className = this.addClass(this.targetEl.className, 'js-hidden');
         this.targetEl.setAttribute('aria-hidden', true);
 
         this.initialized = true;
@@ -81,30 +81,47 @@ export default class ShowHide {
         if (!this.initialized) return;
 
         this.el.removeChild(this.iconEl);
-        this.el.classList.remove('js-showhide--initialized');
+        this.el.className = this.removeClass(this.el.className, 'js-showhide--initialized');
         this.el.removeAttribute('aria-expanded');
         this.el.removeAttribute('tabindex');
         this.el.removeAttribute('role');
         this.el.removeAttribute('aria-controls');
         this.targetEl.removeAttribute('aria-hidden');
-        this.targetEl.classList.remove('js-hidden');
+        this.targetEl.className = this.removeClass(this.targetEl.className, 'js-hidden');
         this.initialized = false;
     }
 
     handleClick(event) {
         event.preventDefault();
-
         // we only want to fire if the media query matches
         if (matchMedia(this.mediaQuery).matches) { // eslint-disable-line no-undef
-            const targetHidden = this.targetEl.classList.contains('js-hidden');
+            const targetHidden = this.targetEl.className.indexOf('js-hidden');
 
             this.el.setAttribute('aria-expanded', targetHidden);
-            this.iconEl.classList.toggle(this.iconClassClosed);
-            this.iconEl.classList.toggle(this.iconClassOpen);
+            this.iconEl.className = this.toggleClass(this.iconEl.className, this.iconClassClosed);
+            this.iconEl.className = this.toggleClass(this.iconEl.className, this.iconClassOpen);
             this.targetEl.setAttribute('aria-hidden', !targetHidden);
-            this.targetEl.classList.toggle('js-hidden');
+            this.targetEl.className = this.toggleClass(this.targetEl.className, 'js-hidden');
         }
 
         return false;
+    }
+
+    // eslint-disable-next-line class-methods-use-this
+    addClass(classList, newClass) {
+        // having to use crappy way of adding class to keep IE happy :(
+        return `${classList} ${newClass}`;
+    }
+
+    // eslint-disable-next-line class-methods-use-this
+    removeClass(classList, removeClass) {
+        // having to use crappy way of adding class to keep IE happy :(
+        return classList.replace(removeClass);
+    }
+
+    toggleClass(classList, toggleClass) {
+        // having to use crappy way of toggling class to keep IE happy :(
+        return classList.indexOf(toggleClass) === -1 ?
+            this.addClass(classList, toggleClass) : this.removeClass(classList, toggleClass);
     }
 }
