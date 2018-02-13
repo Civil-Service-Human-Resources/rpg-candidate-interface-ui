@@ -35,10 +35,6 @@ jobs:
           command: docker tag cshr/rpg-candidate-interface-ui:${CIRCLE_WORKFLOW_ID} ${BINTRAY_URL}/rpg/rpg-candidate-interface-ui:${CIRCLE_WORKFLOW_ID}
 
       - run:
-          name: test get to URL
-          command: curl -vvv https://cshr-docker-rpg.bintray.io/v2/
-
-      - run:
           name: Push the images to Bintray
           command: docker push ${BINTRAY_URL}/rpg/rpg-candidate-interface-ui:${CIRCLE_WORKFLOW_ID}
 
