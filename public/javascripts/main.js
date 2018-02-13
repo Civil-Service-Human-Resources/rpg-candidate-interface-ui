@@ -1,3 +1,4 @@
+import 'core-js/fn/array/from';
 import ShowHide from '../javascripts/modules/showhide';
 
 // eslint-disable-next-line no-undef
