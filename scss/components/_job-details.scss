@@ -111,6 +111,11 @@
         margin-bottom: $gutter-half;
         padding: $gutter-half $gutter-half 0;
 
+        &--plain {
+            background-color: transparent;
+            border-color: transparent;
+        }
+
         &--key-facts {
             @include media(tablet) {
                 float: left;
@@ -174,6 +179,22 @@
                     content: ':';
                 }
             }
+        }
+    }
+
+    &__logos {
+        text-align: center;
+
+        @include media(tablet) {
+            clear: left;
+            float: left;
+            width: 33.3333%;
+        }
+
+        img {
+            max-width: 200px;
+            margin-bottom: 20px;
+            width: 100%;
         }
     }
 }
