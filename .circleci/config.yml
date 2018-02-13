@@ -106,7 +106,9 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - notify
+      - notify:
+          requires:
+          - build
       - ship:
           requires:
             - build
