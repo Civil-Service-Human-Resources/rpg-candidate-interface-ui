@@ -77,7 +77,11 @@
 	"vacancy": {
 		"page": {
 			"backToResults": "Back to search results",
-			"keyFacts": "Key facts"
+			"keyFacts": "Key facts",
+			"cscTitle": "Working for the Civil Service",
+			"cscBodyLine1": "The <a href=\"https://www.gov.uk/government/publications/civil-service-code/the-civil-service-code\">Civil Service Code</a> sets out the standards of behaviour expected of civil servants.",
+			"cscBodyLine2": "We recruit by merit on the basis of fair and open competition, as outlined in the Civil Service Commission's <a href=\"http://civilservicecommission.independent.gov.uk/civil-service-recruitment/\">recruitment principles</a>.",
+			"cscBodyLine3": "The Civil Service embraces diversity and promotes equality of opportunity. There is a guaranteed interview scheme (GIS) for candidates with disabilities who meet the minimum selection criteria."
 		}
 	},
 	"apply": {
