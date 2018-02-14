@@ -8,7 +8,7 @@
 		"labels": {
 			"description": "Description",
 			"jobDesc": "Application summary",
-			"jobReference": "Job reference ID",
+			"identifier": "Job reference ID",
 			"numVacancies": "Number of vacancies",
 			"location": "Location",
 			"salary": "Salary",

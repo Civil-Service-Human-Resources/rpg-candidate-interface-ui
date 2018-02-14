@@ -8,7 +8,7 @@
 		"labels": {
 			"description": "Disgrifiad",
 			"jobDesc": "Crynodeb o'r cais",
-			"jobReference": "ID cyfeirnod swydd",
+			"identifier": "ID cyfeirnod swydd",
 			"numVacancies": "Nifer y swyddi gwag",
 			"location": "Lleoliad",
 			"salary": "Cyflog",
