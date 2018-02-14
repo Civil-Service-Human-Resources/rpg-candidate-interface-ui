@@ -77,7 +77,11 @@
 	"vacancy": {
 		"page": {
 			"backToResults": "Yn ôl i'r canlyniadau chwilio",
-			"keyFacts": "Ffeithiau allweddol"
+			"keyFacts": "Ffeithiau allweddol",
+			"cscTitle": "Gweithio i'r Gwasanaeth Sifil",
+			"cscBodyLine1": "Mae'r <a href=\"https://www.gov.uk/government/publications/civil-service-code/the-civil-service-code\"> Cod y Gwasanaeth Sifil </a> yn nodi safonau ymddygiad Disgwylir gan weision sifil.",
+			"cscBodyLine2": "Rydym yn recriwtio yn ôl teilyngdod ar sail cystadleuaeth deg ac agored, fel yr amlinellir yn <a href=\"http://civilservicecommission.independent.gov.uk/civil-service-recruitment/\"> recriwtio egwyddorion recriwtio < / a>.",
+			"cscBodyLine3": "Mae'r Gwasanaeth Sifil yn ymgorffori amrywiaeth ac yn hyrwyddo cyfle cyfartal. Mae cynllun cyfweld gwarantedig (GIS) ar gyfer ymgeiswyr ag anableddau sy'n bodloni'r meini prawf dethol lleiaf."
 		}
 	},
 	"apply": {

@@ -45,10 +45,10 @@
             </div>
 
             {{#if vacancy.responsibilities}}
-            <div>
-                <h3 class="text-addColon">{{__ 'global.labels.responsibilities' }}</h3>
-                <p>{{ vacancy.responsibilities }}</p>
-            </div>
+                <div>
+                    <h3 class="text-addColon">{{__ 'global.labels.responsibilities' }}</h3>
+                    <p>{{ vacancy.responsibilities }}</p>
+                </div>
             {{/if}}
 
             {{#if vacancy.eligibility}}
@@ -56,6 +56,13 @@
                     <h3 class="text-addColon">{{__ 'global.labels.eligibility' }}</h3>
                     <p>{{ vacancy.eligibility }}</p>
                 </div>
+            {{/if}}
+
+            {{#if showCscInfo }}
+                <h2>{{__ 'vacancy.page.cscTitle' }}</h2>
+                <p>{{{__ 'vacancy.page.cscBodyLine1' }}}</p>
+                <p>{{{__ 'vacancy.page.cscBodyLine2' }}}</p>
+                <p>{{{__ 'vacancy.page.cscBodyLine3' }}}</p>
             {{/if}}
 
         </section>
@@ -71,6 +78,12 @@
                 </p>
             </div>
         </section>
+
+        {{#if showCscInfo }}
+        <aside class="job-details__meta-box job-details__meta-box--plain job-details__logos">
+            <img src="/images/logos/csc.gif" alt="Civil Service Commissioners logo" />
+        </aside>
+        {{/if}}
 
         <section class="job-details__closure">
             <div class="job-details__apply-inner">

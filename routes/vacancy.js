@@ -13,11 +13,17 @@ router.get('/details/:id', (req, res) => {
     const logos = getDepartmentLogos();
 
     try {
-        fetchVacancyDetails(id).then(data =>
-            res.render('pages/vacancy/details', {
-                vacancy: formatVacancyData(data, logos),
-                returnUrl: generateReturnURL(queryString),
-            }));
+        fetchVacancyDetails(id).then((data) => {
+            const vacancy = formatVacancyData(data, logos);
+            const returnUrl = generateReturnURL(queryString);
+            const showCscInfo = vacancy.displayCscContent && vacancy.publicOpeningDate;
+
+            return res.render('pages/vacancy/details', {
+                vacancy,
+                returnUrl,
+                showCscInfo,
+            });
+        });
     } catch (e) {
         // need to do unhappy path
     }
