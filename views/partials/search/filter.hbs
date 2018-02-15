@@ -23,7 +23,7 @@
             {{/if}}
         </label>
         <select name="radius" id="radius" class="form-control form-control--width-auto{{#if errors.radius }} form-control-error{{/if}}">
-            {{#each radiusOptions }}
+            {{#each options.radius }}
                 <option value={{ this.value }}{{#compare this.value ../filters.radius }} selected{{/compare}}>{{ this.label }}</option>
             {{/each}}
         </select>
@@ -37,7 +37,7 @@
                     <label class="form-label-bold" for="minSalary">{{__ 'global.labels.minSalary' }} ({{__ 'global.labels.optional' }})</label>
                     <select name="minSalary" id="minSalary" class="form-control">
                         <option value="">{{__ 'global.labels.noMin' }}</option>
-                        {{#each salaryOptions.min }}
+                        {{#each options.salary.min }}
                             <option value={{ value }}{{#compare value ../filters.minSalary }} selected{{/compare}}>{{ label }}</option>
                         {{/each}}
                     </select>
@@ -46,7 +46,7 @@
                     <label class="form-label-bold" for="maxSalary">{{__ 'global.labels.maxSalary' }} ({{__ 'global.labels.optional' }})</label>
                     <select name="maxSalary" id="maxSalary" class="form-control">
                         <option value="">{{__ 'global.labels.noMax' }}</option>
-                        {{#each salaryOptions.max }}
+                        {{#each options.salary.max }}
                             <option value={{ value }}{{#compare value ../filters.maxSalary }} selected{{/compare}}>{{ label }}</option>
                         {{/each}}
                     </select>
