@@ -9,43 +9,19 @@ const sassMiddleware = require('node-sass-middleware');
 const exphbs = require('express-handlebars');
 const i18n = require('i18n');
 const url = require('url');
-const log4js = require('log4js');
+const fs = require('fs');
+const uuid = require('uuid');
+const ns = require('continuation-local-storage').createNamespace('candidate-interface');
 
 const { objectToUrl } = require('./lib/modules/url');
 const routes = require('./routes');
+const logger = require('./lib/modules/logger');
 
-// configure logging
-log4js.configure({
-    appenders: {
-        everything: {
-            type: 'file',
-            filename: 'logs/info.log',
-            backups: 10,
-            maxLogSize: 10485760,
-        },
-        issues: {
-            type: 'file',
-            filename: 'logs/errors.log',
-            backups: 10,
-            maxLogSize: 10485760,
-        },
-        'just-errors': {
-            type: 'logLevelFilter',
-            appender: 'issues',
-            level: 'error',
-        },
-    },
-    categories: {
-        default: { appenders: ['just-errors', 'everything'], level: 'debug' },
-    },
-});
-const logger = log4js.getLogger();
+if (!fs.existsSync('./logs')) {
+    fs.mkdirSync('./logs');
+}
 
 const app = express();
-app.use(log4js.connectLogger(logger, {
-    level: 'auto',
-    nolog: ['\\.jpg$', '\\.png', '\\.gif', '\\.css', '\\.js', '\\.ico'],
-}));
 
 // scss compilation middleware
 app.use(sassMiddleware({
@@ -53,7 +29,7 @@ app.use(sassMiddleware({
     dest: `${__dirname}/public/stylesheets`,
     prefix: '/stylesheets',
     outputStyle: 'compressed',
-    debug: true,
+    debug: false,
     sourceMap: true,
 }));
 
@@ -103,6 +79,13 @@ app.set('view engine', 'hbs');
 app.set('view options', { layout: false });
 
 app.use((req, res, next) => {
+    ns.run(() => {
+        ns.set('reqId', uuid.v1());
+        next();
+    });
+});
+
+app.use((req, res, next) => {
     res.cookie('lang', res.getLocale());
     next();
 });
@@ -143,8 +126,13 @@ app.use('/cookies', routes.cookies);
 
 // catch 404 and log error
 app.use((req, res) => {
-    logger.error(`404 Not Found "${req.method} ${req.originalUrl} 404" "${req.headers['user-agent']}"`);
+    logger.error('404 Page not found');
+    res.status(404);
     res.render('pages/errors/notFound', {});
+});
+
+app.use((error, req, res) => {
+    res.json({ message: error.message });
 });
 
 module.exports = app;
