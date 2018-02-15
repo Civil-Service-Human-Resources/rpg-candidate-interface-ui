@@ -65,6 +65,11 @@
                 <p>{{{__ 'vacancy.page.cscBodyLine3' }}}</p>
             {{/if}}
 
+            {{#if vacancy.selectionProcessDetails }}
+                <h2>{{__ 'vacancy.page.selectionProcessTitle' }}</h2>
+                <p>{{ vacancy.selectionProcessDetails }}</p>
+            {{/if}}
+
         </section>
 
         <section class="job-details__meta-box job-details__meta-box--contact">
