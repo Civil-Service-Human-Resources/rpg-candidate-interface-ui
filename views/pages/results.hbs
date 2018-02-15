@@ -18,10 +18,7 @@
                 </h2>
                 {{> search/filter
                         filters=filters
-                        radiusOptions=radiusOptions
-                        radiusDefault=radiusDefault
-                        departments=departments
-                        salaryOptions=salaryOptions
+                        options=options
                         errors=errors }}
             </div>
 
@@ -29,14 +26,14 @@
 
                 <h2 class="sr-only">{{__ 'results.page.yourResults' }}</h2>
 
-                {{#if results}}
-                    {{> search/results items=results }}
+                {{#if vacancies}}
+                    {{> search/results items=vacancies }}
                     {{> pagination/pagination pager }}
 
                     <div class="job-search__rpp">
                         <label for="rpp">Display results</label>
                         <select name="size" id="rpp" class="form-control form-control--width-auto js-submitOnChange">
-                            {{#each rrpOptions }}
+                            {{#each options.rrp }}
                                 <option value={{ this.value }} {{#compare this.value ../filters.size}} selected{{/compare}}>{{ this.label }}</option>
                             {{/each}}
                         </select>
@@ -44,7 +41,7 @@
                     </div>
                 {{/if}}
 
-                {{#unless results}}
+                {{#unless vacancies}}
                 <div class="job-search__no-results">
                     <p>{{__ 'results.page.noResultsText1' }} - <a href="/">{{__ 'results.page.noResultsText2' }}</a>.</p>
                 </div>

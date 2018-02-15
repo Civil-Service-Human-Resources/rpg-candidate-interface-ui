@@ -5,14 +5,14 @@ const { check, validationResult } = require('express-validator/check');
 const router = express.Router();
 
 const {
-    fetchVacancyList, formatResultsData,
+    fetchVacancyList,
     isResultsPerPageValid, isRadiusValidOption,
     isMinSalaryValidOption, isMaxSalaryValidOption,
     RESULTS_PER_PAGE_OPTIONS, DEFAULT_RESULTS_PER_PAGE,
     LOCATION_RADIUS_OPTIONS, DEFAULT_LOCATION_RADIUS,
     MIN_SALARY_OPTIONS, MAX_SALARY_OPTIONS,
 } = require('../lib/modules/vacancy');
-const { fetchDepartmentList, getDepartmentLogos } = require('../lib/modules/department');
+const { fetchDepartmentList } = require('../lib/modules/department');
 const { removeUrlParameter } = require('../lib/modules/url');
 
 /* GET results page. */
@@ -71,20 +71,18 @@ router.get('/', [
     }
 
     const departments = await fetchDepartmentList();
-    const vacancies = validate.isEmpty() ? await fetchVacancyList(filters) : [];
-
+    const { vacancies, params } = validate.isEmpty() ? await fetchVacancyList(filters) : [];
 
     // grabbing logos directory to check existance of logo file. Temporary until future story
     // changing to CDN based file storage
-    const logos = getDepartmentLogos();
     const pager = {
-        totalResults: vacancies.totalElements || 0,
-        totalPages: vacancies.totalPages,
-        currentPage: vacancies.number + 1,
-        prevPage: vacancies.number,
-        nextPage: vacancies.number + 2,
-        firstPage: vacancies.first,
-        lastPage: vacancies.last,
+        totalResults: params.totalElements || 0,
+        totalPages: params.totalPages,
+        currentPage: params.number + 1,
+        prevPage: params.number,
+        nextPage: params.number + 2,
+        firstPage: params.first,
+        lastPage: params.last,
         url: pagerUrl,
     };
 
@@ -96,16 +94,18 @@ router.get('/', [
     }
 
     return res.render('pages/results', {
-        results: formatResultsData(vacancies.content, logos),
+        departments,
         filters,
-        departments: departments.content,
-        returnUrl: queryString,
         pager,
-        rrpOptions: RESULTS_PER_PAGE_OPTIONS,
-        radiusOptions: LOCATION_RADIUS_OPTIONS,
-        salaryOptions: {
-            min: MIN_SALARY_OPTIONS,
-            max: MAX_SALARY_OPTIONS,
+        vacancies,
+        returnUrl: queryString,
+        options: {
+            rrp: RESULTS_PER_PAGE_OPTIONS,
+            radius: LOCATION_RADIUS_OPTIONS,
+            salary: {
+                min: MIN_SALARY_OPTIONS,
+                max: MAX_SALARY_OPTIONS,
+            },
         },
         errors: !validate.isEmpty() ? validate.mapped() : null,
     });

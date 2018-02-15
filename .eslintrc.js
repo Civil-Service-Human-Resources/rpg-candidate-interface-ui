@@ -8,6 +8,7 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
+        "no-use-before-define": "off",
         "quote-props": "off",
         "func-names": "off",
         "no-underscore-dangle": "off",
