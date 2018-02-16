@@ -71,6 +71,7 @@ i18n.configure({
     objectNotation: true,
     directory: `${__dirname}/i18n`,
     queryParameter: 'lang',
+    register: global,
 });
 app.use(i18n.init);
 
