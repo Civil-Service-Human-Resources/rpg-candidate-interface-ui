@@ -90,6 +90,12 @@
         </aside>
         {{/if}}
 
+        {{#if vacancy.department.disabilityLogo }}
+            <aside class="job-details__meta-box job-details__meta-box--plain job-details__logos">
+                <img src="{{ vacancy.department.disabilityLogo.path }}" alt="{{__ vacancy.department.disabilityLogo.alt }}" />
+            </aside>
+        {{/if}}
+
         <section class="job-details__closure">
             <div class="job-details__apply-inner">
                 <p class="closing-date"><i class="icon ion-alert" aria-hidden="true"></i>{{__ 'global.labels.closingDate' }}: {{ vacancy.closingDate }}</p>
