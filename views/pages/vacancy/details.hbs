@@ -84,16 +84,16 @@
             </div>
         </section>
 
-        {{#if vacancy.showCscInfo }}
-        <aside class="job-details__meta-box job-details__meta-box--plain job-details__logos">
-            <img src="/images/logos/csc.gif" alt="Civil Service Commissioners logo" />
-        </aside>
-        {{/if}}
-
         {{#if vacancy.department.disabilityLogo }}
             <aside class="job-details__meta-box job-details__meta-box--plain job-details__logos">
                 <img src="{{ vacancy.department.disabilityLogo.path }}" alt="{{__ vacancy.department.disabilityLogo.alt }}" />
             </aside>
+        {{/if}}
+
+        {{#if vacancy.showCscInfo }}
+        <aside class="job-details__meta-box job-details__meta-box--plain job-details__logos">
+            <img src="/images/logos/csc.gif" alt="Civil Service Commissioners logo" />
+        </aside>
         {{/if}}
 
         <section class="job-details__closure">
