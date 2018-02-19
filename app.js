@@ -132,8 +132,18 @@ app.use((req, res) => {
     res.render('pages/errors/notFound', {});
 });
 
-app.use((error, req, res) => {
-    res.json({ message: error.message });
+app.use((err, req, res, next) => {
+    logger.error(err);
+
+    if (res.headersSent) {
+        return next(err);
+    }
+
+    const { status = 500, message } = err;
+    const viewTemplate = `pages/errors/${status}`;
+
+    res.status(status);
+    return res.render(viewTemplate, { errors: message });
 });
 
 module.exports = app;
