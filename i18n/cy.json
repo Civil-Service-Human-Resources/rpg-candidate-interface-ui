@@ -112,6 +112,15 @@
 			"returnString2": "<a href='http://gov.uk/'>GOV.UK</a>",
 			"returnString3": "<a href='/'>Chwilio am swydd</a>",
 			"returnString4": "<a href='mailto:support.csjobs@cabinetoffice.gov.uk'>Cysylltwch â</a> ni os oes problem gyda dolen i'r dudalen hon."
+		},
+		"jobRemoved": {
+			"title": "Methu gweld swydd",
+			"line1": "Nid yw'r swydd hon ar gael mwyach, ond rydym bob amser yn ychwanegu cyfleoedd newydd.",
+			"line2": "<a href=\"/\">Chwilio am swyddi</a>"
+		},
+		"serverError": {
+			"title": "Mae gwall anhysbys wedi digwydd",
+			"line1": "Rho gynnig Arni eto'n hwyrach."
 		}
 	}
 }

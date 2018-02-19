@@ -117,6 +117,15 @@
 			"returnString2": "<a href='http://gov.uk/'>GOV.UK</a>",
 			"returnString3": "<a href='/'>Job search</a>",
 			"returnString4": "<a href='mailto:support.csjobs@cabinetoffice.gov.uk'>Contact us</a> if there is a problem with a link to this page."
+		},
+		"jobRemoved": {
+			"title": "Cannot view job",
+			"line1": "This job is no longer available, but we're always adding new opportunities.",
+			"line2": "<a href=\"/\">Search for jobs</a>"
+		},
+		"serverError": {
+			"title": "An unknown error has occurred",
+			"line1": "Please try again later."
 		}
 	}
 }
