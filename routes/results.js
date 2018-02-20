@@ -71,7 +71,8 @@ router.get('/', [
     }
 
     const departments = await fetchDepartmentList();
-    const { vacancies, params } = validate.isEmpty() ? await fetchVacancyList(filters) : [];
+    const { vacancies, params } = validate.isEmpty() ?
+        await fetchVacancyList(filters) : { vacancies: [], params: {} };
 
     // grabbing logos directory to check existance of logo file. Temporary until future story
     // changing to CDN based file storage
