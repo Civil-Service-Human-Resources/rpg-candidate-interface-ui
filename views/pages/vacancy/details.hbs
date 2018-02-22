@@ -17,8 +17,13 @@
             {{/if}}
         </div>
         <div class="job-details__apply">
+
             <p class="closing-date"><i class="icon ion-alert" aria-hidden="true"></i>{{__ 'global.labels.closingDate' }}: {{ vacancy.closingDate }}</p>
-            <a class="button button--block" href="/apply/{{vacancy.id}}" role="button">{{__ 'global.buttons.apply' }}</a>
+
+            {{#if vacancy.applyURL }}
+                <a class="button button--block" href="{{ vacancy.applyURL }}" role="button">{{__ 'global.buttons.apply' }}</a>
+            {{/if}}
+
         </div>
     </header>
 
@@ -99,7 +104,11 @@
         <section class="job-details__closure">
             <div class="job-details__apply-inner">
                 <p class="closing-date"><i class="icon ion-alert" aria-hidden="true"></i>{{__ 'global.labels.closingDate' }}: {{ vacancy.closingDate }}</p>
-                <p><a class="button button--block" href="/apply/{{vacancy.id}}" role="button">{{__ 'global.buttons.apply' }}</a></p>
+
+                {{#if vacancy.applyURL }}
+                    <p><a class="button button--block" href="{{ vacancy.applyURL }}" role="button">{{__ 'global.buttons.apply' }}</a></p>
+                {{/if}}
+
             </div>
         </section>
 
