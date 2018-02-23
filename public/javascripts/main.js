@@ -1,6 +1,8 @@
 import 'babel-polyfill';
 import './polyfills-custom/dataset';
+
 import ShowHide from '../javascripts/modules/showhide';
+import MinMaxSalary from '../javascripts/modules/salary';
 
 // eslint-disable-next-line no-undef
 const rppSelect = document.getElementById('rpp');
@@ -27,3 +29,6 @@ showHideFields.forEach(el => new ShowHide({
     iconClassClosed: 'ion-arrow-right-b',
     iconClassOpen: 'ion-arrow-down-b',
 }));
+
+// eslint-disable-next-line no-new
+new MinMaxSalary('minSalary', 'maxSalary');
