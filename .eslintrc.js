@@ -7,7 +7,11 @@ module.exports = {
     "parserOptions": {
         "sourceType": "module"
     },
+    "globals": {
+        "window": true
+    },
     "rules": {
+        "class-methods-use-this": "off",
         "no-use-before-define": "off",
         "quote-props": "off",
         "func-names": "off",
