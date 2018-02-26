@@ -121,7 +121,6 @@ app.use((req, res, next) => {
 app.use('/', routes.home);
 app.use('/results', routes.results);
 app.use('/job', routes.vacancyDetails);
-app.use('/apply', routes.apply);
 app.use('/privacy-policy', routes.privacyPolicy);
 app.use('/cookies', routes.cookies);
 
