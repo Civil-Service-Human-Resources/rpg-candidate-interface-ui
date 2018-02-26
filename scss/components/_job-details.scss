@@ -4,7 +4,13 @@
 
     &__title {
         @include bold-36;
-        margin: 0 0 $gutter-two-thirds;
+        float: left;
+        margin: 0 0 $gutter;
+        width: calc(100% - 140px);
+
+        @include media(tablet) {
+            width: calc(100% - 280px);
+        }
 
         small {
             @include core-24;
@@ -16,7 +22,13 @@
     }
 
     &__shortDesc {
-        margin-bottom: 0;
+        clear: both;
+        margin: 0 0 $gutter;
+
+        @include media(tablet) {
+            float: left;
+            width: calc(100% - 300px);
+        }
     }
 
     &__image {
@@ -34,15 +46,18 @@
         border-bottom: 2px solid $grey-3;
         margin-bottom: $gutter-half;
         padding: $gutter-half 0;
-    }
+        position: relative;
 
-    &__summary {
-        float: left;
-        margin-bottom: $gutter-half;
-        width: calc(100% - 120px);
+        &--has-logo {
+            @include media(tablet) {
+                min-height: 235px;
+            }
 
-        @include media(tablet) {
-            width: calc(100% - 280px);
+            .job-details__apply {
+                @include media(tablet) {
+                    top: 130px;
+                }
+            }
         }
     }
 
@@ -53,17 +68,20 @@
         text-align: center;
 
         @include media(tablet) {
+            margin-top: -53px;
             width: 260px;
         }
     }
 
     &__apply {
         clear: both;
+        margin-bottom: $gutter-half;
         text-align: center;
 
         @include media(tablet) {
-            clear: right;
-            float: right;
+            position: absolute;
+            right: 0;
+            top: 65px;
             width: 260px;
         }
     }
