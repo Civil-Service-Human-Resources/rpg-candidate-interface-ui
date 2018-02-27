@@ -37,7 +37,13 @@
                 </li>
                 <li id="search-result{{@index}}-location">
                     <strong class="job-search__item-attributes-label">{{__ 'global.labels.location' }}</strong>
-                    <span class="job-search__item-attributes-value">{{ location }}</span>
+
+                    {{#if regions }}
+                        <span class="job-search__item-attributes-value">{{ regions }}</span>
+                    {{else}}
+                        <span class="job-search__item-attributes-value">{{ location }}</span>
+                    {{/if}}
+
                 </li>
                 
                 <li id="search-result{{@index}}-numvacancies">
