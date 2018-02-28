@@ -1,6 +1,8 @@
 import 'matchmedia-polyfill';
 import debounce from 'debounce';
 
+const { document } = window;
+
 export default class ShowHide {
     constructor({
         el = null,
@@ -9,6 +11,7 @@ export default class ShowHide {
         iconPosition = 'before',
         iconClassClosed = 'ion-arrow-down-b',
         iconClassOpen = 'ion-arrow-up-b',
+        classDefaultOpen = 'js-expanded',
     }) {
         this.el = el;
         this.mediaQuery = mediaQuery;
@@ -16,17 +19,16 @@ export default class ShowHide {
         this.iconPosition = iconPosition;
         this.iconClassClosed = iconClassClosed;
         this.iconClassOpen = iconClassOpen;
-        this.targetEl = null;
+        this.classDefaultOpen = classDefaultOpen;
+        this.targetEl = document.getElementById(this.el.dataset.showhideTargetId);
         this.initialized = false;
+        this.isFieldOpen = this.checkClassExists(this.targetEl.className, this.classDefaultOpen);
 
         this.checkBrowserWidth();
 
+        // event listeners
         this.el.addEventListener('click', event => this.handleClick(event));
-
-        // eslint-disable-next-line no-undef
         window.addEventListener('resize', debounce(this.checkBrowserWidth.bind(this), 100));
-
-        // eslint-disable-next-line no-undef
         document.addEventListener('keyup', (event) => {
             // if we're hitting enter on a button, it registers a 'click' anyway
             if (event.target.localName === 'button') return;
@@ -44,20 +46,21 @@ export default class ShowHide {
     }
 
     init() {
-        if (!this.el) return false;
-
-        if (this.initialized) return false;
+        if (!this.el || this.initialized) return false;
 
         // set up open/close text element
         this.el.className = this.addClass(this.el.className, 'js-showhide--initialized');
-        this.el.setAttribute('aria-expanded', false);
+        this.el.setAttribute('aria-expanded', this.isFieldOpen);
         this.el.setAttribute('aria-controls', this.el.dataset.showhideTargetId);
         this.el.setAttribute('role', 'button');
         this.el.setAttribute('tabindex', 0);
 
         // add arrow to open/close text element
         this.iconEl = document.createElement('i'); // eslint-disable-line no-undef
-        this.iconEl.className = `icon icon--${this.iconPosition} ${this.iconClassClosed}`;
+        this.iconEl.className = `
+            icon icon--${this.iconPosition} 
+            ${this.isFieldOpen ? this.iconClassOpen : this.iconClassClosed}
+            `;
         this.iconEl.setAttribute('aria-hidden', true);
         this.el.appendChild(this.iconEl);
 
@@ -66,11 +69,10 @@ export default class ShowHide {
             this.el.appendChild(this.iconEl) :
             this.el.insertBefore(this.iconEl, this.el.firstChild);
 
-        // retrieve details on target element
-        // eslint-disable-next-line no-undef
-        this.targetEl = document.getElementById(this.el.dataset.showhideTargetId);
-        this.targetEl.className = this.addClass(this.targetEl.className, 'js-hidden');
-        this.targetEl.setAttribute('aria-hidden', true);
+        this.targetEl.setAttribute('aria-hidden', this.isFieldOpen);
+        this.targetEl.className = this.isFieldOpen ?
+            this.removeClass(this.targetEl.className, 'js-hidden') :
+            this.addClass(this.targetEl.className, 'js-hidden');
 
         this.initialized = true;
 
@@ -123,5 +125,9 @@ export default class ShowHide {
         // having to use crappy way of toggling class to keep IE happy :(
         return classList.indexOf(toggleClass) === -1 ?
             this.addClass(classList, toggleClass) : this.removeClass(classList, toggleClass);
+    }
+
+    checkClassExists(classList, className) {
+        return classList.indexOf(className) >= 0;
     }
 }
