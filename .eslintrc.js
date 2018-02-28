@@ -11,6 +11,7 @@ module.exports = {
         "window": true
     },
     "rules": {
+        "max-len": "off",
         "class-methods-use-this": "off",
         "no-use-before-define": "off",
         "quote-props": "off",

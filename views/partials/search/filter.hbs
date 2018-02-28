@@ -32,7 +32,7 @@
     <div class="form-group form-group--collapsible">
         <fieldset>
             <legend class="form-label js-showhide-field" data-showhide-target-id="salary-options">{{__ 'global.labels.salary' }} ({{__ 'global.labels.optional' }})</legend>
-            <div class="form-subgroup" id="salary-options">
+            <div class="form-subgroup{{#if filters.minSalary }} js-expanded{{else}}{{#if filters.maxSalary }} js-expanded{{/if}}{{/if}}" id="salary-options">
                 <div class="form-group">
                     <label class="form-label-bold" for="minSalary">{{__ 'global.labels.minSalary' }} ({{__ 'global.labels.optional' }})</label>
                     <select name="minSalary" id="minSalary" class="form-control">
@@ -59,7 +59,7 @@
         <fieldset class="form-multicheckbox">
             <legend class="form-label js-showhide-field" data-showhide-target-id="department-list">{{__ 'results.page.departments' }} ({{__ 'global.labels.optional' }})</legend>
 
-            <div class="form-multicheckbox__list" id="department-list">
+            <div class="form-multicheckbox__list{{#if filters.depts }} js-expanded{{/if}}" id="department-list">
             {{#each departments }}
                 <div class="form-multicheckbox__item">
                     <input
