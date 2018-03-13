@@ -87,7 +87,12 @@
 			"cscBodyLine1": "The <a href=\"https://www.gov.uk/government/publications/civil-service-code/the-civil-service-code\">Civil Service Code</a> sets out the standards of behaviour expected of civil servants.",
 			"cscBodyLine2": "We recruit by merit on the basis of fair and open competition, as outlined in the Civil Service Commission's <a href=\"http://civilservicecommission.independent.gov.uk/civil-service-recruitment/\">recruitment principles</a>.",
 			"cscBodyLine3": "The Civil Service embraces diversity and promotes equality of opportunity. There is a guaranteed interview scheme (GIS) for candidates with disabilities who meet the minimum selection criteria.",
-			"selectionProcessTitle": "Selection process"
+			"selectionProcessTitle": "Selection process",
+			"nationalityStatement": {
+				"title": "Nationality requirements",
+				"reserved": "Open to UK Nationals only.",
+				"nonreserved": "Open to UK, Commonwealth and European Economic Area (EEA) and certain non EEA nationals. Further information on whether you are able to apply is available in our <a href=\"https://www.gov.uk/government/publications/nationality-rules\">nationality rules document</a>."
+			}
 		}
 	},
 	"apply": {

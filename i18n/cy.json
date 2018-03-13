@@ -87,7 +87,12 @@
 			"cscBodyLine1": "Mae'r <a href=\"https://www.gov.uk/government/publications/civil-service-code/the-civil-service-code\"> Cod y Gwasanaeth Sifil </a> yn nodi safonau ymddygiad Disgwylir gan weision sifil.",
 			"cscBodyLine2": "Rydym yn recriwtio yn ôl teilyngdod ar sail cystadleuaeth deg ac agored, fel yr amlinellir yn <a href=\"http://civilservicecommission.independent.gov.uk/civil-service-recruitment/\"> recriwtio egwyddorion recriwtio </a>.",
 			"cscBodyLine3": "Mae'r Gwasanaeth Sifil yn ymgorffori amrywiaeth ac yn hyrwyddo cyfle cyfartal. Mae cynllun cyfweld gwarantedig (GIS) ar gyfer ymgeiswyr ag anableddau sy'n bodloni'r meini prawf dethol lleiaf.",
-			"selectionProcessTitle": "Y broses ddethol"
+			"selectionProcessTitle": "Y broses ddethol",
+			"nationalityStatement": {
+				"title": "Gofynion cenedligrwydd",
+				"reserved": "Yn agored i Genedlaethol Genedlaethol y DU yn unig.",
+				"nonreserved": "Yn agored i'r DU, y Gymanwlad ac Ardal Economaidd Ewrop (AEE) a rhai gwladolion nad ydynt yn yr AEE. Mae rhagor o wybodaeth ynghylch a ydych chi'n gallu gwneud cais ar gael yn ein <a href=\"https://www.gov.uk/government/publications/nationality-rules\">dogfen rheolau cenedlaetholdeb</a>."
+			}
 		}
 	},
 	"apply": {

@@ -77,6 +77,16 @@
                 <p>{{ vacancy.selectionProcessDetails }}</p>
             {{/if}}
 
+            {{#compare vacancy.nationalityStatement "RESERVED" }}
+                <h3 class="text-addColon">{{__ 'vacancy.page.nationalityStatement.title' }}</h3>
+                <p>{{__ 'vacancy.page.nationalityStatement.reserved' }}</p>
+            {{/compare}}
+
+            {{#compare vacancy.nationalityStatement "NON_RESERVED" }}
+                <h3 class="text-addColon">{{__ 'vacancy.page.nationalityStatement.title' }}</h3>
+                <p>{{{__ 'vacancy.page.nationalityStatement.nonreserved' }}}</p>
+            {{/compare}}
+
         </section>
 
         <section class="job-details__meta-box job-details__meta-box--contact">
