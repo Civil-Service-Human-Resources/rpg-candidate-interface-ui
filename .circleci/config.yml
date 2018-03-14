@@ -26,6 +26,8 @@ jobs:
   ship:
     environment:
       - COMPOSE_FILE: "docker-compose.yml"
+      - BINTRAY_URL: "cshr-docker-rpg.bintray.io"
+
     machine: true
     steps:
       - checkout
