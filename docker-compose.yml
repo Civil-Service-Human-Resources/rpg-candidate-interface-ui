@@ -2,6 +2,6 @@ version: "2"
 
 services:
   app:
-    image: cshr/rpg-candidate-interface-ui:${DOCKER_SERVICE_TAG}
+    image: cshr-docker-rpg.bintray.io/rpg-candidate-interface-ui:${DOCKER_SERVICE_TAG}
     build:
       context: .
