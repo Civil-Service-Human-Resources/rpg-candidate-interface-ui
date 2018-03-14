@@ -29,6 +29,14 @@
         </select>
     </div>
 
+    <div class="form-group">
+        <fieldset>
+            <legend class="form-label-bold">Other location (optional)</legend>
+            <input id="overseas" name="overseas" type="checkbox" value="true"{{#if filters.overseas }} checked{{/if}}>
+            <label for="overseas" class="form-label form-label--checkbox">Overseas jobs</label>
+        </fieldset>
+    </div>
+
     <div class="form-group form-group--collapsible">
         <fieldset>
             <legend class="form-label js-showhide-field" data-showhide-target-id="salary-options">{{__ 'global.labels.salary' }} ({{__ 'global.labels.optional' }})</legend>
@@ -75,6 +83,8 @@
 
         </fieldset>
     </div>
+
+    <input type="hidden" name="filtered" value="true">
 
     <div class="form-group">
         <input type="submit" class="button" value="{{__ 'global.buttons.updateResults' }}">

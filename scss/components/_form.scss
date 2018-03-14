@@ -1,3 +1,7 @@
+legend {
+  margin-bottom: 5px;
+}
+
 .form-multicheckbox {
 
   legend {
@@ -110,5 +114,67 @@
 
   .form-group {
     margin-bottom: $gutter-half;
+  }
+}
+
+input[type=checkbox] {
+  position: absolute;
+  left: -9999px;
+
+  &:focus {
+    & + .form-label--checkbox {
+      &::before {
+        outline: 3px solid #ffbf47;
+        outline-offset: 0;
+      }
+    }
+  }
+
+  &:checked {
+    & + .form-label--checkbox {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.form-label--checkbox {
+  cursor: pointer;
+  display: block;
+  padding: 6px 0 5px 32px;
+  position: relative;
+  touch-action: manipulation;
+
+  @include media(tablet) {
+    padding: 4px 0 4px 32px;
+  }
+
+  &::before {
+    background-color: $white;
+    border: 2px solid $black;
+    content: '';
+    height: 21px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 21px;
+  }
+
+  &::after {
+    content: "";
+    border: solid;
+    border-width: 0 0 4px 4px;
+    background: transparent;
+    border-top-color: transparent;
+    width: 13px;
+    height: 5px;
+    position: absolute;
+    top: 6px;
+    left: 4px;
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    zoom: 1;
+    opacity: 0;
   }
 }

@@ -93,6 +93,8 @@ router.get('/', [
         filters.depts = [filters.depts];
     }
 
+    filters.overseas = !filters.filtered || (filters.filtered && filters.overseas);
+
     return res.render('pages/results', {
         departments,
         filters,
