@@ -23,14 +23,6 @@ jobs:
           name: Push the images to Bintray
           command: docker push ${BINTRAY_URL}/rpg-candidate-interface-ui:${CIRCLE_WORKFLOW_ID}
 
-  notify:
-    machine: true
-    steps:
-      - run:
-          name: Notify Jenkins
-          command: curl -X POST --user "circleci:${JENKINS_API_KEY}"  "https://${JENKINS_HOST}/job/deploy-rpg-candidate-interface-ui/buildWithParameters?dockerTag=${CIRCLE_WORKFLOW_ID}&environment=dev"
-
-
   ship:
     environment:
       - COMPOSE_FILE: "docker-compose.yml"
