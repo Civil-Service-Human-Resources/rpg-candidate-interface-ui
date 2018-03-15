@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('candidate-interface-ui:server');
 var http = require('http');
+require('colors');
 
 /**
  * Get port from environment and store in Express.
@@ -87,4 +88,6 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+
+  console.log(`\n\n** Server started on http://localhost:${port} **`.green);
 }
