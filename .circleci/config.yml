@@ -3,7 +3,7 @@ jobs:
   build:
     environment:
       - COMPOSE_FILE: "docker-compose.yml"
-      - BINTRAY_URL: "cshr-docker-rpg.bintray.io"
+      - AZURE_URL: "cshrrpg.azurecr.io"
     machine: true
     steps:
       - checkout
@@ -16,46 +16,25 @@ jobs:
             docker-compose build
 
       - run:
-          name: Login to Docker Hub
-          command: docker login -u $HUB_USERNAME -p $HUB_PASSWORD
+          name: Login to azure container repo
+          command: docker login -u ${ACR_ID} -p ${ACR_PASS} ${AZURE_URL}
 
       - run:
-          name: Tag and push images
-          command: |
-            export DOCKER_SERVICE_TAG="$CIRCLE_WORKFLOW_ID"
-            docker-compose push
-
-
-      - run:
-          name: Login to Bintray
-          command: docker login -u cshr -p ${BINTRAY_API_KEY} ${BINTRAY_URL}
-
-      - run:
-          name: Tag the dockerhub images as bintray images
-          command: docker tag cshr/rpg-candidate-interface-ui:${CIRCLE_WORKFLOW_ID} ${BINTRAY_URL}/rpg-candidate-interface-ui:${CIRCLE_WORKFLOW_ID}
-
-      - run:
-          name: Push the images to Bintray
-          command: docker push ${BINTRAY_URL}/rpg-candidate-interface-ui:${CIRCLE_WORKFLOW_ID}
-
-  notify:
-    machine: true
-    steps:
-      - run:
-          name: Notify Jenkins
-          command: curl -X POST --user "circleci:${JENKINS_API_KEY}"  "https://${JENKINS_HOST}/job/deploy-rpg-candidate-interface-ui/buildWithParameters?dockerTag=${CIRCLE_WORKFLOW_ID}&environment=dev"
-
+          name: Push the images to Azure
+          command: docker push ${AZURE_URL}/rpg-candidate-interface-ui:${CIRCLE_WORKFLOW_ID}
 
   ship:
     environment:
       - COMPOSE_FILE: "docker-compose.yml"
+      - AZURE_URL: "cshrrpg.azurecr.io"
+
     machine: true
     steps:
       - checkout
 
       - run:
-          name: Login to Docker Hub
-          command: docker login -u $HUB_USERNAME -p $HUB_PASSWORD
+          name: Login to azure container repo
+          command: docker login -u ${ACR_ID} -p ${ACR_PASS} ${AZURE_URL}
 
       - run:
           name: Pull Current workflow images
@@ -75,40 +54,19 @@ jobs:
               docker push "${image}":"${docker_tag}"
             done
 
-  deploy_to_uat:
-    environment:
-      - COMPOSE_FILE: "docker-compose.yml"
+  notify_pipeline:
     machine: true
     steps:
-      - checkout
-
       - run:
-          name: Generate a stack file
-          command: |
-            cp .env.sample .env
-            if [ "$CIRCLE_BRANCH" == "master" ]; then
-              export DOCKER_SERVICE_TAG="latest"
-            else
-              export DOCKER_SERVICE_TAG="$CIRCLE_BRANCH"
-            fi
-            docker-compose -f docker-compose.stack.yml config > docker-stack.yml
+        name: Notify Jenkins pipeline to deploy change
+        command: curl -X POST --user "circleci:${JENKINS_API_KEY}"  "https://${JENKINS_HOST}/job/deploy-rpg-candidate-interface-ui/buildWithParameters?dockerTag=${CIRCLE_WORKFLOW_ID}&environment=dev"
 
-      - add_ssh_keys
-
-      - run:
-          name: Deploy
-          command: |
-            scp -oStrictHostKeyChecking=no docker-stack.yml ${UAT_SSH_USER}@${UAT_HOSTNAME}:/home/${UAT_SSH_USER}/ui-stack.yml
-            ssh -oStrictHostKeyChecking=no ${UAT_SSH_USER}@${UAT_HOSTNAME} docker stack deploy -c /home/${UAT_SSH_USER}/ui-stack.yml ui
 
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
-      - notify:
-          requires:
-          - build
       - ship:
           requires:
             - build
@@ -117,7 +75,7 @@ workflows:
               only:
                 - master
                 - develop
-      - deploy_to_uat:
+      - notify_pipeline:
           requires:
             - ship
           filters:
