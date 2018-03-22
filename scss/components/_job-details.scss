@@ -8,7 +8,7 @@
         margin: 0 0 $gutter;
         width: calc(100% - 140px);
 
-        @include media(tablet) {
+        @include media($tablet-sml) {
             width: calc(100% - 280px);
         }
 
@@ -25,7 +25,7 @@
         clear: both;
         margin: 0 0 $gutter;
 
-        @include media(tablet) {
+        @include media($tablet-sml) {
             float: left;
             width: calc(100% - 300px);
         }
@@ -36,7 +36,7 @@
         margin-bottom: 10px;
         width: 100px;
 
-        @include media(tablet) {
+        @include media($tablet-sml) {
             width: 130px;
         }
     }
@@ -49,12 +49,12 @@
         position: relative;
 
         &--has-logo {
-            @include media(tablet) {
+            @include media($tablet-sml) {
                 min-height: 235px;
             }
 
             .job-details__apply {
-                @include media(tablet) {
+                @include media($tablet-sml) {
                     top: 130px;
                 }
             }
@@ -67,7 +67,7 @@
         margin-bottom: $gutter-half;
         text-align: center;
 
-        @include media(tablet) {
+        @include media($tablet-sml) {
             margin-top: -53px;
             width: 260px;
         }
@@ -78,7 +78,7 @@
         margin-bottom: $gutter-half;
         text-align: center;
 
-        @include media(tablet) {
+        @include media($tablet-sml) {
             position: absolute;
             right: 0;
             top: 65px;
@@ -87,7 +87,7 @@
     }
 
     &__apply-inner {
-        @include media(tablet) {
+        @include media($tablet-sml) {
             width: 260px;
         }
     }
@@ -102,7 +102,7 @@
 
     &__content {
 
-        @include media(tablet) {
+        @include media($tablet-sml) {
             float: right;
             padding-left: $gutter;
             width: 66.6666%;
@@ -135,14 +135,14 @@
         }
 
         &--key-facts {
-            @include media(tablet) {
+            @include media($tablet-sml) {
                 float: left;
                 width: 33.3333%;
             }
         }
 
         &--contact {
-            @include media(tablet) {
+            @include media($tablet-sml) {
                 clear: left;
                 float: left;
                 width: 33.3333%;
@@ -161,7 +161,7 @@
 
     &__closure {
 
-        @include media(tablet) {
+        @include media($tablet-sml) {
             float: right;
             padding-left: $gutter;
             width: 66.6666%;
@@ -183,7 +183,7 @@
                 clear: left;
             }
 
-            @include media(tablet) {
+            @include media($tablet-sml) {
                 float: none;
                 padding: 0;
                 width: auto;
@@ -203,7 +203,7 @@
     &__logos {
         text-align: center;
 
-        @include media(tablet) {
+        @include media($tablet-sml) {
             clear: left;
             float: left;
             width: 33.3333%;
