@@ -3,7 +3,7 @@
         @include bold-19;
         margin: 0;
 
-        @include media(tablet) {
+        @include media($tablet-sml) {
             float: right;
 
             width: calc(75% - 40px);
@@ -34,7 +34,7 @@
         @extend %grid-row;
         padding: $gutter $gutter-half $gutter-half;
 
-        @include media(tablet) {
+        @include media($tablet-sml) {
             padding: $gutter $gutter $gutter-half;
         }
     }
@@ -88,7 +88,7 @@
     }
 
     &__filters {
-        @include grid-column(2/7, $full-width: tablet);
+        @include grid-column(2/7, $full-width: $tablet-sml);
         padding-top: 5px;
     }
 
@@ -117,7 +117,7 @@
     }
 
     &__results-list-container {
-        @include grid-column(5/7, $full-width: tablet);
+        @include grid-column(5/7, $full-width: $tablet-sml);
     }
 
     &__rpp {
