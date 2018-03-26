@@ -11,6 +11,7 @@ module.exports = {
         "window": true
     },
     "rules": {
+        "no-control-regex": "off",
         "max-len": "off",
         "class-methods-use-this": "off",
         "no-use-before-define": "off",
