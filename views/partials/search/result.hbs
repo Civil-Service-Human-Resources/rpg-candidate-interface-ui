@@ -35,10 +35,13 @@
                     <strong class="job-search__item-attributes-label">{{__ 'global.labels.salary' }}</strong>
                     <span class="job-search__item-attributes-value">{{ salary }}</span>
                 </li>
+
                 <li id="search-result{{@index}}-location">
                     <strong class="job-search__item-attributes-label">{{__ 'global.labels.location' }}</strong>
 
-                    {{#if regions }}
+                    {{#if locationOverride }}
+                        <span class="job-search__item-attributes-value">{{ locationOverride }}</span>
+                    {{else if regions }}
                         <span class="job-search__item-attributes-value">{{ regions }}</span>
                     {{else}}
                         <span class="job-search__item-attributes-value">{{ location }}</span>
