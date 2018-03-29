@@ -37,8 +37,10 @@
             <ul class="job-details__key-facts-list">
                 {{#if vacancy.identifier}}<li><strong>{{__ 'global.labels.identifier' }}</strong> {{ vacancy.identifier }}</li>{{/if}}
                 {{#if vacancy.salary}}<li><strong>{{__ 'global.labels.salaryBand' }}</strong> {{ vacancy.salary }}</li>{{/if}}
-                {{#if vacancy.workingHours}}<li><strong>{{__ 'global.labels.hours' }}</strong> {{ vacancy.workingHours }}</li>{{/if}}
                 {{#if vacancy.grade}}<li><strong>{{__ 'global.labels.jobGrade' }}</strong> {{ vacancy.grade }}</li>{{/if}}
+                {{#if vacancy.workingHours}}<li><strong>{{__ 'global.labels.hours' }}</strong> {{ vacancy.workingHours }}</li>{{/if}}
+                {{#if vacancy.workingPatterns}}<li><strong>{{__ 'global.labels.workingPattern' }}</strong> {{ vacancy.workingPatterns }}</li>{{/if}}
+                {{#if vacancy.contractTypes}}<li><strong>{{__ 'global.labels.contractType' }}</strong> {{ vacancy.contractTypes }}</li>{{/if}}
                 {{#if vacancy.numberVacancies}}<li><strong>{{__ 'global.labels.numVacancies' }}</strong> {{ vacancy.numberVacancies }}</li>{{/if}}
             </ul>
         </section>
