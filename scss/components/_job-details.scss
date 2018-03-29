@@ -135,8 +135,11 @@
         }
 
         &--key-facts {
+            margin-bottom: 40px;
+
             @include media($tablet-sml) {
                 float: left;
+                margin-bottom: 20px;
                 width: 33.3333%;
             }
         }
@@ -192,10 +195,6 @@
             strong {
                 display: block;
                 margin-bottom: 3px;
-
-                &::after {
-                    content: ':';
-                }
             }
         }
     }
@@ -211,7 +210,6 @@
 
         img {
             max-width: 200px;
-            margin-bottom: 20px;
             width: 100%;
         }
     }
