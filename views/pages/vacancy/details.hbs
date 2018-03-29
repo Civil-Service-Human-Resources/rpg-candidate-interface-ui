@@ -60,6 +60,13 @@
                 </div>
             {{/if}}
 
+            {{#if vacancy.whatWeOffer}}
+                <div>
+                    <h3>{{__ 'global.labels.whatWeOffer' }}</h3>
+                    <p>{{ vacancy.whatWeOffer }}</p>
+                </div>
+            {{/if}}
+
             {{#if vacancy.eligibility}}
                 <div>
                     <h3>{{__ 'global.labels.eligibility' }}</h3>

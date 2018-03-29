@@ -48,7 +48,8 @@
 				"PART_TIME": "Part time",
 				"JOB_SHARE": "Job share",
 				"HOME_WORKING": "Home working"
-			}
+			},
+			"whatWeOffer": "What we offer"
 		},
 		"buttons": {
 			"apply": "Apply",

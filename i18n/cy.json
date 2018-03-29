@@ -48,7 +48,8 @@
 				"PART_TIME": "Rhan amser",
 				"JOB_SHARE": "Cyfraniad swydd",
 				"HOME_WORKING": "Gweithio gartref"
-			}
+			},
+			"whatWeOffer": "Yr hyn a gynigiwn"
 		},
 		"buttons": {
 			"apply": "Gwneud cais",
