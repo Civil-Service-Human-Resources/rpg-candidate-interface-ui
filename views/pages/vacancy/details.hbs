@@ -32,7 +32,7 @@
     <section class="job-details__bottom">
 
         <section class="job-details__meta-box job-details__meta-box--key-facts">
-            <h2 class="job-details__meta-box-title text-addColon">{{__ 'vacancy.page.keyFacts' }}</h2>
+            <h2 class="job-details__meta-box-title">{{__ 'vacancy.page.keyFacts' }}</h2>
 
             <ul class="job-details__key-facts-list">
                 {{#if vacancy.identifier}}<li><strong>{{__ 'global.labels.identifier' }}</strong> {{ vacancy.identifier }}</li>{{/if}}
@@ -47,27 +47,26 @@
             <h2>{{__ 'global.labels.jobDesc' }}</h2>
 
             <div>
-                <h3 class="text-addColon">{{__ 'global.labels.description' }}</h3>
+                <h3>{{__ 'global.labels.description' }}</h3>
                 <p>{{{ vacancy.description }}}</p>
             </div>
 
             {{#if vacancy.responsibilities}}
                 <div>
-                    <h3 class="text-addColon">{{__ 'global.labels.responsibilities' }}</h3>
+                    <h3>{{__ 'global.labels.responsibilities' }}</h3>
                     <p>{{ vacancy.responsibilities }}</p>
                 </div>
             {{/if}}
 
             {{#if vacancy.eligibility}}
                 <div>
-                    <h3 class="text-addColon">{{__ 'global.labels.eligibility' }}</h3>
+                    <h3>{{__ 'global.labels.eligibility' }}</h3>
                     <p>{{ vacancy.eligibility }}</p>
                 </div>
             {{/if}}
 
             {{#if vacancy.showCscInfo }}
-                <h2>{{__ 'vacancy.page.cscTitle' }}</h2>
-                <p>{{{__ 'vacancy.page.cscBodyLine1' }}}</p>
+                <h2>{{__ 'vacancy.page.cscTitle' }} {{ vacancy.department.name }}</h2>
                 <p>{{{__ 'vacancy.page.cscBodyLine2' }}}</p>
                 <p>{{{__ 'vacancy.page.cscBodyLine3' }}}</p>
             {{/if}}
@@ -78,12 +77,12 @@
             {{/if}}
 
             {{#compare vacancy.nationalityStatement "RESERVED" }}
-                <h3 class="text-addColon">{{__ 'vacancy.page.nationalityStatement.title' }}</h3>
+                <h3>{{__ 'vacancy.page.nationalityStatement.title' }}</h3>
                 <p>{{__ 'vacancy.page.nationalityStatement.reserved' }}</p>
             {{/compare}}
 
             {{#compare vacancy.nationalityStatement "NON_RESERVED" }}
-                <h3 class="text-addColon">{{__ 'vacancy.page.nationalityStatement.title' }}</h3>
+                <h3>{{__ 'vacancy.page.nationalityStatement.title' }}</h3>
                 <p>{{{__ 'vacancy.page.nationalityStatement.nonreserved' }}}</p>
             {{/compare}}
 
@@ -110,6 +109,7 @@
         {{#if vacancy.showCscInfo }}
         <aside class="job-details__meta-box job-details__meta-box--plain job-details__logos">
             <img src="/images/logos/csc.gif" alt="Civil Service Commissioners logo" />
+            <p>{{{__ 'vacancy.page.cscBodyLine1' }}}</p>
         </aside>
         {{/if}}
 

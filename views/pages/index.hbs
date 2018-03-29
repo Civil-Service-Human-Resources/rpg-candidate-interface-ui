@@ -2,14 +2,14 @@
     <h1 class="heading-xlarge">{{__ 'home.page.title' }} <span class="heading-secondary">{{__ 'home.page.subtitle' }}</span></h1>
 </div>
 
-<div class="panel panel-border-wide">
-  <p>{{__ 'home.language.statement' }} (<a href="{{__ 'home.language.url' }}">{{__ 'home.language.label' }}</a>)</p>
+<div class="text">
+    {{> messages/error
+            errorMsg='global.messages.submissionErrorMsg'
+            errors=errors }}
 </div>
 
-<div class="text">
-{{> messages/error
-        errorMsg='global.messages.submissionErrorMsg'
-        errors=errors }}
+<div class="panel panel-border-wide">
+  <p>{{__ 'home.language.statement' }} (<a href="{{__ 'home.language.url' }}">{{__ 'home.language.label' }}</a>)</p>
 </div>
 
 <form method="GET" action="/">

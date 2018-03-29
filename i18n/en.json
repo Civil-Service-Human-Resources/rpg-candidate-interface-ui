@@ -7,9 +7,9 @@
 		},
 		"labels": {
 			"description": "Description",
-			"jobDesc": "Application summary",
-			"identifier": "Job reference ID",
-			"numVacancies": "Number of vacancies",
+			"jobDesc": "About the job",
+			"identifier": "Job reference",
+			"numVacancies": "Number of jobs",
 			"location": "Location",
 			"salary": "Salary",
 			"salaryBand": "Salary band",
@@ -23,7 +23,7 @@
 			"email": "Email address",
 			"telephone": "Telephone number",
 			"aboutTheJob": "About the job",
-			"responsibilities": "Responsibilities",
+			"responsibilities": "In this role you will",
 			"eligibility": "Eligibility",
 			"keyword": "Keyword",
 			"optional": "optional",
@@ -39,7 +39,7 @@
 			"updateResults": "Update results"
 		},
 		"messages": {
-			"submissionErrorMsg": "There is an error on the page",
+			"submissionErrorMsg": "There has been a problem",
 			"locationRequired": "You need to enter a location",
 			"invalidRadius": "You need to enter a valid radius",
 			"invalidMinSalary": "You need to enter a valid min salary",
@@ -70,20 +70,21 @@
 			"startAgain": "Start again",
 			"totalJobsFoundSingular": "job found",
 			"totalJobsFoundPlural": "jobs found",
-			"noResultsText1": "There are no results that match your query",
-			"noResultsText2": "please try a new search",
+			"noResultsText1": "There are no results to match your search options",
+			"noResultsText2": "search again",
 			"filterResultsTitle": "Edit search",
 			"jobSummary": "Job summary",
 			"yourResults": "Your search results",
 			"departments": "Department",
-			"aboveOneHundred": "Above £100,000"
+			"aboveOneHundred": "Above £100,000",
+			"displayResultsButton": "Change number of results"
 		}
 	},
 	"vacancy": {
 		"page": {
 			"backToResults": "Back to search results",
 			"keyFacts": "Key facts",
-			"cscTitle": "Working for the Civil Service",
+			"cscTitle": "Working for the",
 			"cscBodyLine1": "The <a href=\"https://www.gov.uk/government/publications/civil-service-code/the-civil-service-code\">Civil Service Code</a> sets out the standards of behaviour expected of civil servants.",
 			"cscBodyLine2": "We recruit by merit on the basis of fair and open competition, as outlined in the Civil Service Commission's <a href=\"http://civilservicecommission.independent.gov.uk/civil-service-recruitment/\">recruitment principles</a>.",
 			"cscBodyLine3": "The Civil Service embraces diversity and promotes equality of opportunity. There is a guaranteed interview scheme (GIS) for candidates with disabilities who meet the minimum selection criteria.",
