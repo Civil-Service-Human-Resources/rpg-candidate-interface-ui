@@ -31,7 +31,25 @@
 			"minSalary": "Cyflogau min",
 			"maxSalary": "Cyflog uchaf",
 			"noMin": "Dim lleiafswm",
-			"noMax": "Dim uchafswm"
+			"noMax": "Dim uchafswm",
+			"contractType": "Math o gontract",
+			"contractTypes": {
+				"FULL_TIME": "Llawn amser",
+				"PART_TIME": "Rhan amser",
+				"CONTRACT": "Contract",
+				"TEMPORARY": "Dros Dro",
+				"SEASONAL": "Tymhorol",
+				"INTERNSHIP": "Internship"
+			},
+			"workingPattern": "Patrwm gweithio",
+			"workingPatterns": {
+				"FLEXIBLE_WORKING": "Gweithio hyblyg",
+				"FULL_TIME": "Llawn amser",
+				"PART_TIME": "Rhan amser",
+				"JOB_SHARE": "Cyfraniad swydd",
+				"HOME_WORKING": "Gweithio gartref"
+			},
+			"whatWeOffer": "Yr hyn a gynigiwn"
 		},
 		"buttons": {
 			"apply": "Gwneud cais",

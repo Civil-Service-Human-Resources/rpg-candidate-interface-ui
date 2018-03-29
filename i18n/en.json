@@ -31,7 +31,25 @@
 			"minSalary": "Min salary",
 			"maxSalary": "Max salary",
 			"noMin": "No minimum",
-			"noMax": "No maximum"
+			"noMax": "No maximum",
+			"contractType": "Contract type",
+			"contractTypes": {
+				"PART_TIME": "Part time",
+				"CONTRACT": "Contract",
+				"TEMPORARY": "Temporary",
+				"SEASONAL": "Seasonal",
+				"INTERNSHIP": "Internship",
+				"FULL_TIME": "Full time"
+			},
+			"workingPattern": "Working pattern",
+			"workingPatterns": {
+				"FLEXIBLE_WORKING": "Flexible working",
+				"FULL_TIME": "Full time",
+				"PART_TIME": "Part time",
+				"JOB_SHARE": "Job share",
+				"HOME_WORKING": "Home working"
+			},
+			"whatWeOffer": "What we offer"
 		},
 		"buttons": {
 			"apply": "Apply",
