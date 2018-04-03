@@ -41,6 +41,8 @@
 
                     {{#if locationOverride }}
                         <span class="job-search__item-attributes-value">{{ locationOverride }}</span>
+                    {{else if overseasJob }}
+                        <span class="job-search__item-attributes-value">{{__ 'global.labels.overseas' }}</span>
                     {{else if regions }}
                         <span class="job-search__item-attributes-value">{{ regions }}</span>
                     {{else}}
