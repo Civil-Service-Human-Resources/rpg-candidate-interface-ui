@@ -9,7 +9,8 @@
     "lint": "./node_modules/.bin/eslint ./ --cache"
   },
   "pre-commit": [
-    "lint"
+    "lint",
+    "test"
   ],
   "dependencies": {
     "babel-polyfill": "^6.26.0",
