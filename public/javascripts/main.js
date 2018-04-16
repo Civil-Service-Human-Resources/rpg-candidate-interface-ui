@@ -1,5 +1,7 @@
-import 'babel-polyfill';
+import 'babel-polyfill/dist/polyfill';
 import './polyfills-custom/dataset';
+import './polyfills-custom/append';
+import './polyfills-custom/prepend';
 
 import ShowHide from '../javascripts/modules/showhide';
 import MinMaxSalary from '../javascripts/modules/salary';
