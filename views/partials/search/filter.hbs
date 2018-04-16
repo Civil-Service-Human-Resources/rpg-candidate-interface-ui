@@ -70,13 +70,8 @@
             <div class="form-multicheckbox__list{{#if filters.depts }} js-expanded{{/if}}" id="department-list">
             {{#each departments }}
                 <div class="form-multicheckbox__item">
-                    <input
-                            type="checkbox"
-                            name="depts"
-                            id="dept-{{ id }}"
-                            value="{{ id }}"
-                        {{#inArray ../filters.depts id }} checked{{/inArray}}>
-                    <label for="dept-{{ id }}">{{ name }}</label>
+                    <input id="dept-{{ id }}" name="depts" type="checkbox" value="{{ id }}"{{#inArray ../filters.depts id }} checked{{/inArray}}>
+                    <label for="dept-{{ id }}" class="form-label form-label--checkbox">{{ name }}</label>
                 </div>
             {{/each}}
             </div>

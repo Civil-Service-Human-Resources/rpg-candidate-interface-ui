@@ -25,15 +25,30 @@ legend {
     padding: 0;
     position: relative;
 
-    label {
+    .form-label--checkbox {
       display: block;
-      padding: 7px 7px 7px 33px;
+      padding: 7px 7px 7px 34px;
       position: relative;
       touch-action: manipulation;
 
       &:hover {
         background-color: $grey-3;
         cursor: pointer;
+      }
+
+      &:before {
+        height: 16px;
+        left: 7px;
+        top: 9px;
+        width: 16px;
+      }
+
+      &:after {
+        border-width: 0 0 3px 3px;
+        top: 14px;
+        left: 11px;
+        width: 9px;
+        height: 4px;
       }
     }
 
@@ -45,29 +60,6 @@ legend {
 
       & + label {
         position: relative;
-
-        &:before {
-          background-color: #FFF;
-          border: 2px solid #000;
-          content: '';
-          display: block;
-          height: 14px;
-          left: 8px;
-          line-height: 14px;
-          position: absolute;
-          top: 7px;
-          width: 14px;
-        }
-
-        &:after {
-          content: "\00ac";
-          display: none;
-          font-size: 21px;
-          left: 9px;
-          position: absolute;
-          top: -1px;
-          transform: rotate(130deg);
-        }
       }
 
       &:focus {
@@ -91,6 +83,36 @@ legend {
         & + label {
           opacity: .5;
         }
+      }
+    }
+  }
+}
+
+.no-csstransforms {
+  input[type=checkbox] {
+    left: auto;
+    opacity: 1;
+    position: relative;
+    top: 0;
+  }
+
+  .form-label--checkbox {
+    display: inline-block;
+    padding-left: 0;
+  }
+
+  .form-multicheckbox {
+    .form-multicheckbox__item {
+      .form-label--checkbox {
+        padding-left: 34px;
+      }
+
+      input[type=checkbox] {
+        left: 8px;
+        opacity: 1;
+        position: absolute;
+        top: 10px;
+        z-index: 500;
       }
     }
   }
