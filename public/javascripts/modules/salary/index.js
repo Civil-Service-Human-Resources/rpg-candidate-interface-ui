@@ -32,13 +32,13 @@ export default class MinMaxSalary {
         const currentMaxValue = parseInt(this.maxField.value, 10);
         this.maxField.innerHTML = null;
 
-        this.maxField.append(this.createOption(this.maxDefault.value, this.maxDefault.innerHTML));
+        this.maxField.append(this.createOption(this.maxDefault.value, this.maxDefault.text));
 
         for (let i = 0; i < this.maxOptions.length; i += 1) {
             const option = this.maxOptions[i];
             if (currentMinValue === 0 || parseInt(option.value, 10) > currentMinValue) {
                 // eslint-disable-next-line max-len
-                this.maxField.append(this.createOption(option.value, option.innerHTML, currentMaxValue));
+                this.maxField.append(this.createOption(option.value, option.text, currentMaxValue));
             }
         }
     }
@@ -48,13 +48,13 @@ export default class MinMaxSalary {
         const currentMinValue = parseInt(this.minField.value, 10);
         this.minField.innerHTML = '';
 
-        this.minField.prepend(this.createOption(this.minDefault.value, this.minDefault.innerHTML));
+        this.minField.prepend(this.createOption(this.minDefault.value, this.minDefault.text));
 
         for (let i = 0; i < this.minOptions.length; i += 1) {
             const option = this.minOptions[i];
             if (currentMaxValue === 0 || parseInt(option.value, 10) < currentMaxValue) {
                 // eslint-disable-next-line max-len
-                this.minField.append(this.createOption(option.value, option.innerHTML, currentMinValue));
+                this.minField.append(this.createOption(option.value, option.text, currentMinValue));
             }
         }
     }
@@ -62,7 +62,7 @@ export default class MinMaxSalary {
     createOption(val, label, currentValue) {
         const option = document.createElement('option');
         option.setAttribute('value', val);
-        option.innerHTML = label;
+        option.text = label;
         option.selected = parseInt(currentValue, 10) === parseInt(val, 10);
 
         return option;
