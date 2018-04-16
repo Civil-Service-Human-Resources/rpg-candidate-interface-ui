@@ -53,17 +53,17 @@
                 <p>{{{ vacancy.description }}}</p>
             </div>
 
-            {{#if vacancy.responsibilities}}
-                <div>
-                    <h3>{{__ 'global.labels.responsibilities' }}</h3>
-                    <p>{{ vacancy.responsibilities }}</p>
-                </div>
-            {{/if}}
-
             {{#if vacancy.personalSpecification }}
                 <div>
                     <h3>{{__ 'global.labels.lookingFor' }}</h3>
                     <p>{{ vacancy.personalSpecification }}</p>
+                </div>
+            {{/if}}
+
+            {{#if vacancy.responsibilities}}
+                <div>
+                    <h3>{{__ 'global.labels.responsibilities' }}</h3>
+                    <p>{{ vacancy.responsibilities }}</p>
                 </div>
             {{/if}}
 
