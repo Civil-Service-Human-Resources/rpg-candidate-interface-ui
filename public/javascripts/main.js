@@ -34,3 +34,19 @@ showHideFields.forEach(el => new ShowHide({
 
 // eslint-disable-next-line no-new
 new MinMaxSalary('minSalary', 'maxSalary');
+
+// for automation
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+let i;
+
+for (i = 0; i < checkboxes.length; i += 1) {
+    // add checkbox state on page load
+    addCheckboxState(checkboxes[i]);
+
+    // add event listeners to update checkbox state
+    checkboxes[i].addEventListener('change', event => addCheckboxState(event.target));
+}
+
+function addCheckboxState(checkbox) {
+    return checkbox.setAttribute('data-checked', checkbox.checked);
+}
