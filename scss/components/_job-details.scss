@@ -34,11 +34,7 @@
     &__image {
         height: auto;
         margin-bottom: 10px;
-        width: 100px;
-
-        @include media($tablet-sml) {
-            width: 130px;
-        }
+        max-height: 100px;
     }
 
     &__top {
