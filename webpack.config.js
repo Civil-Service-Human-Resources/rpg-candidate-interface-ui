@@ -4,9 +4,16 @@ const webpack = require('webpack');
 const DIST_DIR = path.join(__dirname, 'public');
 const SRC_DIR = path.join(__dirname, 'public');
 
+console.log(__dirname);
+
 module.exports = {
 
     context: SRC_DIR,
+
+    resolve: {
+        modules: [path.resolve(__dirname, "node_modules"), "node_modules"],
+        extensions: [ '.js', '.jsx', '.json' ]
+    },
 
     entry: {
         'bundle': './javascripts/main.js',
