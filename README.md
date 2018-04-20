@@ -7,6 +7,7 @@
 ## Running the app
 
 * Clone this repo
+* Copy `.env.sample` to `.env` and complete variables for your services
 * Run `npm start`
 
 You can now access this app from the browser: [http://localhost:3000](http://localhost:3000)
