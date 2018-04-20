@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "npm install && npm install --only=prod && webpack && node ./bin/www",
+    "start": "npm install && npm install --only=dev && node ./bin/www",
     "dev": "npm install && webpack && nodemon ./bin/www localhost 3000",
     "test": "ava --verbose",
     "lint": "./node_modules/.bin/eslint ./ --cache"
