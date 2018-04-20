@@ -11,6 +11,7 @@ module.exports = {
         "window": true
     },
     "rules": {
+        "no-throw-literal": "off",
         "no-undef": "off",
         "no-control-regex": "off",
         "max-len": "off",

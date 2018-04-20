@@ -38,7 +38,7 @@ router.get('/', [
         .custom(value => (value ? isMaxSalaryValidOption(value) : true))
         .withMessage('global.messages.invalidMaxSalary'),
 
-], async (req, res) => {
+], async (req, res, next) => {
     const queryString = url.parse(req.url).query;
 
     // if someone is trying to access the page with not filters
@@ -70,8 +70,8 @@ router.get('/', [
         filters.radius = DEFAULT_LOCATION_RADIUS;
     }
 
-    const departments = await fetchDepartmentList();
-    const { vacancies, params } = await fetchVacancyList(filters);
+    const departments = await fetchDepartmentList(next);
+    const { vacancies, params } = await fetchVacancyList(filters, next);
 
     // grabbing logos directory to check existance of logo file. Temporary until future story
     // changing to CDN based file storage

@@ -129,19 +129,31 @@ app.use('/cookies', routes.cookies);
 
 // catch 404 and log error
 app.use((req, res) => {
-    logger.error('404 Page not found');
+    logger.error(`404 Page not found - '${req.url}'`);
     res.status(404);
-    res.render('pages/errors/notFound', {});
+    res.render('pages/errors/404', {});
 });
 
 app.use((err, req, res, next) => {
-    logger.error(err);
-
     if (res.headersSent) {
         return next(err);
     }
 
-    const { status = 500, message } = err;
+    let errorObj = {};
+
+    if (err.custom) {
+        errorObj = { ...err };
+    } else {
+        errorObj = {
+            status: err.statusCode,
+            message: `${err.code} ${err.message}`,
+            url: req.url,
+            custom: true,
+        };
+    }
+
+    logger.error(errorObj);
+    const { status = 500, message } = errorObj;
     const viewTemplate = `pages/errors/${status}`;
 
     res.status(status);
