@@ -8,6 +8,11 @@ module.exports = {
 
     context: SRC_DIR,
 
+    resolve: {
+        modules: [path.resolve(__dirname, "node_modules"), "node_modules"],
+        extensions: [ '.js', '.jsx', '.json' ]
+    },
+
     entry: {
         'bundle': './javascripts/main.js',
         'bundle.min': './javascripts/main.js'
