@@ -2,6 +2,9 @@
   "name": "rpg-candidate-interface-ui",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "9.4.0"
+  },
   "scripts": {
     "start": "npm install && npm install --only=dev && node ./bin/www",
     "dev": "npm install && webpack && nodemon ./bin/www localhost 3000",
