@@ -4,6 +4,9 @@
  * Module dependencies.
  */
 
+require('dotenv').config();
+
+var auth = require('http-auth');
 var app = require('../app');
 var debug = require('debug')('candidate-interface-ui:server');
 var http = require('http');
@@ -15,6 +18,15 @@ const apiClient = require('../lib/modules/apiClient');
 async function onHealthCheck() {
   return await apiClient.health.check();
 };
+
+const basic = auth.basic({
+        realm: "Civil Service Carer"
+    }, (username, password, callback) => {
+        // Custom authentication
+        // Use callback(error) if you want to throw async error.
+        callback(username === process.env.UI_AUTH_USERNAME && password === process.env.UI_AUTH_PASSWORD);
+    }
+);
 
 
 /**
@@ -28,7 +40,8 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+// add 'basic' middle ware for basic auth - remove before going live to remove auth
+var server = http.createServer(basic, app);
 
 /**
 * Add health check to server
