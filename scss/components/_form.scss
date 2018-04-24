@@ -2,7 +2,15 @@ legend {
   margin-bottom: 5px;
 }
 
+select {
+  background-color: #FFF;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
 .form-multicheckbox {
+  display: block;
+  max-width: 100%;
 
   legend {
     @include bold-19;

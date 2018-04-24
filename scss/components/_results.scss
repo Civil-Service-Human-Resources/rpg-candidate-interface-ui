@@ -3,10 +3,13 @@
         @include bold-19;
         margin: 0;
 
-        @include media($tablet-sml) {
+        @include media(768px) {
             float: right;
+            width: calc(60.5% - 40px);
+        }
 
-            width: calc(75% - 40px);
+        @include media(960px) {
+            width: calc(74.5% - 40px);
         }
 
         strong {
@@ -34,7 +37,7 @@
         @extend %grid-row;
         padding: $gutter $gutter-half $gutter-half;
 
-        @include media($tablet-sml) {
+        @include media(768px) {
             padding: $gutter $gutter $gutter-half;
         }
     }
@@ -88,7 +91,8 @@
     }
 
     &__filters {
-        @include grid-column(2/7, $full-width: $tablet-sml);
+        @include grid-column(3/7, $full-width: 768px);
+        @include grid-column(2/7, $full-width: 960px);
         padding-top: 5px;
     }
 
@@ -117,7 +121,8 @@
     }
 
     &__results-list-container {
-        @include grid-column(5/7, $full-width: $tablet-sml);
+        @include grid-column(4/7, $full-width: 768px);
+        @include grid-column(5/7, $full-width: 960px);
     }
 
     &__rpp {
