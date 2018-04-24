@@ -19,7 +19,7 @@ if (rppSelect) {
 const showHideElements = [...document.getElementsByClassName('js-showhide')];
 showHideElements.forEach(el => new ShowHide({
     el,
-    mediaQuery: 'only screen and (max-width: 679px)',
+    mediaQuery: 'only screen and (max-width: 767px)',
     iconPosition: 'after',
 }));
 
