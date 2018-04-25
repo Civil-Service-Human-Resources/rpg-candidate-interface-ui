@@ -51,7 +51,10 @@
 			},
 			"whatWeOffer": "What we offer",
 			"overseas": "Overseas",
-			"lookingFor": "What we are looking for"
+			"lookingFor": "What we are looking for",
+			"fullname": "Full name",
+			"repeatPassword": "Password",
+			"createPassword": "Create password"
 		},
 		"buttons": {
 			"apply": "Apply",
@@ -371,10 +374,11 @@
 			"p2": "Creating an account allows you to:",
 			"p2_li1": "apply for a vacancy",
 			"p2_li2": "track your applications",
-			"p2_li3": "create and manage job alerts",
-			"p2_l1": "account.login.p2_l1",
-			"p2_l2": "account.login.p2_l2",
-			"p2_l3": "account.login.p2_l3"
+			"p2_li3": "create and manage job alerts"
+		},
+		"create": {
+			"title": "Create account",
+			"buttonLabel": "Create account"
 		}
 	},
 	"errors": {

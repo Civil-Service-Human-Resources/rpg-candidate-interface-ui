@@ -6,6 +6,8 @@ const router = express.Router();
 /* GET apply page. */
 router.get('/login', (req, res) => res.render('pages/account/login', {}));
 
+router.get('/create', (req, res) => res.render('pages/account/create', {}));
+
 router.post('/login', [
     // validation rules
     check('email')

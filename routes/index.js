@@ -3,7 +3,7 @@ const cookies = require('./cookies');
 const privacyPolicy = require('./privacyPolicy');
 const results = require('./results');
 const vacancyDetails = require('./vacancy');
-const accountLogin = require('./account/login');
+const account = require('./account/account');
 
 module.exports = {
     home,
@@ -11,5 +11,5 @@ module.exports = {
     privacyPolicy,
     results,
     vacancyDetails,
-    accountLogin,
+    account,
 };

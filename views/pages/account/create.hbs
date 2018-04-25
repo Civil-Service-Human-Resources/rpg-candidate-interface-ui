@@ -1,0 +1,87 @@
+<h1 class="heading-xlarge">{{__ 'account.create.title' }}</h1>
+
+<form method="POST" action="/account/create">
+
+    <fieldset>
+        <legend class="heading-large more-margin">Your details</legend>
+
+        <div class="form-group{{#if errors.fullname }} form-group-error{{/if}}">
+
+            <label class="form-label-bold" for="fullname">
+                <span class="form-label-bold">{{__ 'global.labels.fullname' }}</span>
+            </label>
+
+            <input
+               class="form-control{{#if errors.fullname }} form-control-error{{/if}}"
+               id="fullname"
+               name="fullname"
+               type="fullname"
+               value="{{ formData.fullname }}" required>
+
+        </div>
+
+        <div class="form-group{{#if errors.email }} form-group-error{{/if}}">
+
+            <label class="form-label-bold" for="email">
+                <span class="form-label-bold">{{__ 'global.labels.email' }}</span>
+                <span class="form-hint">You'll need this to sign in to your account</span>
+            </label>
+
+            <input
+               class="form-control{{#if errors.email }} form-control-error{{/if}}"
+               id="email"
+               name="email"
+               type="email"
+               value="{{ formData.email }}" required>
+
+        </div>
+
+    </fieldset>
+
+    <hr />
+
+    <fieldset>
+        <legend class="heading-large more-margin">Contact details</legend>
+
+        <div class="form-group">
+            <p>joe.bloggs@hotmail.com <a href="#email">Edit your email</a></p>
+        </div>
+
+        <div class="form-group{{#if errors.password }} form-group-error{{/if}}">
+
+            <label class="form-label-bold" for="password">
+                <span class="form-label-bold">{{__ 'global.labels.createPassword' }}</span>
+                <span class="form-hint">Requires upper and lowercase letter, a number and at least 8 characters</span>
+            </label>
+
+            <input
+               class="form-control{{#if errors.password }} form-control-error{{/if}}"
+               id="password"
+               name="password"
+               type="password"
+               value="{{ formData.password }}" required>
+
+        </div>
+
+        <div class="form-group{{#if errors.repeatpassword }} form-group-error{{/if}}">
+
+            <label class="form-label-bold" for="repeatpassword">
+                <span class="form-label-bold">{{__ 'global.labels.repeatPassword' }}</span>
+            </label>
+
+            <input
+               class="form-control{{#if errors.repeatpassword }} form-control-error{{/if}}"
+               id="repeatpassword"
+               name="repeatpassword"
+               type="repeatpassword"
+               value="{{ formData.repeatpassword }}" required>
+
+        </div>
+
+    </fieldset>
+
+    <div class="form-group">
+        <input type="submit" class="button" value="{{__ 'account.create.buttonLabel' }}">
+    </div>
+
+</form>

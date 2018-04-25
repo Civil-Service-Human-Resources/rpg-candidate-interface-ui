@@ -51,7 +51,10 @@
 			},
 			"whatWeOffer": "Yr hyn a gynigiwn",
 			"overseas": "Tramor",
-            "lookingFor": "Yr hyn yr ydym yn chwilio amdano"
+            "lookingFor": "Yr hyn yr ydym yn chwilio amdano",
+			"fullname": "Enw llawn",
+			"repeatPassword": "Cyfrinair",
+			"createPassword": "Create password"
 		},
 		"buttons": {
 			"apply": "Gwneud cais",
@@ -367,6 +370,10 @@
 			"p2_li1": "ymgeisio am swydd wag",
 			"p2_li2": "olrhain eich ceisiadau",
 			"p2_li3": "creu a rheoli rhybuddion gwaith"
+		},
+		"create": {
+			"title": "Creu cyfrif",
+			"buttonLabel": "Creu cyfrif"
 		}
 	},
 	"errors": {
