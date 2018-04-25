@@ -9,10 +9,13 @@ router.get('/login', (req, res) => res.render('pages/account/login', {}));
 router.post('/login', [
     // validation rules
     check('email')
-        .isLength({ min: 1 }).withMessage('global.messages.emailRequired')
-        .isEmail().withMessage('global.messages.emailInvalid'),
+        .isLength({ min: 1 })
+        .withMessage('global.messages.emailRequired')
+        .isEmail()
+        .withMessage('global.messages.emailInvalid'),
     check('password')
-        .isLength({ min: 1 }).withMessage('global.messages.passwordRequired'),
+        .isLength({ min: 1 })
+        .withMessage('global.messages.passwordRequired'),
 
 ], (req, res) => {
     const validate = validationResult(req);
