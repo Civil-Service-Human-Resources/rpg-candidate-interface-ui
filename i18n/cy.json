@@ -20,6 +20,7 @@
 			"name": "Enw",
 			"department": "Adran",
 			"email": "Cyfeiriad ebost",
+			"password": "Cyfrinair",
 			"telephone": "Ffôn",
 			"aboutTheJob": "Ynglŷn ā'r swydd",
 			"responsibilities": "Yn y rôl hon byddwch chi",
@@ -60,6 +61,9 @@
 		"messages": {
 			"submissionErrorMsg": "Bu problem",
 			"locationRequired": "Mae angen i chi fynd i mewn i leoliad",
+			"emailRequired": "Mae angen ichi roi cyfeiriad e-bost",
+			"emailInvalid": "Nid yw'r e-bost yr ydych wedi'i gofrestru yn fformat dilys",
+			"passwordRequired": "Mae angen i chi nodi cyfrinair",
 			"invalidRadius": "Mae angen i chi nodi radiws dilys",
 			"invalidMinSalary": "Mae angen ichi roi cyflog min dilys",
 			"invalidMaxSalary": "Mae angen ichi roi cyflog llawn dilys"
@@ -348,6 +352,21 @@
 			"t5_r1c3": "Pan fyddwch chi'n cau'ch porwr",
 			"h3": "Gwasanaethau'r Llywodraeth",
 			"p10": "Mae'r rhan fwyaf o wasanaethau yr ydym yn cysylltu â nhw yn cael eu rhedeg gan wahanol adrannau'r llywodraeth, er enghraifft Swyddfa'r Cabinet neu Drysorlys EM. Gall y gwasanaethau hyn osod cwcis ychwanegol ac, os felly, bydd ganddynt eu polisi cwcis eu hunain."
+		}
+	},
+	"account": {
+		"login": {
+			"title": "Mewngofnodi",
+			"createAccount": "Creu cyfrif",
+			"cantAccessAccount": "Ni allaf gael mynediad at fy nghyfrif",
+			"buttonLabel": "Mewngofnodi",
+			"activateYourAccount": "Enwch eich cyfrif",
+			"h1": "Newydd i'r gwasanaeth hwn?",
+			"p1": "Os nad ydych wedi defnyddio'r gwasanaeth hwn cyn i chi gael <a href=\"/account/create\"> creu cyfrif </a>, hyd yn oed os oes gennych eisoes gyfrif cyfredol gyda swyddi'r Gwasanaeth Sifil.",
+			"p2": "Mae creu cyfrif yn eich galluogi i:",
+			"p2_li1": "ymgeisio am swydd wag",
+			"p2_li2": "olrhain eich ceisiadau",
+			"p2_li3": "creu a rheoli rhybuddion gwaith"
 		}
 	},
 	"errors": {

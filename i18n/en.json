@@ -20,6 +20,7 @@
 			"name": "Name",
 			"department": "Department",
 			"email": "Email address",
+			"password": "Password",
 			"telephone": "Telephone number",
 			"aboutTheJob": "About the job",
 			"responsibilities": "In this role you will",
@@ -60,6 +61,9 @@
 		"messages": {
 			"submissionErrorMsg": "There has been a problem",
 			"locationRequired": "You need to enter a location",
+			"emailRequired": "You need to enter an email address",
+			"emailInvalid": "The email you have entered is not valid format",
+			"passwordRequired": "You need to enter a password",
 			"invalidRadius": "You need to enter a valid radius",
 			"invalidMinSalary": "You need to enter a valid min salary",
 			"invalidMaxSalary": "You need to enter a valid max salary"
@@ -353,6 +357,24 @@
 			"t5_r1c3": "When you close your browser",
 			"h3": "Government services",
 			"p10": "Most services we link to are run by different government departments, for example Cabinet Office or the HM Treasury. These services may set additional cookies and, if so, will have their own cookies policy."
+		}
+	},
+	"account": {
+		"login": {
+			"title": "Sign in",
+			"createAccount": "Create an account",
+			"cantAccessAccount": "I can't access my account",
+			"buttonLabel": "Sign in",
+			"activateYourAccount": "Activate your account",
+			"h1": "New to this service?",
+			"p1": "If you haven't used this service before you must <a href=\"/account/create\">create an account</a>, even if you already have an existing account with Civil Service jobs.",
+			"p2": "Creating an account allows you to:",
+			"p2_li1": "apply for a vacancy",
+			"p2_li2": "track your applications",
+			"p2_li3": "create and manage job alerts",
+			"p2_l1": "account.login.p2_l1",
+			"p2_l2": "account.login.p2_l2",
+			"p2_l3": "account.login.p2_l3"
 		}
 	},
 	"errors": {
