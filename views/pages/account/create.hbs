@@ -1,6 +1,12 @@
 <h1 class="heading-xlarge">{{__ 'account.create.title' }}</h1>
 
-<form method="POST" action="/account/create">
+<div class="text">
+    {{> messages/error
+            errorMsg='global.messages.submissionErrorMsg'
+            errors=errors }}
+</div>
+
+<form method="POST" action="/account/create" novalidate>
 
     <fieldset>
         <legend class="heading-large more-margin">Your details</legend>

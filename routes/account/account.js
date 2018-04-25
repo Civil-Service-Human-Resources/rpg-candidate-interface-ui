@@ -29,4 +29,34 @@ router.post('/login', [
     });
 });
 
+router.post('/create', [
+    // validation rules
+    check('fullname')
+        .isLength({ min: 1 })
+        .withMessage('global.messages.fullnameRequired'),
+    check('email')
+        .isLength({ min: 1 })
+        .withMessage('global.messages.emailRequired')
+        .isEmail()
+        .withMessage('global.messages.emailInvalid'),
+    check('password')
+        .isLength({ min: 8 })
+        .withMessage('global.messages.passwordMinLength'),
+    check('repeatpassword')
+        .isLength({ min: 1 })
+        .withMessage('global.messages.emailRepeatRequired')
+        .custom((value, { req }) => value === req.body.password)
+        .withMessage('global.messages.passwordsMustMatch'),
+
+
+], (req, res) => {
+    const validate = validationResult(req);
+    const formData = req.body;
+
+    return res.render('pages/account/create', {
+        errors: validate.mapped(),
+        formData,
+    });
+});
+
 module.exports = router;

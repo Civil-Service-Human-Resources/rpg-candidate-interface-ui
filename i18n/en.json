@@ -67,6 +67,10 @@
 			"emailRequired": "You need to enter an email address",
 			"emailInvalid": "The email you have entered is not valid format",
 			"passwordRequired": "You need to enter a password",
+			"passwordMinLength": "Your password needs to be a minimum of 8 characters",
+			"passwordsMustMatch": "Your password and repeated password must match",
+			"emailRepeatRequired": "You need to re-enter your password",
+			"fullnameRequired": "You need to enter your full name",
 			"invalidRadius": "You need to enter a valid radius",
 			"invalidMinSalary": "You need to enter a valid min salary",
 			"invalidMaxSalary": "You need to enter a valid max salary"

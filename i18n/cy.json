@@ -66,7 +66,11 @@
 			"locationRequired": "Mae angen i chi fynd i mewn i leoliad",
 			"emailRequired": "Mae angen ichi roi cyfeiriad e-bost",
 			"emailInvalid": "Nid yw'r e-bost yr ydych wedi'i gofrestru yn fformat dilys",
+			"passwordMinLength": "Rhaid i'ch cyfrinair fod o leiaf 8 nod",
 			"passwordRequired": "Mae angen i chi nodi cyfrinair",
+			"passwordsMustMatch": "Rhaid i'ch cyfrinair ac ail-gyfrinair gydweddu",
+			"emailRepeatRequired": "Mae angen i chi ail-gofnodi'ch cyfrinair",
+			"fullnameRequired": "Mae angen ichi roi eich enw llawn",
 			"invalidRadius": "Mae angen i chi nodi radiws dilys",
 			"invalidMinSalary": "Mae angen ichi roi cyflog min dilys",
 			"invalidMaxSalary": "Mae angen ichi roi cyflog llawn dilys"
