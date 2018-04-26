@@ -11,7 +11,7 @@
     <form method="POST" action="/account/create" novalidate>
 
         <fieldset>
-            <legend class="heading-large more-margin">Your details</legend>
+            <legend class="heading-large more-margin">{{__ 'account.create.yourDetails' }}</legend>
 
             <div class="form-group{{#if errors.fullname }} form-group-error{{/if}}">
 
@@ -32,7 +32,7 @@
 
                 <label class="form-label-bold" for="email">
                     <span class="form-label-bold">{{__ 'global.labels.email' }}</span>
-                    <span class="form-hint">You'll need this to sign in to your account</span>
+                    <span class="form-hint">{{__ 'account.create.emailFieldInfo' }}</span>
                 </label>
 
                 <input
@@ -49,17 +49,17 @@
         <hr />
 
         <fieldset>
-            <legend class="heading-large more-margin">Contact details</legend>
+            <legend class="heading-large more-margin">{{__ 'account.create.contactDetails' }}</legend>
 
             <div class="form-group">
-                <p>joe.bloggs@hotmail.com <a href="#email">Edit your email</a></p>
+                <p>joe.bloggs@hotmail.com <a href="#email">{{__ 'account.create.editEmail' }}</a></p>
             </div>
 
             <div class="form-group{{#if errors.password }} form-group-error{{/if}}">
 
                 <label class="form-label-bold" for="password">
                     <span class="form-label-bold">{{__ 'global.labels.createPassword' }}</span>
-                    <span class="form-hint">Requires upper and lowercase letter, a number and at least 8 characters</span>
+                    <span class="form-hint">{{__ 'account.create.passwordFieldInfo' }}</span>
                 </label>
 
                 <input

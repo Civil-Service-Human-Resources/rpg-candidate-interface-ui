@@ -385,7 +385,12 @@
 		},
 		"create": {
 			"title": "Create account",
-			"buttonLabel": "Create account"
+			"yourDetails": "Your details",
+			"contactDetails": "Contact details",
+			"editEmail": "Edit your email",
+			"buttonLabel": "Create account",
+			"emailFieldInfo": "You'll need this to sign in to your account",
+			"passwordFieldInfo": "Requires upper and lowercase letter, a number and at least 8 characters"
 		},
 		"activate": {
 			"title": "Activate your account",

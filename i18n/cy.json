@@ -51,10 +51,10 @@
 			},
 			"whatWeOffer": "Yr hyn a gynigiwn",
 			"overseas": "Tramor",
-            "lookingFor": "Yr hyn yr ydym yn chwilio amdano",
+			"lookingFor": "Yr hyn yr ydym yn chwilio amdano",
 			"fullname": "Enw llawn",
 			"repeatPassword": "Cyfrinair",
-			"createPassword": "Create password"
+			"createPassword": "Creu cyfrinair"
 		},
 		"buttons": {
 			"apply": "Gwneud cais",
@@ -380,7 +380,12 @@
 		},
 		"create": {
 			"title": "Creu cyfrif",
-			"buttonLabel": "Creu cyfrif"
+			"yourDetails": "Eich manylion",
+			"contactDetails": "Manylion cyswllt",
+			"editEmail": "Golygu eich e-bost",
+			"buttonLabel": "Creu cyfrif",
+			"emailFieldInfo": "Bydd angen hyn arnoch i ymuno â'ch cyfrif",
+			"passwordFieldInfo": "Yn gofyn llythyr uwch ac isaf, nifer ac o leiaf 8 nod"
 		},
 		"activate": {
 			"title": "Enwch eich cyfrif",
