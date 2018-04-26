@@ -1,66 +1,82 @@
-<h1 class="heading-xlarge less-margin">{{__ 'account.login.title' }}</h1>
-<p class="more-margin"><a href="/account/create">{{__ 'account.login.createAccount' }}</a></p>
+<div class="two-col-layout">
 
-<div class="text">
-    {{> messages/error
-            errorMsg='global.messages.submissionErrorMsg'
-            errors=errors }}
-</div>
+    <div class="two-col-layout__first">
 
-<form method="POST" action="/account/login" novalidate>
-    <div class="form-section">
+        <h1 class="heading-xlarge less-margin">{{__ 'account.login.title' }}</h1>
+        <p class="more-margin"><a href="/account/create">{{__ 'account.login.createAccount' }}</a></p>
 
-        <div class="form-group{{#if errors.email }} form-group-error{{/if}}">
-
-            <label class="form-label-bold" for="email">
-                <span class="form-label-bold">{{__ 'global.labels.email' }}</span>
-            </label>
-
-            <input
-               class="form-control{{#if errors.email }} form-control-error{{/if}}"
-               id="email"
-               name="email"
-               type="email"
-               value="{{ formData.email }}" required>
-
+        <div class="text">
+            {{> messages/error
+                    errorMsg='global.messages.submissionErrorMsg'
+                    errors=errors }}
         </div>
 
-        <div class="form-group{{#if errors.password }} form-group-error{{/if}}">
+        <form method="POST" action="/account/signin" novalidate>
+            <div class="form-section">
 
-            <label class="form-label-bold" for="password">
-                <span class="form-label-bold">{{__ 'global.labels.password' }}</span>
-            </label>
+                <div class="form-group{{#if errors.email }} form-group-error{{/if}}">
 
-            <input
-               class="form-control{{#if errors.password }} form-control-error{{/if}}"
-               id="password"
-               name="password"
-               type="password"
-               value="{{ formData.password }}" required>
+                    <label class="form-label-bold" for="email">
+                        <span class="form-label-bold">{{__ 'global.labels.email' }}</span>
+                    </label>
 
-        </div>
+                    <input
+                    class="form-control{{#if errors.email }} form-control-error{{/if}}"
+                    id="email"
+                    name="email"
+                    type="email"
+                    value="{{ formData.email }}" required>
 
-        <div class="form-group">
-            <p><a href="">{{__ 'account.login.cantAccessAccount' }}</a></p>
-        </div>
+                </div>
 
-        <div class="form-group">
-            <input type="submit" class="button" value="{{__ 'account.login.buttonLabel' }}">
+                <div class="form-group{{#if errors.password }} form-group-error{{/if}}">
+
+                    <label class="form-label-bold" for="password">
+                        <span class="form-label-bold">{{__ 'global.labels.password' }}</span>
+                    </label>
+
+                    <input
+                    class="form-control{{#if errors.password }} form-control-error{{/if}}"
+                    id="password"
+                    name="password"
+                    type="password"
+                    value="{{ formData.password }}" required>
+
+                </div>
+
+                <div class="form-group">
+                    <p><a href="">{{__ 'account.login.cantAccessAccount' }}</a></p>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="button" value="{{__ 'account.login.buttonLabel' }}">
+                </div>
+
+            </div>
+        </form>
+
+        <div><a class="js-showhide-field" data-showhide-target-id="activateAccountLinkContent" href="#">{{__ 'account.login.activateYourAccount' }}</a></div>
+        <div class="panel panel-border-narrow" id="activateAccountLinkContent">
+            <ol class="list list-number">
+                <li>{{__ 'account.login.activateYourAccount_li1' }}</li>
+                <li>{{__ 'account.login.activateYourAccount_li2' }}</li>
+                <li>{{__ 'account.login.activateYourAccount_li3' }}</li>
+            </ol>
         </div>
 
     </div>
-</form>
 
-<p><a class="js-showhide-field" data-showhide-target-id="activateAccountLinkContent" href="#">{{__ 'account.login.activateYourAccount' }}</a></p>
-<div class="panel panel-border-narrow" id="activateAccountLinkContent">ABC</div>
+    <div class="two-col-layout__last">
 
+        <h2 class="heading-medium">{{__ 'account.login.h1' }}</h2>
+        <p>{{{__ 'account.login.p1' }}}</p>
+        <p>{{__ 'account.login.p2' }}</p>
+        <ul class="list list-bullet">
+            <li>{{__ 'account.login.p2_li1' }}</li>
+            <li>{{__ 'account.login.p2_li2' }}</li>
+            <li>{{__ 'account.login.p2_li3' }}</li>
+        </ul>
 
+    </div>
 
-<h2 class="heading-medium">{{__ 'account.login.h1' }}</h2>
-<p>{{{__ 'account.login.p1' }}}</p>
-<p>{{__ 'account.login.p2' }}</p>
-<ul class="list list-bullet">
-    <li>{{__ 'account.login.p2_li1' }}</li>
-    <li>{{__ 'account.login.p2_li2' }}</li>
-    <li>{{__ 'account.login.p2_li3' }}</li>
-</ul>
+</div>

@@ -368,6 +368,9 @@
 			"cantAccessAccount": "Ni allaf gael mynediad at fy nghyfrif",
 			"buttonLabel": "Mewngofnodi",
 			"activateYourAccount": "Enwch eich cyfrif",
+			"activateYourAccount_li1": "Unwaith y byddwch chi wedi creu cyfrif byddwn yn anfon cod activation i chi.",
+			"activateYourAccount_li2": "Cofrestrwch i mewn gan ddefnyddio'ch cyfeiriad e-bost a'ch cyfrinair.",
+			"activateYourAccount_li3": "Yna gofynnir i chi nodi eich cod activation.",
 			"h1": "Newydd i'r gwasanaeth hwn?",
 			"p1": "Os nad ydych wedi defnyddio'r gwasanaeth hwn cyn i chi gael <a href=\"/account/create\"> creu cyfrif </a>, hyd yn oed os oes gennych eisoes gyfrif cyfredol gyda swyddi'r Gwasanaeth Sifil.",
 			"p2": "Mae creu cyfrif yn eich galluogi i:",
@@ -378,6 +381,10 @@
 		"create": {
 			"title": "Creu cyfrif",
 			"buttonLabel": "Creu cyfrif"
+		},
+		"activate": {
+			"title": "Enwch eich cyfrif",
+			"p1": "Dylech chi dderbyn cod 6 cymeriad yn eich e-bost."
 		}
 	},
 	"errors": {

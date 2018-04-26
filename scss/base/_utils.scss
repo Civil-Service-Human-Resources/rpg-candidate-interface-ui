@@ -22,3 +22,9 @@
 .more-margin {
     margin-bottom: 40px;
 }
+
+.text {
+    &--wide {
+        max-width: 40em;
+    }
+}
