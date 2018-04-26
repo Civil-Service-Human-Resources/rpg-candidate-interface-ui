@@ -4,11 +4,13 @@ const { check, validationResult } = require('express-validator/check');
 const router = express.Router();
 
 /* GET apply page. */
-router.get('/login', (req, res) => res.render('pages/account/login', {}));
+router.get('/signin', (req, res) => res.render('pages/account/login', {}));
 
 router.get('/create', (req, res) => res.render('pages/account/create', {}));
 
-router.post('/login', [
+router.get('/activate', (req, res) => res.render('pages/account/activate', {}));
+
+router.post('/signin', [
     // validation rules
     check('email')
         .isLength({ min: 1 })
