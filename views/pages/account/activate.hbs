@@ -12,25 +12,29 @@
 
 <form method="POST" action="/account/activate" novalidate>
 
-    <div class="form-group">
-        <label class="form-label-bold">
-            <span class="form-label-bold">{{__ 'global.labels.email' }}</span>
-        </label>
-        <div>joebloggs@hotmail.com</div>
-    </div>
+    <div class="form-section">
 
-    <div class="form-group{{#if errors.code }} form-group-error{{/if}}">
+        <div class="form-group">
+            <label class="form-label-bold">
+                <span class="form-label-bold">{{__ 'global.labels.email' }}</span>
+            </label>
+            <div>joebloggs@hotmail.com</div>
+        </div>
 
-        <label class="form-label-bold" for="code">
-            <span class="form-label-bold">{{__ 'global.labels.code' }}</span>
-        </label>
+        <div class="form-group{{#if errors.code }} form-group-error{{/if}}">
 
-        <input
-        class="form-control{{#if errors.code }} form-control-error{{/if}}"
-        id="code"
-        name="code"
-        type="password"
-        value="{{ formData.code }}" required>
+            <label class="form-label-bold" for="code">
+                <span class="form-label-bold">{{__ 'global.labels.code' }}</span>
+            </label>
+
+            <input
+            class="form-control{{#if errors.code }} form-control-error{{/if}}"
+            id="code"
+            name="code"
+            type="password"
+            value="{{ formData.code }}" required>
+
+        </div>
 
     </div>
 
