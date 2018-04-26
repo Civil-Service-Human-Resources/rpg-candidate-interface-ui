@@ -21,6 +21,7 @@
 			"department": "Department",
 			"email": "Email address",
 			"password": "Password",
+			"code": "Code",
 			"telephone": "Telephone number",
 			"aboutTheJob": "About the job",
 			"responsibilities": "In this role you will",
@@ -70,6 +71,7 @@
 			"passwordMinLength": "Your password needs to be a minimum of 8 characters",
 			"passwordsMustMatch": "Your password and repeated password must match",
 			"emailRepeatRequired": "You need to re-enter your password",
+			"activationCodeRequired": "You need to enter your activation code",
 			"fullnameRequired": "You need to enter your full name",
 			"invalidRadius": "You need to enter a valid radius",
 			"invalidMinSalary": "You need to enter a valid min salary",
@@ -394,7 +396,10 @@
 		},
 		"activate": {
 			"title": "Activate your account",
-			"p1": "You should receive a 6-character code in your email."
+			"p1": "You should receive a 6-character code in your email.",
+			"p2": "Enter the code to activate your account.",
+			"buttonLabel": "Activate account",
+			"resendButtonLabel": "Resend code"
 		}
 	},
 	"errors": {

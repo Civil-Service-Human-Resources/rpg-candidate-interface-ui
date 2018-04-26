@@ -21,6 +21,7 @@
 			"department": "Adran",
 			"email": "Cyfeiriad ebost",
 			"password": "Cyfrinair",
+			"code": "Côd",
 			"telephone": "Ffôn",
 			"aboutTheJob": "Ynglŷn ā'r swydd",
 			"responsibilities": "Yn y rôl hon byddwch chi",
@@ -70,6 +71,7 @@
 			"passwordRequired": "Mae angen i chi nodi cyfrinair",
 			"passwordsMustMatch": "Rhaid i'ch cyfrinair ac ail-gyfrinair gydweddu",
 			"emailRepeatRequired": "Mae angen i chi ail-gofnodi'ch cyfrinair",
+			"activationCodeRequired": "Mae angen ichi nodi eich cod activation",
 			"fullnameRequired": "Mae angen ichi roi eich enw llawn",
 			"invalidRadius": "Mae angen i chi nodi radiws dilys",
 			"invalidMinSalary": "Mae angen ichi roi cyflog min dilys",
@@ -389,7 +391,10 @@
 		},
 		"activate": {
 			"title": "Enwch eich cyfrif",
-			"p1": "Dylech chi dderbyn cod 6 cymeriad yn eich e-bost."
+			"p1": "Dylech chi dderbyn cod 6 cymeriad yn eich e-bost.",
+			"p2": "Rhowch y cod i actifadu'ch cyfrif.",
+			"buttonLabel": "Animeiddio cyfrif",
+			"resendButtonLabel": "Ailgyflwyno cod"
 		}
 	},
 	"errors": {

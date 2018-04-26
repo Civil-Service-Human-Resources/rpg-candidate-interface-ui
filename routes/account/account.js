@@ -61,4 +61,19 @@ router.post('/create', [
     });
 });
 
+router.post('/activate', [
+    // validation rules
+    check('code')
+        .isLength({ min: 1 })
+        .withMessage('global.messages.activationCodeRequired'),
+], (req, res) => {
+    const validate = validationResult(req);
+    const formData = req.body;
+
+    return res.render('pages/account/activate', {
+        errors: validate.mapped(),
+        formData,
+    });
+});
+
 module.exports = router;
