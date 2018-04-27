@@ -42,12 +42,12 @@
     "serve-favicon": "~2.5.0",
     "truncate-html": "^1.0.0-rc.4",
     "uuid": "^3.2.1",
-    "winston": "^2.4.0"
+    "winston": "^2.4.2"
   },
   "devDependencies": {
     "ava": "^0.25.0",
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.1",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
@@ -58,7 +58,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.6.1",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.9.0",
     "nodemon": "^1.12.6",
     "pre-commit": "^1.2.2",
     "webpack": "^3.10.0"
