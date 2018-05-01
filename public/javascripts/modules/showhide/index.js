@@ -97,7 +97,7 @@ export default class ShowHide {
         event.preventDefault();
         // we only want to fire if the media query matches
         if (matchMedia(this.mediaQuery).matches) { // eslint-disable-line no-undef
-            const targetHidden = this.targetEl.className.indexOf('js-hidden');
+            const targetHidden = this.targetEl.className.indexOf('js-hidden') > 0;
 
             this.el.setAttribute('aria-expanded', targetHidden);
             this.iconEl.className = this.toggleClass(this.iconEl.className, this.iconClassClosed);
@@ -112,19 +112,19 @@ export default class ShowHide {
     // eslint-disable-next-line class-methods-use-this
     addClass(classList, newClass) {
         // having to use crappy way of adding class to keep IE happy :(
-        return `${classList} ${newClass}`;
+        return `${classList} ${newClass}`.trim();
     }
 
     // eslint-disable-next-line class-methods-use-this
-    removeClass(classList, removeClass) {
+    removeClass(classList, newClass) {
         // having to use crappy way of adding class to keep IE happy :(
-        return classList.replace(removeClass);
+        return classList.replace(newClass, '').trim();
     }
 
-    toggleClass(classList, toggleClass) {
+    toggleClass(classList, newClass) {
         // having to use crappy way of toggling class to keep IE happy :(
-        return classList.indexOf(toggleClass) === -1 ?
-            this.addClass(classList, toggleClass) : this.removeClass(classList, toggleClass);
+        return classList.indexOf(newClass) <= 0 ?
+            this.addClass(classList, newClass) : this.removeClass(classList, newClass);
     }
 
     checkClassExists(classList, className) {
