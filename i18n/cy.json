@@ -197,21 +197,51 @@
 		}
 	},
 	"errors": {
-		"notFound": {
+		"error401": {
+			"title_l1": "Mae angen i chi fewngofnodi i gael mynediad i'r dudalen hon",
+			"title_l2": "401 heb awdurdod",
+			"line1": "Gwiriwch eich bod wedi cofnodi'r cyfeiriad gwe cywir, neu ceisiwch:",
+			"line1_li1": "<a href=\"https://www.gov.uk\">GOV.UK</a>",
+			"line1_li2": "<a href=\"/\">Chwilio am swydd</a>",
+			"line2": "<a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">Cysylltwch â ni</a> os oes problem gyda chyswllt / botwm i'r dudalen hon."
+		},
+		"error403": {
+			"title_l1": "Ni allwch chi gael mynediad i'r wybodaeth hon",
+			"title_l2": "403 Gwaharddwyd",
+			"line1": "Gwiriwch eich bod wedi cofnodi'r cyfeiriad gwe cywir, neu ceisiwch:",
+			"line1_li1": "<a href=\"https://www.gov.uk\">GOV.UK</a>",
+			"line1_li2": "<a href=\"/\">Chwilio am swydd</a>",
+			"line2": "<a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">Cysylltwch â ni</a> os oes problem gyda chyswllt / botwm i'r dudalen hon."
+		},
+		"error404": {
 			"title": "Ni ellir dod o hyd i'r dudalen hon",
 			"returnString1": "Gwnewch yn siŵr eich bod wedi cofnodi'r cyfeiriad gwe cywir, neu geisiwch",
 			"returnString2": "<a href='http://gov.uk/'>GOV.UK</a>",
 			"returnString3": "<a href='/'>Chwilio am swydd</a>",
 			"returnString4": "<a href='mailto:support.csjobs@cabinetoffice.gov.uk'>Cysylltwch â</a> ni os oes problem gyda dolen i'r dudalen hon."
 		},
-		"jobRemoved": {
+		"error410": {
 			"title": "Methu gweld swydd",
 			"line1": "Nid yw'r swydd hon ar gael mwyach, ond rydym bob amser yn ychwanegu cyfleoedd newydd.",
 			"line2": "<a href=\"/\">Chwilio am swyddi</a>"
 		},
-		"serverError": {
-			"title": "Mae gwall anhysbys wedi digwydd",
-			"line1": "Rho gynnig Arni eto'n hwyrach."
+		"error500": {
+			"title_l1": "Mae gennym broblem gyda'n gweinydd",
+			"title_l2": "500 gwall gweinyddwr",
+			"line1": "Ceisiwch adnewyddu'r dudalen hon mewn ychydig funudau.",
+			"line2": "<a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">Cysylltwch â ni</a> am gymorth technegol."
+		},
+		"error502": {
+			"title_l1": "Mae gennym broblem gyda'n gweinydd",
+			"title_l2": "502 porth drwg",
+			"line1": "Ceisiwch adnewyddu'r dudalen hon mewn ychydig funudau.",
+			"line2": "<a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">Cysylltwch â ni</a> am gymorth technegol."
+		},
+		"error503": {
+			"title_l1": "Nid yw'r gwasanaeth ar gael ar hyn o bryd",
+			"title_l2": "503 Nid yw'r gwasanaeth ar gael",
+			"line1": "Gall hyn fod yn broblem dros dro, ceisiwch adnewyddu'r dudalen hon mewn ychydig funudau.",
+			"line2": "<a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">Cysylltwch â ni</a> am gymorth technegol."
 		}
 	}
 }
