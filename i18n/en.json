@@ -202,21 +202,51 @@
 		}
 	},
 	"errors": {
-		"notFound": {
+		"error401": {
+			"title_l1": "You need to login to access this page",
+			"title_l2": "401 unauthorised",
+			"line1": "Check that you’ve entered the correct web address, or try:",
+			"line1_li1": "<a href=\"https://www.gov.uk\">GOV.UK</a>",
+			"line1_li2": "<a href=\"/\">Job search</a>",
+			"line2": "<a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">Contact us</a> if there is a problem with a link/button to this page."
+		},
+		"error403": {
+			"title_l1": "You cannot access this information",
+			"title_l2": "403 forbidden",
+			"line1": "Check that you’ve entered the correct web address, or try:",
+			"line1_li1": "<a href=\"https://www.gov.uk\">GOV.UK</a>",
+			"line1_li2": "<a href=\"/\">Job search</a>",
+			"line2": "<a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">Contact us</a> if there is a problem with a link/button to this page."
+		},
+		"error404": {
 			"title": "This page cannot be found",
 			"returnString1": "Check that you have entered the correct web address, or try",
 			"returnString2": "<a href='http://gov.uk/'>GOV.UK</a>",
 			"returnString3": "<a href='/'>Job search</a>",
 			"returnString4": "<a href='mailto:support.csjobs@cabinetoffice.gov.uk'>Contact us</a> if there is a problem with a link to this page."
 		},
-		"jobRemoved": {
+		"error410": {
 			"title": "Cannot view job",
 			"line1": "This job is no longer available, but we're always adding new opportunities.",
 			"line2": "<a href=\"/\">Search for jobs</a>"
 		},
-		"serverError": {
-			"title": "An unknown error has occurred",
-			"line1": "Please try again later."
+		"error500": {
+			"title_l1": "We have a problem with our server",
+			"title_l2": "500 server error",
+			"line1": "Try to refresh this page in a few minutes.",
+			"line2": "<a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">Contact us</a> for technical support."
+		},
+		"error502": {
+			"title_l1": "We have a problem with our server",
+			"title_l2": "502 bad gateway",
+			"line1": "Try to refresh this page in a few minutes.",
+			"line2": "<a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">Contact us</a> for technical support."
+		},
+		"error503": {
+			"title_l1": "The service is currently unavailable",
+			"title_l2": "503 service unavailable",
+			"line1": "This may be a temporary problem, try to refresh this page in a few minutes.",
+			"line2": "<a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">Contact us</a> for technical support."
 		}
 	}
 }
