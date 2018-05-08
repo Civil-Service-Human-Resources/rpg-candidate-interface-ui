@@ -35,6 +35,9 @@
             <h2 class="job-details__meta-box-title">{{__ 'vacancy.page.keyFacts' }}</h2>
 
             <ul class="job-details__key-facts-list">
+
+                <li><strong>{{__ 'global.labels.location' }}</strong> {{ vacancy.location }}</li>
+
                 {{#if vacancy.identifier}}<li><strong>{{__ 'global.labels.identifier' }}</strong> {{ vacancy.identifier }}</li>{{/if}}
                 {{#if vacancy.salary}}<li><strong>{{__ 'global.labels.salaryBand' }}</strong> {{ vacancy.salary }}</li>{{/if}}
                 {{#if vacancy.grade}}<li><strong>{{__ 'global.labels.jobGrade' }}</strong> {{ vacancy.grade }}</li>{{/if}}

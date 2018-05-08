@@ -38,17 +38,7 @@
 
                 <li id="search-result{{@index}}-location">
                     <strong class="job-search__item-attributes-label">{{__ 'global.labels.location' }}</strong>
-
-                    {{#if locationOverride }}
-                        <span class="job-search__item-attributes-value">{{ locationOverride }}</span>
-                    {{else if overseasJob }}
-                        <span class="job-search__item-attributes-value">{{__ 'global.labels.overseas' }}</span>
-                    {{else if regions }}
-                        <span class="job-search__item-attributes-value">{{ regions }}</span>
-                    {{else}}
-                        <span class="job-search__item-attributes-value">{{ location }}</span>
-                    {{/if}}
-
+                    <span class="job-search__item-attributes-value">{{ location }}</span>
                 </li>
                 
                 <li id="search-result{{@index}}-numvacancies">
