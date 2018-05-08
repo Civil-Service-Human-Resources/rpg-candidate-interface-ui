@@ -3,9 +3,7 @@
     <h1 class="heading-xlarge">{{__ 'account.create.title' }}</h1>
 
     <div class="text">
-        {{> messages/error
-                errorMsg='global.messages.submissionErrorMsg'
-                errors=errors }}
+        {{> messages/error errorMsg='global.messages.submissionErrorMsg' errors=errors }}
     </div>
 
     <form method="POST" action="/account/create" novalidate>
@@ -17,6 +15,10 @@
 
                 <label class="form-label-bold" for="fullname">
                     <span class="form-label-bold">{{__ 'global.labels.fullname' }}</span>
+
+                    {{#if errors.fullname.msg }}
+                        <span class="error-message">{{__ errors.fullname.msg }}</span>
+                    {{/if}}
                 </label>
 
                 <input
@@ -33,6 +35,10 @@
                 <label class="form-label-bold" for="email">
                     <span class="form-label-bold">{{__ 'global.labels.email' }}</span>
                     <span class="form-hint">{{__ 'account.create.emailFieldInfo' }}</span>
+
+                    {{#if errors.email.msg }}
+                        <span class="error-message">{{__ errors.email.msg }}</span>
+                    {{/if}}
                 </label>
 
                 <input
@@ -60,6 +66,10 @@
                 <label class="form-label-bold" for="password">
                     <span class="form-label-bold">{{__ 'global.labels.createPassword' }}</span>
                     <span class="form-hint">{{__ 'account.create.passwordFieldInfo' }}</span>
+
+                    {{#if errors.password.msg }}
+                        <span class="error-message">{{__ errors.password.msg }}</span>
+                    {{/if}}
                 </label>
 
                 <input
@@ -75,13 +85,17 @@
 
                 <label class="form-label-bold" for="repeatpassword">
                     <span class="form-label-bold">{{__ 'global.labels.repeatPassword' }}</span>
+
+                    {{#if errors.repeatpassword.msg }}
+                        <span class="error-message">{{__ errors.repeatpassword.msg }}</span>
+                    {{/if}}
                 </label>
 
                 <input
                 class="form-control{{#if errors.repeatpassword }} form-control-error{{/if}}"
                 id="repeatpassword"
                 name="repeatpassword"
-                type="repeatpassword"
+                type="password"
                 value="{{ formData.repeatpassword }}" required>
 
             </div>

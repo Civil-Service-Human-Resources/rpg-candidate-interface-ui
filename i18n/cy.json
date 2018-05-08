@@ -70,6 +70,7 @@
 			"passwordMinLength": "Rhaid i'ch cyfrinair fod o leiaf 8 nod",
 			"passwordRequired": "Mae angen i chi nodi cyfrinair",
 			"passwordsMustMatch": "Rhaid i'ch cyfrinair ac ail-gyfrinair gydweddu",
+			"passwordRuleFailure": "Rhaid i'ch cyfrinair gynnwys llythrennau uwch ac isaf, rhif ac o leiaf 8 nod",
 			"emailRepeatRequired": "Mae angen i chi ail-gofnodi'ch cyfrinair",
 			"activationCodeRequired": "Mae angen ichi nodi eich cod activation",
 			"fullnameRequired": "Mae angen ichi roi eich enw llawn",
