@@ -13,6 +13,7 @@ const fs = require('fs');
 const uuid = require('uuid');
 const ns = require('continuation-local-storage').createNamespace('candidate-interface');
 const helmet = require('helmet');
+const nocache = require('nocache');
 
 const { objectToUrl } = require('./lib/modules/url');
 const routes = require('./routes');
@@ -25,6 +26,7 @@ if (!fs.existsSync('./logs')) {
 const app = express();
 // Add helmet to set security headers
 app.use(helmet());
+app.use(nocache());
 
 // scss compilation middleware
 app.use(sassMiddleware({
