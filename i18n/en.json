@@ -202,6 +202,12 @@
 		}
 	},
 	"errors": {
+		"error400": {
+			"title_l1": "We have a problem with our server",
+			"title_l2": "400 bad request",
+			"line1": "Try to refresh this page in a few minutes.",
+			"line2": "<a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">Contact us</a> for technical support."
+		},
 		"error401": {
 			"title_l1": "You need to login to access this page",
 			"title_l2": "401 unauthorised",
