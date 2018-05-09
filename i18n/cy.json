@@ -197,6 +197,12 @@
 		}
 	},
 	"errors": {
+		"error400": {
+			"title_l1": "Mae gennym broblem gyda'n gweinydd",
+			"title_l2": "400 bad request",
+			"line1": "Ceisiwch adnewyddu'r dudalen hon mewn ychydig funudau.",
+			"line2": "<a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">Cysylltwch â ni</a> am gymorth technegol."
+		},
 		"error401": {
 			"title_l1": "Mae angen i chi fewngofnodi i gael mynediad i'r dudalen hon",
 			"title_l2": "401 heb awdurdod",
