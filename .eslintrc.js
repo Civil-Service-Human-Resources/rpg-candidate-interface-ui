@@ -11,6 +11,7 @@ module.exports = {
         "window": true
     },
     "rules": {
+        "import/no-extraneous-dependencies": "off",
         "no-throw-literal": "off",
         "no-undef": "off",
         "no-control-regex": "off",
