@@ -92,7 +92,7 @@
 
             {{#if vacancy.selectionProcessDetails }}
                 <h2>{{__ 'vacancy.page.selectionProcessTitle' }}</h2>
-                <p>{{ vacancy.selectionProcessDetails }}</p>
+                <p>{{{ vacancy.selectionProcessDetails }}}</p>
             {{/if}}
 
             {{#compare vacancy.nationalityStatement "RESERVED" }}
@@ -111,10 +111,10 @@
             <div id="job-details-contact">
                 <h2 class="job-details__meta-box-title">{{__ 'global.labels.contactPoint' }}</h2>
                 <p>
-                    <span id="job-details-contactname" aria-label="{{__ 'global.labels.name' }}">{{ vacancy.contactName }}</span><br />
-                    <span id="job-details-contactdept" aria-label="{{__ 'global.labels.department' }}">{{ vacancy.contactDepartment }}</span><br />
+                    <span id="job-details-contactname" class="text-wrap" aria-label="{{__ 'global.labels.name' }}">{{ vacancy.contactName }}</span><br />
+                    <span id="job-details-contactdept" class="text-wrap" aria-label="{{__ 'global.labels.department' }}">{{ vacancy.contactDepartment }}</span><br />
                     <span id="job-details-contactemail" class="text-wrap" aria-label="{{__ 'global.labels.email' }}"><a href="mailto:{{ vacancy.contactEmail }}">{{ vacancy.contactEmail }}</a></span><br />
-                    <span id="job-details-contacttel" aria-label="{{__ 'global.labels.telephone' }}">{{ vacancy.contactTelephone }}</span>
+                    <span id="job-details-contacttel" class="text-wrap" aria-label="{{__ 'global.labels.telephone' }}">{{ vacancy.contactTelephone }}</span>
                 </p>
             </div>
         </section>
