@@ -231,7 +231,27 @@
 			"p24": "You have the right to request information about how your personal data is processed, and to request a copy of that personal data.",
 			"p25": "You have the right to request a copy of any personal data you have provided, and for this to be provided in a structured, commonly used and machine-readable format.",
 			"p25_li1": "your personal data is available to view in your Application Centre at any time",
-			"p25_li2": "you can request a copy of your personal data, in machine-readable format, by emailing <a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">support.csjobs@cabinetoffice.gov.uk</a> - this may take up to four weeks to process."
+			"p25_li2": "you can request a copy of your personal data, in machine-readable format, by emailing <a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">support.csjobs@cabinetoffice.gov.uk</a> - this may take up to four weeks to process.",
+			"p26": "You have the right to request that any inaccuracies in your personal data are rectified without delay.",
+			"p26_li1": "you can edit your contact details in your Application Centre at any time",
+			"p26_li2": "you can also edit contact details on submitted applications",
+			"p26_li3": "to request corrections to an application you have submitted, email the contact listed on the advert for that vacancy - however only minor updates are usually considered",
+			"p27": "You have the right to request that any incomplete personal data are completed, including by means of a supplementary statement.",
+			"p27_li1": "you can add additional contact details via your Application Centre at any time",
+			"p27_li2": "in most cases, you will be unable to submit an application if mandatory information is missing",
+			"p27_li3": "please check your application carefully before submitting it, as your application will be assessed on the information you provide at that point",
+			"p28": "You have the right to request that your personal data is erased if there is no longer a justification for it to be processed.",
+			"p28_li1": "you can close your account at any time by emailing <a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">support.csjobs@cabinetoffice.gov.uk</a> - this may take up to four weeks to process",
+			"p28_li2": "During the process of closing your account, we will:",
+			"p28_li3": "any applications you have made in the past will be kept for audit purposes under our data retention policy",
+			"p28_li2_li1": "withdraw any submitted applications",
+			"p28_li2_li2": "delete any unsubmitted applications",
+			"p28_li2_li3": "stop job alerts being sent to you",
+			"p28_li2_li4": "delete your account data and remove your ability to log into your account again",
+			"p29": "You have the right in certain circumstances (for example, where accuracy is contested) to request that the processing of your personal data is restricted.",
+			"p29_li1": "if your data is restricted from processing, you cannot be considered for a job",
+			"p29_li2": "if your request relates to an application, email the contact listed on the job advert",
+			"p29_li3": "if your request relates to your account, contact <a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">support.csjobs@cabinetoffice.gov.uk</a>"
 		}
 	},
 	"cookies": {

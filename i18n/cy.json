@@ -226,7 +226,27 @@
 			"p24": "Mae gennych yr hawl i ofyn am wybodaeth am sut mae eich data personol yn cael ei brosesu, ac i ofyn am gopi o'r data personol hwnnw.",
 			"p25": "Mae gennych yr hawl i ofyn am gopi o unrhyw ddata personol a ddarparwyd gennych, ac i gael ei ddarparu mewn fformat strwythuredig, a ddefnyddir yn gyffredin ac yn hawdd ei ddarllen.",
 			"p25_li1": "mae eich data personol ar gael i'w weld yn eich Canolfan Gais ar unrhyw adeg",
-			"p25_li2": "gallwch ofyn am gopi o'ch data personol, mewn fformat darllenadwy, trwy e-bostio <a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">support.csjobs@cabinetoffice.gov.uk</a> - gall hyn gymryd hyd at bedair wythnos i brosesu."
+			"p25_li2": "gallwch ofyn am gopi o'ch data personol, mewn fformat darllenadwy, trwy e-bostio <a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">support.csjobs@cabinetoffice.gov.uk</a> - gall hyn gymryd hyd at bedair wythnos i brosesu.",
+			"p26": "Mae gennych yr hawl i ofyn i unrhyw anghywirdeb yn eich data personol gael ei gywiro'n ddi-oed.",
+			"p26_li1": "gallwch olygu eich manylion cyswllt yn eich Canolfan Gais ar unrhyw adeg",
+			"p26_li2": "gallwch hefyd olygu manylion cyswllt ar geisiadau a gyflwynwyd",
+			"p26_li3": "i ofyn am gywiriadau i gais a gyflwynwyd gennych, e-bostiwch y cyswllt a restrir ar yr hysbyseb ar gyfer y swydd wag honno - ond dim ond mân ddiweddariadau sy'n cael eu hystyried fel arfer",
+			"p27": "Mae gennych yr hawl i ofyn i unrhyw ddata personol anghyflawn gael ei gwblhau, gan gynnwys trwy gyfrwng datganiad atodol.",
+			"p27_li1": "gallwch ychwanegu manylion cyswllt ychwanegol trwy'ch Canolfan Gais ar unrhyw adeg",
+			"p27_li2": "yn y rhan fwyaf o achosion, ni fyddwch yn gallu cyflwyno cais os bydd gwybodaeth orfodol ar goll",
+			"p27_li3": "gwiriwch eich cais yn ofalus cyn ei gyflwyno, gan y bydd eich cais yn cael ei asesu ar yr wybodaeth a ddarparwch ar y pwynt hwnnw",
+			"p28": "Mae gennych yr hawl i ofyn bod eich data personol yn cael ei ddileu os nad oes cyfiawnhad bellach i'w brosesu.",
+			"p28_li1": "gallwch gau eich cyfrif ar unrhyw adeg trwy e-bostio <a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">support.csjobs@cabinetoffice.gov.uk</a> - gall hyn gymryd hyd at bedwar wythnosau i'w prosesu",
+			"p28_li2": "Yn ystod y broses o gau eich cyfrif, byddwn yn:",
+			"p28_li3": "bydd unrhyw geisiadau a wnaethoch yn y gorffennol yn cael eu cadw at ddibenion archwilio o dan ein polisi cadw data",
+			"p28_li2_li1": "tynnu unrhyw geisiadau a gyflwynwyd yn ôl",
+			"p28_li2_li2": "dileu unrhyw geisiadau heb eu derbyn",
+			"p28_li2_li3": "rhybuddio swyddi stopio yn cael eu hanfon atoch chi",
+			"p28_li2_li4": "dileu eich cyfrifon a dileu'ch gallu i gofnodi'ch cyfrif eto",
+			"p29": "Mae gennych yr hawl mewn rhai amgylchiadau (er enghraifft, lle mae cywirdeb yn cael ei herio) i ofyn bod prosesu eich data personol wedi'i gyfyngu.",
+			"p29_li1": "os yw'ch data wedi'i gyfyngu rhag prosesu, ni ellir eich ystyried am swydd",
+			"p29_li2": "os yw'ch cais yn ymwneud â chais, e-bostiwch y cyswllt a restrir ar yr hysbyseb swydd",
+			"p29_li3": "os yw'ch cais yn ymwneud â'ch cyfrif, cysylltwch â <a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">support.csjobs@cabinetoffice.gov.uk</a>"
 		}
 	},
 	"cookies": {
