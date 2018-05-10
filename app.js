@@ -126,7 +126,7 @@ app.use((req, res, next) => {
 app.use('/', routes.home);
 app.use('/results', routes.results);
 app.use('/job', routes.vacancyDetails);
-app.use('/privacy-policy', routes.privacyPolicy);
+app.use('/privacy-notice', routes.privacyPolicy);
 app.use('/cookies', routes.cookies);
 
 // catch 404 and log error
