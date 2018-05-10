@@ -2,8 +2,7 @@
 	"global": {
 		"header": {
 			"title": "Find Civil Service Jobs",
-			"betaText": "This part of GOV.UK is being rebuilt",
-			"betaLinkText": "find out what beta means"
+			"betaText": "This is a new service – your <a href=\"https://www.smartsurvey.co.uk/s/X4Q4R/\">feedback</a> will help us to improve it."
 		},
 		"labels": {
 			"description": "Description",

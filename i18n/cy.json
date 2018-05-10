@@ -2,8 +2,7 @@
 	"global": {
 		"header": {
 			"title": "Dod o hyd i Swyddi Gwasanaeth Sifil",
-			"betaText": "Mae'r rhan hon o GOV.UK yn cael ei hailadeiladu",
-			"betaLinkText": "darganfyddwch beth beta yn ei olygu"
+			"betaText": "Gwasanaeth newydd yw hwn - bydd eich <a href=\"https://www.smartsurvey.co.uk/s/X4Q4R/\">adborth</a> yn ein helpu i wella."
 		},
 		"labels": {
 			"description": "Disgrifiad",
