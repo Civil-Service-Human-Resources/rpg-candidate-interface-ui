@@ -18,11 +18,6 @@ const { removeUrlParameter } = require('../lib/modules/url');
 /* GET results page. */
 router.get('/', [
 
-    check('location')
-        .trim()
-        .isLength({ min: 1 })
-        .withMessage('global.messages.locationRequired'),
-
     check('radius')
         .trim()
         .custom(value => (value ? isRadiusValidOption(value) : true))
