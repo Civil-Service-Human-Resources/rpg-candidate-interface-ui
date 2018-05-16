@@ -2,19 +2,13 @@
     <h1 class="heading-xlarge">{{__ 'home.page.title' }} <span class="heading-secondary">{{__ 'home.page.subtitle' }}</span></h1>
 </div>
 
-<div class="text">
-    {{> messages/error
-            errorMsg='global.messages.submissionErrorMsg'
-            errors=errors }}
-</div>
-
 {{!--
 <div class="panel panel-border-wide">
   <p>{{__ 'home.language.statement' }} (<a href="{{__ 'home.language.url' }}">{{__ 'home.language.label' }}</a>)</p>
 </div>
 --}}
 
-<form method="GET" action="/">
+<form method="GET" action="/results">
     <div class="form-section">
 
         <div class="form-group">
@@ -29,15 +23,12 @@
                value="{{ formData.keyword }}">
         </div>
 
-        <div class="form-group{{#if errors.location }} form-group-error{{/if}}">
+        <div class="form-group">
             <label class="form-label-bold" for="location">
-                <span class="form-label-bold">{{__ 'global.labels.location' }}</span>
-                {{#if errors.location.msg }}
-                    <span class="error-message">{{__ errors.location.msg }}</span>
-                {{/if}}
+                <span class="form-label-bold">{{__ 'global.labels.location' }} ({{__ 'global.labels.optional' }})</span>
             </label>
             <input
-               class="form-control{{#if errors.location }} form-control-error{{/if}}"
+               class="form-control"
                id="location"
                name="location"
                type="text"
