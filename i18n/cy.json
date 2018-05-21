@@ -20,6 +20,8 @@
 			"name": "Enw",
 			"department": "Adran",
 			"email": "Cyfeiriad ebost",
+			"password": "Cyfrinair",
+			"code": "Côd",
 			"telephone": "Ffôn",
 			"aboutTheJob": "Ynglŷn ā'r swydd",
 			"responsibilities": "Yn y rôl hon byddwch chi",
@@ -50,7 +52,10 @@
 			},
 			"whatWeOffer": "Yr hyn a gynigiwn",
 			"overseas": "Tramor",
-            "lookingFor": "Yr hyn yr ydym yn chwilio amdano"
+			"lookingFor": "Yr hyn yr ydym yn chwilio amdano",
+			"fullname": "Enw llawn",
+			"repeatPassword": "Cyfrinair",
+			"createPassword": "Creu cyfrinair"
 		},
 		"buttons": {
 			"apply": "Gwneud cais",
@@ -60,9 +65,19 @@
 		"messages": {
 			"submissionErrorMsg": "Bu problem",
 			"locationRequired": "Mae angen i chi fynd i mewn i leoliad",
+			"emailRequired": "Mae angen ichi roi cyfeiriad e-bost",
+			"emailInvalid": "Nid yw'r e-bost yr ydych wedi'i gofrestru yn fformat dilys",
+			"passwordMinLength": "Rhaid i'ch cyfrinair fod o leiaf 8 nod",
+			"passwordRequired": "Mae angen i chi nodi cyfrinair",
+			"passwordsMustMatch": "Rhaid i'ch cyfrinair ac ail-gyfrinair gydweddu",
+			"passwordRuleFailure": "Rhaid i'ch cyfrinair gynnwys llythrennau uwch ac isaf, rhif ac o leiaf 8 nod",
+			"emailRepeatRequired": "Mae angen i chi ail-gofnodi'ch cyfrinair",
+			"activationCodeRequired": "Mae angen ichi nodi eich cod activation",
+			"fullnameRequired": "Mae angen ichi roi eich enw llawn",
 			"invalidRadius": "Mae angen i chi nodi radiws dilys",
 			"invalidMinSalary": "Mae angen ichi roi cyflog min dilys",
-			"invalidMaxSalary": "Mae angen ichi roi cyflog llawn dilys"
+			"invalidMaxSalary": "Mae angen ichi roi cyflog llawn dilys",
+			"userAccountExists": "Mae gennych chi mewngofnodi cyfrif eisoes"
 		},
 		"cookies": "Mae GOV.UK yn defnyddio cwcis i wneud y wefan yn symlach. <a href=\"/cookies\">Darganfyddwch fwy am gwcis</a>",
 		"logos": {
@@ -348,6 +363,40 @@
 			"t5_r1c3": "Pan fyddwch chi'n cau'ch porwr",
 			"h3": "Gwasanaethau'r Llywodraeth",
 			"p10": "Mae'r rhan fwyaf o wasanaethau yr ydym yn cysylltu â nhw yn cael eu rhedeg gan wahanol adrannau'r llywodraeth, er enghraifft Swyddfa'r Cabinet neu Drysorlys EM. Gall y gwasanaethau hyn osod cwcis ychwanegol ac, os felly, bydd ganddynt eu polisi cwcis eu hunain."
+		}
+	},
+	"account": {
+		"login": {
+			"title": "Mewngofnodi",
+			"createAccount": "Creu cyfrif",
+			"cantAccessAccount": "Ni allaf gael mynediad at fy nghyfrif",
+			"buttonLabel": "Mewngofnodi",
+			"activateYourAccount": "Enwch eich cyfrif",
+			"activateYourAccount_li1": "Unwaith y byddwch chi wedi creu cyfrif byddwn yn anfon cod activation i chi.",
+			"activateYourAccount_li2": "Cofrestrwch i mewn gan ddefnyddio'ch cyfeiriad e-bost a'ch cyfrinair.",
+			"activateYourAccount_li3": "Yna gofynnir i chi nodi eich cod activation.",
+			"h1": "Newydd i'r gwasanaeth hwn?",
+			"p1": "Os nad ydych wedi defnyddio'r gwasanaeth hwn cyn i chi gael <a href=\"/account/create\"> creu cyfrif </a>, hyd yn oed os oes gennych eisoes gyfrif cyfredol gyda swyddi'r Gwasanaeth Sifil.",
+			"p2": "Mae creu cyfrif yn eich galluogi i:",
+			"p2_li1": "ymgeisio am swydd wag",
+			"p2_li2": "olrhain eich ceisiadau",
+			"p2_li3": "creu a rheoli rhybuddion gwaith"
+		},
+		"create": {
+			"title": "Creu cyfrif",
+			"yourDetails": "Eich manylion",
+			"contactDetails": "Manylion cyswllt",
+			"editEmail": "Golygu eich e-bost",
+			"buttonLabel": "Creu cyfrif",
+			"emailFieldInfo": "Bydd angen hyn arnoch i ymuno â'ch cyfrif",
+			"passwordFieldInfo": "Yn gofyn llythyr uwch ac isaf, nifer ac o leiaf 8 nod"
+		},
+		"activate": {
+			"title": "Enwch eich cyfrif",
+			"p1": "Dylech chi dderbyn cod 6 cymeriad yn eich e-bost.",
+			"p2": "Rhowch y cod i actifadu'ch cyfrif.",
+			"buttonLabel": "Animeiddio cyfrif",
+			"resendButtonLabel": "Ailgyflwyno cod"
 		}
 	},
 	"errors": {

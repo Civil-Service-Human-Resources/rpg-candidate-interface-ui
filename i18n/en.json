@@ -20,6 +20,8 @@
 			"name": "Name",
 			"department": "Department",
 			"email": "Email address",
+			"password": "Password",
+			"code": "Code",
 			"telephone": "Telephone number",
 			"aboutTheJob": "About the job",
 			"responsibilities": "In this role you will",
@@ -50,7 +52,10 @@
 			},
 			"whatWeOffer": "What we offer",
 			"overseas": "Overseas",
-			"lookingFor": "What we are looking for"
+			"lookingFor": "What we are looking for",
+			"fullname": "Full name",
+			"repeatPassword": "Password",
+			"createPassword": "Create password"
 		},
 		"buttons": {
 			"apply": "Apply",
@@ -60,9 +65,19 @@
 		"messages": {
 			"submissionErrorMsg": "There has been a problem",
 			"locationRequired": "You need to enter a location",
+			"emailRequired": "You need to enter an email address",
+			"emailInvalid": "You have entered an invalid email",
+			"passwordRequired": "You need to enter a password",
+			"passwordMinLength": "Your password must have 8 or more characters",
+			"passwordsMustMatch": "Your confirmation password doesn't match",
+			"passwordRuleFailure": "Your password must contain upper and lowercase letter, a number and at least 8 characters",
+			"emailRepeatRequired": "You need to re-enter your password",
+			"activationCodeRequired": "You need to enter your activation code",
+			"fullnameRequired": "You need to enter your full name",
 			"invalidRadius": "You need to enter a valid radius",
 			"invalidMinSalary": "You need to enter a valid min salary",
-			"invalidMaxSalary": "You need to enter a valid max salary"
+			"invalidMaxSalary": "You need to enter a valid max salary",
+			"userAccountExists": "<p>You already have an account login.</p><p>Some more text about resetting password and stuff.</p>"
 		},
 		"cookies": "GOV.UK uses cookies to make the site simpler. <a href=\"/cookies\">Find out more about cookies</a>",
 		"logos": {
@@ -353,6 +368,40 @@
 			"t5_r1c3": "When you close your browser",
 			"h3": "Government services",
 			"p10": "Most services we link to are run by different government departments, for example Cabinet Office or the HM Treasury. These services may set additional cookies and, if so, will have their own cookies policy."
+		}
+	},
+	"account": {
+		"login": {
+			"title": "Sign in",
+			"createAccount": "Create an account",
+			"cantAccessAccount": "I can't access my account",
+			"buttonLabel": "Sign in",
+			"activateYourAccount": "Activate your account",
+			"activateYourAccount_li1": "Once you've created an account we'll send you an activation code.",
+			"activateYourAccount_li2": "Sign in using your email address and password.",
+			"activateYourAccount_li3": "You'll then be asked to enter your activation code.",
+			"h1": "New to this service?",
+			"p1": "If you haven't used this service before you must <a href=\"/account/create\">create an account</a>, even if you already have an existing account with Civil Service jobs.",
+			"p2": "Creating an account allows you to:",
+			"p2_li1": "apply for a vacancy",
+			"p2_li2": "track your applications",
+			"p2_li3": "create and manage job alerts"
+		},
+		"create": {
+			"title": "Create account",
+			"yourDetails": "Your details",
+			"contactDetails": "Contact details",
+			"editEmail": "Edit your email",
+			"buttonLabel": "Create account",
+			"emailFieldInfo": "You'll need this to sign in to your account",
+			"passwordFieldInfo": "Requires upper and lowercase letter, a number and at least 8 characters"
+		},
+		"activate": {
+			"title": "Activate your account",
+			"p1": "You should receive a 6-character code in your email.",
+			"p2": "Enter the code to activate your account.",
+			"buttonLabel": "Activate account",
+			"resendButtonLabel": "Resend code"
 		}
 	},
 	"errors": {
