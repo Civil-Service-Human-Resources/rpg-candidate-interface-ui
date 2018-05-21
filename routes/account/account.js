@@ -1,6 +1,8 @@
 const express = require('express');
 const { check, validationResult } = require('express-validator/check');
 
+const { createUserAccount, ACCOUNT_EXISTS, ACCOUNT_CREATED } = require('../../lib/modules/account');
+
 const router = express.Router();
 
 const PASSWORD_REGEX = RegExp('^(.{0,7}|[^0-9]*|[^A-Z]*|[^a-z]*|[a-zA-Z0-9]*)$');
@@ -59,12 +61,34 @@ router.post('/create', [
         .withMessage('global.messages.passwordsMustMatch'),
 
 
-], (req, res) => {
-    const validate = validationResult(req);
+], async (req, res, next) => {
     const formData = req.body;
+    const validate = validationResult(req);
+    let errors = validate.mapped();
+
+    if (!Object.keys(errors).length) {
+        const account = await createUserAccount(formData, next);
+
+        if (account.status === ACCOUNT_EXISTS) {
+            const userError = {
+                accountError: {
+                    location: 'body',
+                    param: 'email',
+                    value: '',
+                    msg: 'global.messages.userAccountExists',
+                },
+            };
+
+            errors = { ...errors, ...userError };
+        }
+
+        if (account.status === ACCOUNT_CREATED) {
+            res.redirect('/account/activate');
+        }
+    }
 
     return res.render('pages/account/create', {
-        errors: validate.mapped(),
+        errors,
         formData,
     });
 });

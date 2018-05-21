@@ -76,7 +76,8 @@
 			"fullnameRequired": "Mae angen ichi roi eich enw llawn",
 			"invalidRadius": "Mae angen i chi nodi radiws dilys",
 			"invalidMinSalary": "Mae angen ichi roi cyflog min dilys",
-			"invalidMaxSalary": "Mae angen ichi roi cyflog llawn dilys"
+			"invalidMaxSalary": "Mae angen ichi roi cyflog llawn dilys",
+			"userAccountExists": "Mae gennych chi mewngofnodi cyfrif eisoes"
 		},
 		"cookies": "Mae GOV.UK yn defnyddio cwcis i wneud y wefan yn symlach. <a href=\"/cookies\">Darganfyddwch fwy am gwcis</a>",
 		"logos": {

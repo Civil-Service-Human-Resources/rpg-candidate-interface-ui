@@ -76,7 +76,8 @@
 			"fullnameRequired": "You need to enter your full name",
 			"invalidRadius": "You need to enter a valid radius",
 			"invalidMinSalary": "You need to enter a valid min salary",
-			"invalidMaxSalary": "You need to enter a valid max salary"
+			"invalidMaxSalary": "You need to enter a valid max salary",
+			"userAccountExists": "<p>You already have an account login.</p><p>Some more text about resetting password and stuff.</p>"
 		},
 		"cookies": "GOV.UK uses cookies to make the site simpler. <a href=\"/cookies\">Find out more about cookies</a>",
 		"logos": {
