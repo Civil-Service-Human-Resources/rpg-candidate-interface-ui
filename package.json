@@ -6,7 +6,7 @@
     "node": "9.4.0"
   },
   "scripts": {
-    "start": "npm install && npm install --only=dev && node ./bin/www",
+    "start": "npm install && npm rebuild node-sass && node ./bin/www",
     "dev": "npm install && webpack && nodemon ./bin/www localhost 3000",
     "test": "ava --verbose",
     "lint": "./node_modules/.bin/eslint ./ --cache"
