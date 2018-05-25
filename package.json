@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "engines": {
-    "node": "9.4.0"
+    "node": "10.2.0"
   },
   "scripts": {
     "start": "npm install && npm rebuild node-sass && node ./bin/www",
