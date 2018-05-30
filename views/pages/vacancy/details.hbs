@@ -36,7 +36,7 @@
 
             <ul class="job-details__key-facts-list">
 
-                <li><strong>{{__ 'global.labels.location' }}</strong> {{ vacancy.location }}</li>
+                <li><strong>{{__ 'global.labels.location' }}</strong> {{{ vacancy.location }}}</li>
 
                 {{#if vacancy.identifier}}<li><strong>{{__ 'global.labels.identifier' }}</strong> {{ vacancy.identifier }}</li>{{/if}}
                 {{#if vacancy.salary}}<li><strong>{{__ 'global.labels.salaryBand' }}</strong> {{ vacancy.salary }}</li>{{/if}}
@@ -59,28 +59,28 @@
             {{#if vacancy.personalSpecification }}
                 <div>
                     <h3>{{__ 'global.labels.lookingFor' }}</h3>
-                    <p>{{ vacancy.personalSpecification }}</p>
+                    <p>{{{ vacancy.personalSpecification }}}</p>
                 </div>
             {{/if}}
 
             {{#if vacancy.responsibilities}}
                 <div>
                     <h3>{{__ 'global.labels.responsibilities' }}</h3>
-                    <p>{{ vacancy.responsibilities }}</p>
+                    <p>{{{ vacancy.responsibilities }}}</p>
                 </div>
             {{/if}}
 
             {{#if vacancy.whatWeOffer}}
                 <div>
                     <h3>{{__ 'global.labels.whatWeOffer' }}</h3>
-                    <p>{{ vacancy.whatWeOffer }}</p>
+                    <p>{{{ vacancy.whatWeOffer }}}</p>
                 </div>
             {{/if}}
 
             {{#if vacancy.eligibility}}
                 <div>
                     <h3>{{__ 'global.labels.eligibility' }}</h3>
-                    <p>{{ vacancy.eligibility }}</p>
+                    <p>{{{ vacancy.eligibility }}}</p>
                 </div>
             {{/if}}
 
@@ -97,7 +97,7 @@
 
             {{#compare vacancy.nationalityStatement "RESERVED" }}
                 <h3>{{__ 'vacancy.page.nationalityStatement.title' }}</h3>
-                <p>{{__ 'vacancy.page.nationalityStatement.reserved' }}</p>
+                <p>{{{__ 'vacancy.page.nationalityStatement.reserved' }}}</p>
             {{/compare}}
 
             {{#compare vacancy.nationalityStatement "NON_RESERVED" }}
@@ -111,10 +111,10 @@
             <div id="job-details-contact">
                 <h2 class="job-details__meta-box-title">{{__ 'global.labels.contactPoint' }}</h2>
                 <p>
-                    <span id="job-details-contactname" class="text-wrap" aria-label="{{__ 'global.labels.name' }}">{{ vacancy.contactName }}</span><br />
-                    <span id="job-details-contactdept" class="text-wrap" aria-label="{{__ 'global.labels.department' }}">{{ vacancy.contactDepartment }}</span><br />
-                    <span id="job-details-contactemail" class="text-wrap" aria-label="{{__ 'global.labels.email' }}"><a href="mailto:{{ vacancy.contactEmail }}">{{ vacancy.contactEmail }}</a></span><br />
-                    <span id="job-details-contacttel" class="text-wrap" aria-label="{{__ 'global.labels.telephone' }}">{{ vacancy.contactTelephone }}</span>
+                    <span id="job-details-contactname" class="text-wrap" aria-label="{{__ 'global.labels.name' }}">{{{ vacancy.contactName }}}</span><br />
+                    <span id="job-details-contactdept" class="text-wrap" aria-label="{{__ 'global.labels.department' }}">{{{ vacancy.contactDepartment }}}</span><br />
+                    <span id="job-details-contactemail" class="text-wrap" aria-label="{{__ 'global.labels.email' }}"><a href="mailto:{{ vacancy.contactEmail }}">{{{ vacancy.contactEmail }}}</a></span><br />
+                    <span id="job-details-contacttel" class="text-wrap" aria-label="{{__ 'global.labels.telephone' }}">{{{ vacancy.contactTelephone }}}</span>
                 </p>
             </div>
         </section>
