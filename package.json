@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "engines": {
-    "node": "9.4.0"
+    "node": "10.2.0"
   },
   "scripts": {
-    "start": "npm install && npm install --only=dev && node ./bin/www",
+    "start": "npm cache clear --force && npm install --no-shrinkwrap --update-binary && node ./bin/www",
     "dev": "npm install && webpack && nodemon ./bin/www localhost 3000",
     "test": "ava --verbose",
     "lint": "./node_modules/.bin/eslint ./ --cache"
