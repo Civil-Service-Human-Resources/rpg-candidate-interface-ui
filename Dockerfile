@@ -9,6 +9,12 @@ FROM base AS dependencies
 
 ARG IS_DEV=false
 
+run apk --no-cache add --virtual native-deps \
+  g++ gcc libgcc libstdc++ linux-headers make python && \
+  npm install --quiet node-gyp -g &&\
+  npm install --quiet && \
+  apk del native-deps
+
 # install prod node packages
 RUN npm set progress=false && npm config set depth 0
 RUN if [ "${IS_DEV}" = "false" ]; then \
