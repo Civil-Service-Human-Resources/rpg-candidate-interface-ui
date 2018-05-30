@@ -6,7 +6,7 @@
     "node": "9.11.1"
   },
   "scripts": {
-    "start": "npm cache clear --force && npm install --no-shrinkwrap --update-binary && node ./bin/www",
+    "start": "rm package-lock.json && npm cache clear --force && npm install --no-shrinkwrap --update-binary && node ./bin/www",
     "dev": "npm install && webpack && nodemon ./bin/www localhost 3000",
     "test": "ava --verbose",
     "lint": "./node_modules/.bin/eslint ./ --cache"
