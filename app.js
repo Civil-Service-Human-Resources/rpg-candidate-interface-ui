@@ -128,6 +128,8 @@ app.use('/results', routes.results);
 app.use('/job', routes.vacancyDetails);
 app.use('/privacy-notice', routes.privacyPolicy);
 app.use('/cookies', routes.cookies);
+app.use('/account', routes.account);
+app.use('/terms-conditions', routes.terms);
 
 // catch 404 and log error
 app.use((req, res) => {

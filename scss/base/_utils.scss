@@ -14,3 +14,17 @@
     -webkit-hyphens: none;
     hyphens: none;
 }
+
+.less-margin {
+    margin-bottom: 20px;
+}
+
+.more-margin {
+    margin-bottom: 40px;
+}
+
+.text {
+    &--wide {
+        max-width: 40em;
+    }
+}

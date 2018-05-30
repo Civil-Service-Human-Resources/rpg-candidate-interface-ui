@@ -1,0 +1,17 @@
+.two-col-layout {
+    @include clearfix;
+
+    &__first,
+    &__last {
+
+        @include media(641px) {
+            float: left;
+            padding: 0 10% 0 0;
+            width: 50%;
+        }
+    }
+
+    .form-control {
+        width: 100%;
+    }
+}

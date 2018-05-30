@@ -6,4 +6,18 @@
         text-align: center;
         width: 100%;
     }
+
+    &--text {
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+        color: #005ea5;
+        text-decoration: underline;
+
+        &:hover {
+            background: transparent;
+            border-color: transparent;
+            color: #4c2c92;
+        }
+    }
 }

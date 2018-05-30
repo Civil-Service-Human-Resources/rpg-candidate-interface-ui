@@ -169,6 +169,17 @@ input[type=checkbox] {
   }
 }
 
+.form-group {
+  .button + .button {
+    margin-top: 10px;
+
+    @include media(641px) {
+      margin-top: 0;
+      margin-left: 20px;
+    }
+  }
+}
+
 .form-label--checkbox {
   cursor: pointer;
   display: block;

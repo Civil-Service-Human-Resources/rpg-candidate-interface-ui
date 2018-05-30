@@ -5,6 +5,7 @@
 @import 'base/elements';
 @import 'base/buttons';
 @import 'base/icons';
+@import 'base/utils';
 
 @import 'components/content';
 @import 'components/footer';
@@ -16,4 +17,5 @@
 @import 'components/results';
 @import 'components/search-filters';
 @import 'components/showhide';
-@import 'base/utils';
+
+@import 'layout/two-col';
