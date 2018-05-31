@@ -1,0 +1,46 @@
+<h1 class="heading-xlarge">{{__ 'account.activate.title' }}</h1>
+
+<div class="text">
+    {{> messages/error
+            errorMsg='global.messages.submissionErrorMsg'
+            errors=errors }}
+</div>
+
+<p>{{__ 'account.activate.p1' }}</p>
+
+<p>{{__ 'account.activate.p2' }}</p>
+
+<form method="POST" action="/account/activate" novalidate>
+
+    <div class="form-section">
+
+        <div class="form-group">
+            <label class="form-label-bold">
+                <span class="form-label-bold">{{__ 'global.labels.email' }}</span>
+            </label>
+            <div>joebloggs@hotmail.com</div>
+        </div>
+
+        <div class="form-group{{#if errors.code }} form-group-error{{/if}}">
+
+            <label class="form-label-bold" for="code">
+                <span class="form-label-bold">{{__ 'global.labels.code' }}</span>
+            </label>
+
+            <input
+            class="form-control{{#if errors.code }} form-control-error{{/if}}"
+            id="code"
+            name="code"
+            type="password"
+            value="{{ formData.code }}" required>
+
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <input type="submit" class="button" value="{{__ 'account.activate.buttonLabel' }}">
+        <input type="submit" class="button button--text" value="{{__ 'account.activate.resendButtonLabel' }}">
+    </div>
+
+</form>

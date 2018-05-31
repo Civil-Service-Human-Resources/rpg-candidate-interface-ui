@@ -1,0 +1,110 @@
+<div class="text text--wide">
+
+    <h1 class="heading-xlarge">{{__ 'account.create.title' }}</h1>
+
+    {{#if errors.accountError }}
+        <div class="text">
+            {{> messages/error customMsg=errors.accountError.msg }}
+        </div>
+    {{/if }}
+
+    {{#unless errors.accountError }}
+        <div class="text">
+            {{> messages/error errorMsg='global.messages.submissionErrorMsg' errors=errors }}
+        </div>
+    {{/unless}}
+
+    <form method="POST" action="/account/create" novalidate>
+
+        <fieldset>
+            <legend class="heading-large more-margin">{{__ 'account.create.yourDetails' }}</legend>
+
+            <div class="form-group{{#if errors.fullname }} form-group-error{{/if}}">
+
+                <label class="form-label-bold" for="fullname">
+                    <span class="form-label-bold">{{__ 'global.labels.fullname' }}</span>
+
+                    {{#if errors.fullname.msg }}
+                    <span class="error-message">{{__ errors.fullname.msg }}</span>
+                    {{/if}}
+                </label>
+
+                <input class="form-control{{#if errors.fullname }} form-control-error{{/if}}" id="fullname" name="fullname" type="fullname"
+                    value="{{ formData.fullname }}" required>
+
+            </div>
+
+            <div class="form-group{{#if errors.email }} form-group-error{{/if}}" id="email-autocomplete-src">
+
+                <label class="form-label-bold" for="email">
+                    <span class="form-label-bold">{{__ 'global.labels.email' }}</span>
+                    <span class="form-hint">{{__ 'account.create.emailFieldInfo' }}</span>
+
+                    {{#if errors.email.msg }}
+                    <span class="error-message">{{__ errors.email.msg }}</span>
+                    {{/if}}
+                </label>
+
+                <input class="form-control{{#if errors.email }} form-control-error{{/if}}" id="email" name="email" type="email" value="{{ formData.email }}"
+                    required>
+
+            </div>
+
+        </fieldset>
+
+        <hr />
+
+        <fieldset>
+            <legend class="heading-large more-margin">{{__ 'account.create.contactDetails' }}</legend>
+
+            <div class="form-group js-hidden" id="email-autocomplete-dest" aria-hidden="true">
+                <p>
+                    <span></span>
+                    <a href="#email">{{__ 'account.create.editEmail' }}</a>
+                </p>
+            </div>
+
+            <div class="form-group{{#if errors.password }} form-group-error{{/if}}">
+
+                <label class="form-label-bold" for="password">
+                    <span class="form-label-bold">{{__ 'global.labels.createPassword' }}</span>
+                    <span class="form-hint">{{__ 'account.create.passwordFieldInfo' }}</span>
+
+                    {{#if errors.password.msg }}
+                    <span class="error-message">{{__ errors.password.msg }}</span>
+                    {{/if}}
+                </label>
+
+                <input class="form-control{{#if errors.password }} form-control-error{{/if}}" id="password" name="password" type="password"
+                    value="{{ formData.password }}" required>
+
+            </div>
+
+            <div class="form-group{{#if errors.repeatpassword }} form-group-error{{/if}}">
+
+                <label class="form-label-bold" for="repeatpassword">
+                    <span class="form-label-bold">{{__ 'global.labels.repeatPassword' }}</span>
+
+                    {{#if errors.repeatpassword.msg }}
+                    <span class="error-message">{{__ errors.repeatpassword.msg }}</span>
+                    {{/if}}
+                </label>
+
+                <input class="form-control{{#if errors.repeatpassword }} form-control-error{{/if}}" id="repeatpassword" name="repeatpassword"
+                    type="password" value="{{ formData.repeatpassword }}" required>
+
+            </div>
+
+        </fieldset>
+
+        <div class="form-section">
+
+            <div class="form-group">
+                <input type="submit" class="button" value="{{__ 'account.create.buttonLabel' }}">
+            </div>
+
+        </div>
+
+    </form>
+
+</div>

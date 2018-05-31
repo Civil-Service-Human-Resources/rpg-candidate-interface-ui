@@ -8,6 +8,7 @@ applications:
     env:
       NODE_VERSION: "9.8.0"
       NODE_ENV: staging
-      API_URL: ""
+      API_SEARCH_URL: ""
+      API_ACCOUNT_URL: ""
       AUTH_USERNAME: ""
       AUTH_PASSWORD: ""
