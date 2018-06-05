@@ -1,17 +1,17 @@
 
 <section class="job-details">
 
-    <header class="job-details__top{{#if vacancy.department.logoPath }} job-details__top--has-logo{{/if}}">
+    <header class="job-details__top{{#if vacancy.department.fullLogoPath }} job-details__top--has-logo{{/if}}">
 
         <p class="back-link"><i class="icon ion-arrow-left-b" aria-hidden="true"></i><a href="{{returnUrl}}">{{__ 'vacancy.page.backToResults' }}</a></p>
 
         <h1 class="job-details__title">{{ vacancy.title }} <small>{{ vacancy.department.name }}</small></h1>
 
+        {{#if vacancy.department.fullLogoPath }}
         <div class="job-details__logo">
-            {{#if vacancy.department.logoPath }}
-                <img class="job-details__image" src="{{ vacancy.department.fullLogoPath }}" alt="{{ vacancy.department.name }}" />
-            {{/if}}
+            <img class="job-details__image" src="{{ vacancy.department.fullLogoPath }}" alt="{{ vacancy.department.name }}" />
         </div>
+        {{/if}}
 
         {{#if vacancy.shortDescription }}
             <p class="job-details__shortDesc">{{ vacancy.shortDescription }}</p>
