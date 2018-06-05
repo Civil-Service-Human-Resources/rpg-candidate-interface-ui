@@ -1,12 +1,29 @@
 .job-search {
     &__total-results {
         @include bold-19;
-        margin-bottom: 3px;
+        margin: 0;
+
+        @include media(768px) {
+            float: right;
+            width: calc(60.5% - 40px);
+        }
+
+        @include media(960px) {
+            width: calc(74.5% - 40px);
+        }
 
         strong {
             font-size: 24px;
             margin-right: 2px;
         }
+    }
+
+    &__results {
+        margin-bottom: $gutter;
+    }
+
+    &__no-results {
+        padding-top: 10px;
     }
 
     &__item {
@@ -20,7 +37,7 @@
         @extend %grid-row;
         padding: $gutter $gutter-half $gutter-half;
 
-        @include media(tablet) {
+        @include media(768px) {
             padding: $gutter $gutter $gutter-half;
         }
     }
@@ -37,6 +54,14 @@
     &__item-title {
         @include bold-24;
         margin-bottom: $gutter-half;
+    }
+
+    &__item-image {
+
+        img {
+            max-height: 100px;
+            max-width: 100%;
+        }
     }
 
     &__item-attributes {
@@ -58,10 +83,64 @@
 
         .job-search__item-attributes-label {
             display: block;
+        }
+    }
 
-            &:after {
-                content: ':';
+    &__results-container {
+        @extend %grid-row;
+    }
+
+    &__filters {
+        @include grid-column(3/7, $full-width: 768px);
+        @include grid-column(2/7, $full-width: 960px);
+        padding-top: 5px;
+    }
+
+    &__filters-title {
+        @include bold-19;
+        line-height: 31px;
+        margin: 0 0 1px;
+
+        button {
+            @include bold-19;
+            background: transparent none;
+            border: 0;
+            margin: 0;
+            padding: 0;
+
+            &:focus {
+                outline: 0;
+            }
+
+            i {
+                margin: 0 5px;
+                position: relative;
+                top: 1px;
             }
         }
     }
+
+    &__results-list-container {
+        @include grid-column(4/7, $full-width: 768px);
+        @include grid-column(5/7, $full-width: 960px);
+    }
+
+    &__rpp {
+        @include clearfix;
+        margin-bottom: $gutter;
+        padding-top: $gutter-half;
+        text-align: center;
+
+        label,
+        select,
+        input {
+            display: inline-block;
+            margin: 0;
+            vertical-align: middle;
+        }
+    }
+}
+
+.js .job-search__rpp .button {
+    display: none;
 }

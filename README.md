@@ -1,32 +1,42 @@
 # RPG Candidate Interface UI
 
-## Setup
+## Prerequisites
 
-Clone the repository
-```bash
-git clone https://github.com/Civil-Service-Human-Resources/rpg-candidate-interface-ui.git
-```
+* Node v9+
 
-Install npm modules
-```bash
-npm install
-```
+## Running the app
 
-Copy `.env.sample` to `.env` and update details in the file to point at local api
-```
-cp .env.sample .env
-```
+* Clone this repo
+* Copy `.env.sample` to `.env` and complete variables for your services
+* Run `npm start`
 
-Start the node server
-```
-npm start
-```
+You can now access this app from the browser: [http://localhost:3000](http://localhost:3000)
 
-Open [http://localhost:3000](http://localhost:3000) in your browser
+## Stopping the app
+Hit `cmd + c`
 
-## Running tests
+## Running in dev with watchers
+Run `npm run dev`
 
-Run the following command in command line
-```bash
-npm test
-```
+## Running Tests
+Run `npm run test`
+
+
+## Manual deploy to Government PaaS
+
+### Prerequisites
+
+1. Install the CloudFoundry CLI tool
+2. Login to the Government PaaS instance and space you wish to deploy to.
+
+### How to deploy
+
+*Note* This deployment method uses your local `.env` file to populate environment
+variables on CloudFoundry. You __must__ ensure that you have the correct set of
+variables for the correct environment set in that file.
+
+To push to the staging environment run: `make deploy-staging`
+
+This will push to the application `rpg-ci`, making use of the local staging
+cf manifest (`manifest.staging.yml`) and set a bunch of environment variables
+currently set in your local `.env` file.

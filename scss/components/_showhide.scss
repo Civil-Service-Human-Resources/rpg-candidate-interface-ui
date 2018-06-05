@@ -1,0 +1,28 @@
+.js-showhide--initialized {
+    color: $govuk-blue !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+
+    &:focus,
+    &:active {
+        outline: 3px solid $yellow !important;
+        outline-offset: 0;
+    }
+}
+
+.js-hidden {
+    display: none;
+}
+
+.js-showhide,
+.js-showhide-field {
+    position: relative;
+
+    .icon--before {
+        margin: 0 5px 0 0;
+    }
+
+    .icon--after {
+        margin: 0 0 0 5px;
+    }
+}

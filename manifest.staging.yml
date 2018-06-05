@@ -1,0 +1,14 @@
+---
+applications:
+  - name: rpg-candidate-interface
+    memory: 1G
+    instances: 1
+    buildpack: nodejs_buildpack
+    command: "npm start"
+    env:
+      NODE_VERSION: "9.8.0"
+      NODE_ENV: staging
+      API_SEARCH_URL: ""
+      API_ACCOUNT_URL: ""
+      AUTH_USERNAME: ""
+      AUTH_PASSWORD: ""

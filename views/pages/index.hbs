@@ -1,17 +1,43 @@
-<h1 class="heading-xlarge">Job Search</h1>
+<div class="text">
+    <h1 class="heading-xlarge">{{__ 'home.page.title' }} <span class="heading-secondary">{{__ 'home.page.subtitle' }}</span></h1>
+</div>
+
+{{!--
+<div class="panel panel-border-wide">
+  <p>{{__ 'home.language.statement' }} (<a href="{{__ 'home.language.url' }}">{{__ 'home.language.label' }}</a>)</p>
+</div>
+--}}
 
 <form method="GET" action="/results">
     <div class="form-section">
+
         <div class="form-group">
-            <label class="form-label-bold" for="keyword">Keyword</label>
-            <input class="form-control" id="keyword" name="keyword" type="text" required>
+            <label class="form-label-bold" for="keyword">
+                <span class="form-label-bold">{{__ 'global.labels.keyword' }} ({{__ 'global.labels.optional' }})</span>
+            </label>
+            <input
+               class="form-control"
+               id="keyword"
+               name="keyword"
+               type="text"
+               value="{{ formData.keyword }}">
         </div>
+
         <div class="form-group">
-            <label class="form-label-bold" for="location">Location</label>
-            <input class="form-control" id="location" name="location" type="text" required>
+            <label class="form-label-bold" for="location">
+                <span class="form-label-bold">{{__ 'global.labels.location' }} ({{__ 'global.labels.optional' }})</span>
+            </label>
+            <input
+               class="form-control"
+               id="location"
+               name="location"
+               type="text"
+               value="{{ formData.location }}">
         </div>
+
         <div class="form-group">
-            <input type="submit" class="button" value="Search">
+            <input type="submit" class="button" value="{{__ 'global.buttons.search' }}">
         </div>
+
     </div>
 </form>

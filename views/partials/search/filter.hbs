@@ -1,0 +1,88 @@
+<div class="search-filters" id="filterShowHide">
+
+    <div class="form-group">
+        <label class="form-label-bold" for="keyword">{{__ 'global.labels.keyword' }} ({{__ 'global.labels.optional' }})</label>
+        <input class="form-control" id="keyword" name="keyword" type="text" value="{{ filters.keyword }}">
+    </div>
+
+    <div class="form-group{{#if errors.location }} form-group-error{{/if}}">
+        <label class="form-label-bold" for="location">
+            <span class="form-label-bold">{{__ 'global.labels.location' }}</span>
+            {{#if errors.location.msg }}
+                <span class="error-message">{{__ errors.location.msg }}</span>
+            {{/if}}
+        </label>
+        <input class="form-control{{#if errors.location }} form-control-error{{/if}}" id="location" name="location" type="text" value="{{ filters.location }}">
+    </div>
+
+    <div class="form-group{{#if errors.radius }} form-group-error{{/if}}">
+        <label class="form-label-bold" for="radius">
+            <span class="form-label-bold">{{__ 'global.labels.within' }}</span>
+            {{#if errors.radius.msg }}
+                <span class="error-message">{{__ errors.radius.msg }}</span>
+            {{/if}}
+        </label>
+        <select name="radius" id="radius" class="form-control form-control--width-auto{{#if errors.radius }} form-control-error{{/if}}">
+            {{#each options.radius }}
+                <option value={{ this.value }}{{#compare this.value ../filters.radius }} selected{{/compare}}>{{ this.label }}</option>
+            {{/each}}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <fieldset>
+            <legend class="form-label-bold">Other location (optional)</legend>
+            <input id="overseas" name="overseas" type="checkbox" value="true"{{#if filters.overseas }} checked{{/if}}>
+            <label for="overseas" class="form-label form-label--checkbox">Overseas jobs</label>
+        </fieldset>
+    </div>
+
+    <div class="form-group form-group--collapsible">
+        <fieldset>
+            <legend class="form-label js-showhide-field" data-showhide-target-id="salary-options">{{__ 'global.labels.salary' }} ({{__ 'global.labels.optional' }})</legend>
+            <div class="form-subgroup{{#if filters.minSalary }} js-expanded{{else}}{{#if filters.maxSalary }} js-expanded{{/if}}{{/if}}" id="salary-options">
+                <div class="form-group">
+                    <label class="form-label-bold" for="minSalary">{{__ 'global.labels.minSalary' }} ({{__ 'global.labels.optional' }})</label>
+                    <select name="minSalary" id="minSalary" class="form-control">
+                        <option value="">{{__ 'global.labels.noMin' }}</option>
+                        {{#each options.salary.min }}
+                            <option value={{ value }}{{#compare value ../filters.minSalary }} selected{{/compare}}>{{ label }}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label-bold" for="maxSalary">{{__ 'global.labels.maxSalary' }} ({{__ 'global.labels.optional' }})</label>
+                    <select name="maxSalary" id="maxSalary" class="form-control">
+                        <option value="">{{__ 'global.labels.noMax' }}</option>
+                        {{#each options.salary.max }}
+                            <option value={{ value }}{{#compare value ../filters.maxSalary }} selected{{/compare}}>{{ label }}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="form-group form-group--collapsible">
+        <fieldset class="form-multicheckbox">
+            <legend class="form-label js-showhide-field" data-showhide-target-id="department-list">{{__ 'results.page.departments' }} ({{__ 'global.labels.optional' }})</legend>
+
+            <div class="form-multicheckbox__list{{#if filters.depts }} js-expanded{{/if}}" id="department-list">
+            {{#each departments }}
+                <div class="form-multicheckbox__item">
+                    <input id="dept-{{ id }}" name="depts" type="checkbox" value="{{ id }}"{{#inArray ../filters.depts id }} checked{{/inArray}}>
+                    <label for="dept-{{ id }}" class="form-label form-label--checkbox">{{ name }}</label>
+                </div>
+            {{/each}}
+            </div>
+
+        </fieldset>
+    </div>
+
+    <input type="hidden" name="filtered" value="true">
+
+    <div class="form-group">
+        <input type="submit" class="button" value="{{__ 'global.buttons.updateResults' }}">
+    </div>
+
+</div>

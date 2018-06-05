@@ -1,0 +1,7 @@
+version: "2"
+
+services:
+  app:
+    image: cshrrpg.azurecr.io/rpg-candidate-interface-ui:${DOCKER_SERVICE_TAG}
+    build:
+      context: .

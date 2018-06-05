@@ -1,20 +1,148 @@
-<div class="job-details">
-    <div class="top-twocol job-details__top">
-        <div class="top-twocol__first">
-            <h1 class="heading-xlarge job-details__title">{{ vacancy.title }} <small>&lt;Department name&gt;</small></h1>
-        </div>
-        <div class="top-twocol__last">
-            <p class="back-link"><a href="{{returnUrl}}">Back to search results</a></p>
-            <p class="closing-date">Closing date: {{ vacancy.closingDate }}</p>
-            <a class="button button--block" href="/apply/{{vacancy.id}}" role="button">Apply</a>
-        </div>
-    </div>
-    <div class="job-details__bottom">
-        <h2>Description</h2>
-        <p>{{ vacancy.description }}</p>
-        <p class="closing-date">Closing date: {{ vacancy.closingDate }}</p>
-        <p><a class="button" href="/apply/{{vacancy.id}}" role="button">Apply</a></p>
-    </div>
-</div>
 
-{{ return_url }}
+<section class="job-details">
+
+    <header class="job-details__top{{#if vacancy.department.logoPath }} job-details__top--has-logo{{/if}}">
+
+        <p class="back-link"><i class="icon ion-arrow-left-b" aria-hidden="true"></i><a href="{{returnUrl}}">{{__ 'vacancy.page.backToResults' }}</a></p>
+
+        <h1 class="job-details__title">{{ vacancy.title }} <small>{{ vacancy.department.name }}</small></h1>
+
+        <div class="job-details__logo">
+            {{#if vacancy.department.logoPath }}
+                <img class="job-details__image" src="{{ vacancy.department.fullLogoPath }}" alt="{{ vacancy.department.name }}" />
+            {{/if}}
+        </div>
+
+        {{#if vacancy.shortDescription }}
+            <p class="job-details__shortDesc">{{ vacancy.shortDescription }}</p>
+        {{/if}}
+
+        <div class="job-details__apply">
+
+            <p class="closing-date"><i class="icon ion-alert" aria-hidden="true"></i>{{__ 'global.labels.closingDate' }}: {{ vacancy.closingDate }}</p>
+
+            {{#if vacancy.applyURL }}
+                <a class="button button--block" href="{{ vacancy.applyURL }}" role="button">{{__ 'global.buttons.apply' }}</a>
+            {{/if}}
+
+        </div>
+
+    </header>
+
+    <section class="job-details__bottom">
+
+        <section class="job-details__meta-box job-details__meta-box--key-facts">
+            <h2 class="job-details__meta-box-title">{{__ 'vacancy.page.keyFacts' }}</h2>
+
+            <ul class="job-details__key-facts-list">
+
+                <li><strong>{{__ 'global.labels.location' }}</strong> {{{ vacancy.location }}}</li>
+
+                {{#if vacancy.identifier}}<li><strong>{{__ 'global.labels.identifier' }}</strong> {{ vacancy.identifier }}</li>{{/if}}
+                {{#if vacancy.salary}}<li><strong>{{__ 'global.labels.salaryBand' }}</strong> {{ vacancy.salary }}</li>{{/if}}
+                {{#if vacancy.grade}}<li><strong>{{__ 'global.labels.jobGrade' }}</strong> {{ vacancy.grade }}</li>{{/if}}
+                {{#if vacancy.workingHours}}<li><strong>{{__ 'global.labels.hours' }}</strong> {{ vacancy.workingHours }}</li>{{/if}}
+                {{#if vacancy.workingPatterns}}<li><strong>{{__ 'global.labels.workingPattern' }}</strong> {{ vacancy.workingPatterns }}</li>{{/if}}
+                {{#if vacancy.contractTypes}}<li><strong>{{__ 'global.labels.contractType' }}</strong> {{ vacancy.contractTypes }}</li>{{/if}}
+                {{#if vacancy.numberVacancies}}<li><strong>{{__ 'global.labels.numVacancies' }}</strong> {{ vacancy.numberVacancies }}</li>{{/if}}
+            </ul>
+        </section>
+
+        <section class="job-details__content">
+            <h2>{{__ 'global.labels.jobDesc' }}</h2>
+
+            <div>
+                <h3>{{__ 'global.labels.description' }}</h3>
+                <p>{{{ vacancy.description }}}</p>
+            </div>
+
+            {{#if vacancy.personalSpecification }}
+                <div>
+                    <h3>{{__ 'global.labels.lookingFor' }}</h3>
+                    <p>{{{ vacancy.personalSpecification }}}</p>
+                </div>
+            {{/if}}
+
+            {{#if vacancy.responsibilities}}
+                <div>
+                    <h3>{{__ 'global.labels.responsibilities' }}</h3>
+                    <p>{{{ vacancy.responsibilities }}}</p>
+                </div>
+            {{/if}}
+
+            {{#if vacancy.whatWeOffer}}
+                <div>
+                    <h3>{{__ 'global.labels.whatWeOffer' }}</h3>
+                    <p>{{{ vacancy.whatWeOffer }}}</p>
+                </div>
+            {{/if}}
+
+            {{#if vacancy.eligibility}}
+                <div>
+                    <h3>{{__ 'global.labels.eligibility' }}</h3>
+                    <p>{{{ vacancy.eligibility }}}</p>
+                </div>
+            {{/if}}
+
+            {{#if vacancy.showCscInfo }}
+                <h2>{{__ 'vacancy.page.cscTitle' }} {{ vacancy.department.name }}</h2>
+                <p>{{{__ 'vacancy.page.cscBodyLine2' }}}</p>
+                <p>{{{__ 'vacancy.page.cscBodyLine3' }}}</p>
+            {{/if}}
+
+            {{#if vacancy.selectionProcessDetails }}
+                <h2>{{__ 'vacancy.page.selectionProcessTitle' }}</h2>
+                <p>{{{ vacancy.selectionProcessDetails }}}</p>
+            {{/if}}
+
+            {{#compare vacancy.nationalityStatement "RESERVED" }}
+                <h3>{{__ 'vacancy.page.nationalityStatement.title' }}</h3>
+                <p>{{{__ 'vacancy.page.nationalityStatement.reserved' }}}</p>
+            {{/compare}}
+
+            {{#compare vacancy.nationalityStatement "NON_RESERVED" }}
+                <h3>{{__ 'vacancy.page.nationalityStatement.title' }}</h3>
+                <p>{{{__ 'vacancy.page.nationalityStatement.nonreserved' }}}</p>
+            {{/compare}}
+
+        </section>
+
+        <section class="job-details__meta-box job-details__meta-box--contact">
+            <div id="job-details-contact">
+                <h2 class="job-details__meta-box-title">{{__ 'global.labels.contactPoint' }}</h2>
+                <p>
+                    <span id="job-details-contactname" class="text-wrap" aria-label="{{__ 'global.labels.name' }}">{{{ vacancy.contactName }}}</span><br />
+                    <span id="job-details-contactdept" class="text-wrap" aria-label="{{__ 'global.labels.department' }}">{{{ vacancy.contactDepartment }}}</span><br />
+                    <span id="job-details-contactemail" class="text-wrap" aria-label="{{__ 'global.labels.email' }}"><a href="mailto:{{ vacancy.contactEmail }}">{{{ vacancy.contactEmail }}}</a></span><br />
+                    <span id="job-details-contacttel" class="text-wrap" aria-label="{{__ 'global.labels.telephone' }}">{{{ vacancy.contactTelephone }}}</span>
+                </p>
+            </div>
+        </section>
+
+        {{#if vacancy.department.disabilityLogo }}
+            <aside class="job-details__meta-box job-details__meta-box--plain job-details__logos">
+                <img src="{{ vacancy.department.disabilityLogo.path }}" alt="{{__ vacancy.department.disabilityLogo.alt }}" />
+            </aside>
+        {{/if}}
+
+        {{#if vacancy.showCscInfo }}
+        <aside class="job-details__meta-box job-details__meta-box--plain job-details__logos">
+            <img src="/images/logos/csc.gif" alt="Civil Service Commissioners logo" />
+            <p>{{{__ 'vacancy.page.cscBodyLine1' }}}</p>
+        </aside>
+        {{/if}}
+
+        <section class="job-details__closure">
+            <div class="job-details__apply-inner">
+                <p class="closing-date"><i class="icon ion-alert" aria-hidden="true"></i>{{__ 'global.labels.closingDate' }}: {{ vacancy.closingDate }}</p>
+
+                {{#if vacancy.applyURL }}
+                    <p><a class="button button--block" href="{{ vacancy.applyURL }}" role="button">{{__ 'global.buttons.apply' }}</a></p>
+                {{/if}}
+
+            </div>
+        </section>
+
+    </section>
+
+</section>

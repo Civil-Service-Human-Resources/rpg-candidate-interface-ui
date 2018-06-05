@@ -1,0 +1,61 @@
+.pagination {
+    @include clearfix;
+
+    &__list {
+        list-style: none;
+    }
+
+    &__list-item {
+        @include core-19;
+        float: left;
+        width: 50%;
+
+        a {
+            display: block;
+            line-height: 1.3;
+            padding: 15px 0 15px 33px;
+            position: relative;
+            text-decoration: none;
+        }
+
+        i {
+            font-size: 44px;
+            left: 0;
+            position: absolute;
+            top: 9px;
+
+            @include media(tablet) {
+                font-size: 46px;
+                top: 11px;
+            }
+        }
+    }
+
+    &__list-item--next {
+        float: right;
+        text-align: right;
+
+        a {
+            padding-left: 0;
+            padding-right: 33px;
+        }
+
+        i {
+            left: auto;
+            right: 0;
+        }
+    }
+
+    &__page-label {
+        @include core-14;
+        display: block;
+    }
+
+    &__hide-mobile {
+        display: none;
+
+        @include media(tablet) {
+            display: inline;
+        }
+    }
+}

@@ -1,61 +1,111 @@
-var express = require('express');
-var router = express.Router();
-var url = require('url');
-var fetch = require('node-fetch');
+const express = require('express');
+const url = require('url');
+const { check, validationResult } = require('express-validator/check');
 
-const VIEW_PATH = 'pages/results';
+const router = express.Router();
+
+const {
+    fetchVacancyList,
+    isResultsPerPageValid, isRadiusValidOption,
+    isMinSalaryValidOption, isMaxSalaryValidOption,
+    RESULTS_PER_PAGE_OPTIONS, DEFAULT_RESULTS_PER_PAGE,
+    LOCATION_RADIUS_OPTIONS, DEFAULT_LOCATION_RADIUS,
+    MIN_SALARY_OPTIONS, MAX_SALARY_OPTIONS,
+} = require('../lib/modules/vacancy');
+const { fetchDepartmentList } = require('../lib/modules/department');
+const { removeUrlParameter } = require('../lib/modules/url');
 
 /* GET results page. */
-router.get('/', function(req, res, next) {
-  const { location, keyword } = url.parse(req.url, true).query;
-  const query_string = url.parse(req.url).query;
+router.get('/', [
 
-  try {
-    fetchVacancyList(`${process.env.API_URL}:${process.env.API_PORT}/vacancy/search/location/${location}/keyword/${keyword}`).then(data => {
-        res.render(VIEW_PATH, {
-          page: { title: 'Search Results' },
-          total: data.length || 0,
-          singular: data.length === 1,
-          results: formatResultData(data),
-          return_url: query_string
-        })
+    check('radius')
+        .trim()
+        .custom(value => (value ? isRadiusValidOption(value) : true))
+        .withMessage('global.messages.invalidRadius'),
+
+    check('minSalary')
+        .trim()
+        .custom(value => (value ? isMinSalaryValidOption(value) : true))
+        .withMessage('global.messages.invalidMinSalary'),
+
+    check('maxSalary')
+        .trim()
+        .custom(value => (value ? isMaxSalaryValidOption(value) : true))
+        .withMessage('global.messages.invalidMaxSalary'),
+
+], async (req, res, next) => {
+    const queryString = url.parse(req.url).query;
+
+    // if someone is trying to access the page with not filters
+    // redirect to home
+    if (!queryString) {
+        return res.redirect('/');
+    }
+
+    const filters = url.parse(req.url, true).query;
+    const pagerUrl = `/results?${removeUrlParameter(queryString, 'page')}`;
+    const validate = validationResult(req);
+
+    const cookieRpp = req.cookies.resultsPerPage;
+
+    if (filters.size) {
+        // if user as selected an option for results per page
+        res.cookie('resultsPerPage', filters.size);
+    } else {
+        // otherwise check if cookie exists or use default
+        filters.size = cookieRpp || DEFAULT_RESULTS_PER_PAGE;
+    }
+
+    // if the request contains an invalid option set it to default
+    if (!isResultsPerPageValid(filters.size)) {
+        filters.size = DEFAULT_RESULTS_PER_PAGE;
+    }
+
+    if (!isRadiusValidOption(filters.radius)) {
+        filters.radius = DEFAULT_LOCATION_RADIUS;
+    }
+
+    const departments = await fetchDepartmentList(next);
+    const { vacancies, params } = await fetchVacancyList(filters, next);
+
+    // grabbing logos directory to check existance of logo file. Temporary until future story
+    // changing to CDN based file storage
+    const pager = {
+        totalResults: params.totalElements || 0,
+        totalPages: params.totalPages,
+        currentPage: params.number + 1,
+        prevPage: params.number,
+        nextPage: params.number + 2,
+        firstPage: params.first,
+        lastPage: params.last,
+        url: pagerUrl,
+    };
+
+    // if only one department selected, we get department filters
+    // as a string rather than an array so we need to convert it
+    // to stop the filters blowing up
+    if (typeof filters.depts === 'string') {
+        filters.depts = [filters.depts];
+    }
+
+    filters.overseas = !filters.filtered || (filters.filtered && filters.overseas);
+
+    return res.render('pages/results', {
+        departments,
+        filters,
+        pager,
+        vacancies,
+        returnUrl: queryString,
+        options: {
+            rrp: RESULTS_PER_PAGE_OPTIONS,
+            radius: LOCATION_RADIUS_OPTIONS,
+            salary: {
+                min: MIN_SALARY_OPTIONS,
+                max: MAX_SALARY_OPTIONS,
+            },
+        },
+        errors: !validate.isEmpty() ? validate.mapped() : null,
     });
-      
-  } catch(e) {
-      // need to do unhappy path
-  }
-  
 });
-
-async function fetchVacancyList(url) {
-  let response = await fetch(url);
-  let data = await response.json();
-  return data;
-}
-
-function formatSalaryNumber(num) {
-  return num.toLocaleString();
-}
-
-function formatResultData(results) {
-  return results.map(result => {
-    const salary = formatSalaryOutput(result.salaryMin, result.salaryMax);
-    return { ...result, salary }
-  });
-}
-
-function formatSalaryOutput(min, max) {
-  if(min !== 0 && max !== 0) {
-    return `£${formatSalaryNumber(min)} - £${formatSalaryNumber(max)}`;
-  }
-
-  if(max === 0) {
-    return `£${formatSalaryNumber(min)}`;
-  }
-
-  if(min === 0) {
-    return `£${formatSalaryNumber(max)}`;
-  }
-}
 
 module.exports = router;

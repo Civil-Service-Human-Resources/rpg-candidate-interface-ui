@@ -2,13 +2,20 @@
 @import 'base/govuk';
 @import 'base/variables';
 @import 'base/mixins';
-@import 'base/fonts';
 @import 'base/elements';
 @import 'base/buttons';
+@import 'base/icons';
+@import 'base/utils';
 
 @import 'components/content';
 @import 'components/footer';
+@import 'components/form';
 @import 'components/header';
+@import 'components/job-details';
+@import 'components/pagination';
 @import 'components/phase-banner';
 @import 'components/results';
-@import 'components/job-details';
+@import 'components/search-filters';
+@import 'components/showhide';
+
+@import 'layout/two-col';

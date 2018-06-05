@@ -1,0 +1,42 @@
+{{!--
+    OPTIONS
+    -------
+    showSummary: <boolean> - whether to show summary text 'Showing 1 to 20 of...'
+    showPager: <boolean> - whether to show the pager or not. Useful to hide if only one page exists
+    isFirstPage: <boolean> - whether current page is the first page of pager. Useful to hide 'previous' link
+    isLastPage: <boolean> - whether current page is the last page of pager. Useful to hide 'next' link
+    totalPages: <integer> - total number of pages available
+    totalItems: <integer> - total number of result items
+    numElements: <integer> - number of result items on current page
+    url: <string> - start of current url to append page number to
+    startItem: <integer> - starting index of current result items (current page)
+    prevPage: <integer> - page number of previous page
+    currentPage: <integer> - page number of current page
+    nextPage: <integer> - page number of next page
+--}}
+
+<nav class="pagination" aria-label="Pagination">
+
+    <ul class="pagination__list">
+
+        {{#unless firstPage }}
+            <li class="pagination__list-item pagination__list-item--prev">
+                <a href="{{ url }}&page={{ prevPage }}" aria-label="Go to previous page">
+                    <i class="icon ion-chevron-left" aria-hidden="true"></i>
+                    Previous <span class="pagination__hide-mobile">page</span> <span class="pagination__page-label">{{ prevPage }} of {{ totalPages }}</span>
+                </a>
+            </li>
+        {{/unless }}
+
+        {{#unless lastPage }}
+            <li class="pagination__list-item pagination__list-item--next">
+                <a href="{{ url }}&page={{ nextPage }}" aria-label="Go to next page">
+                    <i class="icon ion-chevron-right" aria-hidden="true"></i>
+                    Next <span class="pagination__hide-mobile">page</span> <span class="pagination__page-label">{{ nextPage }} of {{ totalPages }}</span>
+                </a>
+            </li>
+        {{/unless }}
+
+    </ul>
+
+</nav>

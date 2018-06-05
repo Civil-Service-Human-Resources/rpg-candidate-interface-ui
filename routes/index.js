@@ -1,13 +1,17 @@
-var express = require('express');
-var router = express.Router();
+const home = require('./home');
+const cookies = require('./cookies');
+const privacyPolicy = require('./privacyPolicy');
+const results = require('./results');
+const vacancyDetails = require('./vacancy');
+const account = require('./account/account');
+const terms = require('./terms');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('pages/index', { 
-    page: {
-      title: 'Job Search'
-    },
-  });
-});
-
-module.exports = router;
+module.exports = {
+    home,
+    cookies,
+    privacyPolicy,
+    results,
+    vacancyDetails,
+    account,
+    terms,
+};

@@ -3,32 +3,210 @@
     padding: 0 0 50px 0;
 
     &__title {
-        margin-bottom: 0;
+        @include bold-36;
+        float: left;
+        margin: 0 0 $gutter;
+        width: calc(100% - 140px);
+
+        @include media($tablet-sml) {
+            width: calc(100% - 280px);
+        }
+
         small {
-            @include core-27;
+            @include core-24;
             color: $grey-1;
+            clear: both;
             display: block;
+            padding-top: $gutter-one-quarter;
         }
     }
 
-    &__top {
-        margin-bottom: $gutter;
+    &__shortDesc {
+        clear: both;
+        margin: 0 0 $gutter;
 
-        .closing-date {
-            margin: 0 0 3px;
-            
-            @include media(tablet) {
-                text-align: center;
+        @include media($tablet-sml) {
+            float: left;
+            width: calc(100% - 300px);
+        }
+    }
+
+    &__image {
+        height: auto;
+        margin-bottom: 10px;
+        max-height: 100px;
+    }
+
+    &__top {
+        @include clearfix;
+        border-bottom: 2px solid $grey-3;
+        margin-bottom: $gutter-half;
+        padding: $gutter-half 0;
+        position: relative;
+
+        &--has-logo {
+            @include media($tablet-sml) {
+                min-height: 235px;
+            }
+
+            .job-details__apply {
+                @include media($tablet-sml) {
+                    top: 130px;
+                }
             }
         }
     }
 
-    &__bottom {
-        border-top: 1px solid $grey-2;
-        padding-top: $gutter;
+    &__logo {
+        clear: right;
+        float: right;
+        margin-bottom: $gutter-half;
+        text-align: center;
+
+        @include media($tablet-sml) {
+            margin-top: -53px;
+            width: 260px;
+        }
     }
 
-    h2 {
-        @include bold-19;
+    &__apply {
+        clear: both;
+        margin-bottom: $gutter-half;
+        text-align: center;
+
+        @include media($tablet-sml) {
+            position: absolute;
+            right: 0;
+            top: 65px;
+            width: 260px;
+        }
+    }
+
+    &__apply-inner {
+        @include media($tablet-sml) {
+            width: 260px;
+        }
+    }
+
+    &__bottom {
+        @include clearfix;
+
+        h2 {
+            @include bold-19;
+        }
+    }
+
+    &__content {
+
+        @include media($tablet-sml) {
+            float: right;
+            padding-left: $gutter;
+            width: 66.6666%;
+        }
+
+        h2 {
+            @include bold-24;
+            margin-bottom: $gutter-two-thirds;
+        }
+
+        h3 {
+            @include bold-19;
+            margin-bottom: 0;
+        }
+
+        p {
+            margin-top: 0;
+        }
+    }
+
+    &__meta-box {
+        background-color: $grey-4;
+        border: 1px solid $grey-3;
+        margin-bottom: $gutter-half;
+        padding: $gutter-half $gutter-half 0;
+
+        &--plain {
+            background-color: transparent;
+            border-color: transparent;
+        }
+
+        &--key-facts {
+            margin-bottom: 40px;
+
+            @include media($tablet-sml) {
+                float: left;
+                margin-bottom: 20px;
+                width: 33.3333%;
+            }
+        }
+
+        &--contact {
+            @include media($tablet-sml) {
+                clear: left;
+                float: left;
+                width: 33.3333%;
+            }
+        }
+
+        p {
+            @include core-16;
+            line-height: 1.5;
+        }
+    }
+
+    &__meta-box-title {
+        margin-bottom: $gutter-half;
+    }
+
+    &__closure {
+
+        @include media($tablet-sml) {
+            float: right;
+            padding-left: $gutter;
+            width: 66.6666%;
+        }
+    }
+
+    &__key-facts-list {
+        @include clearfix;
+
+        li {
+            @include core-16;
+            display: block;
+            float: left;
+            margin: 0 0 $gutter-half;
+            padding-right: $gutter-one-quarter;
+            width: 50%;
+
+            &:nth-child(odd) {
+                clear: left;
+            }
+
+            @include media($tablet-sml) {
+                float: none;
+                padding: 0;
+                width: auto;
+            }
+
+            strong {
+                display: block;
+                margin-bottom: 3px;
+            }
+        }
+    }
+
+    &__logos {
+        text-align: center;
+
+        @include media($tablet-sml) {
+            clear: left;
+            float: left;
+            width: 33.3333%;
+        }
+
+        img {
+            max-width: 200px;
+            width: 100%;
+        }
     }
 }

@@ -1,0 +1,36 @@
+.search-filters {
+    @include clearfix;
+    background-color: $grey-4;
+    border: 1px solid $grey-3;
+    margin-bottom: $gutter;
+    padding: $gutter $gutter-half 0;
+
+    .form-group {
+        &:last-child {
+            margin-bottom: 20px;
+        }
+    }
+
+    .form-control {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    input.form-control {
+        width: 100%;
+    }
+
+    .form-label-bold,
+    .form-label {
+        @include bold-16;
+    }
+
+    .form-label--checkbox {
+        @include core-16;
+    }
+
+    .button {
+        display: block;
+        width: 100%;
+    }
+}

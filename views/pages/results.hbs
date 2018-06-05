@@ -1,18 +1,56 @@
-<div class="top-twocol">
-    <div class="top-twocol__first">
-        <h1 class="heading-xlarge">Search Results</h1>
-    </div>
-    <div class="top-twocol__last">
-        <p class="back-link"><a href="/">Back to search</a></p>
-    </div>
-</div>
+<h1 class="heading-xlarge">{{__ 'results.page.title' }}</h1>
+
+{{> messages/error
+        errorMsg='global.messages.submissionErrorMsg'
+        errors=errors }}
+
+<p class="job-search__total-results"><strong id="search-results-total">{{ pager.totalResults }}</strong> {{__n 'results.page.totalJobsFoundPlural' 'results.page.totalJobsFoundSingular' pager.totalResults }}</p>
 
 <div class="job-search">
-    
-    <p class="job-search__total-results"><strong>{{ total }}</strong> job{{#unless singular }}s{{/unless}} found</p>
-    
-    {{#if results}}
-        {{> search/results items=results}}
-    {{/if}}
+
+    <div class="job-search__results-container">
+
+        <form method="GET" action="/results">
+
+            <div class="job-search__filters">
+                <h2 class="job-search__filters-title">
+                    <button class="js-showhide" data-showhide-target-id="filterShowHide" tabindex="-1">{{__ 'results.page.filterResultsTitle' }}</button>
+                </h2>
+                {{> search/filter
+                        filters=filters
+                        options=options
+                        errors=errors }}
+            </div>
+
+            <div class="job-search__results-list-container">
+
+                <h2 class="sr-only">{{__ 'results.page.yourResults' }}</h2>
+
+                {{#if vacancies}}
+                    {{> search/results items=vacancies }}
+                    {{> pagination/pagination pager }}
+
+                    <div class="job-search__rpp">
+                        <label for="rpp">Display results</label>
+                        <select name="size" id="rpp" class="form-control form-control--width-auto js-submitOnChange">
+                            {{#each options.rrp }}
+                                <option value={{ this.value }} {{#compare this.value ../filters.size}} selected{{/compare}}>{{ this.label }}</option>
+                            {{/each}}
+                        </select>
+                        <input type="submit" class="button" value="{{__ 'results.page.displayResultsButton' }}">
+                    </div>
+                {{/if}}
+
+                {{#unless vacancies}}
+                <div class="job-search__no-results">
+                    <p>{{__ 'results.page.noResultsText1' }} - <a href="/">{{__ 'results.page.noResultsText2' }}</a>.</p>
+                </div>
+                {{/unless}}
+
+            </div>
+
+        </form>
+
+    </div>
 
 </div>
