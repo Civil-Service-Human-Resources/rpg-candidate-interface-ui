@@ -31,12 +31,17 @@ export default class ShowHide {
         window.addEventListener('resize', debounce(this.checkBrowserWidth.bind(this), 100));
         document.addEventListener('keyup', (event) => {
             // if we're hitting enter on a button, it registers a 'click' anyway
-            if (event.target.localName === 'button') return;
+            if (event.target.localName === 'button') {
+                event.preventDefault();
+                return false;
+            }
 
             if (event.which === 13 && event.target === this.el) {
                 event.preventDefault();
                 this.handleClick(event);
             }
+
+            return false;
         });
     }
 
@@ -93,8 +98,7 @@ export default class ShowHide {
         this.initialized = false;
     }
 
-    handleClick(event) {
-        event.preventDefault();
+    handleClick() {
         // we only want to fire if the media query matches
         if (matchMedia(this.mediaQuery).matches) { // eslint-disable-line no-undef
             const targetHidden = this.targetEl.className.indexOf('js-hidden') > 0;
