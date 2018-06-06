@@ -14,6 +14,7 @@ router.get('/details/:id', async (req, res, next) => {
     const vacancy = await fetchVacancyDetails(id, next);
 
     return res.render('pages/vacancy/details', {
+        title: vacancy.title,
         vacancy,
         returnUrl,
     });

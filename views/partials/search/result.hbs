@@ -4,11 +4,11 @@
         <div class="job-search__item-first">
             <div class="job-search__item-image">
 
-                {{#if department.logoPath }}
+                {{#if department.fullLogoPath }}
                 <img src="{{ department.fullLogoPath }}" alt="{{ department.name }}" />
                 {{/if}}
 
-                {{#unless department.logoPath }}
+                {{#unless department.fullLogoPath }}
                     {{ department.name }}
                 {{/unless}}
 

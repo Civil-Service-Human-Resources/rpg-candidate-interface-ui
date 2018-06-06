@@ -91,6 +91,7 @@ router.get('/', [
     filters.overseas = !filters.filtered || (filters.filtered && filters.overseas);
 
     return res.render('pages/results', {
+        title: `${__('results.page.title')} | Page ${pager.currentPage}`,
         departments,
         filters,
         pager,

@@ -4,6 +4,8 @@ const router = express.Router();
 
 /* GET apply page. */
 router.get('/', (req, res) =>
-    res.render('pages/cookies', {}));
+    res.render('pages/cookies', {
+        title: __('cookies.page.title'),
+    }));
 
 module.exports = router;
