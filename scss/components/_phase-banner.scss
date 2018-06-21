@@ -14,4 +14,10 @@
         max-width: 960px;
         padding: 10px 0 8px;
     }
+
+    &__account-links {
+        @include core-19;
+        padding: 5px 0 0 0;
+        text-align: right;
+    }
 }
