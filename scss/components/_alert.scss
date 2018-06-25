@@ -17,3 +17,19 @@
         border-color: $green;
     }
 }
+
+.global-msg {
+    background-color: #FFF;
+    padding: $gutter $gutter-half 0;
+
+    @include media(tablet) {
+        padding: $gutter $gutter 0;
+    }
+
+    .error-summary {
+        margin: 0 auto;
+        max-width: 960px;
+        width: 100%;
+    }
+
+}
