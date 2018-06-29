@@ -1,3 +1,5 @@
+import accessibleAutocomplete from 'accessible-autocomplete';
+
 import 'babel-polyfill/dist/polyfill';
 import './polyfills-custom/dataset';
 import './polyfills-custom/append';
@@ -71,4 +73,16 @@ function updateEmailAutocomplete() {
         emailAutoDest.className += ' js-hidden';
         emailAutoDest.setAttribute('aria-hidden', true);
     }
+}
+
+const selectElement = document.querySelector('#depts');
+const autocompleteOptions = {
+    selectElement,
+    placeholder: 'Start typing...',
+    autoselect: true,
+    defaultValue: '',
+};
+
+if (selectElement) {
+    accessibleAutocomplete.enhanceSelectElement(autocompleteOptions);
 }
