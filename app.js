@@ -14,10 +14,12 @@ const uuid = require('uuid');
 const ns = require('continuation-local-storage').createNamespace('candidate-interface');
 const helmet = require('helmet');
 const nocache = require('nocache');
+const contextService = require('request-context');
 
 const { objectToUrl } = require('./lib/modules/url');
 const routes = require('./routes');
 const logger = require('./lib/modules/logger');
+const { UserSession } = require('./lib/modules/userSession');
 
 if (!fs.existsSync('./logs')) {
     fs.mkdirSync('./logs');
@@ -27,6 +29,8 @@ const app = express();
 // Add helmet to set security headers
 app.use(helmet());
 app.use(nocache());
+
+app.use(contextService.middleware('request'));
 
 // scss compilation middleware
 app.use(sassMiddleware({
@@ -111,6 +115,29 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
+    const { session_token: jwt } = req.cookies;
+
+    // if there's no session token
+    if (!jwt) {
+        return next();
+    }
+
+    // there is a token, let's parse and check it
+    const session = new UserSession(jwt);
+
+    if (session.isValid()) {
+        contextService.set('request:jwt', jwt);
+        res.locals.userEmail = session.getSessionEmail();
+        res.locals.jwtInvalid = false;
+    } else {
+        res.locals.jwtInvalid = true;
+        res.clearCookie('session_token');
+    }
+
+    return next();
+});
+
+app.use((req, res, next) => {
     const { cookieWarningSeen = false } = req.cookies;
 
     if (!cookieWarningSeen) {
@@ -130,6 +157,8 @@ app.use('/privacy-notice', routes.privacyPolicy);
 app.use('/cookies', routes.cookies);
 // app.use('/account', routes.account);
 app.use('/terms-conditions', routes.terms);
+app.use('/internal-jobs', routes.internalJobs);
+app.use('/verifyemail', routes.verifyEmail);
 
 // catch 404 and log error
 app.use((req, res) => {

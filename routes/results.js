@@ -93,7 +93,7 @@ router.get('/', [
     }
 
     return res.render('pages/results', {
-        title: `${__('results.page.title')} | Page ${pager.currentPage}`,
+        title: `${__('results.page.title')} | Page ${pager.currentPage || 1}`,
         departments,
         filters,
         pager,

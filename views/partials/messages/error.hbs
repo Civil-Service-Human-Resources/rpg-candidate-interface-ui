@@ -2,10 +2,10 @@
 
 <div class="error-summary" role="alert" aria-labelledby="search-form-errors" tabindex="-1">
 
-    <h2 class="heading-medium error-summary-heading" id="search-form-errors">{{__ 'global.messages.submissionErrorMsg' }}</h2>
+    <h2 class="heading-medium error-summary-heading" id="search-form-errors">{{{__ 'global.messages.submissionErrorMsg' }}}</h2>
 
     {{#if errorMsgOptional}}
-        <p>{{ errorMsgOptional }}</p>
+        <p>{{{ errorMsgOptional }}}</p>
     {{/if}}
 
     {{#if customMsg }}

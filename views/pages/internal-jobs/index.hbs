@@ -1,0 +1,40 @@
+<h1 class="heading-xlarge">{{__ 'internalJobs.page.title' }} <span class="heading-secondary">Some intro text goes here</span></h1>
+
+{{#if success }}
+    <div class="alert alert--success" role="alert" aria-labelledby="success-message" tabindex="-1">
+        <h2 class="heading-medium alert__heading" id="success-message">Email verified successfully</h2>
+        <p>You have been sent a link to your email address with further instructions.</p>
+    </div>
+{{/if}}
+
+{{#unless success }}
+
+    {{> messages/error
+            errorMsg='global.messages.submissionErrorMsg'
+            errors=errors }}
+
+    <form method="POST" action="">
+        <div class="form-section">
+
+            <div class="form-group{{#if errors.email }} form-group-error{{/if}}">
+                <label class="form-label-bold" for="email">
+                    <span class="form-label-bold">{{__ 'global.labels.email' }}</span>
+                    {{#if errors.email.msg }}
+                        <span class="error-message">{{__ errors.email.msg }}</span>
+                    {{/if}}
+                </label>
+                <input
+                        class="form-control{{#if errors.email }} form-control-error{{/if}}"
+                        id="email"
+                        name="email"
+                        type="email"
+                        value="{{ formData.email }}">
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="button" value="{{__ 'global.buttons.submit' }}">
+            </div>
+
+        </div>
+    </form>
+{{/unless}}

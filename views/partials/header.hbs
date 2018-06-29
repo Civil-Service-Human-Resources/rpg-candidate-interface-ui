@@ -32,5 +32,25 @@
             <strong class="phase-tag">Beta</strong>
             <span>{{{__ 'global.header.betaText' }}}</span>
         </p>
+
+        <div class="phase-banner__account-links">
+
+            {{#if userEmail }}
+                Welcome, {{ userEmail }}
+            {{/if}}
+
+            {{#unless userEmail }}
+                <a href="/internal-jobs">Sign in to access internal jobs</a>
+            {{/unless}}
+        </div>
     </div>
 </div>
+
+{{#if jwtInvalid }}
+    <div class="global-msg">
+    {{> messages/error
+            errorMsg='Your session token has expired or is not valid.'
+            errorMsgOptional='Your session token has expired or is not valid.<br /><a href="/internal-jobs">Authenticate again</a> to continue to view internal jobs'
+            errors=true }}
+    </div>
+{{/if}}

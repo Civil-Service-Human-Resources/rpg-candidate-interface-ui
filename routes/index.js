@@ -5,6 +5,8 @@ const results = require('./results');
 const vacancyDetails = require('./vacancy');
 const account = require('./account/account');
 const terms = require('./terms');
+const internalJobs = require('./internal-jobs');
+const verifyEmail = require('./verifyemail');
 
 module.exports = {
     home,
@@ -14,4 +16,6 @@ module.exports = {
     vacancyDetails,
     account,
     terms,
+    internalJobs,
+    verifyEmail,
 };
