@@ -207,13 +207,13 @@ var autocompleteOptions = {
 };
 
 if (selectElement) {
-    document.addEventListener("keyup", isSelectEmpty);
+    document.addEventListener('keyup', isSelectEmpty);
     _accessibleAutocomplete2.default.enhanceSelectElement(autocompleteOptions);
 }
 
 function isSelectEmpty() {
     if (_lodash2.default.isEmpty(document.getElementById('depts').value)) {
-        document.getElementById('depts-select').value = "0";
+        document.getElementById('depts-select').value = '0';
     }
 }
 
