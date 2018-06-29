@@ -1,3 +1,6 @@
+import accessibleAutocomplete from 'accessible-autocomplete';
+import _ from 'lodash';
+
 import 'babel-polyfill/dist/polyfill';
 import './polyfills-custom/dataset';
 import './polyfills-custom/append';
@@ -70,5 +73,24 @@ function updateEmailAutocomplete() {
     } else {
         emailAutoDest.className += ' js-hidden';
         emailAutoDest.setAttribute('aria-hidden', true);
+    }
+}
+
+const selectElement = document.querySelector('#depts');
+const autocompleteOptions = {
+    selectElement,
+    placeholder: 'Start typing...',
+    autoselect: true,
+    defaultValue: '',
+};
+
+if (selectElement) {
+    document.addEventListener('keyup', isSelectEmpty);
+    accessibleAutocomplete.enhanceSelectElement(autocompleteOptions);
+}
+
+function isSelectEmpty() {
+    if (_.isEmpty(document.getElementById('depts').value)) {
+        document.getElementById('depts-select').value = '0';
     }
 }

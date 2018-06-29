@@ -65,6 +65,10 @@ router.get('/', [
         filters.radius = DEFAULT_LOCATION_RADIUS;
     }
 
+    if (filters.depts === '') {
+        delete filters.depts;
+    }
+
     const departments = await fetchDepartmentList(next);
     const { vacancies, params } = await fetchVacancyList(filters, next);
 

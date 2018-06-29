@@ -64,19 +64,15 @@
     </div>
 
     <div class="form-group form-group--collapsible">
-        <fieldset class="form-multicheckbox">
-            <legend class="form-label js-showhide-field" data-showhide-target-id="department-list">{{__ 'results.page.departments' }} ({{__ 'global.labels.optional' }})</legend>
-
-            <div class="form-multicheckbox__list{{#if filters.depts }} js-expanded{{/if}}" id="department-list">
-            {{#each departments }}
-                <div class="form-multicheckbox__item">
-                    <input id="dept-{{ id }}" name="depts" type="checkbox" value="{{ id }}"{{#inArray ../filters.depts id }} checked{{/inArray}}>
-                    <label for="dept-{{ id }}" class="form-label form-label--checkbox">{{ name }}</label>
-                </div>
-            {{/each}}
-            </div>
-
-        </fieldset>
+        <label class="form-label js-showhide-field" for="depts" data-showhide-target-id="department-list">{{__ 'results.page.departments' }} ({{__ 'global.labels.optional' }})</label>
+        <div class="form-subgroup{{#if filters.depts }} js-expanded{{/if}}" id="department-list">
+            <select name="depts" id="depts" class="form-control">
+                <option value="">All departments</option>
+                {{#each departments }}
+                    <option value="{{ id }}"{{#inArray ../filters.depts id }} selected{{/inArray}}>{{ name }}</option>
+                {{/each}}
+            </select>
+        </div>
     </div>
 
     <input type="hidden" name="filtered" value="true">

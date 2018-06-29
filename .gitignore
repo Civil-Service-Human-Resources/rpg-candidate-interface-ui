@@ -58,3 +58,4 @@ typings/
 .env
 
 docker-stack.yml
+.idea
