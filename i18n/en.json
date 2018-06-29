@@ -2,7 +2,7 @@
 	"global": {
 		"header": {
 			"title": "Find Civil Service Jobs",
-			"betaText": "This is a new service – your <a href=\"https://www.smartsurvey.co.uk/s/CIPrivateBeta/\">feedback</a> will help us to improve it."
+			"betaText": "Your <a href=\"https://www.smartsurvey.co.uk/s/CIPrivateBeta/\">feedback</a> will help us to improve it."
 		},
 		"labels": {
 			"description": "Description",
@@ -60,7 +60,8 @@
 		"buttons": {
 			"apply": "Apply",
 			"search": "Search",
-			"updateResults": "Update results"
+			"updateResults": "Update results",
+			"submit": "Submit"
 		},
 		"messages": {
 			"submissionErrorMsg": "There has been a problem",
@@ -455,6 +456,11 @@
 			"p2": "Enter the code to activate your account.",
 			"buttonLabel": "Activate account",
 			"resendButtonLabel": "Resend code"
+		}
+	},
+	"internalJobs": {
+		"page": {
+			"title": "Access internal opportunities"
 		}
 	},
 	"errors": {
