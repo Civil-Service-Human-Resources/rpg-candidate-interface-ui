@@ -1,4 +1,5 @@
 import accessibleAutocomplete from 'accessible-autocomplete';
+import _ from 'lodash';
 
 import 'babel-polyfill/dist/polyfill';
 import './polyfills-custom/dataset';
@@ -84,5 +85,12 @@ const autocompleteOptions = {
 };
 
 if (selectElement) {
+    document.addEventListener('keyup', isSelectEmpty);
     accessibleAutocomplete.enhanceSelectElement(autocompleteOptions);
+}
+
+function isSelectEmpty() {
+    if (_.isEmpty(document.getElementById('depts').value)) {
+        document.getElementById('depts-select').value = '0';
+    }
 }
