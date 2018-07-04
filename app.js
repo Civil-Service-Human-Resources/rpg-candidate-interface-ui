@@ -116,7 +116,7 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
     const { session_token: jwt } = req.cookies;
-
+    // console.log(req);
     // if there's no session token
     if (!jwt) {
         return next();
@@ -124,13 +124,6 @@ app.use((req, res, next) => {
 
     // there is a token, let's parse and check it
     const session = new UserSession(jwt);
-
-
-    // check if token is bust. if it is, remove session_token
-    if (!session.canBeUsed()) {
-        res.locals.jwtInvalid = true;
-        res.clearCookie('session_token');
-    }
 
     if (session.isValid()) {
         contextService.set('request:jwt', jwt);

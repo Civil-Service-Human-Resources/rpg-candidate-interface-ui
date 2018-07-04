@@ -70,7 +70,14 @@ router.get('/', [
     }
 
     const departments = await fetchDepartmentList(next);
-    const { vacancies, params } = await fetchVacancyList(filters, next);
+    const { vacancies, params, vacancyErrors } = await fetchVacancyList(filters, next);
+    if (vacancyErrors.length > 0) {
+        console.log(vacancyErrors);
+        res.locals.jwtInvalid = true;
+        res.clearCookie('session_token');
+        // res.redirect('/results?keyword=&location=');
+    }
+    // console.log(vacancyErrors);
 
     // grabbing logos directory to check existance of logo file. Temporary until future story
     // changing to CDN based file storage
