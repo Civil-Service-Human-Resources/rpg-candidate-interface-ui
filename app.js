@@ -125,6 +125,13 @@ app.use((req, res, next) => {
     // there is a token, let's parse and check it
     const session = new UserSession(jwt);
 
+
+    // check if token is bust. if it is, remove session_token
+    if (!session.canBeUsed()) {
+        res.locals.jwtInvalid = true;
+        res.clearCookie('session_token');
+    }
+
     if (session.isValid()) {
         contextService.set('request:jwt', jwt);
         res.locals.userEmail = session.getSessionEmail();
