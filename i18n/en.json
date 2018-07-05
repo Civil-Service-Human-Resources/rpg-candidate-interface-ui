@@ -369,6 +369,10 @@
 			"t5_r1c3": "When you close your browser",
 			"h3": "Government services",
 			"p10": "Most services we link to are run by different government departments, for example Cabinet Office or the HM Treasury. These services may set additional cookies and, if so, will have their own cookies policy."
+		},
+		"jwt": {
+			"signIn": "Sign in to access internal jobs",
+			"errorMessage": "Your session token has expired or is not valid.<br /><a href=\"/internal-jobs\">Authenticate again</a> to continue to view internal jobs."
 		}
 	},
 	"terms": {
