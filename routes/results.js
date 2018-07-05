@@ -72,7 +72,7 @@ router.get('/', [
     const departments = await fetchDepartmentList(next);
     const { vacancies, params, vacancyErrors } = await fetchVacancyList(filters, next);
     if (vacancyErrors.length > 0) {
-        console.log(vacancyErrors);
+        // console.log(vacancyErrors);
         res.locals.jwtInvalid = true;
         res.clearCookie('session_token');
         res.locals.userEmail = null;
