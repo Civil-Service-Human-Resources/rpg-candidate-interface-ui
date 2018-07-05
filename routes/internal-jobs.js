@@ -24,9 +24,13 @@ router.post('/', [
     const formData = req.body;
     const formValid = validate.isEmpty();
     let response;
+    let success = false;
 
     if (formValid) {
         response = await authenticateInternalOpsRequest(formData.email, next);
+        if (response === true) {
+            success = true;
+        }
     }
 
     return res.render('pages/internal-jobs/index', {
@@ -41,7 +45,7 @@ router.post('/', [
             return null;
         },
         formData,
-        response,
+        success: success,
     });
 });
 
