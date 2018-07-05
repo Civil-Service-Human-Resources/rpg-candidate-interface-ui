@@ -68,6 +68,7 @@
 			"locationRequired": "You need to enter a location",
 			"emailRequired": "You need to enter an email address",
 			"emailInvalid": "You have entered an invalid email",
+			"emailUnauthorised": "UNAUTHORIZED Things happened",
 			"passwordRequired": "You need to enter a password",
 			"passwordMinLength": "Your password must have 8 or more characters",
 			"passwordsMustMatch": "Your confirmation password doesn't match",

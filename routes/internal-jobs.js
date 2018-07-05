@@ -23,17 +23,25 @@ router.post('/', [
     const validate = validationResult(req);
     const formData = req.body;
     const formValid = validate.isEmpty();
-    let success;
+    let response;
 
     if (formValid) {
-        success = await authenticateInternalOpsRequest(formData.email, next);
+        response = await authenticateInternalOpsRequest(formData.email, next);
     }
 
     return res.render('pages/internal-jobs/index', {
         title: __('internalJobs.page.title'),
-        errors: !formValid ? validate.mapped() : null,
+        errors: () => {
+            if (!formValid) {
+                return validate.mapped();
+            }
+            if (response.status === 'UNAUTHORIZED') {
+                return { email: { msg: 'global.messages.emailUnauthorised' } };
+            }
+            return null;
+        },
         formData,
-        success,
+        response,
     });
 });
 
