@@ -45,7 +45,7 @@ router.post('/', [
             return null;
         },
         formData,
-        success: success,
+        success,
     });
 });
 
