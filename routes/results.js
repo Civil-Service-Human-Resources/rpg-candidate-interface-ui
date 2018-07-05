@@ -72,12 +72,13 @@ router.get('/', [
     const departments = await fetchDepartmentList(next);
     const { vacancies, params, vacancyErrors } = await fetchVacancyList(filters, next);
     if (vacancyErrors.length > 0) {
+        console.log(vacancyErrors);
         res.locals.jwtInvalid = true;
         res.clearCookie('session_token');
         res.locals.userEmail = null;
     }
 
-    // grabbing logos directory to check existance of logo file. Temporary until future story
+    // grabbing logos directory to check existence of logo file. Temporary until future story
     // changing to CDN based file storage
     const pager = {
         totalResults: params.totalElements || 0,
