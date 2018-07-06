@@ -4,13 +4,13 @@
 
     <h2 class="heading-medium error-summary-heading" id="search-form-errors">{{{__ 'global.messages.submissionErrorMsg' }}}</h2>
 
+    {{#if errorMsg}}
+        <p>{{{__ errorMsg }}}</p>
+    {{/if}}
+
     {{#if errorMsgOptional}}
         <p>{{{ errorMsgOptional }}}</p>
     {{/if}}
-
-    {{#if customMsg }}
-        {{{__ customMsg }}}
-    {{/if }}
 
     {{#unless customMsg }}
         <ul class="error-summary-list">

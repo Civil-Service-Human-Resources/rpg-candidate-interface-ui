@@ -116,7 +116,7 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
     const { session_token: jwt } = req.cookies;
-
+    // console.log(req);
     // if there's no session token
     if (!jwt) {
         return next();
