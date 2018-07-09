@@ -22,7 +22,7 @@
                         <span class="error-message">{{__ errors.email.msg }}</span>
                     {{/if}}
                     {{#if departments }}
-                        <span class="error-message">This email is associated with multiple departments. Please select a department below;</span>
+                        <span class="error-message">{{__ 'internalJobs.form.multiDepartments'}}</span>
                     {{/if}}
                 </label>
                 <input
@@ -31,18 +31,20 @@
                         name="email"
                         type="email"
                         value="{{ formData.email }}">
+            </div>
 
-                {{#if departments }}
+            {{#if departments }}
+                <div class="form-group">
                     <div class="form-section">
-                        <label class="form-label-bold" for="departmentID">Department</label>
+                        <label class="form-label-bold" for="departmentID">{{__ 'internalJobs.form.multiDepartmentTitle'}}</label>
                         <select name="departmentID" id="departmentID" class="form-control form-control--width-auto">
                             {{#each departments}}
                                 <option value="{{id}}">{{name}}</option>
                             {{/each}}
                         </select>
                     </div>
-                {{/if}}
-            </div>
+                </div>
+            {{/if}}
 
             <div class="form-group">
                 <input type="submit" class="button" value="{{__ 'global.buttons.submit' }}">

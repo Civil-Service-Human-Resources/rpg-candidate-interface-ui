@@ -36,7 +36,6 @@ router.post('/', [
         if (!_.isUndefined(response.departments)) {
             departmentList = response.departments;
             success = false;
-            console.log(departmentList);
         }
     }
 

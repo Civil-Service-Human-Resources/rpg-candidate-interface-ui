@@ -468,6 +468,10 @@
 			"title": "Access internal opportunities",
 			"subTitle": "Some intro text goes here"
 		},
+		"form": {
+			"multiDepartments": "This email is associated with multiple departments. Please select a department below.",
+			"multiDepartmentTitle": "Department"
+		},
 		"success": {
 			"title": "Email verified successfully",
 			"message": "You have been sent a link to your email address with further instructions."
