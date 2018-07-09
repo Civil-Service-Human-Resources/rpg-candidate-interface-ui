@@ -24,30 +24,36 @@ router.post('/', [
     const validate = validationResult(req);
     const formData = req.body;
     const formValid = validate.isEmpty();
-    let success;
+    let response;
+    let success = false;
     let departmentList;
 
     if (formValid) {
-        success = await authenticateInternalOpsRequest(formData.email, formData.departmentID, next);
-        // console.log('success');
-        // console.log(success);
-        // console.log(_.has(success, 'departments'), !_.isNil(success.departments));
-        if (!_.isNil(success.departments)) {
-            departmentList = success.departments;
-            success = false;
+        response = await authenticateInternalOpsRequest(formData.email, formData.departmentID, next);
+        if (response === true) {
+            success = true;
         }
-        if (!_.isNil(success.vacancyError)) {
-            departmentList = success.departments;
+        if (!_.isUndefined(response.departments)) {
+            departmentList = response.departments;
             success = false;
+            console.log(departmentList);
         }
     }
-    // console.log(success);
+
     return res.render('pages/internal-jobs/index', {
         title: __('internalJobs.page.title'),
-        errors: !formValid ? validate.mapped() : null,
+        errors: () => {
+            if (!formValid) {
+                return validate.mapped();
+            }
+            if (_.get(response, 'vacancyError.status') === 'UNAUTHORIZED') {
+                return { email: { msg: 'global.messages.emailUnauthorised' } };
+            }
+            return null;
+        },
         formData,
         success,
-        departments: success.departments ? departmentList : null,
+        departments: response.departments ? departmentList : null,
     });
 });
 
