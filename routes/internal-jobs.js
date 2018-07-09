@@ -1,4 +1,5 @@
 const express = require('express');
+const _ = require('lodash');
 const { check, validationResult } = require('express-validator/check');
 const { authenticateInternalOpsRequest } = require('../lib/modules/internalJobs');
 
@@ -24,16 +25,29 @@ router.post('/', [
     const formData = req.body;
     const formValid = validate.isEmpty();
     let success;
+    let departmentList;
 
     if (formValid) {
-        success = await authenticateInternalOpsRequest(formData.email, next);
+        success = await authenticateInternalOpsRequest(formData.email, formData.departmentID, next);
+        // console.log('success');
+        // console.log(success);
+        // console.log(_.has(success, 'departments'), !_.isNil(success.departments));
+        if (!_.isNil(success.departments)) {
+            departmentList = success.departments;
+            success = false;
+        }
+        if (!_.isNil(success.vacancyError)) {
+            departmentList = success.departments;
+            success = false;
+        }
     }
-
+    // console.log(success);
     return res.render('pages/internal-jobs/index', {
         title: __('internalJobs.page.title'),
         errors: !formValid ? validate.mapped() : null,
         formData,
         success,
+        departments: success.departments ? departmentList : null,
     });
 });
 

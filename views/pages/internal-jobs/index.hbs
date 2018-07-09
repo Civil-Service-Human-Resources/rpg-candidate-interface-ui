@@ -16,11 +16,14 @@
     <form method="POST" action="">
         <div class="form-section">
 
-            <div class="form-group{{#if errors.email }} form-group-error{{/if}}">
+            <div class="form-group{{#if errors.email }} form-group-error{{/if}} {{#if departments }} form-group-error{{/if}}">
                 <label class="form-label-bold" for="email">
                     <span class="form-label-bold">{{__ 'global.labels.email' }}</span>
                     {{#if errors.email.msg }}
                         <span class="error-message">{{__ errors.email.msg }}</span>
+                    {{/if}}
+                    {{#if departments }}
+                        <span class="error-message">This email is associated with multiple departments. Please select a department below;</span>
                     {{/if}}
                 </label>
                 <input
@@ -29,6 +32,17 @@
                         name="email"
                         type="email"
                         value="{{ formData.email }}">
+
+                {{#if departments }}
+                    <div class="form-section">
+                        <label class="form-label-bold" for="departmentID">Department</label>
+                        <select name="departmentID" id="departmentID" class="form-control form-control--width-auto">
+                            {{#each departments}}
+                                <option value="{{id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                {{/if}}
             </div>
 
             <div class="form-group">
