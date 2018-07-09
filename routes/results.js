@@ -70,9 +70,18 @@ router.get('/', [
     }
 
     const departments = await fetchDepartmentList(next);
-    const { vacancies, params } = await fetchVacancyList(filters, next);
+    const { vacancies, params, vacancyErrors } = await fetchVacancyList(filters, next);
+    if (vacancyErrors.length > 0) {
+        res.locals.userEmail = null;
+        if (vacancyErrors[0].searchStatusCode === 'NULL_JWT') {
+            res.locals.jwtInvalid = false;
+        } else {
+            res.locals.jwtInvalid = true;
+            res.clearCookie('session_token');
+        }
+    }
 
-    // grabbing logos directory to check existance of logo file. Temporary until future story
+    // grabbing logos directory to check existence of logo file. Temporary until future story
     // changing to CDN based file storage
     const pager = {
         totalResults: params.totalElements || 0,

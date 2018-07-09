@@ -68,6 +68,7 @@
 			"locationRequired": "You need to enter a location",
 			"emailRequired": "You need to enter an email address",
 			"emailInvalid": "You have entered an invalid email",
+			"emailUnauthorised": "You have entered an unauthorised email domain",
 			"passwordRequired": "You need to enter a password",
 			"passwordMinLength": "Your password must have 8 or more characters",
 			"passwordsMustMatch": "Your confirmation password doesn't match",
@@ -369,6 +370,10 @@
 			"t5_r1c3": "When you close your browser",
 			"h3": "Government services",
 			"p10": "Most services we link to are run by different government departments, for example Cabinet Office or the HM Treasury. These services may set additional cookies and, if so, will have their own cookies policy."
+		},
+		"jwt": {
+			"signIn": "Sign in to access internal jobs",
+			"errorMessage": "Your session token has expired or is not valid.<br /><a href=\"/internal-jobs\">Authenticate again</a> to continue to view internal jobs."
 		}
 	},
 	"terms": {
@@ -460,7 +465,12 @@
 	},
 	"internalJobs": {
 		"page": {
-			"title": "Access internal opportunities"
+			"title": "Access internal opportunities",
+			"subTitle": "Some intro text goes here"
+		},
+		"success": {
+			"title": "Email verified successfully",
+			"message": "You have been sent a link to your email address with further instructions."
 		}
 	},
 	"errors": {
