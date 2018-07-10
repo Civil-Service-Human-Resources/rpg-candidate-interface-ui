@@ -1,13 +1,12 @@
 <h1 class="heading-xlarge">{{__ 'internalJobs.page.title' }} <span class="heading-secondary">{{__ 'internalJobs.page.subTitle' }}</span></h1>
 
-{{#if success }}
+{{#if success}}
     <div class="alert alert--success" role="alert" aria-labelledby="success-message" tabindex="-1">
         <h2 class="heading-medium alert__heading" id="success-message">{{__ 'internalJobs.success.title' }}</h2>
         <p>{{__ 'internalJobs.success.message' }}</p>
     </div>
-{{/if}}
 
-{{#unless success }}
+{{else}}
 
     {{> messages/error
             errorMsg='global.messages.submissionErrorMsg'
@@ -16,11 +15,14 @@
     <form method="POST" action="">
         <div class="form-section">
 
-            <div class="form-group{{#if errors.email }} form-group-error{{/if}}">
+            <div class="form-group{{#if errors.email }} form-group-error{{/if}} {{#if departments }} form-group-error{{/if}}">
                 <label class="form-label-bold" for="email">
                     <span class="form-label-bold">{{__ 'global.labels.email' }}</span>
                     {{#if errors.email.msg }}
                         <span class="error-message">{{__ errors.email.msg }}</span>
+                    {{/if}}
+                    {{#if departments }}
+                        <span class="error-message">{{__ 'internalJobs.form.multiDepartments'}}</span>
                     {{/if}}
                 </label>
                 <input
@@ -31,10 +33,23 @@
                         value="{{ formData.email }}">
             </div>
 
+            {{#if departments }}
+                <div class="form-group">
+                    <div class="form-section">
+                        <label class="form-label-bold" for="departmentID">{{__ 'internalJobs.form.multiDepartmentTitle'}}</label>
+                        <select name="departmentID" id="departmentID" class="form-control form-control--width-auto">
+                            {{#each departments}}
+                                <option value="{{id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+            {{/if}}
+
             <div class="form-group">
                 <input type="submit" class="button" value="{{__ 'global.buttons.submit' }}">
             </div>
 
         </div>
     </form>
-{{/unless}}
+{{/if}}

@@ -1,4 +1,5 @@
 const express = require('express');
+const _ = require('lodash');
 const { check, validationResult } = require('express-validator/check');
 const { authenticateInternalOpsRequest } = require('../lib/modules/internalJobs');
 
@@ -25,11 +26,16 @@ router.post('/', [
     const formValid = validate.isEmpty();
     let response;
     let success = false;
+    let departmentList;
 
     if (formValid) {
-        response = await authenticateInternalOpsRequest(formData.email, next);
+        response = await authenticateInternalOpsRequest(formData.email, formData.departmentID, next);
         if (response === true) {
             success = true;
+        }
+        if (!_.isUndefined(response.departments)) {
+            departmentList = response.departments;
+            success = false;
         }
     }
 
@@ -39,13 +45,14 @@ router.post('/', [
             if (!formValid) {
                 return validate.mapped();
             }
-            if (response.status === 'UNAUTHORIZED') {
+            if (_.get(response, 'vacancyError.status') === 'UNAUTHORIZED') {
                 return { email: { msg: 'global.messages.emailUnauthorised' } };
             }
             return null;
         },
         formData,
         success,
+        departments: response.departments ? departmentList : null,
     });
 });
 
