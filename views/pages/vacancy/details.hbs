@@ -35,9 +35,7 @@
             <h2 class="job-details__meta-box-title">{{__ 'vacancy.page.keyFacts' }}</h2>
 
             <ul class="job-details__key-facts-list">
-
-                <li><strong>{{__ 'global.labels.location' }}</strong> {{{ vacancy.location }}}</li>
-
+                {{#if vacancy.location}}<li><strong>{{__ 'global.labels.location' }}</strong> {{{ vacancy.location }}}</li>{{/if}}
                 {{#if vacancy.identifier}}<li><strong>{{__ 'global.labels.identifier' }}</strong> {{ vacancy.identifier }}</li>{{/if}}
                 {{#if vacancy.salary}}<li><strong>{{__ 'global.labels.salaryBand' }}</strong> {{ vacancy.salary }}</li>{{/if}}
                 {{#if vacancy.grade}}<li><strong>{{__ 'global.labels.jobGrade' }}</strong> {{ vacancy.grade }}</li>{{/if}}
@@ -45,6 +43,7 @@
                 {{#if vacancy.workingPatterns}}<li><strong>{{__ 'global.labels.workingPattern' }}</strong> {{ vacancy.workingPatterns }}</li>{{/if}}
                 {{#if vacancy.contractTypes}}<li><strong>{{__ 'global.labels.contractType' }}</strong> {{ vacancy.contractTypes }}</li>{{/if}}
                 {{#if vacancy.numberVacancies}}<li><strong>{{__ 'global.labels.numVacancies' }}</strong> {{ vacancy.numberVacancies }}</li>{{/if}}
+                {{#if vacancy.lengthOfEmployment}}<li><strong>{{__ 'global.labels.lengthOfEmployment' }}</strong> {{ vacancy.lengthOfEmployment }}</li>{{/if}}
             </ul>
         </section>
 
@@ -111,10 +110,21 @@
             <div id="job-details-contact">
                 <h2 class="job-details__meta-box-title">{{__ 'global.labels.contactPoint' }}</h2>
                 <p>
-                    <span id="job-details-contactname" class="text-wrap" aria-label="{{__ 'global.labels.name' }}">{{{ vacancy.contactName }}}</span><br />
-                    <span id="job-details-contactdept" class="text-wrap" aria-label="{{__ 'global.labels.department' }}">{{{ vacancy.contactDepartment }}}</span><br />
-                    <span id="job-details-contactemail" class="text-wrap" aria-label="{{__ 'global.labels.email' }}"><a href="mailto:{{ vacancy.contactEmail }}">{{{ vacancy.contactEmail }}}</a></span><br />
-                    <span id="job-details-contacttel" class="text-wrap" aria-label="{{__ 'global.labels.telephone' }}">{{{ vacancy.contactTelephone }}}</span>
+                    {{#if vacancy.contactName}}
+                        <span id="job-details-contactname" class="text-wrap" aria-label="{{__ 'global.labels.name' }}">{{{ vacancy.contactName }}}</span>
+                    {{/if}}
+                    {{#if vacancy.contactDepartment}}
+                        <br />
+                        <span id="job-details-contactdept" class="text-wrap" aria-label="{{__ 'global.labels.department' }}">{{{ vacancy.contactDepartment }}}</span>
+                    {{/if}}
+                     {{#if vacancy.contactEmail}}
+                         <br />
+                        <span id="job-details-contactemail" class="text-wrap" aria-label="{{__ 'global.labels.email' }}"><a href="mailto:{{ vacancy.contactEmail }}">{{{ vacancy.contactEmail }}}</a></span>
+                    {{/if}}
+                    {{#if vacancy.contactTelephone}}
+                        <br />
+                        <span id="job-details-contacttel" class="text-wrap" aria-label="{{__ 'global.labels.telephone' }}">{{{ vacancy.contactTelephone }}}</span>
+                    {{/if}}
                 </p>
             </div>
         </section>
