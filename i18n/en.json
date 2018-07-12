@@ -56,7 +56,10 @@
 			"lookingFor": "What we are looking for",
 			"fullname": "Full name",
 			"repeatPassword": "Password",
-			"createPassword": "Create password"
+			"createPassword": "Create password",
+			"helpText": {
+				"keyword": "Enter a job title or skill"
+			}
 		},
 		"buttons": {
 			"apply": "Apply",
