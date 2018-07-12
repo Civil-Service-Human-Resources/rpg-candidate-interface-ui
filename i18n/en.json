@@ -90,6 +90,19 @@
 			"disabilityConfidentCommitted": "Disability Confident - Committed",
 			"disabilityConfidentEmployer": "Disability Confident - Employer",
 			"disabilityConfidentLeader": "Disability Confident - Leader"
+		},
+		"footer": {
+			"supportingLinks": "Supporting links",
+			"privacyNotice": "Privacy notice",
+			"cookies": "Cookies",
+			"termsAndConditions": "Terms and conditions",
+			"builtBy": "Built by",
+			"humanResources": "Civil Service Human Resources",
+			"openGovernmentLicence": "Open Government Licence",
+			"availableUnder": "All content is available under the",
+			"governmentLicence": "Open Government Licence v3.0",
+			"otherwiseStated": "except where otherwise stated",
+			"copyright": "© Crown copyright"
 		}
 	},
 	"home": {
@@ -200,7 +213,7 @@
 			"p10_li1": "Contractual: it is necessary for the performance of a contract to which you are a party - an employment contract",
 			"p10_li2": "Contractual: it is necessary in order to take steps at your request prior to entering into a contract for employment",
 			"p10_li3": "Legal obligation: it is necessary to comply with a legal obligation placed on us as the data controller - we are required to report on equality of opportunity; and onboarding processes have specific requirements",
-			"p10_li4": "Public task: processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the data controller, such as the exercise of a function of the Crown, a Minister of the Crown, or a government department; the exercise of a function conferred on a person by an enactment; the exercise of a function of either House of Parliament; or the administration of justice. Civil Service Jobs facilitates recruitment of high-quality candidates to roles across government departments, agencies and other public bodies. It provides recruitment tools and processes that support Civil Service recruitment strategy",
+			"p10_li4": "Public task: processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the data controller, such as the exercise of a function of the Crown, a Minister of the Crown, or a government department; the exercise of a function conferred on a person by an enactment; the exercise of a function of either House of Parliament; or the administration of justice. Find Civil Service Jobs facilitates recruitment of high-quality candidates to roles across government departments, agencies and other public bodies. It provides recruitment tools and processes that support Civil Service recruitment strategy",
 			"p11": "Sensitive personal data is personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person's sex life or sexual orientation.",
 			"p12": "The legal basis for processing your sensitive personal data is:",
 			"p12_li1": "it is necessary for reasons of substantial public interest for the exercise of a function of the Crown, a Minister of the Crown, or a government department; the exercise of a function conferred on a person by an enactment; the exercise of a function of either House of Parliament; or the administration of justice; and an appropriate policy document is in place. Find Civil Service fobs facilitates recruitment of high-quality candidates to roles across government departments, agencies and other public bodies. It provides recruitment tools and processes that support Civil Service recruitment strategy.",
@@ -294,7 +307,7 @@
 			"h10": "Contact details",
 			"p39": "Cabinet Office is the data controller for your account details, and for any applications you have not yet submitted.",
 			"p40": "Cabinet Office and the department you apply to are joint data controllers for your personal data within your submitted applications.",
-			"p41": "You can contact Civil Service Jobs by email: <a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">support.csjobs@cabinetoffice.gov.uk</a>",
+			"p41": "You can contact Find Civil Service Jobs by email: <a href=\"mailto:support.csjobs@cabinetoffice.gov.uk\">support.csjobs@cabinetoffice.gov.uk</a>",
 			"p42": "The contact details for Cabinet Office’s Data Protection Officer (DPO) are:",
 			"p43_line1": "Stephen Jones",
 			"p43_line2": "DPO",
@@ -444,7 +457,7 @@
 			"activateYourAccount_li2": "Sign in using your email address and password.",
 			"activateYourAccount_li3": "You'll then be asked to enter your activation code.",
 			"h1": "New to this service?",
-			"p1": "If you haven't used this service before you must <a href=\"/account/create\">create an account</a>, even if you already have an existing account with Civil Service jobs.",
+			"p1": "If you haven't used this service before you must <a href=\"/account/create\">create an account</a>, even if you already have an existing account with Find Civil Service jobs.",
 			"p2": "Creating an account allows you to:",
 			"p2_li1": "apply for a vacancy",
 			"p2_li2": "track your applications",
