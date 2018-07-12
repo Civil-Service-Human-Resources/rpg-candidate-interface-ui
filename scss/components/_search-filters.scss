@@ -25,6 +25,10 @@
         @include bold-16;
     }
 
+    .form-hint {
+        @include core-16;
+    }
+
     .form-label--checkbox {
         @include core-16;
     }
