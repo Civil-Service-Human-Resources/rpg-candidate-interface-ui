@@ -58,3 +58,9 @@ typings/
 .env
 
 docker-stack.yml
+.idea/misc.xml
+.idea/modules.xml
+.idea/rpg-candidate-interface-ui.iml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/inspectionProfiles/Project_Default.xml
