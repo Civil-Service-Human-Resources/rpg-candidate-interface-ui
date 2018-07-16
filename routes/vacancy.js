@@ -26,7 +26,7 @@ router.get('/details/:id', async (req, res, next) => {
                 {
                     '@type': 'ContactPoint',
                     'telephone': vacancy.contactTelephone ? vacancy.contactTelephone : null,
-                    'contactType': 'HumanResources',
+                    'contactType': vacancy.contactDepartment ? vacancy.contactDepartment : null,
                     'contactOption': 'local',
                     'areaServed': 'UK',
                 },
