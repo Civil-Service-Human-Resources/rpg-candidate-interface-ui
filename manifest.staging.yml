@@ -1,6 +1,6 @@
 ---
 applications:
-  - name: ci-schema-test
+  - name: rpg-ci-schema
     memory: 1G
     instances: 1
     buildpack: nodejs_buildpack
