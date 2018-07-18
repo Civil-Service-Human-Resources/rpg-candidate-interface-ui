@@ -19,4 +19,4 @@ deploy-staging: ;@echo "🚀......Deploying to STAGING........🚀" &&\
 	              cf push rpg-ci-schema -f manifest.staging.yml &&\
 	              echo "Updating environment variables using LOCAL .env file" &&\
 	              cat .env |sed 's/=/ /'| xargs -t -I % sh -c 'cf set-env rpg-ci %' &&\
-              	cf restage rpg-ci
+              	cf restage rpg-ci-schema
