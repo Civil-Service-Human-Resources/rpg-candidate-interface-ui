@@ -29,8 +29,20 @@
 <div class="phase-banner">
     <div class="phase-banner__inner">
         <p>
-            <strong class="phase-tag">SCHEMA TESTING</strong>
+            <strong class="phase-tag">Beta</strong>
+            <span>{{{__ 'global.header.betaText' }}}</span>
         </p>
+
+        <div class="phase-banner__account-links">
+
+            {{#if userEmail }}
+                Welcome, {{ userEmail }}
+            {{/if}}
+
+            {{#unless userEmail }}
+                <a href="/internal-jobs">{{{__ 'cookies.jwt.signIn'}}}</a>
+            {{/unless}}
+        </div>
     </div>
 </div>
 
