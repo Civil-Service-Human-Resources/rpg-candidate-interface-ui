@@ -1,6 +1,6 @@
 ---
 applications:
-  - name: rpg-ci-schema
+  - name: rpg-candidate-interface
     memory: 1G
     instances: 1
     buildpack: nodejs_buildpack
