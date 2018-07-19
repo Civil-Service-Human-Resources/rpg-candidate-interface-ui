@@ -41,8 +41,7 @@ app.set('port', port);
  */
 
 // add 'basic' middle ware for basic auth - remove before going live to remove auth
-// var server = http.createServer(basic, app);
-var server = http.createServer(app);
+var server = http.createServer(basic, app);
 
 /**
 * Add health check to server
