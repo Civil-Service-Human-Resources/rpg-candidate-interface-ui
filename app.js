@@ -66,10 +66,8 @@ const hbs = exphbs.create({
     defaultLayout: 'layout',
     layoutsDir: `${__dirname}/views/`,
     helpers: {
-        compare: (a, b, block) =>
-            (a === b ? block.fn(this) : block.inverse(this)),
-        inArray: (arr = [], b, block) =>
-            (arr.includes(b.toString()) ? block.fn(this) : block.inverse(this)),
+        compare: (a, b, block) => (a === b ? block.fn(this) : block.inverse(this)),
+        inArray: (arr = [], b, block) => (arr.includes(b.toString()) ? block.fn(this) : block.inverse(this)),
     },
 });
 

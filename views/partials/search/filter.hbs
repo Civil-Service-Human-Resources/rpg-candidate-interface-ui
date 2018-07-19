@@ -8,7 +8,7 @@
 
     <div class="form-group{{#if errors.location }} form-group-error{{/if}}">
         <label class="form-label-bold" for="location">
-            <span class="form-label-bold">{{__ 'global.labels.location' }}</span>
+            <span class="form-label-bold">{{__ 'global.labels.location' }} ({{__ 'global.labels.optional' }})</span>
             {{#if errors.location.msg }}
                 <span class="error-message">{{__ errors.location.msg }}</span>
             {{/if}}

@@ -6,7 +6,7 @@ applications:
     buildpack: nodejs_buildpack
     command: "npm start"
     env:
-      NODE_VERSION: "9.8.0"
+      NODE_VERSION: "10.1.0"
       NODE_ENV: staging
       API_SEARCH_URL: ""
       API_ACCOUNT_URL: ""
