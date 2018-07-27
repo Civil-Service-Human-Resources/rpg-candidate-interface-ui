@@ -34,9 +34,9 @@
     "helmet": "^3.12.0",
     "http-auth": "^3.2.3",
     "i18n": "^0.8.3",
-    "lodash": "^4.17.10",
     "jwt-decode": "^2.2.0",
     "jwt-simple": "^0.5.1",
+    "lodash": "^4.17.10",
     "log4js": "^2.4.1",
     "matchmedia-polyfill": "^0.3.0",
     "moment": "^2.20.1",
@@ -45,6 +45,7 @@
     "node-sass-middleware": "^0.11.0",
     "request-context": "^2.0.0",
     "serve-favicon": "~2.5.0",
+    "sitemap": "^1.13.0",
     "truncate-html": "^1.0.0-rc.4",
     "uuid": "^3.2.1",
     "winston": "^2.4.2"

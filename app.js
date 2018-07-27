@@ -17,6 +17,7 @@ const nocache = require('nocache');
 const contextService = require('request-context');
 
 const { objectToUrl } = require('./lib/modules/url');
+const { siteMapSet, siteMapGet } = require('./lib/modules/sitemap');
 const routes = require('./routes');
 const logger = require('./lib/modules/logger');
 const { UserSession } = require('./lib/modules/userSession');
@@ -27,6 +28,7 @@ if (!fs.existsSync('./logs')) {
 
 const app = express();
 // Add helmet to set security headers
+
 app.use(helmet());
 app.use(nocache());
 
@@ -157,6 +159,28 @@ app.use('/cookies', routes.cookies);
 app.use('/terms-conditions', routes.terms);
 app.use('/internal-jobs', routes.internalJobs);
 app.use('/verifyemail', routes.verifyEmail);
+
+// Direct get request from search engines
+app.get('/sitemap.xml', (req, res) => {
+    res.header('Content-Type', 'application/xml');
+    res.send(siteMapGet());
+});
+
+// TODO: replace with new api that will return all Vacancies and map directly into siteMapSet
+// returnedVacanciesFromNewApi.map(vacancy => siteMapSet({ url: `/job/details/${vacancy}` }));
+const { fetchVacancyList } = require('./lib/modules/vacancy');
+
+async function getAllVacancies() {
+    const jobIdAry = [];
+    const { vacancies } = await fetchVacancyList({ page: 0 });
+    vacancies.map(x => jobIdAry.push(x.id));
+    return jobIdAry;
+}
+getAllVacancies().then((rsp) => {
+    rsp.map(vacancy => siteMapSet({ url: `/job/details/${vacancy}` }));
+}).catch((err) => {
+    logger.error(err);
+});
 
 // catch 404 and log error
 app.use((req, res) => {

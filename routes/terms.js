@@ -1,6 +1,9 @@
 const express = require('express');
+const { siteMapSet } = require('../lib/modules/sitemap');
 
 const router = express.Router();
+
+siteMapSet({ url: '/terms-conditions' });
 
 /* GET apply page. */
 router.get('/', (req, res) =>

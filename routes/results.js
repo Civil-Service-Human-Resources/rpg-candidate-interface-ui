@@ -1,8 +1,11 @@
 const express = require('express');
 const url = require('url');
 const { check, validationResult } = require('express-validator/check');
+const { siteMapSet } = require('../lib/modules/sitemap');
 
 const router = express.Router();
+
+siteMapSet({ url: '/results' });
 
 const {
     fetchVacancyList,
