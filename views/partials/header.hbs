@@ -1,18 +1,19 @@
-<div id="skiplink-container">
-    <div>
-        <a href="#content" class="skiplink"></a>
+<header>
+    <div id="skiplink-container">
+        <div>
+            <a href="#main-content" class="skiplink visually-hidden">Skip to Content</a>
+        </div>
     </div>
-</div>
+    {{> messages/cookie-notice showCookieBanner=showCookieWarning }}
 
-{{> messages/cookie-notice showCookieBanner=showCookieWarning }}
 
-<header role="banner" class="global-header global-header--with-proposition">
+<div class="global-header global-header--with-proposition">
     <div class="global-header__wrapper">
 
         <div class="global-header__brand">
             <div class="global-header__logo">
                 <a href="https://www.gov.uk/" title="Go to the GOV.UK homepage" class="global-header__logo-link">
-                    <img src="/images/icons/gov.uk_logotype_crown_invert_trans.png" width="36" height="32" alt=""> GOV.UK
+                    <img src="/images/icons/gov.uk_logotype_crown.png" width="36" height="32" alt=""> GOV.UK
                 </a>
             </div>
         </div>
@@ -22,7 +23,7 @@
         </div>
 
     </div>
-</header>
+</div>
 
 <span class="global-header__accent"></span>
 
@@ -53,3 +54,5 @@
             errors=true }}
     </div>
 {{/if}}
+
+</header>

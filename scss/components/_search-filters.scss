@@ -27,6 +27,7 @@
 
     .form-hint {
         @include core-16;
+        color: darken($grey-1, 10%); // Contrast fix for a11y
     }
 
     .form-label--checkbox {

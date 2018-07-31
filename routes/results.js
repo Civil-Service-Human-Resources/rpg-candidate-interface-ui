@@ -101,7 +101,7 @@ router.get('/', [
         filters.depts = [filters.depts];
     }
 
-    return res.render('pages/results', {
+    return res.render('pages/results/results', {
         title: `${__('results.page.title')} | Page ${pager.currentPage || 1}`,
         departments,
         filters,

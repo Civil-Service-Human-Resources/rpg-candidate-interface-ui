@@ -4,7 +4,7 @@ const router = express.Router();
 
 /* GET apply page. */
 router.get('/', (req, res) =>
-    res.render('pages/terms', {
+    res.render('pages/terms/terms', {
         title: __('terms.page.title'),
     }));
 

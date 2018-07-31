@@ -92,17 +92,11 @@
     }
 
     &__logo-link {
-      background: url('/images/icons/gov.uk_logotype_crown.png') 0 0 no-repeat;
-      background-size: 36px 32px;
-      border-bottom: 1px solid transparent;
-      color: $white;
       float: left;
       font-weight: bold;
       font-size: 30px;
       line-height: 1;
-      overflow: visible;
       text-decoration: none;
-      text-rendering: optimizeLegibility;
 
       &:link,
       &:visited {
@@ -116,9 +110,7 @@
       }
 
       img {
-        margin: 2px 1px 0 0; // top margin aligns bottom of img with bottom of "G"
-        vertical-align: bottom;
-        visibility: hidden;
+        margin: 0 5px -4px 0;
       }
     }
   }
