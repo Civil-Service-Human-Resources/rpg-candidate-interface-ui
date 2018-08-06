@@ -1,7 +1,5 @@
 /**
- * Accessible address autocomplete UI for the PostCoder Web API from Allies Computing
- * Heavily based on Awesomplete by Lea Verou http://leaverou.github.io/awesomplete
- * @author Allies Computing https://www.alliescomputing.com
+ * Autocomplete modifide from the Allies Computing https://www.alliescomputing.com project
  * MIT license
  */
 (function () {
@@ -26,8 +24,6 @@
 
         o = o || {};
 
-        //var http://api.postcodes.io/postcodes/bs138jr
-
         // Default options
         configure(this, {
             type: "location", //location || postcode in future?
@@ -49,6 +45,7 @@
             hidden: "hidden",
             role: "listbox",
             id: "allies_complete_list_" + AlliesComplete.numInstances,
+            className: "autocomplete__menu autocomplete__menu--inline autocomplete__menu",
             inside: this.container
         });
 
@@ -64,7 +61,7 @@
         });
 
         this.error = $.create("div", {
-            className: "allies-complete-error",
+            className: "error-message",
             role: "alert",
             id: "allies_complete_error_" + AlliesComplete.numInstances,
             "aria-relevant": "additions text",
@@ -103,9 +100,18 @@
                 "keyup": function (evt) {
 
                     var c = evt.keyCode;
+                    // TODO: refactor postcode vs city
+                    const isPostcode = /\b[a-zA-Z]{1,2}\d{1,2}[a-zA-Z]?\b/;
+                    console.log(
+                        isPostcode.test(encodeURIComponent(me.input.value.trim())),
+                        encodeURIComponent(me.input.value.trim())
+                    );
+                    if(isPostcode.test(encodeURIComponent(me.input.value.trim()))) {
+                        var autocomplete_url = "https://api.postcodes.io/postcodes?q=";
+                    } else {
+                        var autocomplete_url = "http://api.postcodes.io/places?q=";
+                    }
 
-                    //var autocomplete_url = "https://ws.postcoder.com/pcw/" + me.apiKey + "/autocomplete/v2/uk/";
-                    var autocomplete_url = "http://api.postcodes.io/places?q=";
                     // Arrows, Esc, Enter
                     if (c !== 37 && c !== 38 && c !== 39 && c !== 40 && c !== 27 && c !== 13) {
 
@@ -118,7 +124,6 @@
                                 if (request.status >= 200 && request.status < 400) {
 
                                     var data = JSON.parse(request.responseText);
-
                                     if (data.result.length > 0) {
 
                                         clear_error(me);
@@ -126,10 +131,18 @@
                                         var ajax_list = [];
 
                                         for (i = 0; i < data.result.length; i++) {
-                                            var item = {
-                                                label: data.result[i].name_1 + ", " + data.result[i].county_unitary,
-                                                value: data.result[i].name_1
-                                            };
+                                            if(isPostcode.test(encodeURIComponent(me.input.value.trim()))) {
+                                                var item = {
+                                                    label: data.result[i].postcode,
+                                                    value: data.result[i].postcode
+                                                };
+                                            } else {
+                                                var item = {
+                                                    label: data.result[i].name_1 + ", " + data.result[i].county_unitary,
+                                                    value: data.result[i].name_1
+                                                };
+                                            }
+
                                             ajax_list.push(item);
                                         }
 
@@ -302,12 +315,15 @@
 
             if (this.selected) {
                 lis[this.index].setAttribute("aria-selected", "false");
+                lis[this.index].classList.remove("autocomplete__hover");
             }
 
             this.index = i;
 
             if (i > -1 && lis.length > 0) {
                 lis[i].setAttribute("aria-selected", "true");
+
+                lis[i].classList.add("autocomplete__hover");
 
                 this.status.textContent = lis[i].textContent + ", list item " + (i + 1) + " of " + lis.length;
 
@@ -381,7 +397,8 @@
                     child = $.create("li", {
                         innerHTML: html,
                         "aria-selected": "false",
-                        "id": "allies_complete_list_" + AlliesComplete.numInstances + "_item_" + index
+                        "id": "allies_complete_list_" + AlliesComplete.numInstances + "_item_" + index,
+                        className: "autocomplete__option"
                     });
 
                     me.ul.appendChild(child);
@@ -465,6 +482,8 @@
         instance.error.removeAttribute("hidden");
         instance.error.textContent = message;
 
+        const autocomplete_input = document.getElementsByClassName("allies_autocomplete-wrapper")[0];
+        autocomplete_input.classList.add("form-group-error");
     }
 
     function clear_error (instance) {
@@ -472,6 +491,8 @@
         instance.error.setAttribute("hidden", "");
         instance.error.textContent = "";
 
+        const autocomplete_input = document.getElementsByClassName("allies_autocomplete-wrapper")[0];
+        autocomplete_input.classList.remove("form-group-error");
     }
 
     // Helpers
