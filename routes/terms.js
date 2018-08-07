@@ -3,7 +3,12 @@ const { siteMapSet } = require('../lib/modules/sitemap');
 
 const router = express.Router();
 
-siteMapSet({ url: '/terms-conditions' });
+siteMapSet({
+    url: '/terms-conditions',
+    lastmodISO: new Date().toISOString(),
+    changefreq: 'weekly',
+    priority: 0.5,
+});
 
 /* GET apply page. */
 router.get('/', (req, res) =>

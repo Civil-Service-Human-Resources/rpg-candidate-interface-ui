@@ -177,7 +177,12 @@ async function getAllVacancies() {
     return jobIdAry;
 }
 getAllVacancies().then((rsp) => {
-    rsp.map(vacancy => siteMapSet({ url: `/job/details/${vacancy}` }));
+    rsp.map(vacancy => siteMapSet({
+        url: `/job/details/${vacancy}`,
+        lastmodISO: '2015-06-27T15:30:00.000Z',
+        changefreq: 'daily',
+        priority: 0.8,
+    }));
 }).catch((err) => {
     logger.error(err);
 });

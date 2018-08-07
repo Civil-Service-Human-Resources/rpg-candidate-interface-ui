@@ -6,8 +6,12 @@ const { siteMapSet } = require('../lib/modules/sitemap');
 
 const router = express.Router();
 
-siteMapSet({ url: '/internal-jobs' });
-
+siteMapSet({
+    url: '/internal-jobs',
+    lastmodISO: new Date().toISOString(),
+    changefreq: 'weekly',
+    priority: 0.5,
+});
 
 /* GET internal jobs. */
 router.get('/', (req, res) => res.render('pages/internal-jobs/index', {

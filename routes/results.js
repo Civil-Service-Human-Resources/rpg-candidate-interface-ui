@@ -5,7 +5,12 @@ const { siteMapSet } = require('../lib/modules/sitemap');
 
 const router = express.Router();
 
-siteMapSet({ url: '/results' });
+siteMapSet({
+    url: '/results',
+    lastmodISO: new Date().toISOString(),
+    changefreq: 'weekly',
+    priority: 0.5,
+});
 
 const {
     fetchVacancyList,
