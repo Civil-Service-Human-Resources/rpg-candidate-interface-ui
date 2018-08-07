@@ -151,7 +151,7 @@
 
                                     } else {
 
-                                        show_error(me, "No address results found");
+                                        show_error(me, "No results found");
                                         me.close({
                                             reason: "nomatches"
                                         });
