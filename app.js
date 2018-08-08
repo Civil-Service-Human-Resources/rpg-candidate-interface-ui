@@ -15,12 +15,12 @@ const ns = require('continuation-local-storage').createNamespace('candidate-inte
 const helmet = require('helmet');
 const nocache = require('nocache');
 const contextService = require('request-context');
-
 const { objectToUrl } = require('./lib/modules/url');
-const { siteMapSet, siteMapGet } = require('./lib/modules/sitemap');
+const { siteMapGet, buildVacancySiteMap } = require('./lib/modules/sitemap');
 const routes = require('./routes');
 const logger = require('./lib/modules/logger');
 const { UserSession } = require('./lib/modules/userSession');
+const schedule = require('node-schedule');
 
 if (!fs.existsSync('./logs')) {
     fs.mkdirSync('./logs');
@@ -166,25 +166,9 @@ app.get('/sitemap.xml', (req, res) => {
     res.send(siteMapGet());
 });
 
-// TODO: replace with new api that will return all Vacancies and map directly into siteMapSet
-// returnedVacanciesFromNewApi.map(vacancy => siteMapSet({ url: `/job/details/${vacancy}` }));
-const { fetchVacancyList } = require('./lib/modules/vacancy');
-
-async function getAllVacancies() {
-    const jobIdAry = [];
-    const { vacancies } = await fetchVacancyList({ page: 0 });
-    vacancies.map(x => jobIdAry.push(x.id));
-    return jobIdAry;
-}
-getAllVacancies().then((rsp) => {
-    rsp.map(vacancy => siteMapSet({
-        url: `/job/details/${vacancy}`,
-        lastmodISO: '2015-06-27T15:30:00.000Z',
-        changefreq: 'daily',
-        priority: 0.8,
-    }));
-}).catch((err) => {
-    logger.error(err);
+// Get a new list of Vacancies amd create the XML sitemap. Daily at midnight.
+schedule.scheduleJob('0 0 * * *', () => {
+    buildVacancySiteMap();
 });
 
 // catch 404 and log error

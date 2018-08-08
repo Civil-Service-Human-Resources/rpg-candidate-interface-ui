@@ -8,8 +8,8 @@ const router = express.Router();
 siteMapSet({
     url: '/results',
     lastmodISO: new Date().toISOString(),
-    changefreq: 'weekly',
-    priority: 0.5,
+    changefreq: 'daily',
+    priority: 0.9,
 });
 
 const {

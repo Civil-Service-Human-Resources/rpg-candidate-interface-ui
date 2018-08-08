@@ -6,7 +6,7 @@ const router = express.Router();
 siteMapSet({
     url: '/',
     lastmodISO: new Date().toISOString(),
-    changefreq: 'weekly',
+    changefreq: 'monthly',
     priority: 0.5,
 });
 

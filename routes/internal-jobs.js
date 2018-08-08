@@ -9,8 +9,8 @@ const router = express.Router();
 siteMapSet({
     url: '/internal-jobs',
     lastmodISO: new Date().toISOString(),
-    changefreq: 'weekly',
-    priority: 0.5,
+    changefreq: 'monthly',
+    priority: 0.2,
 });
 
 /* GET internal jobs. */
