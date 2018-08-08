@@ -8,7 +8,7 @@ const { homeLdJson } = require('../lib/modules/ldJson');
 router.get('/', async (req, res) => {
     const homeJson = await homeLdJson();
 
-    return res.render('pages/index', {
+    return res.render('pages/home/index', {
         title: __('home.page.title'),
         homeJson,
     });
