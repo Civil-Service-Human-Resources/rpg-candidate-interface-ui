@@ -3,6 +3,8 @@ const { siteMapSet } = require('../lib/modules/sitemap');
 
 const router = express.Router();
 
+const { homeLdJson } = require('../lib/modules/ldJson');
+
 siteMapSet({
     url: '/',
     lastmodISO: new Date().toISOString(),
@@ -11,8 +13,13 @@ siteMapSet({
 });
 
 /* GET home page. */
-router.get('/', (req, res) => res.render('pages/index', {
-    title: __('home.page.title'),
-}));
+router.get('/', async (req, res) => {
+    const homeJson = await homeLdJson();
+
+    return res.render('pages/index', {
+        title: __('home.page.title'),
+        homeJson,
+    });
+});
 
 module.exports = router;
