@@ -2,16 +2,8 @@ const express = require('express');
 const _ = require('lodash');
 const { check, validationResult } = require('express-validator/check');
 const { authenticateInternalOpsRequest } = require('../lib/modules/internalJobs');
-const { siteMapSet } = require('../lib/modules/sitemap');
 
 const router = express.Router();
-
-siteMapSet({
-    url: '/internal-jobs',
-    lastmodISO: new Date().toISOString(),
-    changefreq: 'monthly',
-    priority: 0.2,
-});
 
 /* GET internal jobs. */
 router.get('/', (req, res) => res.render('pages/internal-jobs/index', {

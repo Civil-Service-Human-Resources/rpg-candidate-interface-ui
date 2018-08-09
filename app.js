@@ -166,7 +166,8 @@ app.get('/sitemap.xml', (req, res) => {
     res.send(siteMapGet());
 });
 
-// Get a list of Vacancies and build the sitemap. Re-run the script daily at midnight.
+// Get a list of Vacancies and build the sitemap. Re-run the script daily at midnight
+// `'0 * * * * *'` every minute, good for testing
 buildVacancySiteMap();
 schedule.scheduleJob('0 0 * * *', () => {
     buildVacancySiteMap();
