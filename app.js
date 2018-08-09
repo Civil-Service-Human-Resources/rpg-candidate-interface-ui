@@ -15,12 +15,12 @@ const ns = require('continuation-local-storage').createNamespace('candidate-inte
 const helmet = require('helmet');
 const nocache = require('nocache');
 const contextService = require('request-context');
+const schedule = require('node-schedule');
 const { objectToUrl } = require('./lib/modules/url');
 const { siteMapGet, buildVacancySiteMap } = require('./lib/modules/sitemap');
 const routes = require('./routes');
 const logger = require('./lib/modules/logger');
 const { UserSession } = require('./lib/modules/userSession');
-const schedule = require('node-schedule');
 
 if (!fs.existsSync('./logs')) {
     fs.mkdirSync('./logs');
@@ -162,7 +162,7 @@ app.use('/verifyemail', routes.verifyEmail);
 
 // Direct get request from search engines
 app.get('/sitemap.xml', (req, res) => {
-    res.header('Content-Type', 'application/xml; charset=utf-8');
+    res.header('Content-Type', 'application/xml');
     res.send(siteMapGet());
 });
 
