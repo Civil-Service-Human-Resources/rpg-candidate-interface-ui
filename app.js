@@ -162,12 +162,12 @@ app.use('/verifyemail', routes.verifyEmail);
 
 // Direct get request from search engines
 app.get('/sitemap.xml', (req, res) => {
-    res.header('Content-Type', 'application/xml');
+    res.header('Content-Type', 'application/xml; charset=utf-8');
     res.send(siteMapGet());
 });
 
 // Get a new list of Vacancies amd create the XML sitemap. Daily at midnight.
-schedule.scheduleJob('0 0 * * *', () => {
+schedule.scheduleJob('10 * * * * *', () => {
     buildVacancySiteMap();
 });
 

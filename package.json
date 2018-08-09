@@ -49,7 +49,8 @@
     "sitemap": "^1.13.0",
     "truncate-html": "^1.0.0-rc.4",
     "uuid": "^3.2.1",
-    "winston": "^2.4.2"
+    "winston": "^2.4.2",
+    "xml-escape": "^1.1.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
