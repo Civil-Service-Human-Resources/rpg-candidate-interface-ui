@@ -167,7 +167,7 @@ app.get('/sitemap.xml', (req, res) => {
 });
 
 // Get a new list of Vacancies amd create the XML sitemap. Daily at midnight.
-schedule.scheduleJob('10 * * * * *', () => {
+schedule.scheduleJob('0 0 * * *', () => {
     buildVacancySiteMap();
 });
 
