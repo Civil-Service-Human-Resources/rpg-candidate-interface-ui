@@ -101,14 +101,15 @@
                     var c = evt.keyCode;
                     // TODO: refactor postcode vs city
                     const isPostcode = /\b[a-zA-Z]{1,2}\d{1,2}[a-zA-Z]?\b/;
-                    console.log(
-                        isPostcode.test(encodeURIComponent(me.input.value.trim())),
-                        encodeURIComponent(me.input.value.trim())
-                    );
+
                     if(isPostcode.test(encodeURIComponent(me.input.value.trim()))) {
                         var autocomplete_url = "https://api.postcodes.io/postcodes?q=";
                     } else {
                         var autocomplete_url = "http://api.postcodes.io/places?q=";
+                    }
+
+                    if (me.input.value.trim().length < me.minChars){
+                        clear_error(me);
                     }
 
                     // Arrows, Esc, Enter
@@ -138,7 +139,7 @@
                                             } else {
                                                 var item = {
                                                     label: data.result[i].name_1 + ", " + data.result[i].county_unitary,
-                                                    value: data.result[i].name_1
+                                                    value: data.result[i].name_1 + " " + data.result[i].county_unitary
                                                 };
                                             }
 
