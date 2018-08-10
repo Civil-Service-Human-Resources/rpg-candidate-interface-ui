@@ -1,5 +1,5 @@
 /**
- * Autocomplete modifide from the Allies Computing https://www.alliescomputing.com project
+ * Autocomplete modifide from the Allies Computing project https://github.com/allies-computing/accessible-address-autocomplete.
  * MIT license
  */
 (function () {
@@ -26,7 +26,6 @@
 
         // Default options
         configure(this, {
-            type: "location", //location || postcode in future?
             maxItems: 10
         }, o);
 

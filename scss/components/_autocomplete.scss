@@ -150,3 +150,12 @@ mark {
     color: #fff;
     outline: none;
 }
+
+.allies_autocomplete-wrapper--home {
+    .autocomplete__menu {
+        width: 100%;
+        @media (min-width: 641px) {
+            width: 50%;
+        }
+    }
+}

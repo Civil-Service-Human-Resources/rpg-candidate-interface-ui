@@ -67,15 +67,12 @@
         let autocomplete_input = document.getElementById("allies_autocomplete");
         if(autocomplete_input) {
             new AlliesComplete(autocomplete_input, {
-                type: "location", // location || postcode in future
                 maxItems: 20
             });
 
-            // This event is fired by library when user selects an item in the list
             autocomplete_input.addEventListener("allies-complete-selectcomplete", function (e) {
                 console.log(e);
                 autocomplete_input.value = e.text;
-
             });
         }
     </script>
