@@ -170,7 +170,6 @@ app.get('/sitemap.xml', (req, res) => {
 // `'0 * * * * *'` every minute, good for testing
 buildVacancySiteMap();
 schedule.scheduleJob(`${process.env.SITE_MAP_SCHEDULE}`, () => {
-    console.log('SITE_MAP_SCHEDULE');
     buildVacancySiteMap();
 });
 
