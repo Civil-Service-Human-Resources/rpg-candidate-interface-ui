@@ -15,8 +15,9 @@ const ns = require('continuation-local-storage').createNamespace('candidate-inte
 const helmet = require('helmet');
 const nocache = require('nocache');
 const contextService = require('request-context');
-
+const schedule = require('node-schedule');
 const { objectToUrl } = require('./lib/modules/url');
+const { siteMapGet, buildVacancySiteMap } = require('./lib/modules/sitemap');
 const routes = require('./routes');
 const logger = require('./lib/modules/logger');
 const { UserSession } = require('./lib/modules/userSession');
@@ -27,6 +28,7 @@ if (!fs.existsSync('./logs')) {
 
 const app = express();
 // Add helmet to set security headers
+
 app.use(helmet());
 app.use(nocache());
 
@@ -157,6 +159,19 @@ app.use('/cookies', routes.cookies);
 app.use('/terms-conditions', routes.terms);
 app.use('/internal-jobs', routes.internalJobs);
 app.use('/verifyemail', routes.verifyEmail);
+
+// Direct get request from search engines
+app.get('/sitemap.xml', (req, res) => {
+    res.header('Content-Type', 'application/xml');
+    res.send(siteMapGet());
+});
+
+// Get a list of Vacancies and build the sitemap. Re-run the script daily at midnight
+// `'0 * * * * *'` every minute, good for testing
+buildVacancySiteMap();
+schedule.scheduleJob(`${process.env.SITE_MAP_SCHEDULE}`, () => {
+    buildVacancySiteMap();
+});
 
 // catch 404 and log error
 app.use((req, res) => {
