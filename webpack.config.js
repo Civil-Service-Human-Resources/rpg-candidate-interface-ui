@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const DIST_DIR = path.join(__dirname, 'public');
 const SRC_DIR = path.join(__dirname, 'public');
@@ -25,13 +26,14 @@ module.exports = {
         filename: 'javascripts/[name].js'
     },
 
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            include: /\.min\.js$/,
-            minimize: false,
-            sourceMap: true
-        })
-    ],
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                include: /\.min\.js$/,
+                sourceMap: true
+            })
+        ]
+    },
 
     module: {
         rules: [

@@ -4,39 +4,20 @@
         <div class="job-search__item-first">
             <div class="job-search__item-image">
 
-                {{#ifEquals department.id 77 'HMRC LOGO'}}
-                    {{image}}
-                {{/ifEquals}}
-
-                {{#ifEquals department.id 105 'MOD LOGO'}}
-                    {{image}}
-                    <div class="gem-c-organisation-logo brand--ministry-of-defence">
-                        <a class="gem-c-organisation-logo__container gem-c-organisation-logo__link gem-c-organisation-logo__crest gem-c-organisation-logo__crest--mod brand__border-color" href="/government/organisations/ministry-of-defence">
-                            <span class="gem-c-organisation-logo__name">Ministry of Defence</span>
-                        </a>
+                {{#if crestLogo}}
+                    <div class="department-logo {{logoClass}}">
+                        <span>{{ department.name }}</span>
                     </div>
-                {{/ifEquals}}
-
-                {{#ifEquals department.id 79 'HOME OFFICE LOGO'}}
-                    {{image}}
-                {{/ifEquals}}
-
-                {{#ifEquals department.id 36 'DWP LOGO'}}
-                    {{image}}
-                {{/ifEquals}}
-
-                {{#ifEquals department.id 33 'INTERNATIONAL DEV LOGO'}}
-                    {{image}}
-                {{/ifEquals}}
-
-
-
-                {{#if department.fullLogoPath }}
-                <img src="{{ department.fullLogoPath }}" alt="{{ department.name }}" />
                 {{/if}}
 
-                {{#unless department.fullLogoPath }}
-                    {{ department.name }}
+                {{#unless crestLogo }}
+                        {{#if department.fullLogoPath }}
+                            <img src="{{ department.fullLogoPath }}" alt="{{ department.name }}" />
+                        {{/if}}
+
+                        {{#unless department.fullLogoPath }}
+                            {{ department.name }}
+                        {{/unless}}
                 {{/unless}}
 
             </div>

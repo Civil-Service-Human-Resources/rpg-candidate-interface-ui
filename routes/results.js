@@ -71,6 +71,18 @@ router.get('/', [
 
     const departments = await fetchDepartmentList(next);
     const { vacancies, params, vacancyErrors } = await fetchVacancyList(filters, next);
+
+    const crestIds = [7, 23, 28, 33, 36, 40, 46, 56, 59, 60, 61, 73, 76, 77, 79, 80, 81, 102, 105, 106, 107, 111, 136, 163];
+
+    if (vacancies.length > 0) {
+        vacancies.forEach((vacancy) => {
+            const newVacancy = vacancy;
+            newVacancy.crestLogo = crestIds.includes(vacancy.department.id);
+            newVacancy.logoClass = vacancy.department.name.replace(/\W+/g, '-').toLowerCase();
+            newVacancy.logoUrl = '/images/icons/govuk-crest-black-2x.png';
+        });
+    }
+
     if (vacancyErrors.length > 0) {
         res.locals.userEmail = null;
         if (vacancyErrors[0].searchStatusCode === 'NULL_JWT') {

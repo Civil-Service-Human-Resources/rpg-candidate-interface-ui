@@ -144,3 +144,69 @@
 .js .job-search__rpp .button {
     display: none;
 }
+
+.department-logo {
+    border-left: 2px solid $cabinet-office;
+    font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+    font-size: 18px;
+    line-height: 20px;
+    background-size: 40px !important;
+    background: url("/images/icons/govuk/govuk-crest-black-2x.png") no-repeat 10px 0px;
+}
+
+$CI-all-organisation-brand-colours:
+        'attorney-generals-office' $attorney-generals-office $attorney-generals-office-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'cabinet-office' $cabinet-office $cabinet-office-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'civil-service' $civil-service $civil-service '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'crown-commercial-service' $hm-government $hm-government-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'equality-and-human-rights-commission' $hm-government $hm-government-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'department-for-business-innovation-skills' $department-for-business-innovation-skills $department-for-business-innovation-skills-websafe '/images/icons/govuk/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'department-for-communities-and-local-government' $department-for-communities-and-local-government $department-for-communities-and-local-government-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'department-for-culture-media-sport' $department-for-culture-media-sport $department-for-culture-media-sport-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'department-for-education' $department-for-education $department-for-education-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'department-for-environment-food-rural-affairs' $department-for-environment-food-rural-affairs $department-for-environment-food-rural-affairs-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'department-for-international-development' $department-for-international-development $department-for-international-development-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'department-for-international-trade' $department-for-international-trade $department-for-international-trade-websafe '/images/icons/govuk/dit_crest_27px_x2.png' 40px 40px,
+        'department-for-transport' $department-for-transport $department-for-transport-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'driver-and-vehicle-licensing-agency' $department-for-transport $department-for-transport-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'department-for-work-and-pensions' $department-for-work-pensions $department-for-work-pensions-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'department-of-energy-climate-change' $department-of-energy-climate-change $department-of-energy-climate-change-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'department-of-health' $department-of-health $department-of-health-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'department-for-business-energy-industrial-strategy' $cabinet-office $cabinet-office-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'foreign-commonwealth-office' $foreign-commonwealth-office $foreign-commonwealth-office-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'government-legal-department' $attorney-generals-office $attorney-generals-office-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'government-internal-audit-agency' $cabinet-office $cabinet-office-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'hm-courts-and-tribunals-service' #000 #000 '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'hm-government' $hm-government $hm-government-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'hm-prison-probation-service' #000 #000 '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'homes-england' #000 #000 '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'uk-hydrographic-office' #000 #000 '/images/icons/govuk/ukho_27px_x2.png' 40px 65px,
+        'government-commercial-function' $hm-government $hm-government-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'hm-revenue-and-customs' $hm-revenue-customs $hm-revenue-customs-websafe '/images/icons/govuk/hmrc_crest_27px_x2.png' 40px 45px,
+        'hm-treasury' $hm-treasury $hm-treasury-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'home-office' $home-office $home-office-websafe '/images/icons/govuk/ho_crest_27px_x2.png' 25px 55px,
+        'government-digital-service' $cabinet-office $cabinet-office-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'medicines-and-healthcare-products-regulatory-agency' $department-for-work-pensions $department-for-work-pensions-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'ministry-of-defence' $ministry-of-defence $ministry-of-defence-websafe '/images/icons/govuk/mod_crest_27px_x2.png' 40px 65px,
+        'ministry-of-justice' $ministry-of-justice $ministry-of-justice-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'ministry-of-housing-communities-local-government' $department-for-communities-and-local-government $department-for-communities-and-local-government-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'northern-ireland-office' $northern-ireland-office $northern-ireland-office-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'national-infrastructure-commission' #9c132e #c2395d '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'office-of-the-advocate-general-for-scotland' $office-of-the-advocate-general-for-scotland $office-of-the-advocate-general-for-scotland-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'office-of-the-leader-of-the-house-of-lords' $office-of-the-leader-of-the-house-of-lords $office-of-the-leader-of-the-house-of-lords-websafe '/images/icons/govuk/portcullis_27px_x2.png' 40px 40px,
+        'public-health-england' $department-for-work-pensions $department-for-work-pensions-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'scotland-office' $scotland-office $scotland-office-websafe '/images/icons/govuk/so_crest_27px_x2.png' 40px 40px,
+        'the-office-of-the-leader-of-the-house-of-commons' $the-office-of-the-leader-of-the-house-of-commons $the-office-of-the-leader-of-the-house-of-commons-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'house-of-commons' $the-office-of-the-leader-of-the-house-of-commons $the-office-of-the-leader-of-the-house-of-commons-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'uk-export-finance' $uk-export-finance $uk-export-finance-websafe '/images/icons/govuk/dit_crest_27px_x2.png' 40px 40px,
+        'uk-trade-investment' $uk-trade-investment $uk-trade-investment-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px,
+        'wales-office' $wales-office $wales-office-websafe '/images/icons/govuk/govuk-crest-black-2x.png' 40px 40px;
+
+@each $organisation in $CI-all-organisation-brand-colours {
+    .#{nth($organisation, 1)} {
+      border-color: nth($organisation, 2);
+      background-image: url(nth($organisation, 4));
+      background-size: nth($organisation, 5) !important;
+      padding: nth($organisation, 6) 0 0 10px;
+    }
+}
