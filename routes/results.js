@@ -1,7 +1,7 @@
 const express = require('express');
 const url = require('url');
 const { check, validationResult } = require('express-validator/check');
-const { isCrestLogo, crestInformation } = require('../lib/modules/logoService/logoService.js');
+const { isCrestLogo, crestInformation } = require('../lib/modules/logoService');
 
 const router = express.Router();
 
