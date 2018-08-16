@@ -1,5 +1,6 @@
 const express = require('express');
 const url = require('url');
+const { isCrestLogo, crestInformation } = require('../lib/modules/logoService');
 
 const router = express.Router();
 const { vacancyLdJson } = require('../lib/modules/ldJson');
@@ -12,6 +13,12 @@ router.get('/details/:id', async (req, res, next) => {
     const returnUrl = generateReturnURL(queryString);
     const vacancy = await fetchVacancyDetails(id, next);
     const vacancyJson = await vacancyLdJson(vacancy);
+    const newVacancy = vacancy;
+
+    newVacancy.crestLogo = isCrestLogo(vacancy);
+    if (isCrestLogo(vacancy)) {
+        newVacancy.crestInformation = crestInformation(vacancy);
+    }
 
     return res.render('pages/vacancy/details', {
         title: vacancy.title,
