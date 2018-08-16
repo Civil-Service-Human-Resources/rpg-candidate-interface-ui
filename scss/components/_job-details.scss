@@ -61,11 +61,14 @@
         clear: right;
         float: right;
         margin-bottom: $gutter-half;
-        text-align: center;
 
         @include media($tablet-sml) {
             margin-top: -53px;
             width: 260px;
+        }
+
+        &.center {
+            text-align: center;
         }
     }
 

@@ -69,6 +69,9 @@
     "node-sass": "^4.9.2",
     "nodemon": "^1.18.3",
     "pre-commit": "^1.2.2",
-    "webpack": "^4.16.5"
+    "serviceworker-webpack-plugin": "^1.0.0-alpha02",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
   }
 }

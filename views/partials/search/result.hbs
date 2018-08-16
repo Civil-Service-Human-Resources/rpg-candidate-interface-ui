@@ -4,12 +4,21 @@
         <div class="job-search__item-first">
             <div class="job-search__item-image">
 
-                {{#if department.fullLogoPath }}
-                <img src="{{ department.fullLogoPath }}" alt="{{ department.name }}" />
+                {{#if crestLogo}}
+                    <div class="department-logo"
+                         style="background: url({{crestInformation.logo}}) no-repeat 10px 0px; background-size: {{crestInformation.size}}; padding-top: {{crestInformation.padding}}; border-left: 2px solid {{crestInformation.color}};">
+                        <span>{{ department.name }}</span>
+                    </div>
                 {{/if}}
 
-                {{#unless department.fullLogoPath }}
-                    {{ department.name }}
+                {{#unless crestLogo }}
+                    {{#if department.fullLogoPath }}
+                        <img src="{{ department.fullLogoPath }}" alt="{{ department.name }}" />
+                    {{/if}}
+
+                    {{#unless department.fullLogoPath }}
+                        {{ department.name }}
+                    {{/unless}}
                 {{/unless}}
 
             </div>

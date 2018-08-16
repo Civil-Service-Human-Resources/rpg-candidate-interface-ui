@@ -1,6 +1,7 @@
 const express = require('express');
 const url = require('url');
 const { check, validationResult } = require('express-validator/check');
+const { isCrestLogo, crestInformation } = require('../lib/modules/logoService');
 
 const router = express.Router();
 
@@ -71,6 +72,17 @@ router.get('/', [
 
     const departments = await fetchDepartmentList(next);
     const { vacancies, params, vacancyErrors } = await fetchVacancyList(filters, next);
+
+    if (vacancies.length > 0) {
+        vacancies.forEach((vacancy) => {
+            const newVacancy = vacancy;
+            newVacancy.crestLogo = isCrestLogo(vacancy);
+            if (isCrestLogo(vacancy)) {
+                newVacancy.crestInformation = crestInformation(vacancy);
+            }
+        });
+    }
+
     if (vacancyErrors.length > 0) {
         res.locals.userEmail = null;
         if (vacancyErrors[0].searchStatusCode === 'NULL_JWT') {
