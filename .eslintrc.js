@@ -11,6 +11,7 @@ module.exports = {
         "window": true
     },
     "rules": {
+        "react/jsx-no-bind": [2, {}],
         "import/no-extraneous-dependencies": "off",
         "no-throw-literal": "off",
         "no-undef": "off",
