@@ -141,7 +141,13 @@
                                                 label: name + countyUnitary(true),
                                                 value: name + countyUnitary(false)
                                             };
+
                                             ajax_list.push(item);
+                                            ajax_list = ajax_list.filter((inputItem, index, self) =>
+                                                index === self.findIndex((ogItem) => (
+                                                    ogItem.label === inputItem.label && ogItem.value === inputItem.value
+                                                ))
+                                            );
                                         }
 
                                         me.list = ajax_list;
@@ -381,9 +387,7 @@
                 this.suggestions = this.suggestions.slice(0, this.maxItems);
 
                 this.suggestions.forEach(function(text, index) {
-
                     let input_array = value.trim().split(" ");
-
                     // Escape any characters that might break regex
                     input_array.map($.regExpEscape);
 
