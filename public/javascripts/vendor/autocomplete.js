@@ -143,6 +143,7 @@
                                             };
 
                                             ajax_list.push(item);
+                                            // find and remove dupes. Postcode.io seems to be giving dupes now and then.
                                             ajax_list = ajax_list.filter((inputItem, index, self) =>
                                                 index === self.findIndex((ogItem) => (
                                                     ogItem.label === inputItem.label && ogItem.value === inputItem.value
