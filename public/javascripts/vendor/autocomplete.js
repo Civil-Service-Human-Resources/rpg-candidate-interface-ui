@@ -4,8 +4,8 @@
  */
 (function () {
 
-    var _ = function (input, o) {
-        var me = this;
+    let _ = function (input, o) {
+        let me = this;
 
         // Keep track of number of instances for unique IDs
         AlliesComplete.numInstances = (AlliesComplete.numInstances || 0) + 1;
@@ -78,7 +78,7 @@
                     reason: "blur"
                 }),
                 "keydown": function (evt) {
-                    var c = evt.keyCode;
+                    let c = evt.keyCode;
 
                     // If the dropdown `ul` is in view, then act on keydown for the following keys:
                     // Enter / Esc / Up / Down
@@ -98,15 +98,8 @@
                 },
                 "keyup": function (evt) {
 
-                    var c = evt.keyCode;
-                    // TODO: refactor postcode vs city
-                    const isPostcode = /\b[a-zA-Z]{1,2}\d{1,2}[a-zA-Z]?\b/;
-
-                    if(isPostcode.test(encodeURIComponent(me.input.value.trim()))) {
-                        var autocomplete_url = "https://api.postcodes.io/postcodes?q=";
-                    } else {
-                        var autocomplete_url = "http://api.postcodes.io/places?q=";
-                    }
+                    let c = evt.keyCode;
+                    let autocomplete_url = "http://api.postcodes.io/places?q=";
 
                     if (me.input.value.trim().length < me.minChars){
                         clear_error(me);
@@ -117,32 +110,37 @@
 
                         if (me.input.value.trim().length >= me.minChars) {
 
-                            var request = new XMLHttpRequest();
+                            let request = new XMLHttpRequest();
                             request.open('GET', autocomplete_url + encodeURIComponent(me.input.value.trim()), true);
 
                             request.onload = function () {
                                 if (request.status >= 200 && request.status < 400) {
 
-                                    var data = JSON.parse(request.responseText);
+                                    let data = JSON.parse(request.responseText);
                                     if (data.result.length > 0) {
 
                                         clear_error(me);
 
-                                        var ajax_list = [];
+                                        let ajax_list = [];
 
-                                        for (i = 0; i < data.result.length; i++) {
-                                            if(isPostcode.test(encodeURIComponent(me.input.value.trim()))) {
-                                                var item = {
-                                                    label: data.result[i].postcode,
-                                                    value: data.result[i].postcode
-                                                };
-                                            } else {
-                                                var item = {
-                                                    label: data.result[i].name_1 + ", " + data.result[i].county_unitary,
-                                                    value: data.result[i].name_1 + " " + data.result[i].county_unitary
-                                                };
-                                            }
+                                        for (let i = 0; i < data.result.length; i++) {
+                                            const name = data.result[i].name_1;
+                                            const countyUnitary = (comma) => {
+                                                if(data.result[i].county_unitary == null) {
+                                                    return '';
+                                                } else {
+                                                    if(comma) {
+                                                        return ", " + data.result[i].county_unitary;
+                                                    } else {
+                                                        return " " + data.result[i].county_unitary;
+                                                    }
+                                                }
+                                            };
 
+                                            let item = {
+                                                label: name + countyUnitary(true),
+                                                value: name + countyUnitary(false)
+                                            };
                                             ajax_list.push(item);
                                         }
 
@@ -183,7 +181,7 @@
             },
             ul: {
                 "mousedown": function(evt) {
-                    var li = evt.target;
+                    let li = evt.target;
 
                     if (li !== this) {
 
@@ -224,12 +222,12 @@
                 list = $(list);
 
                 if (list && list.children) {
-                    var items = [];
+                    let items = [];
                     slice.apply(list.children).forEach(function(el) {
                         if (!el.disabled) {
-                            var text = el.textContent.trim();
-                            var value = el.value || text;
-                            var label = el.label || text;
+                            let text = el.textContent.trim();
+                            let value = el.value || text;
+                            let label = el.label || text;
                             if (value !== "") {
                                 items.push({
                                     label: label,
@@ -280,7 +278,7 @@
             $.unbind(this.input.form, this._events.form);
 
             //move the input out of the allies-complete container and remove the container and its children
-            var parentNode = this.container.parentNode;
+            let parentNode = this.container.parentNode;
 
             parentNode.insertBefore(this.input, this.container);
             parentNode.removeChild(this.container);
@@ -290,7 +288,7 @@
             this.input.removeAttribute("aria-autocomplete");
 
             //remove this awesomeplete instance from the global array of instances
-            var indexOfAlliesComplete = _.all.indexOf(this);
+            let indexOfAlliesComplete = _.all.indexOf(this);
 
             if (indexOfAlliesComplete !== -1) {
                 _.all.splice(indexOfAlliesComplete, 1);
@@ -298,20 +296,20 @@
         },
 
         next: function() {
-            var count = this.ul.children.length;
+            let count = this.ul.children.length;
             this.goto(this.index < count - 1 ? this.index + 1 : (count ? 0 : -1));
         },
 
         previous: function() {
-            var count = this.ul.children.length;
-            var pos = this.index - 1;
+            let count = this.ul.children.length;
+            let pos = this.index - 1;
 
             this.goto(this.selected && pos !== -1 ? pos : count - 1);
         },
 
         // Should not be used, highlights specific item without any checks!
         goto: function(i) {
-            var lis = this.ul.children;
+            let lis = this.ul.children;
 
             if (this.selected) {
                 lis[this.index].setAttribute("aria-selected", "false");
@@ -339,6 +337,7 @@
         },
 
         select: function(selected, origin) {
+
             if (selected) {
                 this.index = $.siblingIndex(selected);
             } else {
@@ -346,9 +345,9 @@
             }
 
             if (selected) {
-                var suggestion = this.suggestions[this.index];
+                let suggestion = this.suggestions[this.index];
 
-                var allowed = $.fire(this.input, "allies-complete-select", {
+                let allowed = $.fire(this.input, "allies-complete-select", {
                     text: suggestion,
                     origin: origin || selected
                 });
@@ -366,8 +365,8 @@
         },
 
         evaluate: function() {
-            var me = this;
-            var value = this.input.value;
+            let me = this;
+            let value = this.input.value;
 
             if (value.length >= this.minChars && this._list.length > 0) {
                 this.index = -1;
@@ -383,22 +382,23 @@
 
                 this.suggestions.forEach(function(text, index) {
 
-                    var input_array = value.trim().split(" ");
+                    let input_array = value.trim().split(" ");
 
                     // Escape any characters that might break regex
                     input_array.map($.regExpEscape);
 
                     // Put the array back together with pipe seperators fo regex
-                    var input_string = input_array.join('|');
+                    let input_string = input_array.join('|');
 
                     // Create the html with mark tags, then go back and get rid of wasteful mark tags before and after spaces
-                    var html = value.trim() === '' ? text : text.replace(RegExp(input_string, "gi"), "<mark>$&</mark>").replace(RegExp($.regExpEscape("</mark> <mark>"), "gi"), " ");
+                    let html = value.trim() === '' ? text : text.replace(RegExp(input_string, "gi"), "<mark>$&</mark>").replace(RegExp($.regExpEscape("</mark> <mark>"), "gi"), " ");
 
                     child = $.create("li", {
                         innerHTML: html,
                         "aria-selected": "false",
                         "id": "allies_complete_list_" + AlliesComplete.numInstances + "_item_" + index,
-                        className: "autocomplete__option"
+                        className: "autocomplete__option",
+                        "data-index": index
                     });
 
                     me.ul.appendChild(child);
@@ -434,7 +434,7 @@
     // Private functions
 
     function Suggestion(data) {
-        var o = Array.isArray(data) ?
+        let o = Array.isArray(data) ?
             {
                 label: data[0],
                 value: data[1]
@@ -457,8 +457,8 @@
     };
 
     function configure(instance, properties, o) {
-        for (var i in properties) {
-            var initial = properties[i],
+        for (let i in properties) {
+            let initial = properties[i],
                 attrValue = instance.input.getAttribute("data-" + i.toLowerCase());
 
             if (typeof initial === "number") {
@@ -497,7 +497,7 @@
 
     // Helpers
 
-    var slice = Array.prototype.slice;
+    let slice = Array.prototype.slice;
 
     function $(expr, con) {
         return typeof expr === "string" ? (con || document).querySelector(expr) : expr || null;
@@ -508,15 +508,15 @@
     }
 
     $.create = function(tag, o) {
-        var element = document.createElement(tag);
+        let element = document.createElement(tag);
 
-        for (var i in o) {
-            var val = o[i];
+        for (let i in o) {
+            let val = o[i];
 
             if (i === "inside") {
                 $(val).appendChild(element);
             } else if (i === "around") {
-                var ref = $(val);
+                let ref = $(val);
                 ref.parentNode.insertBefore(element, ref);
                 element.appendChild(ref);
             } else if (i in element) {
@@ -531,8 +531,8 @@
 
     $.bind = function(element, o) {
         if (element) {
-            for (var event in o) {
-                var callback = o[event];
+            for (let event in o) {
+                let callback = o[event];
 
                 event.split(/\s+/).forEach(function(event) {
                     element.addEventListener(event, callback);
@@ -543,8 +543,8 @@
 
     $.unbind = function(element, o) {
         if (element) {
-            for (var event in o) {
-                var callback = o[event];
+            for (let event in o) {
+                let callback = o[event];
 
                 event.split(/\s+/).forEach(function(event) {
                     element.removeEventListener(event, callback);
@@ -554,11 +554,11 @@
     };
 
     $.fire = function(target, type, properties) {
-        var evt = document.createEvent("HTMLEvents");
+        let evt = document.createEvent("HTMLEvents");
 
         evt.initEvent(type, true, true);
 
-        for (var j in properties) {
+        for (let j in properties) {
             evt[j] = properties[j];
         }
 
@@ -570,9 +570,7 @@
     };
 
     $.siblingIndex = function(el) {
-        /* eslint-disable no-cond-assign */
-        for (var i = 0; el = el.previousElementSibling; i++);
-        return i;
+        return el.dataset.index;
     };
 
     // Initialization
