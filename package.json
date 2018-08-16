@@ -6,8 +6,8 @@
     "node": "9.11.1"
   },
   "scripts": {
-    "start": "rm -f ./package-lock.json && npm cache clear --force && npm install --no-shrinkwrap --update-binary && node ./bin/www",
-    "dev": "rm -f ./package-lock.json && npm cache clear --force && npm install --no-shrinkwrap --update-binary  && webpack && nodemon ./bin/www localhost 3000",
+    "start": "npm cache clear --force && npm install --no-shrinkwrap --update-binary && node ./bin/www",
+    "dev": "npm cache clear --force && npm install --no-shrinkwrap --update-binary  && webpack && nodemon ./bin/www localhost 3000",
     "test": "ava --verbose",
     "lint": "./node_modules/.bin/eslint ./ --cache"
   },
