@@ -39,7 +39,7 @@
     <![endif]-->
 
     <script src="/javascripts/vendor/modernizr.min.js"></script>
-
+    <script src="/javascripts/vendor/autocomplete.js"></script>
 </head>
 <body>
 
@@ -61,6 +61,20 @@
     {{> footer }}
 
     <script src="/javascripts/bundle.min.js"></script>
+
+    <script>
+
+        let autocomplete_input = document.getElementById("allies_autocomplete");
+        if(autocomplete_input) {
+            new AlliesComplete(autocomplete_input, {
+                maxItems: 20
+            });
+
+            autocomplete_input.addEventListener("allies-complete-selectcomplete", function (e) {
+                autocomplete_input.value = e.text;
+            });
+        }
+    </script>
 
 </body>
 </html>
