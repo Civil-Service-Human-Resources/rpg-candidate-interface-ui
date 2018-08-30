@@ -25525,8 +25525,7 @@ window.matchMedia || (window.matchMedia = function() {
  * @param {Boolean} whether to execute at the beginning (`false`)
  * @api public
  */
-
-module.exports = function debounce(func, wait, immediate){
+function debounce(func, wait, immediate){
   var timeout, args, context, timestamp, result;
   if (null == wait) wait = 100;
 
@@ -25577,6 +25576,11 @@ module.exports = function debounce(func, wait, immediate){
 
   return debounced;
 };
+
+// Adds compatibility for ES modules
+debounce.debounce = debounce;
+
+module.exports = debounce;
 
 
 /***/ }),
