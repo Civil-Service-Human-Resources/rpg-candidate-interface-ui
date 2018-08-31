@@ -7,11 +7,11 @@ const { vacancyLdJson } = require('../lib/modules/ldJson');
 const { fetchVacancyDetails, generateReturnURL } = require('../lib/modules/vacancy');
 
 /* GET vacancy details page. */
-router.get('/details/:id', async (req, res, next) => {
-    const { id } = req.params;
+router.get('/details/:vendorid/:id', async (req, res, next) => {
+    const { vendorid, id } = req.params;
     const queryString = url.parse(req.url).query;
     const returnUrl = generateReturnURL(queryString);
-    const vacancy = await fetchVacancyDetails(id, next);
+    const vacancy = await fetchVacancyDetails(vendorid, id, next);
     const vacancyJson = await vacancyLdJson(vacancy);
     const newVacancy = vacancy;
 
