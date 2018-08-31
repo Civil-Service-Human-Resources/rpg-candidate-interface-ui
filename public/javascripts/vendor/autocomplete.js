@@ -101,10 +101,6 @@
                     let c = evt.keyCode;
                     let autocomplete_url = "http://api.postcodes.io/places?q=";
 
-                    if (me.input.value.trim().length < me.minChars){
-                        clear_error(me);
-                    }
-
                     // Arrows, Esc, Enter
                     if (c !== 37 && c !== 38 && c !== 39 && c !== 40 && c !== 27 && c !== 13) {
 
@@ -119,7 +115,6 @@
                                     let data = JSON.parse(request.responseText);
                                     if (data.result.length > 0) {
 
-                                        clear_error(me);
 
                                         let ajax_list = [];
 
@@ -156,7 +151,8 @@
 
                                     } else {
 
-                                        show_error(me, "No results found");
+                                        console.warn("No results found");
+
                                         me.close({
                                             reason: "nomatches"
                                         });
@@ -165,15 +161,13 @@
 
                                 } else {
 
-                                    show_error(me, "Error from API");
+                                    console.warn("Error from API");
 
                                 }
                             };
 
                             request.onerror = function() {
-
-                                show_error(me, "Connection error");
-
+                                console.warn("Connection error");
                             };
 
                             request.send();
@@ -480,24 +474,6 @@
                 instance[i] = (i in o) ? o[i] : initial;
             }
         }
-    }
-
-    function show_error (instance, message) {
-
-        instance.error.removeAttribute("hidden");
-        instance.error.textContent = message;
-
-        const autocomplete_input = document.getElementsByClassName("allies_autocomplete-wrapper")[0];
-        autocomplete_input.classList.add("form-group-error");
-    }
-
-    function clear_error (instance) {
-
-        instance.error.setAttribute("hidden", "");
-        instance.error.textContent = "";
-
-        const autocomplete_input = document.getElementsByClassName("allies_autocomplete-wrapper")[0];
-        autocomplete_input.classList.remove("form-group-error");
     }
 
     // Helpers
