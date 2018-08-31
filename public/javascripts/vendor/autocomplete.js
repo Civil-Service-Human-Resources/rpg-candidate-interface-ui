@@ -163,11 +163,14 @@
 
                                     console.warn("Error from API");
 
+                                    ajax_list = [];
+
                                 }
                             };
 
                             request.onerror = function() {
                                 console.warn("Connection error");
+                                ajax_list = [];
                             };
 
                             request.send();
