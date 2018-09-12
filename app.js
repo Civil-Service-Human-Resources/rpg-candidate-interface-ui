@@ -79,6 +79,10 @@ app.use((req, res, next) => {
     hbs.handlebars.registerHelper('__', (...args) => i18n.__.apply(req, args));
     hbs.handlebars.registerHelper('__n', (...args) => i18n.__n.apply(req, args));
     hbs.handlebars.registerHelper('json', context => JSON.stringify(context));
+    hbs.handlebars.registerHelper('equal', (a, b, options) => {
+        if (a === b) { return options.fn(this); }
+        return options.inverse(this);
+    });
     return next();
 });
 
