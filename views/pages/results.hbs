@@ -4,13 +4,25 @@
         errorMsg='global.messages.submissionErrorMsg'
         errors=errors }}
 
-<p class="job-search__total-results"><strong id="search-results-total">{{ pager.totalResults }}</strong> {{__n 'results.page.totalJobsFoundPlural' 'results.page.totalJobsFoundSingular' pager.totalResults }}</p>
+<form name="filters" method="GET" action="/results">
 
-<div class="job-search">
+    <div class="job-search__total-results">
+        <p><strong id="search-results-total">{{ pager.totalResults }}</strong> {{__n 'results.page.totalJobsFoundPlural' 'results.page.totalJobsFoundSingular' pager.totalResults }}</p>
+        <div class="sort">
+            <p>Sort by</p>
+            <select name="vacancySortMethod" id="vacancySortMethod" class="form-control" onchange="document.filters.submit()">
+                <option value="CLOSING_DATE" {{#equal filters.vacancySortMethod "CLOSING_DATE"}} selected {{/equal}}>Closing Date</option>
+                <option value="RECENTLY_ADDED" {{#equal filters.vacancySortMethod "RECENTLY_ADDED"}} selected {{/equal}}>Recently added</option>
+            </select>
+            <noscript>
+                <button type="submit" class="button">Sort</button>
+            </noscript>
+        </div>
+    </div>
 
-    <div class="job-search__results-container">
+    <div class="job-search">
 
-        <form method="GET" action="/results">
+        <div class="job-search__results-container">
 
             <div class="job-search__filters">
                 <h2 class="job-search__filters-title">
@@ -29,7 +41,6 @@
                 {{#if vacancies}}
                     {{> search/results items=vacancies }}
                     {{> pagination/pagination pager }}
-
                     <div class="job-search__rpp">
                         <label for="rpp">Display results</label>
                         <select name="size" id="rpp" class="form-control form-control--width-auto js-submitOnChange">
@@ -42,15 +53,15 @@
                 {{/if}}
 
                 {{#unless vacancies}}
-                <div class="job-search__no-results">
-                    <p>{{__ 'results.page.noResultsText1' }} - <a href="/">{{__ 'results.page.noResultsText2' }}</a>.</p>
-                </div>
+                    <div class="job-search__no-results">
+                        <p>{{__ 'results.page.noResultsText1' }} - <a href="/">{{__ 'results.page.noResultsText2' }}</a>.</p>
+                    </div>
                 {{/unless}}
 
             </div>
 
-        </form>
+        </div>
 
     </div>
 
-</div>
+</form>

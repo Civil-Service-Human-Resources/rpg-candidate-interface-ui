@@ -2,6 +2,34 @@
     &__total-results {
         @include bold-19;
         margin: 0;
+        display: flex;
+        flex-direction: row;
+
+        .sort {
+            align-self: center;
+            margin-left: auto;
+            margin-top: .26316em;
+            margin-bottom: 1.05263em;
+            flex-direction: row;
+            display: flex;
+            align-items: end;
+
+            p {
+                min-width: 80px;
+            }
+
+            .button {
+                margin-left: 20px;
+            }
+
+            select {
+                width: 100%;
+            }
+        }
+
+        p {
+            margin-bottom: 0;
+        }
 
         @include media(768px) {
             float: right;
